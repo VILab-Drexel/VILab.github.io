@@ -18,28 +18,7 @@
       "description": "Leveraging AI for healthcare, education, and human-centered applications."
     }
   ],
-  "news": [
-    {
-      "date": "2024-10-15",
-      "title": "New paper accepted at CVPR 2025",
-      "description": "Our work on advanced 3D scene understanding has been accepted at CVPR 2025."
-    },
-    {
-      "date": "2024-09-20",
-      "title": "Lab welcomes new PhD students",
-      "description": "We are excited to welcome three new PhD students to our research group this fall."
-    },
-    {
-      "date": "2024-08-10",
-      "title": "Prof. Liu receives Best Paper Award",
-      "description": "Congratulations to Prof. Liu and team for receiving the Best Paper Award at ECCV 2024."
-    },
-    {
-      "date": "2024-07-05",
-      "title": "New NSF grant awarded",
-      "description": "Our lab has been awarded a new NSF grant to advance research in explainable AI for healthcare applications."
-    }
-  ],
+  "news": [],
   "team": {
     "faculty": [
       {
@@ -161,47 +140,7 @@
       }
     ]
   },
-  "publications": [
-    {
-      "title": "Advanced Neural Architectures for Real-Time Object Detection",
-      "authors": "Smith, J., Johnson, A., & Williams, R.",
-      "venue": "CVPR 2024",
-      "year": 2024,
-      "links": {
-        "paper": "#",
-        "code": "#"
-      }
-    },
-    {
-      "title": "Self-Supervised Learning for Video Understanding",
-      "authors": "Chen, L., Kumar, S., & Zhang, M.",
-      "venue": "ICLR 2024",
-      "year": 2024,
-      "links": {
-        "paper": "#",
-        "code": "#"
-      }
-    },
-    {
-      "title": "Efficient 3D Scene Reconstruction from Sparse Views",
-      "authors": "Martinez, C., Lee, K., & Park, J.",
-      "venue": "ECCV 2023",
-      "year": 2023,
-      "links": {
-        "paper": "#"
-      }
-    },
-    {
-      "title": "Interpretable Deep Learning for Medical Image Analysis",
-      "authors": "Taylor, E., Brown, D., & Anderson, P.",
-      "venue": "MICCAI 2023",
-      "year": 2023,
-      "links": {
-        "paper": "#",
-        "code": "#"
-      }
-    }
-  ],
+  "publications": [],
   "faq": [
     {
       "question": "What research areas does the lab focus on?",
