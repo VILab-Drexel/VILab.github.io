@@ -1,6 +1,6 @@
 {
   "lab": {
-    "name": "Vision Intelligence Lab",
+    "name": "Vision Intelligence Lab @ Drexel",
     "university": "Drexel University",
     "description": "We are a research group at Drexel University led by Prof. Feng Liu, focused on advancing computer vision, machine learning, and artificial intelligence to solve fundamental and applied problems in 3D vision, generative AI, and AI for societal impact."
   },
@@ -151,8 +151,8 @@
       "street": "3675 Market Street",
       "city": "Philadelphia, PA 19104"
     },
-    "email": "info@visionlab.edu",
-    "phone": "+1 (123) 456-7890",
+    "email": "fl397@drexel.edu<br>liufeng2915@gmail.com",
+    "phone": "(XXX) XXX-XXXX",
     "map": {
       "latitude": 39.95683035539825, 
       "longitude": -75.19508771349135,
