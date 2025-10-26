@@ -395,6 +395,21 @@ body {
     box-shadow: var(--shadow-md);
 }
 
+/* Footer */
+.footer {
+    background: #07294d;
+    color: #ffffff;
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid #041e42;
+}
+
+.footer p {
+    color: #ffffff;
+    margin: 0;
+    font-size: 14px;
+}
+
 /* Tablet Responsive */
 @media (max-width: 1024px) {
     .container {
