@@ -16,21 +16,24 @@ function loadContent() {
     
     // Load highlights
     loadHighlights();
-    
+
     // Load news
     loadNews();
-    
+
     // Load team
     loadTeam();
-    
+
+    // Load vacancies
+    loadVacancies();
+
     // Load publications
     loadPublications();
-    
-    // Load FAQ
-    loadFAQ();
-    
-    // Load contact
-    loadContact();
+
+    // Load projects
+    loadProjects();
+
+    // Load photos
+    loadPhotos();
 }
 
 function loadLabInfo() {
@@ -232,7 +235,7 @@ function loadAlumni() {
 
 function loadPublications() {
     if (siteData.publications) {
-        const pubContainer = document.querySelector('#publication .container');
+        const pubContainer = document.querySelector('#publications .container');
         
         // Keep the title
         const title = pubContainer.querySelector('h1');
@@ -275,123 +278,80 @@ function loadPublications() {
     }
 }
 
-function loadFAQ() {
-    if (siteData.faq) {
-        const faqContainer = document.querySelector('#faq .container');
-        
+function loadVacancies() {
+    if (siteData.vacancies && siteData.vacancies.length > 0) {
+        const vacancyContainer = document.querySelector('#vacancies .container');
+
         // Keep the title
-        const title = faqContainer.querySelector('h1');
-        faqContainer.innerHTML = '';
-        faqContainer.appendChild(title);
-        
-        siteData.faq.forEach(item => {
+        const title = vacancyContainer.querySelector('h1');
+        vacancyContainer.innerHTML = '';
+        vacancyContainer.appendChild(title);
+
+        siteData.vacancies.forEach(vacancy => {
             const div = document.createElement('div');
-            div.className = 'faq-item';
+            div.className = 'vacancy-item';
             div.innerHTML = `
-                <h3>${item.question}</h3>
-                <p>${item.answer}</p>
+                <h3>${vacancy.title}</h3>
+                <p>${vacancy.description}</p>
+                ${vacancy.link ? `<a href="${vacancy.link}" target="_blank">Learn More</a>` : ''}
             `;
-            faqContainer.appendChild(div);
+            vacancyContainer.appendChild(div);
         });
     }
 }
 
-function loadContact() {
-    if (siteData.contact) {
-        const contactInfo = document.querySelector('.contact-info');
-        contactInfo.innerHTML = '';
-        
-        // Address
-        if (siteData.contact.address) {
-            const addr = siteData.contact.address;
+function loadProjects() {
+    if (siteData.projects && siteData.projects.length > 0) {
+        const projectContainer = document.querySelector('#projects .container');
+
+        // Keep the title
+        const title = projectContainer.querySelector('h1');
+        projectContainer.innerHTML = '';
+        projectContainer.appendChild(title);
+
+        siteData.projects.forEach(project => {
             const div = document.createElement('div');
-            div.className = 'info-item';
+            div.className = 'project-item';
+
+            let linksHTML = '<div class="links">';
+            if (project.links) {
+                if (project.links.website) {
+                    linksHTML += `<a href="${project.links.website}" target="_blank">Website</a>`;
+                }
+                if (project.links.github) {
+                    linksHTML += `<a href="${project.links.github}" target="_blank">GitHub</a>`;
+                }
+                if (project.links.demo) {
+                    linksHTML += `<a href="${project.links.demo}" target="_blank">Demo</a>`;
+                }
+            }
+            linksHTML += '</div>';
+
             div.innerHTML = `
-                <h3>Address</h3>
-                <p>${addr.department}<br>
-                ${addr.building}<br>
-                ${addr.street}<br>
-                ${addr.city}</p>
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                ${linksHTML}
             `;
-            contactInfo.appendChild(div);
-        }
-        
-        // Email
-        if (siteData.contact.email) {
-            const div = document.createElement('div');
-            div.className = 'info-item';
-            div.innerHTML = `
-                <h3>Email</h3>
-                <p>${siteData.contact.email}</p>
-            `;
-            contactInfo.appendChild(div);
-        }
-        
-        // Phone
-        if (siteData.contact.phone) {
-            const div = document.createElement('div');
-            div.className = 'info-item';
-            div.innerHTML = `
-                <h3>Phone</h3>
-                <p>${siteData.contact.phone}</p>
-            `;
-            contactInfo.appendChild(div);
-        }
-        
-        // Initialize map if map data exists
-        if (siteData.contact.map && typeof google !== 'undefined') {
-            initMap();
-        }
+            projectContainer.appendChild(div);
+        });
     }
 }
 
-// Initialize Google Map
-function initMap() {
-    if (!siteData.contact || !siteData.contact.map) return;
-    
-    const mapData = siteData.contact.map;
-    const location = { 
-        lat: mapData.latitude, 
-        lng: mapData.longitude 
-    };
-    
-    const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: mapData.zoom || 16,
-        center: location,
-        styles: [
-            {
-                featureType: 'poi',
-                elementType: 'labels',
-                stylers: [{ visibility: 'on' }]
-            }
-        ]
-    });
-    
-    // Add marker
-    const marker = new google.maps.Marker({
-        position: location,
-        map: map,
-        title: siteData.lab.name || 'Vision Intelligence Lab',
-        animation: google.maps.Animation.DROP
-    });
-    
-    // Add info window
-    const infoWindow = new google.maps.InfoWindow({
-        content: `
-            <div style="padding: 10px;">
-                <h3 style="margin: 0 0 10px 0; color: #07294d;">${siteData.lab.name || 'Vision Intelligence Lab'}</h3>
-                <p style="margin: 0; color: #666;">
-                    ${siteData.contact.address.building}<br>
-                    ${siteData.contact.address.street}<br>
-                    ${siteData.contact.address.city}
-                </p>
-            </div>
-        `
-    });
-    
-    marker.addListener('click', function() {
-        infoWindow.open(map, marker);
-    });
+function loadPhotos() {
+    if (siteData.photos && siteData.photos.length > 0) {
+        const photoGallery = document.querySelector('.photo-gallery');
+        photoGallery.innerHTML = '';
+
+        siteData.photos.forEach(photo => {
+            const div = document.createElement('div');
+            div.className = 'photo-item';
+            div.innerHTML = `
+                <img src="${photo.url}" alt="${photo.caption || ''}">
+                ${photo.caption ? `<p class="photo-caption">${photo.caption}</p>` : ''}
+            `;
+            photoGallery.appendChild(div);
+        });
+    }
 }
 
 // Navigation functionality

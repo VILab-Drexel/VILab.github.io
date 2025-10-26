@@ -140,43 +140,9 @@
       }
     ]
   },
+  "vacancies": [],
   "publications": [],
-  "faq": [
-    {
-      "question": "What research areas does the lab focus on?",
-      "answer": "Our lab focuses on three main areas: 3D Vision & Intelligence, Generative AI, and AI for Societal Impact. We work on fundamental and applied problems in computer vision and machine learning."
-    },
-    {
-      "question": "Are you accepting new students?",
-      "answer": "We are always looking for motivated PhD students. If you're interested in joining our lab, please check the admissions requirements and reach out via our contact page."
-    },
-    {
-      "question": "How can I collaborate with the lab?",
-      "answer": "We welcome collaborations with researchers and industry partners. Please contact Prof. Feng Liu through the contact information provided on this website."
-    },
-    {
-      "question": "Where is the lab located?",
-      "answer": "We are located in the Department of Computer Science at Drexel University in Philadelphia, PA."
-    },
-    {
-      "question": "What opportunities are available for undergraduate students?",
-      "answer": "We offer research opportunities for motivated undergraduate students. Please reach out to discuss potential projects and availability."
-    }
-  ],
-  "contact": {
-    "address": {
-      "department": "College of Computing & Informatics",
-      "building": "Room 912",
-      "street": "3675 Market Street",
-      "city": "Philadelphia, PA 19104"
-    },
-    "email": "info@visionlab.edu",
-    "phone": "+1 (123) 456-7890",
-    "map": {
-      "latitude": 39.95683035539825, 
-      "longitude": -75.19508771349135,
-      "zoom": 18
-    }
-  }
+  "projects": [],
+  "photos": []
 }
 
