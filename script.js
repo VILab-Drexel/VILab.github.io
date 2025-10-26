@@ -371,7 +371,7 @@ function initMap() {
     const marker = new google.maps.Marker({
         position: location,
         map: map,
-        title: siteData.lab.name || 'Vision Intelligence Lab',
+        title: siteData.lab.name || 'Visual Intelligence Lab',
         animation: google.maps.Animation.DROP
     });
     
@@ -379,7 +379,7 @@ function initMap() {
     const infoWindow = new google.maps.InfoWindow({
         content: `
             <div style="padding: 10px;">
-                <h3 style="margin: 0 0 10px 0; color: #07294d;">${siteData.lab.name || 'Vision Intelligence Lab'}</h3>
+                <h3 style="margin: 0 0 10px 0; color: #07294d;">${siteData.lab.name || 'Visual Intelligence Lab'}</h3>
                 <p style="margin: 0; color: #666;">
                     ${siteData.contact.address.building}<br>
                     ${siteData.contact.address.street}<br>
