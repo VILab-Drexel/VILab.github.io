@@ -13,22 +13,25 @@ fetch('info.json')
 function loadContent() {
     // Load lab info
     loadLabInfo();
-    
+
     // Load highlights
     loadHighlights();
-    
+
+    // Load rolling news
+    loadRollingNews();
+
     // Load news
     loadNews();
-    
+
     // Load team
     loadTeam();
-    
+
     // Load publications
     loadPublications();
-    
+
     // Load FAQ
     loadFAQ();
-    
+
     // Load contact
     loadContact();
 }
@@ -45,7 +48,7 @@ function loadHighlights() {
     if (siteData.highlights) {
         const highlightsContainer = document.querySelector('.highlights');
         highlightsContainer.innerHTML = '';
-        
+
         siteData.highlights.forEach(highlight => {
             const div = document.createElement('div');
             div.className = 'highlight-item';
@@ -54,6 +57,32 @@ function loadHighlights() {
                 <p>${highlight.description}</p>
             `;
             highlightsContainer.appendChild(div);
+        });
+    }
+}
+
+function loadRollingNews() {
+    if (siteData.news && siteData.news.length > 0) {
+        const rollingTrack = document.querySelector('.rolling-news-track');
+        rollingTrack.innerHTML = '';
+
+        // Duplicate the news items to create seamless loop
+        const newsItems = [...siteData.news, ...siteData.news];
+
+        newsItems.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'rolling-news-item';
+
+            // Format date
+            const date = new Date(item.date);
+            const formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+            div.innerHTML = `
+                <i class="fas fa-star"></i>
+                <span class="rolling-news-date">${formattedDate}</span>
+                <span class="rolling-news-text">${item.title}</span>
+            `;
+            rollingTrack.appendChild(div);
         });
     }
 }

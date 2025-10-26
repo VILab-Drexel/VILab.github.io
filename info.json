@@ -18,7 +18,28 @@
       "description": "Leveraging AI for healthcare, education, and human-centered applications."
     }
   ],
-  "news": [],
+  "news": [
+    {
+      "date": "2025-10-15",
+      "title": "VILab welcomes new PhD students for Fall 2025"
+    },
+    {
+      "date": "2025-09-20",
+      "title": "Research paper on 3D human modeling accepted to CVPR 2026"
+    },
+    {
+      "date": "2025-08-10",
+      "title": "Dr. Feng Liu receives NSF CAREER Award"
+    },
+    {
+      "date": "2025-07-05",
+      "title": "Lab members present at SIGGRAPH 2025"
+    },
+    {
+      "date": "2025-06-18",
+      "title": "Collaboration with industry partner on generative AI project"
+    }
+  ],
   "team": {
     "faculty": [
       {
