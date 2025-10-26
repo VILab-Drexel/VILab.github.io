@@ -411,21 +411,24 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href').substring(1);
-            
+
             // Remove active class
             navLinks.forEach(l => l.classList.remove('active'));
             sections.forEach(s => s.classList.remove('active'));
-            
+
             // Add active class
             this.classList.add('active');
             document.getElementById(targetId).classList.add('active');
-            
+
+            // Update URL hash
+            window.location.hash = targetId;
+
             // Close mobile menu
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
-            
+
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
@@ -438,4 +441,31 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.remove('active');
         }
     });
+
+    // Handle initial hash on page load
+    function handleHashChange() {
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+            // Remove active class
+            navLinks.forEach(l => l.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active'));
+
+            // Add active class to matching section and nav link
+            const targetSection = document.getElementById(hash);
+            const targetLink = document.querySelector(`a[href="#${hash}"]`);
+
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+            if (targetLink) {
+                targetLink.classList.add('active');
+            }
+        }
+    }
+
+    // Handle hash changes (back/forward navigation)
+    window.addEventListener('hashchange', handleHashChange);
+
+    // Handle initial load
+    handleHashChange();
 });
