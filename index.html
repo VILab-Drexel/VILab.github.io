@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Intelligence Lab</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Vision Intelligence Lab</div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#publication" class="nav-link">Publication</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <div class="container">
+            <h1>Vision Intelligence Lab</h1>
+            <p class="intro">Loading...</p>
+            
+            <div class="highlights">
+                <!-- Content loaded from info.json -->
+            </div>
+
+            <h2>Latest News</h2>
+            <div class="news-list">
+                <!-- Content loaded from info.json -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <!-- Content loaded from info.json -->
+        </div>
+    </section>
+
+    <!-- Publication Section -->
+    <section id="publication" class="section">
+        <div class="container">
+            <h1>Publications</h1>
+            <!-- Content loaded from info.json -->
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section">
+        <div class="container">
+            <h1>Team</h1>
+            
+            <h2>Faculty</h2>
+            <div class="team-list">
+                <!-- Content loaded from info.json -->
+            </div>
+
+            <h2>PhD Students</h2>
+            <div class="team-list">
+                <!-- Content loaded from info.json -->
+            </div>
+
+            <h2>Masters Students</h2>
+            <div class="team-list">
+                <!-- Content loaded from info.json -->
+            </div>
+
+            <h2>Undergraduate Students</h2>
+            <div class="team-list">
+                <!-- Content loaded from info.json -->
+            </div>
+
+            <h2>Alumni</h2>
+            <div class="alumni-list">
+                <!-- Content loaded from info.json -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h1>Contact</h1>
+            
+            <div class="contact-info">
+                <!-- Content loaded from info.json -->
+            </div>
+
+            <div class="map-container">
+                <h2>Location</h2>
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8VEf-QQM4m6XpffGSrDC7PrTHiBXyA3E&callback=initMap" async defer></script>
+</body>
+</html>
+

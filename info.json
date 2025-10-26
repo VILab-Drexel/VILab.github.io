@@ -1,0 +1,243 @@
+{
+  "lab": {
+    "name": "Vision Intelligence Lab",
+    "university": "Drexel University",
+    "description": "We are a research group at Drexel University led by Prof. Feng Liu, focused on advancing computer vision, machine learning, and artificial intelligence to solve fundamental and applied problems in 3D vision, generative AI, and AI for societal impact."
+  },
+  "highlights": [
+    {
+      "title": "3D Vision & Intelligence",
+      "description": "Exploring next-generation methods for 3D object/scene understanding and immersive VR/AR applications."
+    },
+    {
+      "title": "Generative AI",
+      "description": "Building controllable and explainable generative models with applications in healthcare, education, and beyond."
+    },
+    {
+      "title": "Societal Impact",
+      "description": "Leveraging AI for healthcare, education, and human-centered applications."
+    }
+  ],
+  "news": [
+    {
+      "date": "2024-10-15",
+      "title": "New paper accepted at CVPR 2025",
+      "description": "Our work on advanced 3D scene understanding has been accepted at CVPR 2025."
+    },
+    {
+      "date": "2024-09-20",
+      "title": "Lab welcomes new PhD students",
+      "description": "We are excited to welcome three new PhD students to our research group this fall."
+    },
+    {
+      "date": "2024-08-10",
+      "title": "Prof. Liu receives Best Paper Award",
+      "description": "Congratulations to Prof. Liu and team for receiving the Best Paper Award at ECCV 2024."
+    },
+    {
+      "date": "2024-07-05",
+      "title": "New NSF grant awarded",
+      "description": "Our lab has been awarded a new NSF grant to advance research in explainable AI for healthcare applications."
+    }
+  ],
+  "team": {
+    "faculty": [
+      {
+        "name": "Dr. Feng Liu",
+        "role": "Assistant Professor",
+        "description": "Department of Computer Science, Drexel University",
+        "email": "fl397@drexel.edu",
+        "website": "https://liufeng2915.github.io/",
+        "image": "assets/faculty/fengliu.jpg"
+      }
+    ],
+    "phd_students": [
+      {
+        "name": "Yuyang Ji",
+        "description": "Computer Vision",
+        "email": "yj428@drexel.edu",
+        "github": "https://github.com/Yuyang-Ji",
+        "linkedin": "https://www.linkedin.com/in/yuyang-ji-0304/",
+        "google_scholar": "https://scholar.google.com/citations?user=N_bJ7e0AAAAJ&hl=en",
+        "image": "assets/students/Yuyang_pic.jpg",
+        "school": "Drexel University"
+      },
+      {
+        "name": "Open Position",
+        "description": "We're recruiting exceptional PhD candidates to join our research team. Apply now!",
+        "email": ""
+      },
+      {
+        "name": "Open Position",
+        "description": "We're recruiting exceptional PhD candidates to join our research team. Apply now!",
+        "email": ""
+      }
+    ],
+    "masters_students": [
+      {
+        "name": "Behafarin Emam",
+        "description": "WiFi data-based 3D human modeling",
+        "email": "be379@drexel.edu",
+        "image": "assets/students/Behafarin_pic.jpg",
+        "school": "Drexel University"
+      },
+      {
+        "name": "Anthony Chen",
+        "description": "Gait clinic",
+        "school": "WashU"
+      },
+      {
+        "name": "Yixuan Shen",
+        "description": "4D motion modeling",
+        "school": "Drexel University",
+        "email": "ys844@drexel.edu"
+      },
+      {
+        "name": "Pengxiao Han",
+        "description": "4D rigging",
+        "school": "Australian National University"
+      },
+      {
+        "name": "Helen Fan",
+        "description": "Visual AI + Education",
+        "school": "UC Berkeley",
+        "email": "hf385@drexel.edu"
+      }
+    ],
+    "undergraduate_students": [
+      {
+        "name": "Channacy Un",
+        "description": "AI & Building",
+        "school": "Drexel University",
+        "email": "cu62@drexel.edu",
+        "image": "assets/students/Channacy.jpg"
+      },
+      {
+        "name": "Ariji Chakma",
+        "description": "Controller Image Generation",
+        "email": "ac4393@drexel.edu",
+        "school": "Drexel University",
+        "image": "assets/students/Ariji.jpg",
+        "linkedin": "https://www.linkedin.com/in/arijitchakma/",
+        "website": "https://arijitchakma.com/"
+      },
+      {
+        "name": "Safa Obuz",
+        "description": "Safa Obuz",
+        "email": "seo52@drexel.edu",
+        "school": "Drexel University",
+        "image": "assets/students/Safa_pic.jpg",
+        "linkedin": "https://www.linkedin.com/in/safaobuz"
+      },
+      {
+        "name": "Shengyang Dong",
+        "description": "Discriminative 3D human digitization",
+        "school": "Drexel University",
+        "email": "sd3666@drexel.edu",
+        "image": "assets/students/Shengyang_pic.jpg"
+      },
+      {
+        "name": "Tasmia Rahman",
+        "description": "Deepfake detection",
+        "school": "Drexel University",
+        "email": "tjr364@drexel.edu"
+      },
+      {
+        "name": "Lucas Hathaway",
+        "description": "4D motion generation",
+        "school": "Princeton University"
+      }
+    ],
+    "former_members": [
+      {
+        "name": "Rui Xia",
+        "description": "Traffic scenario generation",
+        "years": "2024"
+      },
+      {
+        "name": "Ziang Gu",
+        "description": "4D motion planning and generation",
+        "years": "2024"
+      }
+    ]
+  },
+  "publications": [
+    {
+      "title": "Advanced Neural Architectures for Real-Time Object Detection",
+      "authors": "Smith, J., Johnson, A., & Williams, R.",
+      "venue": "CVPR 2024",
+      "year": 2024,
+      "links": {
+        "paper": "#",
+        "code": "#"
+      }
+    },
+    {
+      "title": "Self-Supervised Learning for Video Understanding",
+      "authors": "Chen, L., Kumar, S., & Zhang, M.",
+      "venue": "ICLR 2024",
+      "year": 2024,
+      "links": {
+        "paper": "#",
+        "code": "#"
+      }
+    },
+    {
+      "title": "Efficient 3D Scene Reconstruction from Sparse Views",
+      "authors": "Martinez, C., Lee, K., & Park, J.",
+      "venue": "ECCV 2023",
+      "year": 2023,
+      "links": {
+        "paper": "#"
+      }
+    },
+    {
+      "title": "Interpretable Deep Learning for Medical Image Analysis",
+      "authors": "Taylor, E., Brown, D., & Anderson, P.",
+      "venue": "MICCAI 2023",
+      "year": 2023,
+      "links": {
+        "paper": "#",
+        "code": "#"
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": "What research areas does the lab focus on?",
+      "answer": "Our lab focuses on three main areas: 3D Vision & Intelligence, Generative AI, and AI for Societal Impact. We work on fundamental and applied problems in computer vision and machine learning."
+    },
+    {
+      "question": "Are you accepting new students?",
+      "answer": "We are always looking for motivated PhD students. If you're interested in joining our lab, please check the admissions requirements and reach out via our contact page."
+    },
+    {
+      "question": "How can I collaborate with the lab?",
+      "answer": "We welcome collaborations with researchers and industry partners. Please contact Prof. Feng Liu through the contact information provided on this website."
+    },
+    {
+      "question": "Where is the lab located?",
+      "answer": "We are located in the Department of Computer Science at Drexel University in Philadelphia, PA."
+    },
+    {
+      "question": "What opportunities are available for undergraduate students?",
+      "answer": "We offer research opportunities for motivated undergraduate students. Please reach out to discuss potential projects and availability."
+    }
+  ],
+  "contact": {
+    "address": {
+      "department": "College of Computing & Informatics",
+      "building": "Room 912",
+      "street": "3675 Market Street",
+      "city": "Philadelphia, PA 19104"
+    },
+    "email": "info@visionlab.edu",
+    "phone": "+1 (123) 456-7890",
+    "map": {
+      "latitude": 39.95683035539825, 
+      "longitude": -75.19508771349135,
+      "zoom": 18
+    }
+  }
+}
+
