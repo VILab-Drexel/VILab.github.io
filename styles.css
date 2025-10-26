@@ -172,6 +172,18 @@ body {
     margin: 0;
 }
 
+/* Visitor Map Section */
+.visitor-map {
+    margin-top: 30px;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* FAQ Section */
 .faq-item {
     margin-bottom: 40px;
