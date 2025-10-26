@@ -1,6 +1,6 @@
-# Vision Intelligence Lab Website
+# Visual Intelligence Lab Website
 
-Official website for the Vision Intelligence Lab at Drexel University, led by Prof. Feng Liu.
+Official website for the Visual Intelligence Lab at Drexel University, led by Prof. Feng Liu.
 
 ## Live Site
 

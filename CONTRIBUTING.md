@@ -1,6 +1,6 @@
-# Contributing to Vision Intelligence Lab Website
+# Contributing to Visual Intelligence Lab Website
 
-Thank you for your interest in contributing to the Vision Intelligence Lab website! This document provides guidelines for contributing to this project.
+Thank you for your interest in contributing to the Visual Intelligence Lab website! This document provides guidelines for contributing to this project.
 
 ## How to Contribute
 
@@ -115,4 +115,4 @@ If you have questions about contributing, please contact:
 - Focus on what is best for the community
 - Show empathy towards other contributors
 
-Thank you for contributing to the Vision Intelligence Lab website!
+Thank you for contributing to the Visual Intelligence Lab website!
