@@ -520,9 +520,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+
+            // Only handle internal section links (those starting with #)
+            if (!href.startsWith('#')) {
+                return; // Let external links work normally
+            }
+
             e.preventDefault();
 
-            const targetId = this.getAttribute('href').substring(1);
+            const targetId = href.substring(1);
 
             // Remove active class
             navLinks.forEach(l => l.classList.remove('active'));
