@@ -430,9 +430,15 @@ function loadContact() {
         if (siteData.contact.email) {
             const div = document.createElement('div');
             div.className = 'info-item';
+
+            // Parse email addresses and create mailto links
+            const emailText = siteData.contact.email;
+            const emails = emailText.split('<br>').map(e => e.trim()).filter(e => e);
+            const emailLinks = emails.map(email => `<a href="mailto:${email}">${email}</a>`).join('<br>');
+
             div.innerHTML = `
                 <h3>Email</h3>
-                <p>${siteData.contact.email}</p>
+                <p>${emailLinks}</p>
             `;
             contactInfo.appendChild(div);
         }
