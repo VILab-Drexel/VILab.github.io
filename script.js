@@ -14,17 +14,11 @@ function loadContent() {
     // Load lab info
     loadLabInfo();
 
-    // Load about content in home section
-    loadAboutHome();
-
     // Load highlights
     loadHighlights();
 
     // Load news
     loadNews();
-
-    // Load about
-    loadAbout();
 
     // Load team
     loadTeam();
