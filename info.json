@@ -47,11 +47,13 @@
   "team": {
     "faculty": [
       {
-        "name": "Dr. Feng Liu",
+        "name": "Feng Liu",
         "role": "Assistant Professor",
         "description": "Department of Computer Science, Drexel University",
         "email": "fl397@drexel.edu",
         "website": "https://liufeng2915.github.io/",
+        "google_scholar": "https://scholar.google.com/citations?user=8Y9iUz0AAAAJ&hl",
+        "linkedin": "https://www.linkedin.com/in/feng-liu-4b5563187/",
         "image": "assets/faculty/fengliu.jpg"
       }
     ],
@@ -60,9 +62,6 @@
         "name": "Yuyang Ji",
         "description": "Computer Vision",
         "email": "yj428@drexel.edu",
-        "github": "https://github.com/Yuyang-Ji",
-        "linkedin": "https://www.linkedin.com/in/yuyang-ji-0304/",
-        "google_scholar": "https://scholar.google.com/citations?user=N_bJ7e0AAAAJ&hl=en",
         "image": "assets/students/Yuyang_pic.jpg",
         "school": "Drexel University"
       },
@@ -130,8 +129,7 @@
         "description": "Safa Obuz",
         "email": "seo52@drexel.edu",
         "school": "Drexel University",
-        "image": "assets/students/Safa_pic.jpg",
-        "linkedin": "https://www.linkedin.com/in/safaobuz"
+        "image": "assets/students/Safa_pic.jpg"
       },
       {
         "name": "Shengyang Dong",
