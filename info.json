@@ -20,24 +20,28 @@
   ],
   "news": [
     {
-      "date": "2025-10-15",
-      "title": "VILab welcomes new PhD students for Fall 2025"
+      "date": "2025-10-06",
+      "title": "Our paper \"Person Recognition in Aerial Surveillance: A Decade Survey\" is accepted by IEEE T-BIOM."
     },
     {
-      "date": "2025-09-20",
-      "title": "Research paper on 3D human modeling accepted to CVPR 2026"
+      "date": "2025-10-05",
+      "title": "Dr. Liu was recognized as one of the ICCV 2025 Outstanding Reviewers."
     },
     {
-      "date": "2025-08-10",
-      "title": "Dr. Feng Liu receives NSF CAREER Award"
+      "date": "2025-09-02",
+      "title": "Dr. Liu is serving as an Area Chair for CVPR 2026, ICLR 2026."
     },
     {
-      "date": "2025-07-05",
-      "title": "Lab members present at SIGGRAPH 2025"
+      "date": "2025-06-25",
+      "title": "Our paper \"HAMoBE\" is accepted by ICCV 2025."
     },
     {
-      "date": "2025-06-18",
-      "title": "Collaboration with industry partner on generative AI project"
+      "date": "2025-05-20",
+      "title": "Dr. Liu is serving as an Area Chair for BMVC 2025, ACM MM 2025, FG 2025, IJCNN 2025."
+    },
+    {
+      "date": "2025-02-26",
+      "title": "Two papers, \"SapiensID\" and \"AG-VPReID,\" have been accepted by CVPR 2025."
     }
   ],
   "team": {
