@@ -14,6 +14,9 @@ function loadContent() {
     // Load lab info
     loadLabInfo();
 
+    // Load about content in home section
+    loadAboutHome();
+
     // Load highlights
     loadHighlights();
 
@@ -44,6 +47,41 @@ function loadLabInfo() {
         document.querySelector('.logo').textContent = siteData.lab.name;
         document.querySelector('title').textContent = siteData.lab.name;
         document.querySelector('.intro').textContent = siteData.lab.description;
+    }
+}
+
+function loadAboutHome() {
+    if (siteData.about) {
+        const aboutContentHome = document.querySelector('.about-content-home');
+        aboutContentHome.innerHTML = '';
+
+        // Mission statement
+        if (siteData.about.mission) {
+            const missionDiv = document.createElement('div');
+            missionDiv.className = 'about-mission';
+            missionDiv.textContent = siteData.about.mission;
+            aboutContentHome.appendChild(missionDiv);
+        }
+
+        // Research areas
+        if (siteData.about.research_areas && siteData.about.research_areas.length > 0) {
+            const researchSection = document.createElement('div');
+            researchSection.className = 'about-section';
+            researchSection.innerHTML = '<h3>Research Areas</h3><div class="research-areas"></div>';
+
+            const researchAreasContainer = researchSection.querySelector('.research-areas');
+            siteData.about.research_areas.forEach(area => {
+                const div = document.createElement('div');
+                div.className = 'research-area';
+                div.innerHTML = `
+                    <h4>${area.title}</h4>
+                    <p>${area.description}</p>
+                `;
+                researchAreasContainer.appendChild(div);
+            });
+
+            aboutContentHome.appendChild(researchSection);
+        }
     }
 }
 
