@@ -62,19 +62,18 @@ function loadNews() {
     if (siteData.news) {
         const newsContainer = document.querySelector('.news-list');
         newsContainer.innerHTML = '';
-        
+
         siteData.news.forEach(item => {
             const div = document.createElement('div');
             div.className = 'news-item';
-            
+
             // Format date
             const date = new Date(item.date);
             const formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-            
+
             div.innerHTML = `
                 <span class="news-date">${formattedDate}</span>
-                <h3>${item.title}</h3>
-                <p>${item.description}</p>
+                <p class="news-title">${item.title}</p>
             `;
             newsContainer.appendChild(div);
         });
