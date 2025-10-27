@@ -113,6 +113,12 @@ body {
     color: #333;
 }
 
+.section h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #07294d;
+}
+
 .section p {
     color: #666;
     margin-bottom: 15px;
