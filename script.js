@@ -1,8 +1,8 @@
 // Load data from info.json
 let siteData = {};
 
-// Fetch and load data
-fetch('info.json')
+// Fetch and load data with cache-busting parameter
+fetch('info.json?v=' + new Date().getTime())
     .then(response => response.json())
     .then(data => {
         siteData = data;
