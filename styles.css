@@ -211,6 +211,90 @@ body {
     align-items: center;
 }
 
+/* About Section */
+.about-content {
+    margin-top: 30px;
+}
+
+.about-mission {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #07294d;
+}
+
+.about-section {
+    margin-bottom: 50px;
+}
+
+.about-section h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #07294d;
+}
+
+.research-areas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.research-area {
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.research-area:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(7, 41, 77, 0.1);
+}
+
+.research-area h3 {
+    color: #07294d;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.research-area p {
+    color: #666;
+    line-height: 1.7;
+}
+
+.values-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.values-list li {
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border-left: 3px solid #ffc600;
+    color: #555;
+    transition: background 0.3s ease;
+}
+
+.values-list li:hover {
+    background: #e9ecef;
+}
+
+.values-list li::before {
+    content: "✓";
+    color: #07294d;
+    font-weight: bold;
+    margin-right: 12px;
+    font-size: 18px;
+}
+
 /* FAQ Section */
 .faq-item {
     margin-bottom: 40px;
@@ -361,6 +445,64 @@ body {
 
 .member-links .fa-graduation-cap:hover {
     color: #4285f4;
+}
+
+/* Photos Section */
+.photos-intro {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.photo-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #f8f9fa;
+}
+
+.photo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-caption {
+    padding: 15px;
+    background: #ffffff;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 60px;
+}
+
+.photo-category {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #07294d;
+    color: #ffc600;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
 }
 
 /* Alumni */
@@ -546,6 +688,25 @@ body {
 
     .placeholder-avatar {
         font-size: 50px;
+    }
+
+    /* About section mobile */
+    .research-areas {
+        grid-template-columns: 1fr;
+    }
+
+    .about-mission {
+        font-size: 16px;
+        padding: 20px;
+    }
+
+    /* Photo gallery mobile */
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-item img {
+        height: 200px;
     }
 }
 

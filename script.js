@@ -20,6 +20,9 @@ function loadContent() {
     // Load news
     loadNews();
 
+    // Load about
+    loadAbout();
+
     // Load team
     loadTeam();
 
@@ -28,6 +31,9 @@ function loadContent() {
 
     // Load FAQ
     loadFAQ();
+
+    // Load photos
+    loadPhotos();
 
     // Load contact
     loadContact();
@@ -77,6 +83,57 @@ function loadNews() {
             `;
             newsContainer.appendChild(div);
         });
+    }
+}
+
+function loadAbout() {
+    if (siteData.about) {
+        const aboutContent = document.querySelector('.about-content');
+        aboutContent.innerHTML = '';
+
+        // Mission statement
+        if (siteData.about.mission) {
+            const missionDiv = document.createElement('div');
+            missionDiv.className = 'about-mission';
+            missionDiv.textContent = siteData.about.mission;
+            aboutContent.appendChild(missionDiv);
+        }
+
+        // Research areas
+        if (siteData.about.research_areas && siteData.about.research_areas.length > 0) {
+            const researchSection = document.createElement('div');
+            researchSection.className = 'about-section';
+            researchSection.innerHTML = '<h2>Research Areas</h2><div class="research-areas"></div>';
+
+            const researchAreasContainer = researchSection.querySelector('.research-areas');
+            siteData.about.research_areas.forEach(area => {
+                const div = document.createElement('div');
+                div.className = 'research-area';
+                div.innerHTML = `
+                    <h3>${area.title}</h3>
+                    <p>${area.description}</p>
+                `;
+                researchAreasContainer.appendChild(div);
+            });
+
+            aboutContent.appendChild(researchSection);
+        }
+
+        // Values
+        if (siteData.about.values && siteData.about.values.length > 0) {
+            const valuesSection = document.createElement('div');
+            valuesSection.className = 'about-section';
+            valuesSection.innerHTML = '<h2>Our Values</h2><ul class="values-list"></ul>';
+
+            const valuesList = valuesSection.querySelector('.values-list');
+            siteData.about.values.forEach(value => {
+                const li = document.createElement('li');
+                li.textContent = value;
+                valuesList.appendChild(li);
+            });
+
+            aboutContent.appendChild(valuesSection);
+        }
     }
 }
 
@@ -277,12 +334,12 @@ function loadPublications() {
 function loadFAQ() {
     if (siteData.faq) {
         const faqContainer = document.querySelector('#faq .container');
-        
+
         // Keep the title
         const title = faqContainer.querySelector('h1');
         faqContainer.innerHTML = '';
         faqContainer.appendChild(title);
-        
+
         siteData.faq.forEach(item => {
             const div = document.createElement('div');
             div.className = 'faq-item';
@@ -291,6 +348,28 @@ function loadFAQ() {
                 <p>${item.answer}</p>
             `;
             faqContainer.appendChild(div);
+        });
+    }
+}
+
+function loadPhotos() {
+    if (siteData.photos && siteData.photos.length > 0) {
+        const photoGallery = document.querySelector('.photo-gallery');
+        photoGallery.innerHTML = '';
+
+        siteData.photos.forEach(photo => {
+            const photoItem = document.createElement('div');
+            photoItem.className = 'photo-item';
+
+            photoItem.innerHTML = `
+                <img src="${photo.url}" alt="${photo.caption}" loading="lazy">
+                <div class="photo-caption">
+                    ${photo.category ? `<span class="photo-category">${photo.category}</span>` : ''}
+                    <div>${photo.caption}</div>
+                </div>
+            `;
+
+            photoGallery.appendChild(photoItem);
         });
     }
 }
