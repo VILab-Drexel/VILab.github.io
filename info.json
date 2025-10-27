@@ -4,6 +4,29 @@
     "university": "Drexel University",
     "description": "We are a research group at Drexel University led by Prof. Feng Liu, focused on advancing computer vision, machine learning, and artificial intelligence to solve fundamental and applied problems in 3D vision, generative AI, and AI for societal impact."
   },
+  "about": {
+    "mission": "The Visual Intelligence Lab at Drexel University is dedicated to pioneering research in computer vision, machine learning, and artificial intelligence. Our mission is to develop innovative technologies that advance the state-of-the-art in visual understanding and create meaningful societal impact.",
+    "research_areas": [
+      {
+        "title": "3D Vision & Reconstruction",
+        "description": "We develop cutting-edge methods for 3D object and scene understanding, enabling next-generation applications in virtual reality, augmented reality, and autonomous systems."
+      },
+      {
+        "title": "Generative AI & Deep Learning",
+        "description": "Our research focuses on building controllable and explainable generative models with applications spanning healthcare diagnostics, educational technology, and creative AI systems."
+      },
+      {
+        "title": "AI for Social Good",
+        "description": "We leverage artificial intelligence to address critical challenges in healthcare, education, accessibility, and other human-centered applications that benefit society."
+      }
+    ],
+    "values": [
+      "Innovation through rigorous scientific research",
+      "Collaboration across disciplines and institutions",
+      "Mentorship and development of next-generation researchers",
+      "Ethical AI development with societal impact in mind"
+    ]
+  },
   "highlights": [
     {
       "title": "3D Vision & Intelligence",
@@ -166,7 +189,53 @@
   "publications": [],
   "vacancies": [],
   "projects": [],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://via.placeholder.com/600x400/07294d/ffffff?text=Lab+Meeting",
+      "caption": "Weekly lab meeting and research discussions",
+      "category": "events"
+    },
+    {
+      "url": "https://via.placeholder.com/600x400/4a90e2/ffffff?text=Research+Presentation",
+      "caption": "Student presenting research findings",
+      "category": "research"
+    },
+    {
+      "url": "https://via.placeholder.com/600x400/50c878/ffffff?text=Team+Building",
+      "caption": "Lab team building event",
+      "category": "events"
+    },
+    {
+      "url": "https://via.placeholder.com/600x400/ff6b6b/ffffff?text=Conference+2024",
+      "caption": "Presenting at international conference",
+      "category": "conferences"
+    },
+    {
+      "url": "https://via.placeholder.com/600x400/f39c12/ffffff?text=Campus+Life",
+      "caption": "Beautiful day on Drexel campus",
+      "category": "campus"
+    },
+    {
+      "url": "https://via.placeholder.com/600x400/9b59b6/ffffff?text=Lab+Space",
+      "caption": "Our research lab workspace",
+      "category": "facilities"
+    },
+    {
+      "url": "https://via.placeholder.com/600x400/1abc9c/ffffff?text=Collaboration",
+      "caption": "Collaborative research session",
+      "category": "research"
+    },
+    {
+      "url": "https://via.placeholder.com/600x400/e74c3c/ffffff?text=Award+Ceremony",
+      "caption": "Award recognition ceremony",
+      "category": "achievements"
+    },
+    {
+      "url": "https://via.placeholder.com/600x400/3498db/ffffff?text=Demo+Day",
+      "caption": "Research demo showcase",
+      "category": "events"
+    }
+  ],
   "contact": {
     "address": {
       "department": "College of Computing & Informatics",
