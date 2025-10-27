@@ -1,12 +1,17 @@
 // Load data from info.json
 let siteData = {};
+let isDataLoaded = false;
+let isGoogleMapsLoaded = false;
 
 // Fetch and load data with cache-busting parameter
 fetch('info.json?v=' + new Date().getTime())
     .then(response => response.json())
     .then(data => {
         siteData = data;
+        isDataLoaded = true;
         loadContent();
+        // Try to initialize map if Google Maps is already loaded
+        tryInitMap();
     })
     .catch(error => console.error('Error loading data:', error));
 
@@ -410,7 +415,7 @@ function loadContact() {
     if (siteData.contact) {
         const contactInfo = document.querySelector('.contact-info');
         contactInfo.innerHTML = '';
-        
+
         // Address
         if (siteData.contact.address) {
             const addr = siteData.contact.address;
@@ -425,7 +430,7 @@ function loadContact() {
             `;
             contactInfo.appendChild(div);
         }
-        
+
         // Email
         if (siteData.contact.email) {
             const div = document.createElement('div');
@@ -442,7 +447,7 @@ function loadContact() {
             `;
             contactInfo.appendChild(div);
         }
-        
+
         // Phone
         if (siteData.contact.phone) {
             const div = document.createElement('div');
@@ -453,25 +458,37 @@ function loadContact() {
             `;
             contactInfo.appendChild(div);
         }
-        
-        // Initialize map if map data exists
-        if (siteData.contact.map && typeof google !== 'undefined') {
-            initMap();
-        }
     }
 }
 
-// Initialize Google Map
+// Called by Google Maps API when it's ready
 function initMap() {
-    if (!siteData.contact || !siteData.contact.map) return;
-    
+    isGoogleMapsLoaded = true;
+    tryInitMap();
+}
+
+// Try to initialize the map only when both data and Google Maps are loaded
+function tryInitMap() {
+    if (!isDataLoaded || !isGoogleMapsLoaded) {
+        return; // Wait for both to be ready
+    }
+
+    if (!siteData.contact || !siteData.contact.map) {
+        return;
+    }
+
+    const mapElement = document.getElementById('map');
+    if (!mapElement) {
+        return;
+    }
+
     const mapData = siteData.contact.map;
-    const location = { 
-        lat: mapData.latitude, 
-        lng: mapData.longitude 
+    const location = {
+        lat: mapData.latitude,
+        lng: mapData.longitude
     };
-    
-    const map = new google.maps.Map(document.getElementById('map'), {
+
+    const map = new google.maps.Map(mapElement, {
         zoom: mapData.zoom || 16,
         center: location,
         styles: [
@@ -482,7 +499,7 @@ function initMap() {
             }
         ]
     });
-    
+
     // Add marker
     const marker = new google.maps.Marker({
         position: location,
@@ -490,7 +507,7 @@ function initMap() {
         title: siteData.lab.name || 'Visual Intelligence Lab',
         animation: google.maps.Animation.DROP
     });
-    
+
     // Add info window
     const infoWindow = new google.maps.InfoWindow({
         content: `
@@ -504,7 +521,7 @@ function initMap() {
             </div>
         `
     });
-    
+
     marker.addListener('click', function() {
         infoWindow.open(map, marker);
     });
