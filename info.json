@@ -86,13 +86,15 @@
         "description": "Computer Vision",
         "email": "yj428@drexel.edu",
         "image": "assets/students/Yuyang_pic.jpg",
-        "school": "Drexel University"
+        "school": "Drexel University",
+        "start_quarter": "2025 Fall"
       },
       {
         "name": "Yixuan Shen",
         "description": "Physical 3D modeling",
         "school": "Drexel University",
-        "email": "ys844@drexel.edu"
+        "email": "ys844@drexel.edu",
+        "start_quarter": "Spring 2026"
       },
       {
         "name": "Open Position",
