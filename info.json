@@ -89,6 +89,12 @@
         "school": "Drexel University"
       },
       {
+        "name": "Yixuan Shen",
+        "description": "Physical 3D modeling",
+        "school": "Drexel University",
+        "email": "ys844@drexel.edu"
+      },
+      {
         "name": "Open Position",
         "description": "We're recruiting exceptional PhD candidates to join our research team. Apply now!",
         "email": ""
@@ -111,12 +117,6 @@
         "name": "Anthony Chen",
         "description": "Gait clinic",
         "school": "WashU"
-      },
-      {
-        "name": "Yixuan Shen",
-        "description": "4D motion modeling",
-        "school": "Drexel University",
-        "email": "ys844@drexel.edu"
       },
       {
         "name": "Pengxiao Han",
