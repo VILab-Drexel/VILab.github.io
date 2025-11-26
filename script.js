@@ -267,6 +267,9 @@ function loadTeamSection(sectionKey, sectionTitle) {
         if (member.school) {
             memberHTML += `<p class="school">${member.school}</p>`;
         }
+        if (member.start_quarter) {
+            memberHTML += `<p class="start-quarter">${member.start_quarter}</p>`;
+        }
         memberHTML += linksHTML;
         
         div.innerHTML = memberHTML;

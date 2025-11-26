@@ -416,6 +416,18 @@ body {
     margin-top: 8px;
 }
 
+.start-quarter {
+    display: inline-block;
+    color: #07294d;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 8px;
+    padding: 4px 12px;
+    background: #e8f4f8;
+    border-radius: 12px;
+    border: 1px solid #b8d4e0;
+}
+
 .member-links {
     display: flex;
     gap: 12px;
