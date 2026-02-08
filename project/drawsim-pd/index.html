@@ -1,36 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DrawSim-PD - Visual Intelligence Lab</title>
-    <link rel="stylesheet" href="../../styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DrawSim-PD: Simulating Student Science Drawings | NGSS-Aligned Teacher PD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">Visual Intelligence Lab @ Drexel</div>
-            <ul class="nav-menu">
-                <li><a href="../../index.html" class="nav-link">Home</a></li>
-            </ul>
-        </div>
-    </nav>
+  <nav class="top-bar">
+    <div class="container top-bar-inner">
+      <a href="https://vilab-group.com/#home" class="top-bar-brand">Visual Intelligence Lab @ Drexel</a>
+      <a href="https://vilab-group.com/#home" class="top-bar-home"><i class="fas fa-home"></i> Home</a>
+    </div>
+  </nav>
+  <header class="hero">
+    <div class="container">
+      <h1 class="title">DrawSim-PD: Simulating Student Science
+        Drawings to Support NGSS-Aligned Teacher
+        Diagnostic Reasoning</h1>
+      <p class="authors">
+        Arijit Chakma<sup>1</sup>, Peng He<sup>3</sup>, Honglu Liu<sup>2,3</sup>, Zeyuan Wang<sup>3</sup>, Tingting Li<sup>3</sup>,<br>
+        Tiffany D. Do<sup>1</sup>, and Feng Liu<sup>1</sup><i class="fas fa-envelope corresponding-icon" aria-label="Corresponding author"></i>
+      </p>
+      <p class="affiliations">
+        <sup>1</sup>Department of Computer Science, Drexel University<br>
+        <sup>2</sup>College of Chemistry, Beijing Normal University<br>
+        <sup>3</sup>Department of Teaching and Learning, Washington State University
+      </p>
+      <div class="action-buttons">
+        <a href="public/drawsim-pd.pdf" class="btn btn-primary" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Paper</a>
+        <a href="https://arxiv.org/abs/2602.01578" class="btn btn-primary" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> arXiv</a>
+        <a href="https://github.com/VILab-Drexel/DrawSim-PD" class="btn btn-primary" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+        <a href="#" class="btn btn-primary"><i class="fas fa-database"></i> Data</a>
+      </div>
+    </div>
+  </header>
 
-    <!-- Project Section -->
-    <section class="section active">
-        <div class="container">
-            <h1>DrawSim-PD</h1>
-            <p>TBD</p>
-        </div>
-    </section>
+  <main class="content">
+    <div class="container">
+      <!-- Teaser -->
+      <section class="teaser-section">
+        <img src="public/teaser.jpg" alt="DrawSim-PD teaser figure" class="teaser-image">
+      </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; Copyright 2025 Visual Intelligence Lab @ Drexel.</p>
+      <!-- Abstract -->
+      <section class="section">
+        <h2 class="section-heading">Abstract</h2>
+        <p class="abstract">
+          Developing expertise in diagnostic reasoning requires practice with diverse student artifacts, yet privacy regulations prohibit sharing authentic student work for teacher professional development (PD) at scale. We present <strong>DrawSim-PD</strong>, the first generative framework that simulates <strong>NGSS</strong>-aligned, student-like science drawings exhibiting controllable pedagogical imperfections to support teacher training. Central to our approach are <strong>capability profiles</strong>—structured cognitive states encoding what students at each performance level can and cannot yet demonstrate. These profiles ensure cross-modal coherence across generated outputs: (i) a student-like drawing, (ii) a first-person reasoning narrative, and (iii) a teacher-facing diagnostic concept map. Using 100 curated NGSS topics spanning K-12, we construct a corpus of 10,000 systematically structured artifacts. Through an expert-based feasibility evaluation, K-12 science educators verified the artifacts' alignment with NGSS expectations (&gt;84% positive on core items) and utility for interpreting student thinking, while identifying refinement opportunities for grade-band extremes. We release this open infrastructure to overcome data scarcity barriers in visual assessment research.
+        </p>
+      </section>
+
+      <!-- Our contributions -->
+      <section class="section">
+        <h2 class="section-heading">Our contributions</h2>
+        <ul class="contributions-list">
+          <li>We introduce a capability-profile mechanism that enables the generation of student-like drawings with systematically varied misconceptions, achieving controllable pedagogical imperfection aligned to curriculum standards.</li>
+          <li>We devise an automated diagnostic scaffolding module that transforms visual artifacts into structured teacher supports via generated diagnostic concept maps.</li>
+          <li>We release a 10,000-artifact corpus with structured metadata as open research infrastructure, representing the largest collection of curriculum-aligned student drawing simulations to date.</li>
+          <li>We validate the system's pedagogical fidelity through an expert feasibility study, where experienced educators confirmed that the generated outputs are NGSS-aligned and pedagogically authentic.</li>
+        </ul>
+      </section>
+
+      <!-- Method -->
+      <section class="section">
+        <h2 class="section-heading">DrawSim-PD Framework</h2>
+        <p class="method-intro">
+          We present DrawSim-PD, a generative framework that simulates student-like science drawings accompanied by reasoning narratives and teacher-facing diagnostic concept maps. The framework addresses two core challenges: (1) producing synthetic artifacts that maintain both scientific validity and developmental authenticity (the "inverse problem" of generating specific errors), and (2) providing diagnostic scaffolding to support teacher interpretation and calibration activities.
+        </p>
+
+        <h3 class="method-subheading">Framework overview</h3>
+        <p>
+          DrawSim-PD comprises three integrated modules coordinated through shared <strong>capability profiles</strong>. The framework takes as input an NGSS performance expectation, a target grade level, and a desired performance level. It generates three outputs:
+        </p>
+        <ol class="method-outputs">
+          <li>A first-person reasoning narrative simulating the student's internal monologue and scientific vocabulary.</li>
+          <li>A hand-drawn style scientific illustration reflecting grade-appropriate motor skills and specific, realistic misconceptions.</li>
+          <li>A structured diagnostic concept map linking visual observations to underlying understanding, serving as an answer key for teacher diagnosis.</li>
+        </ol>
+
+        <figure class="method-figure">
+          <img src="public/modules.jpg" alt="DrawSim-PD framework modules diagram" class="method-figure-img">
+          <figcaption>The DrawSim-PD framework comprises three modules: (1) NGSS-Aligned Student Simulator, (2) Drawing-Centric Synthesis, and (3) Diagnostic Concept Mapping.</figcaption>
+        </figure>
+
+        <h3 class="method-subheading">Challenges and approach</h3>
+        <p>
+          Simulating pedagogically valid student drawings requires addressing three interconnected challenges:
+        </p>
+        <ul class="method-challenges">
+          <li><strong>Controllable misconceptions (Challenge 1):</strong> Visual misconceptions must manifest through specific spatial arrangements, missing elements, and incorrect relationships, requiring structured control rather than stochastic perturbation.</li>
+          <li><strong>Cross-modal coherence (Challenge 2):</strong> A simulated student who "doesn't understand cyclical processes" must produce drawings lacking return arrows, narratives expressing confusion, and concept maps identifying this gap; independent generation risks hallucinating contradictory competencies. DrawSim-PD addresses this through unified generation conditioned on shared capability profiles.</li>
+          <li><strong>Curriculum grounding (Challenge 3):</strong> Misconceptions must align with documented learning progressions, not arbitrary errors. DrawSim-PD addresses this through automated NGSS decomposition into evidence statements and capability profiles.</li>
+        </ul>
+        <p>
+          DrawSim-PD addresses these challenges through capability profiles as simulated cognitive states that ensure consistency across the reasoning narrative, the drawing, and the diagnostic concept map.
+        </p>
+      </section>
+
+      <!-- Examples -->
+      <section class="section">
+        <h2 class="section-heading">Examples</h2>
+        <figure class="examples-figure">
+          <img src="public/examples.jpg" alt="Representative student-like scientific illustrations from DrawSim-PD" class="examples-image">
+          <figcaption>Representative student-like scientific illustrations generated by DrawSim-PD across four performance levels (Emergent to Advanced) and three science domains (life sciences, physical sciences, earth and space sciences).</figcaption>
+        </figure>
+      </section>
+
+      <!-- Results -->
+      <section class="section">
+        <h2 class="section-heading">Results</h2>
+
+        <p>
+          Participants evaluated 480 unique artifacts, providing systematic coverage of the corpus. Results exceeded expectations for a first-generation system (see table below).
+        </p>
+
+        <div class="evaluation-instrument">
+          <h4 class="results-table-title">Expert Evaluation Instrument</h4>
+          <p class="instrument-desc">The mixed-method survey used for the feasibility study, assessing strict NGSS alignment (Q1–Q5), developmental plausibility (Q6), and pedagogical utility (Q7–Q8).</p>
+          <div class="rubric-sections">
+            <div class="rubric-section">
+              <h5>NGSS Alignment <span class="response-type">(Yes / Partially / No)</span></h5>
+              <ul>
+                <li><strong>Q1:</strong> Does the topic align with the NGSS Performance Expectation?</li>
+                <li><strong>Q2:</strong> Does the drawing represent the disciplinary core ideas?</li>
+                <li><strong>Q3:</strong> Does the drawing align logically with the given prompt?</li>
+                <li><strong>Q4:</strong> Does the drawing align with the capability statements?</li>
+                <li><strong>Q5:</strong> Does the drawing match the assigned performance level?</li>
+              </ul>
+            </div>
+            <div class="rubric-section">
+              <h5>Grade-Band Plausibility <span class="response-type">(Yes / Partially / No)</span></h5>
+              <ul>
+                <li><strong>Q6:</strong> Does the drawing appear plausible for the target grade band?</li>
+              </ul>
+            </div>
+            <div class="rubric-section">
+              <h5>Component Quality <span class="response-type">(1–5 Likert)</span></h5>
+              <ul>
+                <li><strong>Q7:</strong> Does the concept map represent the reasoning in the drawing?</li>
+                <li><strong>Q8:</strong> Does the work maintain plausible scientific relationships for the level?</li>
+              </ul>
+            </div>
+          </div>
         </div>
-    </footer>
+
+        <h4 class="results-subheading">NGSS Alignment</h4>
+        <p>
+          Artifacts demonstrated strong alignment with NGSS standards. Topic–PE alignment achieved 89.6% full agreement (Q1), indicating successful mapping of standards to drawing tasks. Disciplinary Core Idea representation (Q2: 84.2%) and drawing–prompt coherence (Q3: 86.7%) confirmed that generated content captures required scientific concepts. Notably, explicit disagreements ("No") remained below 2.1% across these core alignment items.
+        </p>
+
+        <h4 class="results-subheading">Performance Differentiation</h4>
+        <p>
+          Alignment with capability statements (Q4: 75.0% Yes) and performance levels (Q5: 73.8% Yes) showed that combined positive responses (Yes + Partially) exceeded 92% for both items. The approximate 20% prevalence of "Partially" ratings is attributed to inherent ambiguity in boundary cases.
+        </p>
+
+        <h4 class="results-subheading">Grade-Band Plausibility</h4>
+        <p>
+          For Q6, 93.3% of artifacts were rated as plausible or partially plausible for simulating developmental characteristics, suggesting the system encodes key developmental constraints. Plausibility was highest for middle grades (3–8), with slight degradation at grade-band extremes (K–2 and 9–12); see below for details.
+        </p>
+
+        <h4 class="results-subheading">Component Quality</h4>
+        <p>
+          Diagnostic concept maps (Q7) received favorable ratings, with 77.5% rated 4 or 5. Scientific plausibility (Q8) showed higher variance, with 18.3% rated 1 or 2. We interpret this variance as a deliberate design tension: the system intentionally generates incorrect elements to simulate misconceptions, and some evaluators may have penalized these as scientific inaccuracies.
+        </p>
+
+        <h4 class="results-table-title">Expert Evaluation Results (N=480 evaluations)</h4>
+        <div class="table-wrapper">
+          <table class="results-table results-table-expert">
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>Yes</th>
+                <th>Partially</th>
+                <th>No</th>
+                <th>Likert 1</th>
+                <th>Likert 2</th>
+                <th>Likert 3</th>
+                <th>Likert 4</th>
+                <th>Likert 5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Q1: Topic-PE Alignment</td><td>89.58%</td><td>8.75%</td><td>1.67%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>Q2: DCI Representation</td><td>84.17%</td><td>13.75%</td><td>2.08%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>Q3: Drawing-Prompt Coherence</td><td>86.66%</td><td>12.92%</td><td>0.42%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>Q4: Capability Statement Match</td><td>75.00%</td><td>24.17%</td><td>0.83%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>Q5: Performance Level Match</td><td>73.75%</td><td>19.17%</td><td>7.08%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>Q6: Grade-Level Authenticity</td><td>60.42%</td><td>32.92%</td><td>6.66%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>Q7: Concept Map Quality</td><td>—</td><td>—</td><td>—</td><td>0.0%</td><td>3.3%</td><td>19.2%</td><td>47.9%</td><td>29.6%</td></tr>
+              <tr><td>Q8: Scientific Accuracy</td><td>—</td><td>—</td><td>—</td><td>5.0%</td><td>13.3%</td><td>19.6%</td><td>32.1%</td><td>30.0%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          To complement expert judgments, we examined semantic alignment between generated components using CLIP similarity scores across 1,200 sampled artifacts.
+        </p>
+
+        <h4 class="results-table-title">Cross-modal consistency (CLIP similarity, N=1,200)</h4>
+        <div class="table-wrapper">
+          <table class="results-table results-table-clip">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Text-Draw</th>
+                <th>CMap-Draw</th>
+                <th>Text-CMap</th>
+                <th>Overall</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Overall</strong></td><td>0.356</td><td>0.606</td><td>0.273</td><td>0.412</td></tr>
+              <tr><td colspan="5" class="table-subheader">By Level</td></tr>
+              <tr><td>Emergent</td><td>0.362</td><td>0.589</td><td>0.250</td><td>0.400</td></tr>
+              <tr><td>Developing</td><td>0.360</td><td>0.607</td><td>0.266</td><td>0.411</td></tr>
+              <tr><td>Proficient</td><td>0.354</td><td>0.614</td><td>0.280</td><td>0.416</td></tr>
+              <tr><td>Advanced</td><td>0.349</td><td>0.614</td><td>0.293</td><td>0.419</td></tr>
+              <tr><td colspan="5" class="table-subheader">By Grade</td></tr>
+              <tr><td>K-2</td><td>0.364</td><td>0.583</td><td>0.263</td><td>0.403</td></tr>
+              <tr><td>9-12</td><td>0.348</td><td>0.629</td><td>0.286</td><td>0.421</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          CLIP similarity serves as an engineering consistency diagnostic, not a proxy for educational validity; unrelated image–text pairs typically score below 0.15. Concept Map–Drawing alignment achieved the highest consistency (0.606), indicating that structured maps effectively capture visual content. Text–Drawing consistency decreased slightly with grade level (0.364 to 0.348) and performance level (0.362 to 0.349). We interpret this pattern not as system degradation but as reflecting a fundamental characteristic of science assessment: as reasoning becomes more advanced (Level 4) and abstract (Grades 9–12), it becomes increasingly difficult to represent via static visual depictions.
+        </p>
+
+        <h3 class="method-subheading">Teacher Perspectives on Utility</h3>
+        <p>
+          We conducted a qualitative thematic analysis using inductive techniques to examine how expert participants perceived the generated corpus. To ensure rigor, two authors collaboratively coded the open-ended responses and refined categories through iterative discussion, following established guidelines for reliability in qualitative research. Five key themes emerged regarding system utility, authenticity, and design implications.
+        </p>
+        <div class="perspective-cards">
+          <div class="perspective-card">
+            <h4 class="perspective-card-title">Plausibility Crossed the Authenticity Threshold</h4>
+            <p>Participants consistently described outputs as immediately recognizable as student-like due to their simplicity and visual style. P6 noted, <q>This looks like the work of a real student,</q> expressing confidence that the system could reflect classroom realities. However, authenticity was sometimes compromised by an <q>uncanny valley</q> of neatness: P1 explained, <q>The composition is too clear… the student's arrangement would be more chaotic.</q> Participants stressed that true authenticity requires balancing scientific errors with stylistic imperfections, noting that <q>when the drawing skill level matches the grade bands, it is more like real student thinking</q> (P5).</p>
+          </div>
+          <div class="perspective-card">
+            <h4 class="perspective-card-title">Grade-level Differentiation Succeeded for Core Grades</h4>
+            <p>The system's strength lay in stratifying work by grade level (particularly grades 3–8). Challenges in prompt engineering and participant observations (P6, P5) highlighted underestimation of lower-grade students' capabilities; high school examples often relied on scientific errors for differentiation. Experts recommended tighter constraints in capability profiles for K–2 motor skills and 9–12 abstract reasoning.</p>
+          </div>
+          <div class="perspective-card">
+            <h4 class="perspective-card-title">Misconceptions were Pedagogically Relevant but "Mechanical"</h4>
+            <p>Artifacts reflected classroom misunderstandings—superficial reasoning, missing causal links—that teachers found useful. P2 distinguished: <q>AI's misconceptions appear mechanical and rigid… students' misconceptions are slightly more flexible.</q> This finding is important for AIED researchers: the system captures <em>what</em> students get wrong but not fully <em>how</em> they get it wrong (the fluid, tentative nature of student thinking).</p>
+          </div>
+          <div class="perspective-card">
+            <h4 class="perspective-card-title">Cross-modal Integration Enhanced Credibility</h4>
+            <p>Teachers valued the combined presentation of drawings, narratives, and concept maps; this multimodal structure made outputs more credible and easier to use as teaching artifacts. P4 described the components as <q>generally consistent,</q> and P6 found <q>no significant discrepancies.</q> Although some mismatches were noted (e.g., concept map vocabulary absent from the drawing), the overall consensus was that the diagnostic map successfully externalized the reasoning implied by the drawing.</p>
+          </div>
+          <div class="perspective-card">
+            <h4 class="perspective-card-title">Utility Depends on Transparency and Diversity</h4>
+            <p>Participants identified strong potential for professional development and appreciated that artifacts articulate what students <q>can and cannot do</q> (P5). Experts recommended moving beyond <q>black-box generation</q> to maximize classroom relevance. P5 suggested adding a module to <q>explain the logic of level determination,</q> arguing that transparency in classification (e.g., why a drawing was <q>Developing</q>) would help teachers build diagnostic criteria. This feedback points toward a design shift from purely generative tools to explainable diagnostic trainers.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conclusion -->
+      <section class="section">
+        <h2 class="section-heading">Conclusion</h2>
+        <p class="abstract">
+          We presented DrawSim-PD, a generative framework that simulates student-like science drawings to support NGSS-aligned teacher diagnostic reasoning. By inverting standard generation objectives to prioritize pedagogical imperfection over aesthetic accuracy, we successfully modeled the partial understandings and spatial errors characteristic of developing learners. Central to our approach are capability profiles that encode performance constraints, ensuring cross-modal coherence between drawings, narratives, and diagnostic concept maps. In an expert-based feasibility study, K-12 science educators verified that the generated artifacts are well-aligned with NGSS expectations and appropriately differentiated by performance level, while identifying opportunities for refining grade-band extremes. The accompanying corpus of 10,000 artifacts provides open research infrastructure for calibration activities and visual assessment research previously constrained by privacy regulations. Beyond validation, we see potential for adaptive calibration systems targeting individual teachers' diagnostic blind spots and interactive generation for on-demand misconception specification.
+        </p>
+      </section>
+
+      <!-- BibTeX -->
+      <section class="section">
+        <h2 class="section-heading">BibTeX</h2>
+        <div class="bibtex-block">
+          <button type="button" class="copy-btn" onclick="copyBibtex()" aria-label="Copy BibTeX"><i class="fas fa-copy"></i> Copy</button>
+          <pre class="bibtex-code"><code>@article{chakma2026drawsim,
+  title={DrawSim-PD: Simulating Student Science Drawings to Support NGSS-Aligned Teacher Diagnostic Reasoning},
+  author={Chakma, Arijit and He, Peng and Liu, Honglu and Wang, Zeyuan and Li, Tingting and Do, Tiffany D and Liu, Feng},
+  journal={arXiv preprint arXiv:2602.01578},
+  year={2026}
+}</code></pre>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>DrawSim-PD — Simulating Student Science Drawings for NGSS-Aligned Teacher PD</p>
+    </div>
+  </footer>
+
+  <script>
+    function copyBibtex() {
+      const code = document.querySelector('.bibtex-code code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+  </script>
 </body>
 </html>
