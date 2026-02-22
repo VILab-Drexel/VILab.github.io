@@ -327,46 +327,66 @@ function loadAlumni() {
 }
 
 function loadPublications() {
-    if (siteData.publications) {
+    if (siteData.publications && siteData.publications.length > 0) {
         const pubContainer = document.querySelector('#publication .container');
-        
-        // Keep the title
+
         const title = pubContainer.querySelector('h1');
         pubContainer.innerHTML = '';
         pubContainer.appendChild(title);
-        
-        siteData.publications.forEach(pub => {
-            const div = document.createElement('div');
-            div.className = 'publication';
-            
-            let linksHTML = '<div class="links">';
-            if (pub.links) {
-                if (pub.links.paper) {
-                    linksHTML += `<a href="${pub.links.paper}">Paper</a>`;
+
+        const sections = [
+            { type: 'conference', label: 'Conference' },
+            { type: 'journal', label: 'Journal' },
+            { type: 'preprint', label: 'Preprints' }
+        ];
+
+        sections.forEach(section => {
+            const pubs = siteData.publications
+                .filter(pub => pub.type === section.type)
+                .sort((a, b) => (b.year || 0) - (a.year || 0));
+
+            if (pubs.length === 0) return;
+
+            const heading = document.createElement('h2');
+            heading.textContent = section.label;
+            pubContainer.appendChild(heading);
+
+            pubs.forEach(pub => {
+                const div = document.createElement('div');
+                div.className = 'publication';
+
+                let linksHTML = '<div class="links">';
+                if (pub.links) {
+                    if (pub.links.paper) {
+                        linksHTML += `<a href="${pub.links.paper}">Paper</a>`;
+                    }
+                    if (pub.links.arxiv) {
+                        linksHTML += `<a href="${pub.links.arxiv}" target="_blank">arXiv</a>`;
+                    }
+                    if (pub.links.code) {
+                        linksHTML += `<a href="${pub.links.code}" target="_blank">Code</a>`;
+                    }
+                    if (pub.links.project) {
+                        linksHTML += `<a href="${pub.links.project}">Project</a>`;
+                    }
+                    if (pub.links.slides) {
+                        linksHTML += `<a href="${pub.links.slides}">Slides</a>`;
+                    }
+                    if (pub.links.demo) {
+                        linksHTML += `<a href="${pub.links.demo}">Demo</a>`;
+                    }
                 }
-                if (pub.links.code) {
-                    linksHTML += `<a href="${pub.links.code}">Code</a>`;
-                }
-                if (pub.links.project) {
-                    linksHTML += `<a href="${pub.links.project}">Project</a>`;
-                }
-                if (pub.links.slides) {
-                    linksHTML += `<a href="${pub.links.slides}">Slides</a>`;
-                }
-                if (pub.links.demo) {
-                    linksHTML += `<a href="${pub.links.demo}">Demo</a>`;
-                }
-            }
-            linksHTML += '</div>';
-            
-            div.innerHTML = `
-                <h3>${pub.title}</h3>
-                <p class="authors">${pub.authors}</p>
-                <p class="venue">${pub.venue}</p>
-                ${linksHTML}
-            `;
-            
-            pubContainer.appendChild(div);
+                linksHTML += '</div>';
+
+                div.innerHTML = `
+                    <h3>${pub.title}</h3>
+                    <p class="authors">${pub.authors}</p>
+                    <p class="venue">${pub.venue}</p>
+                    ${linksHTML}
+                `;
+
+                pubContainer.appendChild(div);
+            });
         });
     }
 }

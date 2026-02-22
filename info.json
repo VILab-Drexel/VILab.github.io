@@ -189,7 +189,43 @@
       }
     ]
   },
-  "publications": [],
+  "publications": [
+    {
+      "title": "DrawSim-PD: Simulating Student Science Drawings to Support NGSS-Aligned Teacher Diagnostic Reasoning",
+      "authors": "Arijit Chakma, Peng He, Honglu Liu, Zeyuan Wang, Tingting Li, Tiffany D. Do, and Feng Liu",
+      "venue": "arXiv preprint, 2025",
+      "year": 2025,
+      "type": "preprint",
+      "links": {
+        "paper": "project/drawsim-pd/public/drawsim-pd.pdf",
+        "arxiv": "https://arxiv.org/abs/2602.01578",
+        "code": "https://github.com/VILab-Drexel/DrawSim-PD",
+        "project": "project/drawsim-pd/"
+      }
+    },
+    {
+      "title": "Can Multimodal LLMs \"See\" Science Instruction? Benchmarking Pedagogical Reasoning in K-12 Classroom Videos",
+      "authors": "Yixuan Shen*, Peng He*, Honglu Liu, Yuyang Ji, Tingting Li, Tianlong Chen, Kaidi Xu, and Feng Liu",
+      "venue": "arXiv preprint, 2025",
+      "year": 2025,
+      "type": "preprint",
+      "links": {
+        "code": "https://github.com/VILab-Drexel/SciIBI",
+        "project": "project/sciibi/"
+      }
+    },
+    {
+      "title": "IDSelect: An RL-based Cost-Aware Selection Agent for Video-based Person Recognition",
+      "authors": "Yuyang Ji, Yixuan Shen, Kien Nguyen, Lifeng Zhou, and Feng Liu",
+      "venue": "arXiv preprint, 2025",
+      "year": 2025,
+      "type": "preprint",
+      "links": {
+        "code": "https://github.com/VILab-Drexel/IDSelect",
+        "project": "project/idselect/"
+      }
+    }
+  ],
   "vacancies": [],
   "projects": [
     {
