@@ -31,6 +31,9 @@ function loadContent() {
     // Load publications
     loadPublications();
 
+    // Load projects
+    loadProjects();
+
     // Load FAQ
     loadFAQ();
 
@@ -365,6 +368,56 @@ function loadPublications() {
             
             pubContainer.appendChild(div);
         });
+    }
+}
+
+function loadProjects() {
+    if (siteData.projects && siteData.projects.length > 0) {
+        const projContainer = document.querySelector('#projects .container');
+
+        const title = projContainer.querySelector('h1');
+        projContainer.innerHTML = '';
+        projContainer.appendChild(title);
+
+        const grid = document.createElement('div');
+        grid.className = 'project-grid';
+
+        siteData.projects.forEach(project => {
+            const card = document.createElement('a');
+            card.className = 'project-card';
+            card.href = project.url;
+
+            let linksHTML = '';
+            if (project.links) {
+                linksHTML = '<div class="project-links">';
+                if (project.links.paper) {
+                    linksHTML += `<a href="${project.links.paper}" onclick="event.stopPropagation()">Paper</a>`;
+                }
+                if (project.links.arxiv) {
+                    linksHTML += `<a href="${project.links.arxiv}" target="_blank" onclick="event.stopPropagation()">arXiv</a>`;
+                }
+                if (project.links.code) {
+                    linksHTML += `<a href="${project.links.code}" target="_blank" onclick="event.stopPropagation()">Code</a>`;
+                }
+                if (project.links.data) {
+                    linksHTML += `<a href="${project.links.data}" target="_blank" onclick="event.stopPropagation()">Data</a>`;
+                }
+                linksHTML += '</div>';
+            }
+
+            card.innerHTML = `
+                <img src="${project.image}" alt="${project.title}">
+                <div class="project-card-content">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                </div>
+                ${linksHTML}
+            `;
+
+            grid.appendChild(card);
+        });
+
+        projContainer.appendChild(grid);
     }
 }
 

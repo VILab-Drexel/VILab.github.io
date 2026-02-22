@@ -355,6 +355,75 @@ body {
     text-decoration: underline;
 }
 
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.project-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-card-content {
+    padding: 20px;
+}
+
+.project-card-content h3 {
+    color: #07294d;
+    margin-bottom: 8px;
+}
+
+.project-card-content p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.project-links {
+    display: flex;
+    gap: 10px;
+    padding: 0 20px 20px;
+}
+
+.project-links a {
+    display: inline-block;
+    padding: 6px 14px;
+    background: #07294d;
+    color: #ffffff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.project-links a:hover {
+    background: #0a3a6b;
+}
+
 /* Team Section */
 .team-list {
     display: grid;
@@ -679,7 +748,8 @@ body {
 
     .highlights,
     .team-list,
-    .contact-info {
+    .contact-info,
+    .project-grid {
         grid-template-columns: 1fr;
     }
 

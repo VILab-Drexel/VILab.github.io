@@ -191,7 +191,28 @@
   },
   "publications": [],
   "vacancies": [],
-  "projects": [],
+  "projects": [
+    {
+      "title": "DrawSim-PD",
+      "description": "Simulating Student Science Drawings to Support NGSS-Aligned Teacher Diagnostic Reasoning",
+      "image": "project/drawsim-pd/public/teaser.jpg",
+      "url": "project/drawsim-pd/",
+      "links": {
+        "paper": "project/drawsim-pd/public/drawsim-pd.pdf",
+        "arxiv": "https://arxiv.org/abs/2602.01578",
+        "code": "https://github.com/VILab-Drexel/DrawSim-PD"
+      }
+    },
+    {
+      "title": "SciIBI",
+      "description": "Benchmarking Pedagogical Reasoning in K-12 Classroom Videos",
+      "image": "project/sciibi/static/images/figure1.png",
+      "url": "project/sciibi/",
+      "links": {
+        "code": "https://github.com/VILab-Drexel/SciIBI"
+      }
+    }
+  ],
   "photos": [
     {
       "url": "https://via.placeholder.com/600x400/07294d/ffffff?text=Lab+Meeting",
