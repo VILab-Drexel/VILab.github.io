@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IDSelect: An RL-based Cost-Aware Selection Agent for Video-based Person Recognition">
+    <meta name="keywords" content="reinforcement learning, person recognition, video understanding, multi-modal, cost-aware">
+
+    <title>IDSelect - Visual Intelligence Lab</title>
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Academicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="../../index.html">
+                    <span>Visual Intelligence Lab @ Drexel</span>
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item" href="../../index.html">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero is-light">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <!-- Title -->
+                <h1 class="publication-title">
+                    IDSelect: An RL-based Cost-Aware Selection Agent<br>
+                    for Video-based Person Recognition
+                </h1>
+
+                <!-- Authors -->
+                <div class="publication-authors">
+                    <span class="author-block">
+                        <a href="#">Yuyang Ji</a><sup>1</sup>,
+                    </span>
+                    <span class="author-block">
+                        <a href="#">Yixuan Shen</a><sup>1</sup>,
+                    </span>
+                    <span class="author-block">
+                        <a href="#">Kien Nguyen</a><sup>3</sup>,
+                    </span>
+                    <span class="author-block">
+                        <a href="#">Lifeng Zhou</a><sup>2</sup>,
+                    </span>
+                    <span class="author-block">
+                        <a href="#">Feng Liu</a><sup>1+</sup>
+                    </span>
+                </div>
+
+                <!-- Author Notes -->
+                <div class="author-notes">
+                    <span>+ Corresponding author</span>
+                </div>
+
+                <!-- Affiliations -->
+                <div class="publication-affiliations">
+                    <span class="affiliation-block"><sup>1</sup>Dept. of CS, Drexel University</span>
+                    <span class="affiliation-block"><sup>2</sup>Dept. of ECE, Drexel University</span>
+                    <span class="affiliation-block"><sup>3</sup>School of EE&R, Queensland University of Technology</span>
+                </div>
+
+                <!-- Links -->
+                <div class="publication-links">
+                    <a class="button is-medium external-link is-disabled" href="#">
+                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                        <span>Paper</span>
+                    </a>
+                    <a class="button is-medium external-link is-disabled" href="#">
+                        <span class="icon"><i class="ai ai-arxiv"></i></span>
+                        <span>arXiv</span>
+                    </a>
+                    <a class="button is-medium external-link" href="https://github.com/VILab-Drexel/IDSelect" target="_blank">
+                        <span class="icon"><i class="fab fa-github"></i></span>
+                        <span>Code</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaser Section -->
+    <section class="section teaser">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <div class="has-text-centered">
+                        <img src="static/images/teaser.png" alt="IDSelect Framework Overview" class="teaser-image">
+                    </div>
+                    <p class="teaser-caption">
+                        <strong>Top:</strong> Traditional multi-modal person recognition methods (e.g., QME) use fixed model combinations for all inputs, while our IDSelect employs an RL-based cost-aware agent to adaptively select complementary models from diverse pools based on input characteristics.
+                        <strong>Bottom:</strong> Accuracy vs. computational cost on CCVID dataset. Our method achieves superior accuracy (95.9%, +1.8%) with 92.4% fewer FLOPs than QME.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract Section -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3 section-title">Abstract</h2>
+                    <div class="abstract-content">
+                        <p>
+                            Video-based person recognition achieves robust identification by integrating face, body, and gait. However, current systems waste computational resources by processing all modalities with fixed heavyweight ensembles regardless of input complexity. To address these limitations, we propose IDSelect, a reinforcement learning-based cost-aware selector that chooses one pre-trained model per modality per-sequence to optimize the accuracy-efficiency trade-off. Our key insight is that an input-conditioned selector can discover complementary model choices that surpass fixed ensembles while using substantially fewer resources. IDSelect trains a lightweight agent end-to-end using actor-critic reinforcement learning with budget-aware optimization. The reward balances recognition accuracy with computational cost, while entropy regularization prevents premature convergence. At inference, the policy selects the most probable model per modality and fuses modality-specific similarities for the final score. Extensive experiments on challenging video-based datasets demonstrate IDSelect's superior efficiency: on CCVID, it achieves 95.9% Rank-1 accuracy with 92.4% less computation than strong baselines while improving accuracy by 1.8%; on MEVID, it reduces computation by 41.3% while maintaining competitive performance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Findings Section -->
+    <section class="section key-findings">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3 section-title">Key Findings</h2>
+                    <div class="columns is-multiline">
+                        <div class="column is-3">
+                            <div class="finding-card">
+                                <div class="finding-number">95.9%</div>
+                                <div class="finding-label">Rank-1 Accuracy on CCVID</div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
+                            <div class="finding-card">
+                                <div class="finding-number">92.4%</div>
+                                <div class="finding-label">Computation Reduction on CCVID</div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
+                            <div class="finding-card">
+                                <div class="finding-number">+1.8%</div>
+                                <div class="finding-label">Accuracy Improvement over Baselines</div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
+                            <div class="finding-card">
+                                <div class="finding-number">41.3%</div>
+                                <div class="finding-label">Computation Reduction on MEVID</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Method Overview Section -->
+    <section class="section" style="background-color: #f5f5f5;">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3 section-title">Method Overview</h2>
+
+                    <div class="method-content">
+                        <p>
+                            IDSelect introduces an RL-based cost-aware agent that dynamically selects one pre-trained model per modality for each input, discovering complementary model combinations that outperform static ensembles while using significantly fewer computational resources.
+                        </p>
+
+                        <ul class="content-list">
+                            <li><strong>RL-based Cost-Aware Selection:</strong> IDSelect employs an RL-based cost-aware agent that discovers complementary model combinations across face, gait, and body modalities for efficient whole-body recognition.</li>
+                            <li><strong>Actor-Critic Training with Budget Control:</strong> A lightweight selection agent is trained end-to-end via an actor-critic reinforcement learning framework with a Lagrangian budget controller, enabling stable and budget-aware model selection.</li>
+                            <li><strong>Superior Accuracy-Cost Trade-offs:</strong> Extensive experiments on video-based whole-body datasets demonstrate that IDSelect discovers superior model combinations, achieving better accuracy-cost trade-offs than fixed and quality-guided fusion baselines.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3 section-title">Results</h2>
+
+                    <div class="has-text-centered">
+                        <img src="static/images/results.png" alt="Selection Frequency Analysis" class="benchmark-figure">
+                    </div>
+                    <p class="figure-caption">Selection frequency of each model across face, gait, and body modalities on the CCVID dataset. IDSelect learns to select complementary models across modalities, demonstrating input-adaptive selection behavior.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BibTeX Section -->
+    <section class="section bibtex-section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3 section-title">BibTeX</h2>
+                    <div class="bibtex-block">
+                        <button class="copy-button" onclick="copyBibtex()">
+                            <span class="icon"><i class="fas fa-copy"></i></span>
+                            <span>Copy</span>
+                        </button>
+                        <pre id="bibtex-content">@article{ji2026idselect,
+  title={IDSelect: An RL-based Cost-Aware Selection Agent for Video-based Person Recognition},
+  author={Ji, Yuyang and Shen, Yixuan and Nguyen, Kien and Zhou, Lifeng and Liu, Feng},
+  journal={arXiv preprint},
+  year={2026}
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    &copy; 2026 <a href="../../index.html">Visual Intelligence Lab @ Drexel University</a>. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar burger toggle for mobile
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+        });
+
+        // Copy BibTeX to clipboard
+        function copyBibtex() {
+            const bibtex = document.getElementById('bibtex-content').innerText;
+            navigator.clipboard.writeText(bibtex).then(() => {
+                const btn = document.querySelector('.copy-button');
+                btn.classList.add('copied');
+                btn.innerHTML = '<span class="icon"><i class="fas fa-check"></i></span><span>Copied!</span>';
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.innerHTML = '<span class="icon"><i class="fas fa-copy"></i></span><span>Copy</span>';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

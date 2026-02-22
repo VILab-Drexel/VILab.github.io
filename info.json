@@ -211,6 +211,15 @@
       "links": {
         "code": "https://github.com/VILab-Drexel/SciIBI"
       }
+    },
+    {
+      "title": "IDSelect",
+      "description": "An RL-based Cost-Aware Selection Agent for Video-based Person Recognition",
+      "image": "project/idselect/static/images/teaser.png",
+      "url": "project/idselect/",
+      "links": {
+        "code": "https://github.com/VILab-Drexel/IDSelect"
+      }
     }
   ],
   "photos": [

@@ -1,0 +1,437 @@
+/* Nerfies-style Academic Project Page CSS */
+
+:root {
+  --drexel-navy: #07294d;
+  --drexel-gold: #ffc600;
+  --text-primary: #363636;
+  --text-secondary: #4a4a4a;
+  --bg-light: #f5f5f5;
+  --white: #ffffff;
+}
+
+/* Typography */
+body {
+  font-family: 'Noto Sans', sans-serif;
+  color: var(--text-primary);
+}
+
+.title.is-1,
+.title.is-2,
+.title.is-3 {
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 700;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--drexel-navy);
+}
+
+.navbar-brand .navbar-item {
+  color: var(--white);
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.navbar-brand .navbar-item:hover {
+  background-color: transparent;
+  color: var(--drexel-gold);
+}
+
+.navbar-item,
+.navbar-link {
+  color: var(--white);
+}
+
+.navbar-item:hover,
+.navbar-link:hover {
+  background-color: transparent;
+  color: var(--drexel-gold);
+}
+
+.navbar-burger span {
+  background-color: var(--white);
+}
+
+/* Hero Section */
+.hero.is-light {
+  background-color: var(--white);
+}
+
+.publication-title {
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .publication-title {
+    font-size: 1.75rem;
+  }
+}
+
+/* Author Block */
+.publication-authors {
+  font-size: 1.1rem;
+  line-height: 2;
+}
+
+.author-block {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.author-block a {
+  color: var(--drexel-navy);
+}
+
+.author-block a:hover {
+  color: var(--drexel-gold);
+}
+
+.author-block sup {
+  font-size: 0.7em;
+  margin-left: 0.1em;
+}
+
+.author-notes {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+/* Affiliations */
+.publication-affiliations {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.affiliation-block {
+  display: inline-block;
+  margin: 0 0.75rem;
+}
+
+.affiliation-block sup {
+  font-size: 0.8em;
+  margin-right: 0.2em;
+}
+
+/* Conference Badge */
+.publication-venue {
+  margin-top: 1rem;
+}
+
+.publication-venue .tag {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--drexel-navy);
+  color: var(--white);
+}
+
+/* Publication Links */
+.publication-links {
+  margin-top: 1.5rem;
+}
+
+.publication-links .button {
+  margin: 0.25rem;
+}
+
+.publication-links .button .icon {
+  margin-right: 0.25rem;
+}
+
+.external-link {
+  background-color: var(--drexel-navy);
+  border-color: var(--drexel-navy);
+  color: var(--white);
+}
+
+.external-link:hover {
+  background-color: #0a3a6b;
+  border-color: #0a3a6b;
+  color: var(--white);
+}
+
+.external-link.is-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Section Styling */
+.section {
+  padding: 3rem 1.5rem;
+}
+
+.section-title {
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--drexel-gold);
+  display: inline-block;
+}
+
+/* Teaser */
+.teaser {
+  background-color: var(--bg-light);
+}
+
+.teaser-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.teaser-caption {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-align: justify;
+  line-height: 1.6;
+}
+
+/* Abstract */
+.abstract-content {
+  text-align: justify;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* Key Findings */
+.key-findings {
+  background-color: var(--bg-light);
+}
+
+.finding-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.finding-card:hover {
+  transform: translateY(-4px);
+}
+
+.finding-number {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--drexel-navy);
+  margin-bottom: 0.5rem;
+}
+
+.finding-label {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* Benchmark Overview */
+.benchmark-figure {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.benchmark-description {
+  text-align: justify;
+  line-height: 1.7;
+}
+
+/* Method Section */
+.method-content {
+  text-align: justify;
+  line-height: 1.7;
+}
+
+.method-figure {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+/* Results Table */
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.results-table th,
+.results-table td {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.results-table th {
+  background-color: var(--drexel-navy);
+  color: var(--white);
+  font-weight: 600;
+}
+
+.results-table tr:nth-child(even) {
+  background-color: var(--bg-light);
+}
+
+.results-table tr:hover {
+  background-color: #e8e8e8;
+}
+
+.results-table .best {
+  font-weight: 700;
+  color: var(--drexel-navy);
+}
+
+/* Figure Caption */
+.figure-caption {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 0.75rem;
+  text-align: center;
+  font-style: italic;
+}
+
+/* BibTeX Section */
+.bibtex-section {
+  background-color: var(--bg-light);
+}
+
+.bibtex-block {
+  position: relative;
+  background-color: var(--white);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+.bibtex-block pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: 'Castoro', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background-color: var(--drexel-navy);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease;
+}
+
+.copy-button:hover {
+  background-color: #0a3a6b;
+}
+
+.copy-button.copied {
+  background-color: #48c774;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--drexel-navy);
+  color: var(--white);
+  padding: 2rem 1.5rem;
+}
+
+.footer a {
+  color: var(--drexel-gold);
+}
+
+.footer a:hover {
+  color: var(--white);
+}
+
+/* Image Placeholder */
+.image-placeholder {
+  background-color: #e0e0e0;
+  border: 2px dashed #999;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .publication-links .button {
+    width: 100%;
+    margin: 0.25rem 0;
+  }
+
+  .affiliation-block {
+    display: block;
+    margin: 0.25rem 0;
+  }
+
+  .finding-card {
+    margin-bottom: 1rem;
+  }
+
+  .results-table {
+    font-size: 0.85rem;
+  }
+
+  .results-table th,
+  .results-table td {
+    padding: 0.5rem;
+  }
+}
+
+/* Subsection Headers */
+.subsection-title {
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--drexel-navy);
+}
+
+/* Lists in Content */
+.content-list {
+  margin-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.content-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Highlight Box */
+.highlight-box {
+  background-color: #fff8e1;
+  border-left: 4px solid var(--drexel-gold);
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.highlight-box p {
+  margin: 0;
+}
