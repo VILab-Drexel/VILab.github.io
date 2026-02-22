@@ -373,7 +373,7 @@ function loadPublications() {
 
 function loadProjects() {
     if (siteData.projects && siteData.projects.length > 0) {
-        const projContainer = document.querySelector('#projects .container');
+        const projContainer = document.querySelector('#research .container');
 
         const title = projContainer.querySelector('h1');
         projContainer.innerHTML = '';
