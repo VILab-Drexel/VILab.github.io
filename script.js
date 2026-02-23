@@ -440,6 +440,7 @@ function loadPhotos() {
 function loadContact() {
     if (siteData.contact) {
         const contactInfo = document.querySelector('.contact-info');
+        if (!contactInfo) return;
         contactInfo.innerHTML = '';
 
         // Name
