@@ -221,6 +221,18 @@
       }
     },
     {
+      "title": "LocalScore: Local Density-Aware Similarity Scoring for Biometrics",
+      "authors": "Yiyang Su, Minchul Kim, Jie Zhu, Christopher Perry, Feng Liu, Anil Jain, Xiaoming Liu",
+      "venue": "arXiv preprint, 2026",
+      "year": 2026,
+      "type": "preprint",
+      "links": {
+        "project": "",
+        "paper": "",
+        "code": ""
+      }
+    },
+    {
       "title": "From 3D Pose to Prose: Biomechanics-Grounded Vision-Language Coaching",
       "authors": "Yuyang Ji, Yixuan Shen, Shengjie Zhu, Yu Kong, Feng Liu",
       "venue": "In Proceeding of IEEE Computer Vision and Pattern Recognition (CVPR 2026), Denver CO, Jun. 2026",
