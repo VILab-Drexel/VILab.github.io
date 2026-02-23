@@ -50,30 +50,50 @@ function loadLabInfo() {
         document.querySelector('title').textContent = siteData.lab.name;
         document.querySelector('.intro').textContent = siteData.lab.description;
     }
+}
 
-    // Populate PI card from faculty data
-    if (siteData.team && siteData.team.faculty && siteData.team.faculty.length > 0) {
-        const pi = siteData.team.faculty[0];
-        const piPhoto = document.querySelector('.pi-photo');
-        const piName = document.querySelector('.pi-name');
-        const piLinks = document.querySelector('.pi-links');
+// ── Hero Image Carousel ───────────────────────────────────────────────────────
+function initCarousel() {
+    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+    const dots   = Array.from(document.querySelectorAll('.carousel-dots .dot'));
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
 
-        if (piPhoto && pi.image) {
-            piPhoto.src = pi.image;
-            piPhoto.alt = pi.name;
-        }
-        if (piName) {
-            piName.textContent = pi.name;
-            if (pi.website) piName.href = pi.website;
-        }
-        if (piLinks) {
-            let linksHTML = '';
-            if (pi.google_scholar) linksHTML += `<a href="${pi.google_scholar}" target="_blank" rel="noopener" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>`;
-            if (pi.linkedin) linksHTML += `<a href="${pi.linkedin}" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>`;
-            if (pi.email) linksHTML += `<a href="mailto:${pi.email}" title="Email"><i class="fas fa-envelope"></i></a>`;
-            piLinks.innerHTML = linksHTML;
-        }
+    if (!slides.length) return;
+
+    let current = 0;
+    let autoTimer = null;
+
+    function showSlide(index) {
+        slides[current].classList.remove('active');
+        if (dots[current]) dots[current].classList.remove('active');
+
+        current = (index + slides.length) % slides.length;
+
+        slides[current].classList.add('active');
+        if (dots[current]) dots[current].classList.add('active');
     }
+
+    function startAuto() {
+        autoTimer = setInterval(() => showSlide(current + 1), 4500);
+    }
+
+    function resetAuto() {
+        clearInterval(autoTimer);
+        startAuto();
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => { showSlide(current - 1); resetAuto(); });
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => { showSlide(current + 1); resetAuto(); });
+    }
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => { showSlide(i); resetAuto(); });
+    });
+
+    startAuto();
 }
 
 function loadAboutHome() {
@@ -582,6 +602,8 @@ function tryInitMap() {
 
 // Navigation functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialise hero image carousel
+    initCarousel();
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.section');
     const hamburger = document.querySelector('.hamburger');
