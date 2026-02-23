@@ -309,20 +309,19 @@ function loadPublications() {
                 const linkOrder = [
                     { key: 'project', label: 'Project' },
                     { key: 'paper', label: 'Paper' },
-                    { key: 'arxiv', label: 'arXiv' },
                     { key: 'code', label: 'Code' }
                 ];
                 const linkParts = [];
                 linkOrder.forEach(item => {
                     const url = pub.links && pub.links[item.key];
                     if (url) {
-                        const target = (item.key === 'arxiv' || item.key === 'code') ? ' target="_blank"' : '';
+                        const target = item.key === 'code' ? ' target="_blank"' : '';
                         linkParts.push(`<a href="${url}"${target}>${item.label}</a>`);
+                    } else {
+                        linkParts.push(`<span class="link-placeholder">${item.label}</span>`);
                     }
                 });
-                const linksHTML = linkParts.length > 0
-                    ? `<span class="links">${linkParts.join(' | ')}</span>`
-                    : '';
+                const linksHTML = `<span class="links">${linkParts.join(' | ')}</span>`;
 
                 li.innerHTML = `
                     <span class="pub-title">${pub.title}</span>
