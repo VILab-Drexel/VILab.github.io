@@ -255,14 +255,7 @@ function loadTeam() {
                 tdName.textContent = person.name;
             }
 
-            let desc = '';
-            if (person.degree) desc += person.degree + ' ';
-            if (person.duration) desc += '(' + person.duration + ')';
-            if (person.current_position) {
-                desc += (desc ? ' ' : '') + 'Now: ' + person.current_position;
-            }
-            if (!desc && person.description) desc = person.description;
-            tdDesc.textContent = desc.trim();
+            tdDesc.textContent = person.description || '';
 
             tr.appendChild(tdName);
             tr.appendChild(tdDesc);
