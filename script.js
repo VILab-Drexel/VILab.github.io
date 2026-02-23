@@ -335,9 +335,8 @@ function loadPublications() {
         pubContainer.appendChild(title);
 
         const sections = [
-            { type: 'conference', label: 'Conference' },
-            { type: 'journal', label: 'Journal' },
-            { type: 'preprint', label: 'Preprints' }
+            { type: 'preprint', label: 'Preprints' },
+            { type: 'published', label: 'Published' }
         ];
 
         sections.forEach(section => {
@@ -388,6 +387,11 @@ function loadPublications() {
                 pubContainer.appendChild(div);
             });
         });
+
+        const scholarNote = document.createElement('p');
+        scholarNote.style.marginTop = '40px';
+        scholarNote.innerHTML = 'For a complete list of publications, please see <a href="https://scholar.google.com/citations?user=8Y9iUz0AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>.';
+        pubContainer.appendChild(scholarNote);
     }
 }
 
