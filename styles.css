@@ -301,6 +301,242 @@ body {
     font-size: 18px;
 }
 
+/* Openings / Vacancies Section */
+.openings-intro {
+    font-size: 17px;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+/* Intern type cards */
+.intern-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.intern-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 24px 20px;
+    border-top: 4px solid #07294d;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.intern-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(7, 41, 77, 0.12);
+}
+
+.intern-card-icon {
+    font-size: 1.8rem;
+    color: #07294d;
+    margin-bottom: 12px;
+}
+
+.intern-card h3 {
+    font-size: 16px;
+    color: #07294d;
+    margin-bottom: 8px;
+}
+
+.intern-card p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.intern-badge {
+    display: inline-block;
+    background: #ffc600;
+    color: #07294d;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* Generic openings block */
+.openings-block {
+    margin-bottom: 36px;
+    padding: 28px 30px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e8eaed;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.openings-block h2 {
+    margin: 0 0 18px 0;
+    color: #07294d;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.openings-section-icon {
+    color: #ffc600;
+    font-size: 18px;
+}
+
+/* Plain bullet list */
+.openings-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.openings-list li {
+    padding: 8px 0 8px 22px;
+    position: relative;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.openings-list li:last-child {
+    border-bottom: none;
+}
+
+.openings-list li::before {
+    content: "•";
+    color: #07294d;
+    font-weight: 700;
+    position: absolute;
+    left: 4px;
+    top: 8px;
+}
+
+/* Checklist style */
+.openings-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.openings-checklist li {
+    padding: 9px 0 9px 28px;
+    position: relative;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.openings-checklist li:last-child {
+    border-bottom: none;
+}
+
+.openings-checklist li::before {
+    content: "✓";
+    color: #07294d;
+    font-weight: 700;
+    position: absolute;
+    left: 2px;
+    top: 9px;
+}
+
+.openings-checklist--gold li::before {
+    color: #e6a800;
+}
+
+/* Note text inside block */
+.openings-note {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 14px;
+    font-style: italic;
+}
+
+/* Email link */
+.openings-email {
+    color: #0066cc;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.openings-email:hover {
+    text-decoration: underline;
+}
+
+/* Email subject template box */
+.email-template-box {
+    margin-top: 18px;
+    background: #f0f4f8;
+    border: 1px solid #cdd8e3;
+    border-left: 4px solid #07294d;
+    border-radius: 6px;
+    padding: 14px 18px;
+}
+
+.email-template-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #07294d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.email-template-box code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: #333;
+    word-break: break-word;
+}
+
+/* Two-column layout for Offer / Look-For */
+.openings-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 36px;
+}
+
+.openings-two-col .openings-block {
+    margin-bottom: 0;
+}
+
+.openings-block--drexel {
+    background: #f8f9fa;
+    border-left: 4px solid #07294d;
+}
+
+.openings-block--drexel p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.openings-block--drexel p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive: stack two-col on narrow screens */
+@media (max-width: 768px) {
+    .openings-two-col {
+        grid-template-columns: 1fr;
+    }
+
+    .intern-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .openings-block {
+        padding: 20px 16px;
+    }
+}
+
 /* FAQ Section */
 .faq-item {
     margin-bottom: 40px;
