@@ -72,7 +72,7 @@
       {
         "name": "Feng Liu",
         "role": "Assistant Professor",
-        "description": "Department of Computer Science, Drexel University",
+        "description": "Computer vision, machine learning, pattern recognition, 3D vision, 3D human modeling, biometrics",
         "email": "fl397@drexel.edu",
         "website": "https://liufeng2915.github.io/",
         "google_scholar": "https://scholar.google.com/citations?user=8Y9iUz0AAAAJ&hl",
@@ -82,16 +82,16 @@
     ],
     "phd_students": [
       {
-        "name": "Yuyang Ji",
-        "description": "Computer Vision",
+        "name": "Yuyang Ji (Fall 2025 -)",
+        "description": "Computer vision, physical 3D human perception and modeling, AI + science",
         "email": "yj428@drexel.edu",
         "image": "assets/students/Yuyang_pic.jpg",
         "school": "Fall 2025 -, Drexel University",
         "start_quarter": "2025 Fall"
       },
       {
-        "name": "Yixuan Shen",
-        "description": "Physical 3D modeling",
+        "name": "Yixuan Shen (Spring 2026 -)",
+        "description": "Computer vision, physical 3D human perception and modeling, Deepfake detection",
         "image": "assets/students/Yixuan.jpg",
         "school": "Spring 2026 -, Drexel University",
         "email": "ys844@drexel.edu",
@@ -99,6 +99,10 @@
       }
     ],
     "masters_students": [
+      {
+        "name": "Sam Pagon",
+        "description": "Deepfake detection (image, audio, and video)"
+      },
       {
         "name": "Anthony Chen",
         "description": "Gait clinic",
