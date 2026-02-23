@@ -100,13 +100,6 @@
     ],
     "masters_students": [
       {
-        "name": "Behafarin Emam",
-        "description": "WiFi data-based 3D human modeling",
-        "email": "be379@drexel.edu",
-        "image": "assets/students/Behafarin_pic.jpg",
-        "school": "Drexel University"
-      },
-      {
         "name": "Anthony Chen",
         "description": "Gait clinic",
         "school": "WashU"
@@ -116,21 +109,8 @@
         "description": "4D rigging",
         "school": "Australian National University"
       },
-      {
-        "name": "Helen Fan",
-        "description": "Visual AI + Education",
-        "school": "UC Berkeley",
-        "email": "hf385@drexel.edu"
-      }
     ],
     "undergraduate_students": [
-      {
-        "name": "Channacy Un",
-        "description": "AI & Building",
-        "school": "Drexel University",
-        "email": "cu62@drexel.edu",
-        "image": "assets/students/Channacy.jpg"
-      },
       {
         "name": "Ariji Chakma",
         "description": "Controller Image Generation",
@@ -147,34 +127,39 @@
         "school": "Drexel University",
         "image": "assets/students/Safa_pic.jpg"
       },
-      {
-        "name": "Shengyang Dong",
-        "description": "Discriminative 3D human digitization",
-        "school": "Drexel University",
-        "email": "sd3666@drexel.edu",
-        "image": "assets/students/Shengyang_pic.jpg"
-      },
-      {
-        "name": "Tasmia Rahman",
-        "description": "Deepfake detection",
-        "school": "Drexel University",
-        "email": "tjr364@drexel.edu"
-      },
-      {
-        "name": "Lucas Hathaway",
-        "description": "4D motion generation",
-        "school": "Princeton University"
-      }
     ],
     "former_members": [
       {
         "name": "Rui Xia",
-        "degree": "MS",
-        "duration": "Fall 2024-Spring 2025"
+        "description": "Fall 2024-Spring 2025"
       },
       {
         "name": "Ziang Gu",
-        "duration": "Fall 2024-Spring 2025"
+        "description": "Fall 2024-Spring 2025"
+      }
+      {
+        "name": "Shengyang Dong",
+        "description": "Fall 2024-Fall 2025"
+      }
+      {
+        "name": "Behafarin Emam",
+        "description": "MS (Fall 2024-Fall 2025)"
+      }
+      {
+        "name": "Channacy Un",
+        "description": "Spring 2025-Fall 2025"
+      }
+      {
+        "name": "Lucas Hathaway",
+        "description": "Summer 2025"
+      }
+      {
+        "name": "Tasmia Rahman",
+        "description": "Summer 2025"
+      }
+      {
+        "name": "Helen Fan",
+        "description": "Summer 2025"
       }
     ]
   },
