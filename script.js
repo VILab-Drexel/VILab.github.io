@@ -302,41 +302,37 @@ function loadPublications() {
             heading.textContent = section.label;
             pubContainer.appendChild(heading);
 
-            const ul = document.createElement('ul');
-            ul.className = 'publication-list';
-
             pubs.forEach(pub => {
-                const li = document.createElement('li');
-                li.className = 'publication';
+                const div = document.createElement('div');
+                div.className = 'publication';
 
                 const linkOrder = [
                     { key: 'project', label: 'Project' },
                     { key: 'paper', label: 'Paper' },
+                    { key: 'arxiv', label: 'arXiv' },
                     { key: 'code', label: 'Code' }
                 ];
-                const linkParts = [];
+                let linksHTML = '<div class="links">';
                 linkOrder.forEach(item => {
                     const url = pub.links && pub.links[item.key];
                     if (url) {
-                        const target = (item.key === 'code' || item.key === 'paper') ? ' target="_blank" rel="noopener noreferrer"' : '';
-                        linkParts.push(`<a href="${url}"${target}>${item.label}</a>`);
+                        const target = (item.key === 'paper' || item.key === 'arxiv' || item.key === 'code') ? ' target="_blank" rel="noopener noreferrer"' : '';
+                        linksHTML += `<a href="${url}"${target}>${item.label}</a>`;
                     } else {
-                        linkParts.push(`<span class="link-placeholder">${item.label}</span>`);
+                        linksHTML += `<span class="link-placeholder">${item.label}</span>`;
                     }
                 });
-                const linksHTML = `<span class="links">${linkParts.join(' | ')}</span>`;
+                linksHTML += '</div>';
 
-                li.innerHTML = `
-                    <span class="pub-title">${pub.title}</span>
-                    <span class="authors">${pub.authors}</span>
-                    <span class="venue">${pub.venue}</span>
+                div.innerHTML = `
+                    <h3>${pub.title}</h3>
+                    <p class="authors">${pub.authors}</p>
+                    <p class="venue">${pub.venue}</p>
                     ${linksHTML}
                 `;
 
-                ul.appendChild(li);
+                pubContainer.appendChild(div);
             });
-
-            pubContainer.appendChild(ul);
         });
 
     }
