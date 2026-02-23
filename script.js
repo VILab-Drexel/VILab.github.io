@@ -318,7 +318,7 @@ function loadPublications() {
                 linkOrder.forEach(item => {
                     const url = pub.links && pub.links[item.key];
                     if (url) {
-                        const target = item.key === 'code' ? ' target="_blank"' : '';
+                        const target = (item.key === 'code' || item.key === 'paper') ? ' target="_blank" rel="noopener noreferrer"' : '';
                         linkParts.push(`<a href="${url}"${target}>${item.label}</a>`);
                     } else {
                         linkParts.push(`<span class="link-placeholder">${item.label}</span>`);
