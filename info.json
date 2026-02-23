@@ -108,7 +108,7 @@
         "name": "Pengxiao Han",
         "description": "4D rigging",
         "school": "Australian National University"
-      },
+      }
     ],
     "undergraduate_students": [
       {
@@ -126,7 +126,7 @@
         "email": "seo52@drexel.edu",
         "school": "Drexel University",
         "image": "assets/students/Safa_pic.jpg"
-      },
+      }
     ],
     "former_members": [
       {
