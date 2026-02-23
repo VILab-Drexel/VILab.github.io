@@ -178,152 +178,97 @@ function loadAbout() {
 }
 
 function loadTeam() {
-    if (siteData.team) {
-        // Load Faculty
-        loadTeamSection('faculty', 'Faculty');
-        
-        // Load PhD Students
-        loadTeamSection('phd_students', 'PhD Students');
-        
-        // Load Masters Students
-        loadTeamSection('masters_students', 'Masters Students');
-        
-        // Load Undergraduate Students
-        loadTeamSection('undergraduate_students', 'Undergraduate Students');
-        
-        // Load Alumni (includes former members)
-        loadAlumni();
-    }
-}
+    if (!siteData.team) return;
 
-function loadTeamSection(sectionKey, sectionTitle) {
-    const members = siteData.team[sectionKey];
-    if (!members || members.length === 0) return;
-    
-    // Find the section header
-    const headers = document.querySelectorAll('#team h2');
-    let targetHeader = null;
-    headers.forEach(header => {
-        if (header.textContent === sectionTitle) {
-            targetHeader = header;
-        }
-    });
-    
-    if (!targetHeader) return;
-    
-    // Find the team-list div after the header
-    const teamList = targetHeader.nextElementSibling;
-    if (!teamList) return;
-    
-    teamList.innerHTML = '';
-    
-    members.forEach(member => {
-        const div = document.createElement('div');
-        div.className = 'member';
-        
-        // Create photo element
-        let photoHTML = '';
-        if (member.image) {
-            photoHTML = `
-                <div class="member-photo">
-                    <img src="${member.image}" alt="${member.name}">
-                </div>
-            `;
-        } else {
-            photoHTML = `
-                <div class="member-photo">
-                    <div class="placeholder-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                </div>
-            `;
-        }
-        
-        // Create links HTML
-        let linksHTML = '<div class="member-links">';
-        if (member.email) {
-            linksHTML += `<a href="mailto:${member.email}" title="Email"><i class="fas fa-envelope"></i></a>`;
-        }
-        if (member.website) {
-            linksHTML += `<a href="${member.website}" target="_blank" title="Website"><i class="fas fa-globe"></i></a>`;
-        }
-        if (member.github) {
-            linksHTML += `<a href="${member.github}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>`;
-        }
-        if (member.linkedin) {
-            linksHTML += `<a href="${member.linkedin}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>`;
-        }
-        if (member.google_scholar) {
-            linksHTML += `<a href="${member.google_scholar}" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>`;
-        }
-        linksHTML += '</div>';
-        
-        // Build member card
-        let memberHTML = photoHTML;
-        memberHTML += `<h3>${member.name}</h3>`;
-        if (member.role) {
-            memberHTML += `<p class="role">${member.role}</p>`;
-        }
-        if (member.description) {
-            memberHTML += `<p>${member.description}</p>`;
-        }
-        if (member.school) {
-            memberHTML += `<p class="school">${member.school}</p>`;
-        }
-        memberHTML += linksHTML;
-        
-        div.innerHTML = memberHTML;
-        teamList.appendChild(div);
-    });
-}
+    const container = document.querySelector('#team .container');
+    const title = container.querySelector('h1');
+    container.innerHTML = '';
+    container.appendChild(title);
 
-function loadAlumni() {
-    const alumniList = document.querySelector('.alumni-list');
-    if (!alumniList) return;
-    
-    alumniList.innerHTML = '';
-    
-    // Combine both former_members and alumni
+    const sections = [
+        { key: 'faculty', label: 'Faculty' },
+        { key: 'phd_students', label: 'PhD Students' },
+        { key: 'masters_students', label: 'Masters Students' },
+        { key: 'undergraduate_students', label: 'Undergraduate Students' }
+    ];
+
+    sections.forEach(section => {
+        const members = siteData.team[section.key];
+        if (!members || members.length === 0) return;
+
+        const heading = document.createElement('h2');
+        heading.textContent = section.label;
+        container.appendChild(heading);
+
+        const table = document.createElement('table');
+        table.className = 'people-table';
+        table.innerHTML = '<colgroup><col width="30%"><col width="70%"></colgroup>';
+        const tbody = document.createElement('tbody');
+
+        members.forEach(member => {
+            const tr = document.createElement('tr');
+            const tdName = document.createElement('td');
+            const tdDesc = document.createElement('td');
+
+            const link = member.website || member.linkedin || member.google_scholar;
+            if (link) {
+                tdName.innerHTML = `<a href="${link}" target="_blank">${member.name}</a>`;
+            } else {
+                tdName.textContent = member.name;
+            }
+
+            tdDesc.textContent = member.description || '';
+
+            tr.appendChild(tdName);
+            tr.appendChild(tdDesc);
+            tbody.appendChild(tr);
+        });
+
+        table.appendChild(tbody);
+        container.appendChild(table);
+    });
+
+    // Alumni
     const allAlumni = [];
-    
-    if (siteData.team.former_members) {
-        allAlumni.push(...siteData.team.former_members);
+    if (siteData.team.former_members) allAlumni.push(...siteData.team.former_members);
+    if (siteData.team.alumni) allAlumni.push(...siteData.team.alumni);
+
+    if (allAlumni.length > 0) {
+        const heading = document.createElement('h2');
+        heading.textContent = 'Alumni';
+        container.appendChild(heading);
+
+        const table = document.createElement('table');
+        table.className = 'people-table';
+        table.innerHTML = '<colgroup><col width="30%"><col width="70%"></colgroup>';
+        const tbody = document.createElement('tbody');
+
+        allAlumni.forEach(person => {
+            const tr = document.createElement('tr');
+            const tdName = document.createElement('td');
+            const tdDesc = document.createElement('td');
+
+            const link = person.website || person.linkedin || person.google_scholar;
+            if (link) {
+                tdName.innerHTML = `<a href="${link}" target="_blank">${person.name}</a>`;
+            } else {
+                tdName.textContent = person.name;
+            }
+
+            let desc = person.role || person.degree || person.description || '';
+            if (person.current_position) {
+                desc += (desc ? ' ' : '') + 'Now: ' + person.current_position;
+            }
+            tdDesc.textContent = desc;
+
+            tr.appendChild(tdName);
+            tr.appendChild(tdDesc);
+            tbody.appendChild(tr);
+        });
+
+        table.appendChild(tbody);
+        container.appendChild(table);
     }
-    
-    if (siteData.team.alumni) {
-        allAlumni.push(...siteData.team.alumni);
-    }
-    
-    if (allAlumni.length === 0) return;
-    
-    allAlumni.forEach(person => {
-        const div = document.createElement('div');
-        div.className = 'alumni-item';
-        
-        let html = `<h3>${person.name}</h3>`;
-        
-        // Handle role, degree, or description
-        if (person.role) {
-            html += `<p class="degree">${person.role}</p>`;
-        } else if (person.degree) {
-            html += `<p class="degree">${person.degree}</p>`;
-        } else if (person.description) {
-            html += `<p class="degree">${person.description}</p>`;
-        }
-        
-        // Show thesis if available
-        if (person.thesis) {
-            html += `<p class="thesis"><em>"${person.thesis}"</em></p>`;
-        }
-        
-        // Show current position
-        if (person.current_position) {
-            html += `<p class="current-position">Now: ${person.current_position}</p>`;
-        }
-        
-        div.innerHTML = html;
-        alumniList.appendChild(div);
-    });
 }
 
 function loadPublications() {

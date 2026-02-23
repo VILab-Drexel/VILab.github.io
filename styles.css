@@ -430,102 +430,27 @@ body {
     background: #0a3a6b;
 }
 
-/* Team Section */
-.team-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-bottom: 40px;
-}
-
-.member {
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.member-photo {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 15px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.member-photo img {
+/* People Section */
+.people-table {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    border-collapse: collapse;
+    margin-bottom: 30px;
 }
 
-.placeholder-avatar {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    font-size: 60px;
+.people-table td {
+    padding: 8px 12px;
+    vertical-align: top;
+    border-bottom: 1px solid #eee;
+    color: #555;
 }
 
-.member h3 {
-    margin-bottom: 5px;
-}
-
-.role {
+.people-table a {
     color: #0066cc;
-    font-weight: 500;
-    margin-bottom: 8px;
+    text-decoration: none;
 }
 
-.school {
-    color: #888;
-    font-size: 0.9rem;
-    font-style: italic;
-    margin-top: 8px;
-}
-
-.member-links {
-    display: flex;
-    gap: 12px;
-    margin-top: 12px;
-    justify-content: center;
-}
-
-.member-links a {
-    color: #666;
-    font-size: 20px;
-    transition: color 0.3s ease;
-}
-
-.member-links a:hover {
-    color: #07294d;
-}
-
-.member-links .fa-envelope:hover {
-    color: #d44638;
-}
-
-.member-links .fa-github:hover {
-    color: #333;
-}
-
-.member-links .fa-linkedin:hover {
-    color: #0077b5;
-}
-
-.member-links .fa-globe:hover {
-    color: #07294d;
-}
-
-.member-links .fa-graduation-cap:hover {
-    color: #4285f4;
+.people-table a:hover {
+    text-decoration: underline;
 }
 
 /* Photos Section */
@@ -584,41 +509,6 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 8px;
-}
-
-/* Alumni */
-.alumni-list {
-    margin-top: 20px;
-}
-
-.alumni-item {
-    padding: 20px;
-    margin-bottom: 15px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid #07294d;
-}
-
-.alumni-item h3 {
-    margin-bottom: 8px;
-    font-size: 1.1rem;
-}
-
-.degree {
-    color: #0066cc;
-    font-weight: 500;
-    margin-bottom: 5px;
-}
-
-.current-position {
-    color: #666;
-    margin-top: 8px;
-}
-
-.thesis {
-    color: #555;
-    margin: 8px 0;
-    font-size: 0.95rem;
 }
 
 /* Contact Section */
@@ -693,8 +583,7 @@ body {
         padding: 15px;
     }
 
-    .highlights,
-    .team-list {
+    .highlights {
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 }
@@ -753,7 +642,6 @@ body {
     }
 
     .highlights,
-    .team-list,
     .contact-info,
     .project-grid {
         grid-template-columns: 1fr;
@@ -769,18 +657,8 @@ body {
     }
 
     .publication,
-    .faq-item,
-    .alumni-item {
+    .faq-item {
         padding: 15px;
-    }
-
-    .member-photo {
-        width: 120px;
-        height: 120px;
-    }
-
-    .placeholder-avatar {
-        font-size: 50px;
     }
 
     /* About section mobile */
@@ -830,26 +708,8 @@ body {
         font-size: 0.95rem;
     }
 
-    .highlight-item,
-    .member {
+    .highlight-item {
         padding: 15px;
-    }
-
-    .member-photo {
-        width: 100px;
-        height: 100px;
-    }
-
-    .placeholder-avatar {
-        font-size: 40px;
-    }
-
-    .member-links {
-        gap: 10px;
-    }
-
-    .member-links a {
-        font-size: 18px;
     }
 
     #map {

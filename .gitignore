@@ -25,6 +25,7 @@ yarn.lock
 *.tmp
 *.temp
 .cache/
+examples/
 
 # Build output
 dist/
