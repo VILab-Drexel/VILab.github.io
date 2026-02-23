@@ -332,14 +332,15 @@
     }
   ],
   "contact": {
+    "name": "Dr. Feng Liu",
     "address": {
       "department": "College of Computing & Informatics",
-      "building": "Room 912",
+      "university": "Drexel University",
+      "building": "Room 916",
       "street": "3675 Market Street",
       "city": "Philadelphia, PA 19104"
     },
-    "email": "fl397@drexel.edu<br>liufeng2915@gmail.com",
-    "phone": "(XXX) XXX-XXXX",
+    "email": "fl397@drexel.edu",
     "map": {
       "latitude": 39.95683035539825, 
       "longitude": -75.19508771349135,
