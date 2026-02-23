@@ -549,61 +549,52 @@ body {
 }
 
 /* Publications Section */
-#publication h2 {
-    margin: 20px 0 10px;
+.publication {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
 }
 
-.publication-list {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin: 0;
+.publication:last-child {
+    border-bottom: none;
 }
 
-.publication-list .publication {
-    margin-bottom: 10px;
-}
-
-.pub-title {
-    display: block;
-    font-weight: bold;
-    font-size: 16px;
-    color: #222;
-    margin-bottom: 2px;
+.publication h3 {
+    margin-bottom: 8px;
 }
 
 .authors {
-    display: block;
-    color: #555;
+    color: #777;
+    font-style: italic;
     font-size: 14px;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
 }
 
 .venue {
-    display: block;
     color: #888;
     font-size: 14px;
-    font-style: italic;
-    margin-bottom: 2px;
+    margin-bottom: 10px;
 }
 
 .links {
-    display: block;
-    font-size: 13px;
+    display: flex;
+    gap: 15px;
 }
 
 .links a {
     color: #0066cc;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .links a:hover {
     text-decoration: underline;
 }
 
-.links .link-placeholder {
-    color: #aaa;
-    font-size: 13px;
+.link-placeholder {
+    color: #ccc;
+    font-size: 14px;
+    cursor: default;
 }
 
 /* Projects Section */
@@ -679,12 +670,13 @@ body {
 .people-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 .people-table td {
-    padding: 4px 8px;
+    padding: 8px 12px;
     vertical-align: top;
+    border-bottom: 1px solid #eee;
     color: #555;
 }
 
@@ -923,10 +915,7 @@ body {
         padding: 10px 12px;
     }
 
-    .publication-list {
-        padding-left: 15px;
-    }
-
+    .publication,
     .faq-item {
         padding: 15px;
     }
