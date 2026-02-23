@@ -438,17 +438,34 @@ function loadContact() {
         const contactInfo = document.querySelector('.contact-info');
         contactInfo.innerHTML = '';
 
+        // Name
+        if (siteData.contact.name) {
+            const div = document.createElement('div');
+            div.className = 'info-item';
+            div.innerHTML = `
+                <div class="info-icon"><i class="fas fa-user"></i></div>
+                <div class="info-content">
+                    <h3>Contact</h3>
+                    <p>${siteData.contact.name}</p>
+                </div>
+            `;
+            contactInfo.appendChild(div);
+        }
+
         // Address
         if (siteData.contact.address) {
             const addr = siteData.contact.address;
             const div = document.createElement('div');
             div.className = 'info-item';
             div.innerHTML = `
-                <h3>Address</h3>
-                <p>${addr.department}<br>
-                ${addr.building}<br>
-                ${addr.street}<br>
-                ${addr.city}</p>
+                <div class="info-icon"><i class="fas fa-location-dot"></i></div>
+                <div class="info-content">
+                    <h3>Office Address</h3>
+                    <p>${addr.building}, ${addr.department}<br>
+                    ${addr.university}<br>
+                    ${addr.street}<br>
+                    ${addr.city}</p>
+                </div>
             `;
             contactInfo.appendChild(div);
         }
@@ -457,26 +474,13 @@ function loadContact() {
         if (siteData.contact.email) {
             const div = document.createElement('div');
             div.className = 'info-item';
-
-            // Parse email addresses and create mailto links
-            const emailText = siteData.contact.email;
-            const emails = emailText.split('<br>').map(e => e.trim()).filter(e => e);
-            const emailLinks = emails.map(email => `<a href="mailto:${email}">${email}</a>`).join('<br>');
-
+            const email = siteData.contact.email.trim();
             div.innerHTML = `
-                <h3>Email</h3>
-                <p>${emailLinks}</p>
-            `;
-            contactInfo.appendChild(div);
-        }
-
-        // Phone
-        if (siteData.contact.phone) {
-            const div = document.createElement('div');
-            div.className = 'info-item';
-            div.innerHTML = `
-                <h3>Phone</h3>
-                <p>${siteData.contact.phone}</p>
+                <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                <div class="info-content">
+                    <h3>Email</h3>
+                    <p><a href="mailto:${email}">${email}</a></p>
+                </div>
             `;
             contactInfo.appendChild(div);
         }
