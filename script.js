@@ -417,6 +417,7 @@ function loadFAQ() {
 function loadPhotos() {
     if (siteData.photos && siteData.photos.length > 0) {
         const photoGallery = document.querySelector('.photo-gallery');
+        if (!photoGallery) return;
         photoGallery.innerHTML = '';
 
         siteData.photos.forEach(photo => {
