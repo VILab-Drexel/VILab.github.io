@@ -169,13 +169,12 @@
     "former_members": [
       {
         "name": "Rui Xia",
-        "description": "Traffic scenario generation",
-        "years": "2024"
+        "degree": "MS",
+        "duration": "Fall 2024-Spring 2025"
       },
       {
         "name": "Ziang Gu",
-        "description": "4D motion planning and generation",
-        "years": "2024"
+        "duration": "Fall 2024-Spring 2025"
       }
     ]
   },
