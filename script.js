@@ -334,6 +334,10 @@ function loadPublications() {
         pubContainer.innerHTML = '';
         pubContainer.appendChild(title);
 
+        const scholarNote = document.createElement('p');
+        scholarNote.innerHTML = 'For a complete list of publications, please see <a href="https://scholar.google.com/citations?user=8Y9iUz0AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>.';
+        pubContainer.appendChild(scholarNote);
+
         const sections = [
             { type: 'preprint', label: 'Preprints' },
             { type: 'published', label: 'Published' }
@@ -354,27 +358,22 @@ function loadPublications() {
                 const div = document.createElement('div');
                 div.className = 'publication';
 
+                const linkOrder = [
+                    { key: 'project', label: 'Project' },
+                    { key: 'paper', label: 'Paper' },
+                    { key: 'arxiv', label: 'arXiv' },
+                    { key: 'code', label: 'Code' }
+                ];
                 let linksHTML = '<div class="links">';
-                if (pub.links) {
-                    if (pub.links.paper) {
-                        linksHTML += `<a href="${pub.links.paper}">Paper</a>`;
+                linkOrder.forEach(item => {
+                    const url = pub.links && pub.links[item.key];
+                    if (url) {
+                        const target = (item.key === 'arxiv' || item.key === 'code') ? ' target="_blank"' : '';
+                        linksHTML += `<a href="${url}"${target}>${item.label}</a>`;
+                    } else {
+                        linksHTML += `<span class="link-placeholder">${item.label}</span>`;
                     }
-                    if (pub.links.arxiv) {
-                        linksHTML += `<a href="${pub.links.arxiv}" target="_blank">arXiv</a>`;
-                    }
-                    if (pub.links.code) {
-                        linksHTML += `<a href="${pub.links.code}" target="_blank">Code</a>`;
-                    }
-                    if (pub.links.project) {
-                        linksHTML += `<a href="${pub.links.project}">Project</a>`;
-                    }
-                    if (pub.links.slides) {
-                        linksHTML += `<a href="${pub.links.slides}">Slides</a>`;
-                    }
-                    if (pub.links.demo) {
-                        linksHTML += `<a href="${pub.links.demo}">Demo</a>`;
-                    }
-                }
+                });
                 linksHTML += '</div>';
 
                 div.innerHTML = `
@@ -388,10 +387,6 @@ function loadPublications() {
             });
         });
 
-        const scholarNote = document.createElement('p');
-        scholarNote.style.marginTop = '40px';
-        scholarNote.innerHTML = 'For a complete list of publications, please see <a href="https://scholar.google.com/citations?user=8Y9iUz0AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>.';
-        pubContainer.appendChild(scholarNote);
     }
 }
 

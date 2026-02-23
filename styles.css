@@ -355,6 +355,12 @@ body {
     text-decoration: underline;
 }
 
+.link-placeholder {
+    color: #ccc;
+    font-size: 14px;
+    cursor: default;
+}
+
 /* Projects Section */
 .project-grid {
     display: grid;
