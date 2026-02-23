@@ -43,6 +43,22 @@
   ],
   "news": [
     {
+      "date": "2026-02-20",
+      "title": "Two papers have been accepted at CVPR 2026. Congratulations to Yuyang Ji and all co-authors!"
+    },
+    {
+      "date": "2026-02-06",
+      "title": "Dr. Liu is serving as an Associate Editor for IEEE Transactions on Information Forensics and Security (T-IFS)."
+    },
+    {
+      "date": "2026-01-10",
+      "title": "We are organizing the First PhysHuman Workshop @ CVPR 2026 (Denver) (https://physhuman.github.io/), focusing on physically grounded human perception, modeling, and generation."
+    },
+    {
+      "date": "2026-01-01",
+      "title": "Received an NVIDIA Academic Grant Program Award, supporting our research on geometry-consistent, photorealistic driving-scene generation for autonomous driving."
+    },
+    {
       "date": "2025-10-06",
       "title": "Our paper \"Person Recognition in Aerial Surveillance: A Decade Survey\" is accepted by IEEE T-BIOM."
     },
@@ -237,6 +253,30 @@
       "links": {
         "project": "",
         "paper": "https://www.arxiv.org/pdf/2508.05038",
+        "code": ""
+      }
+    },
+    {
+      "title": "Vision Language Models Cannot Plan, but Can They Formalize?",
+      "authors": "Muyu He, Yuxi Zheng, Yuchen Liu, Zijian An, Bill Cai, Jiani Huang, Lifeng Zhou, Feng Liu, Ziyang Li, Li Zhang",
+      "venue": "arXiv preprint, 2025",
+      "year": 2025,
+      "type": "preprint",
+      "links": {
+        "project": "",
+        "paper": "",
+        "code": ""
+      }
+    },
+    {
+      "title": "Could AI Trace and Explain the Origins of AI-Generated Images and Text?",
+      "authors": "Hongchao Fang, Yixin Liu, Jiangshu Du, Can Qin, Ran Xu, Feng Liu, Lichao Sun, Dongwon Lee, Lifu Huang, Wenpeng Yin",
+      "venue": "arXiv preprint, 2025",
+      "year": 2025,
+      "type": "preprint",
+      "links": {
+        "project": "",
+        "paper": "",
         "code": ""
       }
     },
