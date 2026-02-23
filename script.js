@@ -261,6 +261,7 @@ function loadTeam() {
             if (person.current_position) {
                 desc += (desc ? ' ' : '') + 'Now: ' + person.current_position;
             }
+            if (!desc && person.description) desc = person.description;
             tdDesc.textContent = desc.trim();
 
             tr.appendChild(tdName);
