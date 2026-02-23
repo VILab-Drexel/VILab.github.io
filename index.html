@@ -7,7 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Visual Intelligence Lab</title>
-    <link rel="stylesheet" href="styles.css?v=2025-10-27">
+    <link rel="stylesheet" href="styles.css?v=2026-02-23">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -36,25 +36,57 @@
     <!-- Home Section -->
     <section id="home" class="section active">
         <div class="container">
-            <h1>Welcome to the VILab Group</h1>
 
-            <h2>About Us</h2>
-            <p class="intro">Loading...</p>
+            <!-- Two-column hero: About (left) + News (right) -->
+            <div class="home-hero">
 
-            <h2>Research Highlights</h2>
-            <div class="highlights">
-                <!-- Content loaded from info.json -->
+                <!-- Left: Lab intro + PI card -->
+                <div class="home-about">
+                    <div class="home-lab-title">Visual Intelligence Lab</div>
+                    <div class="home-lab-sub">@ Drexel University &nbsp;&middot;&nbsp; College of Computing &amp; Informatics</div>
+                    <p class="intro">Loading...</p>
+
+                    <!-- PI photo card -->
+                    <div class="pi-card">
+                        <img src="assets/faculty/fengliu.jpg" alt="Prof. Feng Liu" class="pi-photo">
+                        <div class="pi-info">
+                            <a class="pi-name" href="https://liufeng2915.github.io/" target="_blank" rel="noopener">Feng Liu</a>
+                            <span>Assistant Professor</span>
+                            <span>College of Computing &amp; Informatics</span>
+                            <span>Drexel University</span>
+                            <div class="pi-links">
+                                <a href="https://scholar.google.com/citations?user=8Y9iUz0AAAAJ&hl" target="_blank" rel="noopener" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                                <a href="https://www.linkedin.com/in/feng-liu-4b5563187/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="mailto:fl397@drexel.edu" title="Email"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: News feed -->
+                <div class="home-news-col">
+                    <h2 class="home-section-title"><i class="fas fa-bullhorn"></i>&nbsp; News</h2>
+                    <div class="news-list">
+                        <!-- Content loaded from info.json -->
+                    </div>
+                </div>
+
+            </div><!-- /.home-hero -->
+
+            <!-- Research Highlights -->
+            <div class="home-highlights-section">
+                <h2 class="home-section-title">Research Focus</h2>
+                <div class="highlights">
+                    <!-- Content loaded from info.json -->
+                </div>
             </div>
 
-            <h2>News</h2>
-            <div class="news-list">
-                <!-- Content loaded from info.json -->
-            </div>
-
+            <!-- Visitor map -->
             <div class="visitor-map">
                 <!-- ClustrMaps Widget - Statistics available at https://clustrmaps.com/site/1c8bc -->
                 <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=h7ooXORXRrMSgdMmJAjMrdMUjhK-HWDDmtNXLnK06Tw&co=86b2d1&cmo=3acc3a&cmn=ffc600&ct=ffffff'></script>
             </div>
+
         </div>
     </section>
 
@@ -215,7 +247,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=2025-10-27-fix"></script>
+    <script src="script.js?v=2026-02-23"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8VEf-QQM4m6XpffGSrDC7PrTHiBXyA3E&callback=initMap" async defer></script>
 </body>
 </html>
