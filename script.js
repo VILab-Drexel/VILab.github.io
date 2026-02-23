@@ -52,6 +52,50 @@ function loadLabInfo() {
     }
 }
 
+// ── Hero Image Carousel ───────────────────────────────────────────────────────
+function initCarousel() {
+    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+    const dots   = Array.from(document.querySelectorAll('.carousel-dots .dot'));
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    if (!slides.length) return;
+
+    let current = 0;
+    let autoTimer = null;
+
+    function showSlide(index) {
+        slides[current].classList.remove('active');
+        if (dots[current]) dots[current].classList.remove('active');
+
+        current = (index + slides.length) % slides.length;
+
+        slides[current].classList.add('active');
+        if (dots[current]) dots[current].classList.add('active');
+    }
+
+    function startAuto() {
+        autoTimer = setInterval(() => showSlide(current + 1), 4500);
+    }
+
+    function resetAuto() {
+        clearInterval(autoTimer);
+        startAuto();
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => { showSlide(current - 1); resetAuto(); });
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => { showSlide(current + 1); resetAuto(); });
+    }
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => { showSlide(i); resetAuto(); });
+    });
+
+    startAuto();
+}
+
 function loadAboutHome() {
     if (siteData.about) {
         const aboutContentHome = document.querySelector('.about-content-home');
@@ -113,9 +157,9 @@ function loadNews() {
             const div = document.createElement('div');
             div.className = 'news-item';
 
-            // Format date
+            // Format date as "Oct 2025"
             const date = new Date(item.date);
-            const formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            const formattedDate = date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 
             div.innerHTML = `
                 <span class="news-date">${formattedDate}</span>
@@ -556,87 +600,10 @@ function tryInitMap() {
     });
 }
 
-// Carousel functionality
-function initCarousel() {
-    var carousel = document.querySelector('.carousel');
-    if (!carousel) return;
-
-    var track = carousel.querySelector('.carousel-track');
-    var slides = carousel.querySelectorAll('.carousel-slide');
-    var prevBtn = carousel.querySelector('.carousel-btn-prev');
-    var nextBtn = carousel.querySelector('.carousel-btn-next');
-    var dotsContainer = carousel.querySelector('.carousel-dots');
-
-    if (slides.length === 0) return;
-
-    var currentIndex = 0;
-    var autoPlayInterval = null;
-    var autoPlayDelay = 4000;
-
-    // Generate dot indicators
-    slides.forEach(function(_, index) {
-        var dot = document.createElement('button');
-        dot.className = 'carousel-dot' + (index === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', 'Go to slide ' + (index + 1));
-        dot.addEventListener('click', function() {
-            goToSlide(index);
-            resetAutoPlay();
-        });
-        dotsContainer.appendChild(dot);
-    });
-
-    var dots = dotsContainer.querySelectorAll('.carousel-dot');
-
-    function goToSlide(index) {
-        currentIndex = index;
-        track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
-        dots.forEach(function(dot, i) {
-            dot.classList.toggle('active', i === currentIndex);
-        });
-    }
-
-    function nextSlide() {
-        goToSlide((currentIndex + 1) % slides.length);
-    }
-
-    function prevSlide() {
-        goToSlide((currentIndex - 1 + slides.length) % slides.length);
-    }
-
-    nextBtn.addEventListener('click', function() {
-        nextSlide();
-        resetAutoPlay();
-    });
-
-    prevBtn.addEventListener('click', function() {
-        prevSlide();
-        resetAutoPlay();
-    });
-
-    function startAutoPlay() {
-        autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
-    }
-
-    function stopAutoPlay() {
-        if (autoPlayInterval) {
-            clearInterval(autoPlayInterval);
-            autoPlayInterval = null;
-        }
-    }
-
-    function resetAutoPlay() {
-        stopAutoPlay();
-        startAutoPlay();
-    }
-
-    carousel.addEventListener('mouseenter', stopAutoPlay);
-    carousel.addEventListener('mouseleave', startAutoPlay);
-
-    startAutoPlay();
-}
-
 // Navigation functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialise hero image carousel
+    initCarousel();
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.section');
     const hamburger = document.querySelector('.hamburger');

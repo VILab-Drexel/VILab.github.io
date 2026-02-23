@@ -43,6 +43,22 @@
   ],
   "news": [
     {
+      "date": "2026-02-20",
+      "title": "Two papers have been accepted at CVPR 2026. Congratulations to Yuyang and all co-authors!"
+    },
+    {
+      "date": "2026-02-06",
+      "title": "Dr. Liu is serving as an Associate Editor for <a href=\"https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=10206\" target=\"_blank\">IEEE Transactions on Information Forensics and Security (T-IFS)</a>."
+    },
+    {
+      "date": "2026-01-10",
+      "title": "We are organizing the First <a href=\"https://physhuman.github.io/\" target=\"_blank\">PhysHuman</a> Workshop @ CVPR 2026 (Denver), focusing on physically grounded human perception, modeling, and generation."
+    },
+    {
+      "date": "2026-01-01",
+      "title": "Received an NVIDIA Academic Grant Program Award, supporting our research on geometry-consistent, photorealistic driving-scene generation for autonomous driving."
+    },
+    {
       "date": "2025-10-06",
       "title": "Our paper \"Person Recognition in Aerial Surveillance: A Decade Survey\" is accepted by IEEE T-BIOM."
     },
@@ -231,12 +247,36 @@
     {
       "title": "HAMoBE: Hierarchical and Adaptive Mixture of Biometric Experts for Video-based Person ReID",
       "authors": "Yiyang Su*, Yunping Shi*, Feng Liu, and Xiaoming Liu",
-      "venue": "IEEE/CVF International Conference on Computer Vision (ICCV), 2025",
+      "venue": "In Proceeding of IEEE/CVF International Conference on Computer Vision (ICCV), 2025",
       "year": 2025,
       "type": "published",
       "links": {
         "project": "",
         "paper": "https://www.arxiv.org/pdf/2508.05038",
+        "code": ""
+      }
+    },
+    {
+      "title": "Vision Language Models Cannot Plan, but Can They Formalize?",
+      "authors": "Muyu He, Yuxi Zheng, Yuchen Liu, Zijian An, Bill Cai, Jiani Huang, Lifeng Zhou, Feng Liu, Ziyang Li, Li Zhang",
+      "venue": "arXiv preprint, 2025",
+      "year": 2025,
+      "type": "preprint",
+      "links": {
+        "project": "",
+        "paper": "https://arxiv.org/abs/2509.21576",
+        "code": ""
+      }
+    },
+    {
+      "title": "Could AI Trace and Explain the Origins of AI-Generated Images and Text?",
+      "authors": "Hongchao Fang, Yixin Liu, Jiangshu Du, Can Qin, Ran Xu, Feng Liu, Lichao Sun, Dongwon Lee, Lifu Huang, Wenpeng Yin",
+      "venue": "arXiv preprint, 2025",
+      "year": 2025,
+      "type": "preprint",
+      "links": {
+        "project": "",
+        "paper": "https://arxiv.org/abs/2504.04279",
         "code": ""
       }
     },
@@ -255,7 +295,7 @@
     {
       "title": "AG-VPReID: A Challenging Large-Scale Benchmark for Aerial-Ground Video-based Person Re-Identification",
       "authors": "Huy Nguyen, Kien Nguyen, Akila Pemasiri, Feng Liu, Sridha Sridharan, and Clinton Fookes",
-      "venue": "IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2025",
+      "venue": "In Proceeding of IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2025",
       "year": 2025,
       "type": "published",
       "links": {
@@ -267,7 +307,7 @@
     {
       "title": "SapiensID: Foundation for Human Recognition",
       "authors": "Minchul Kim, Dingqiang Ye, Yiyang Su, Feng Liu, and Xiaoming Liu",
-      "venue": "IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2025",
+      "venue": "In Proceeding of IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2025",
       "year": 2025,
       "type": "published",
       "links": {
@@ -279,7 +319,7 @@
     {
       "title": "Securing the Skies: A Comprehensive Survey on Anti-UAV Methods, Benchmarking, and Future Directions",
       "authors": "Yifei Dong, Fengyi Wu, Sanjian Zhang, Guangyu Chen, Yuzhi Hu, Masumi Yano, Jingdong Sun, Siyu Huang, Feng Liu, Qi Dai, and Zhi-Qi Cheng",
-      "venue": "IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2025",
+      "venue": "In Proceeding of IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2025",
       "year": 2025,
       "type": "published",
       "links": {
@@ -291,7 +331,7 @@
     {
       "title": "Open-Set Biometrics: Beyond Good Closed-Set Models",
       "authors": "Yiyang Su, Minchul Kim, Feng Liu, Anil Jain, and Xiaoming Liu",
-      "venue": "European Conference on Computer Vision (ECCV), 2024",
+      "venue": "In Proceeding of European Conference on Computer Vision (ECCV), 2024",
       "year": 2024,
       "type": "published",
       "links": {
@@ -303,7 +343,7 @@
     {
       "title": "Distilling CLIP with Dual Guidance for Learning Discriminative Human Body Shape Representation",
       "authors": "Feng Liu, Minchul Kim, Zhiyuan Ren, and Xiaoming Liu",
-      "venue": "IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2024",
+      "venue": "In Proceeding of IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2024",
       "year": 2024,
       "type": "published",
       "links": {
@@ -315,7 +355,7 @@
     {
       "title": "KeyPoint Relative Position Encoding for Face Recognition",
       "authors": "Minchul Kim, Yiyang Su, Feng Liu, Anil Jain, and Xiaoming Liu",
-      "venue": "IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2024",
+      "venue": "In Proceeding of IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2024",
       "year": 2024,
       "type": "published",
       "links": {
@@ -327,7 +367,7 @@
     {
       "title": "TIGER: Time-Varying Denoising Model for 3D Point Cloud Generation with Diffusion Process",
       "authors": "Zhiyuan Ren, Minchul Kim, Feng Liu, and Xiaoming Liu",
-      "venue": "IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2024",
+      "venue": "In Proceeding of IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2024",
       "year": 2024,
       "type": "published",
       "links": {
@@ -339,7 +379,7 @@
     {
       "title": "FarSight: A Physics-Driven Whole-Body Biometric System at Large Distance and Altitude",
       "authors": "Feng Liu, Ryan Ashbaugh, Nicholas Chimitt, Najmul Hassan, Ali Hassani, Ajay Jaiswal, Minchul Kim, Zhiyuan Mao, Christopher Perry, Zhiyuan Ren, Yiyang Su, Pegah Varghaei, Kai Wang, Xingguang Zhang, Stanley Chan, Arun Ross, Humphrey Shi, Zhangyang Wang, Anil Jain, and Xiaoming Liu",
-      "venue": "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2024",
+      "venue": "In Proceeding of IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2024",
       "year": 2024,
       "type": "published",
       "links": {
@@ -351,7 +391,7 @@
     {
       "title": "Learning Clothing and Pose Invariant 3D Shape Representation for Long-Term Person Re-Identification",
       "authors": "Feng Liu, Minchul Kim, Ziang Gu, Anil Jain, and Xiaoming Liu",
-      "venue": "IEEE/CVF International Conference on Computer Vision (ICCV), 2023",
+      "venue": "In Proceeding of IEEE/CVF International Conference on Computer Vision (ICCV), 2023",
       "year": 2023,
       "type": "published",
       "links": {
@@ -363,7 +403,7 @@
     {
       "title": "DCFace: Synthetic Face Generation with Dual Condition Diffusion Model",
       "authors": "Minchul Kim, Feng Liu, Anil Jain, and Xiaoming Liu",
-      "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2023",
+      "venue": "In Proceeding of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2023",
       "year": 2023,
       "type": "published",
       "links": {
@@ -399,7 +439,7 @@
     {
       "title": "AG-ReID 2023: Aerial-Ground Person Re-identification Challenge Results",
       "authors": "Kien Nguyen, Clinton Fookes, Sridha Sridharan, Feng Liu, Xiaoming Liu, Arun Ross, Dana Michalski, Huy Nguyen, Debayan Deb, Mahak Kothari, Manisha Saini, Dawei Du, Scott McCloskey, Gabriel Bertocco, Fernanda Andal´o, E. Terrance Boult, Anderson Rocha, Haidong Zhu, Zhaoheng Zheng, Ram Nevatia, Zaigham Randhawa, Sinan Sabri, and Gianfranco Doretto",
-      "venue": "IEEE International Joint Conference on Biometrics (IJCB), 2023",
+      "venue": "In Proceeding of IEEE International Joint Conference on Biometrics (IJCB), 2023",
       "year": 2023,
       "type": "published",
       "links": {
@@ -409,21 +449,9 @@
       }
     },
     {
-      "title": "The State of Aerial Surveillance: A Survey",
-      "authors": "Kien Nguyen, Clinton Fookes, Sridha Sridharan, Yingli Tian, Feng Liu, Xiaoming Liu, and Arun Ross",
-      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI, Under Review), 2022",
-      "year": 2022,
-      "type": "preprint",
-      "links": {
-        "project": "",
-        "paper": "https://arxiv.org/pdf/2201.03080.pdf",
-        "code": ""
-      }
-    },
-    {
       "title": "Cluster and Aggregate: Face Recognition with Large Probe Set",
       "authors": "Minchul Kim, Feng Liu, Anil K Jain, and Xiaoming Liu",
-      "venue": "Advances in Neural Information Processing Systems (NeurIPS), 2022",
+      "venue": "In Proceeding of Advances in Neural Information Processing Systems (NeurIPS), 2022",
       "year": 2022,
       "type": "published",
       "links": {
@@ -435,7 +463,7 @@
     {
       "title": "2D GANs Meet Unsupervised Single-View 3D Reconstruction",
       "authors": "Feng Liu, and Xiaoming Liu",
-      "venue": "European Conference on Computer Vision (ECCV), 2022",
+      "venue": "In Proceeding of European Conference on Computer Vision (ECCV), 2022",
       "year": 2022,
       "type": "published",
       "links": {
@@ -447,7 +475,7 @@
     {
       "title": "Controllable and Guided Face Synthesis for Unconstrained Face Recognition",
       "authors": "Feng Liu, Minchul Kim, Anil Jain, and Xiaoming Liu",
-      "venue": "European Conference on Computer Vision (ECCV), 2022",
+      "venue": "In Proceeding of European Conference on Computer Vision (ECCV), 2022",
       "year": 2022,
       "type": "published",
       "links": {
@@ -483,7 +511,7 @@
     {
       "title": "Voxel-based 3D Detection and Reconstruction of Multiple Objects from a Single Image",
       "authors": "Feng Liu, and Xiaoming Liu",
-      "venue": "Advances in Neural Information Processing Systems (NeurIPS), 2021",
+      "venue": "In Proceeding of Advances in Neural Information Processing Systems (NeurIPS), 2021",
       "year": 2021,
       "type": "published",
       "links": {
@@ -495,7 +523,7 @@
     {
       "title": "Fully Understanding Generic Objects: Modeling, Segmentation, and Reconstruction",
       "authors": "Feng Liu, Luan Tran, and Xiaoming Liu",
-      "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2021",
+      "venue": "In Proceeding of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2021",
       "year": 2021,
       "type": "published",
       "links": {
@@ -519,7 +547,7 @@
     {
       "title": "Learning Implicit Functions for Topology-Varying Dense 3D Shape Correspondence",
       "authors": "Feng Liu, and Xiaoming Liu",
-      "venue": "Advances in Neural Information Processing Systems (NeurIPS Oral), 2020",
+      "venue": "In Proceeding of Advances in Neural Information Processing Systems (NeurIPS Oral), 2020",
       "year": 2020,
       "type": "published",
       "links": {
@@ -531,7 +559,7 @@
     {
       "title": "On the Detection of Digital Face Manipulation",
       "authors": "Feng Liu*, Hao Dang*, Joel Stehouwer*, Xiaoming Liu, and Anil K Jain",
-      "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2020",
+      "venue": "In Proceeding of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2020",
       "year": 2020,
       "type": "published",
       "links": {
@@ -543,7 +571,7 @@
     {
       "title": "3D Face Modeling from Diverse Raw Scan Data",
       "authors": "Feng Liu, Luan Tran, and Xiaoming Liu",
-      "venue": "IEEE/CVF International Conference on Computer Vision (ICCV Oral), 2019",
+      "venue": "In Proceeding of IEEE/CVF International Conference on Computer Vision (ICCV Oral), 2019",
       "year": 2019,
       "type": "published",
       "links": {
@@ -555,7 +583,7 @@
     {
       "title": "Towards High-fidelity Nonlinear 3D Face Morphable Model",
       "authors": "Luan Tran, Feng Liu, and Xiaoming Liu",
-      "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2019",
+      "venue": "In Proceeding of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2019",
       "year": 2019,
       "type": "published",
       "links": {
@@ -567,7 +595,7 @@
     {
       "title": "Disentangling Features in 3D Face Shapes for Joint Face Reconstruction and Recognition",
       "authors": "Feng Liu, Ronghang Zhu, Dan Zeng, Qijun Zhao, and Xiaoming Liu",
-      "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2018",
+      "venue": "In Proceeding of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2018",
       "year": 2018,
       "type": "published",
       "links": {
@@ -579,7 +607,7 @@
     {
       "title": "Multi-Dim: A Multi-Dimensional Face Database Towards the Application of 3D Technology in Real-World Scenarios",
       "authors": "Feng Liu, Jun Hu, Jianwei Sun, Yang Wang, and Qijun Zhao",
-      "venue": "IEEE International Joint Conference on Biometrics (IJCB), 2017",
+      "venue": "In Proceeding ofIn Proceeding of IEEE International Joint Conference on Biometrics (IJCB), 2017",
       "year": 2017,
       "type": "published",
       "links": {
@@ -591,7 +619,7 @@
     {
       "title": "Joint Face Alignment and 3D Face Reconstruction",
       "authors": "Feng Liu, Dan Zeng, Qijun Zhao, and Xiaoming Liu",
-      "venue": "European Conference on Computer Vision (ECCV Spotlight), 2016",
+      "venue": "In Proceeding of European Conference on Computer Vision (ECCV Spotlight), 2016",
       "year": 2016,
       "type": "published",
       "links": {

@@ -36,52 +36,86 @@
     <!-- Home Section -->
     <section id="home" class="section active">
         <div class="container">
-            <h1>Welcome to the VILab Group</h1>
 
-            <!-- Carousel -->
-            <div class="carousel">
-                <div class="carousel-track">
-                    <div class="carousel-slide">
-                        <img src="https://scholaridea.com/wp-content/uploads/2024/09/Drexel.jpg" alt="Drexel University">
+            <!-- Two-column hero: About (left) + News (right) -->
+            <div class="home-hero">
+
+                <!-- Left: Lab intro + image carousel -->
+                <div class="home-about">
+                    <div class="home-lab-title">Welcome to the VIL Group</div>
+                    <div class="home-lab-about-us">About us</div>
+                    <p class="intro">Loading...</p>
+
+                    <!-- Image carousel -->
+                    <div class="hero-carousel">
+                        <button class="carousel-btn prev-btn" aria-label="Previous image">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="carousel-inner">
+                            <div class="carousel-slide active">
+                                <img src="https://scholaridea.com/wp-content/uploads/2024/09/Drexel.jpg" alt="Drexel University">
+                                <span class="carousel-caption">Drexel University &middot; Philadelphia, PA</span>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://www.bucks.edu/academics/transferplanning/agreements/drexel.png" alt="Drexel University">
+                                <span class="carousel-caption">Drexel University</span>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://cdn.vev.design/cdn-cgi/image/f=auto,q=82/private/wdG2LOUIzDTnIMUgxImJ1osjCnp2/image/ddLajRZu2I.jpg" alt="Drexel University">
+                                <span class="carousel-caption">Drexel University</span>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://stradallc.com/app/uploads/2024/02/DrexelCCI-Classroom2.jpg" alt="Drexel CCI Classroom">
+                                <span class="carousel-caption">College of Computing &amp; Informatics</span>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_60/Mobile/City/egryl5rowwktik0we245.jpg" alt="Philadelphia City">
+                                <span class="carousel-caption">Philadelphia, PA</span>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://drexel.edu/~/media/Drexel/Core-Site-Group/Core/Images/studentStories/success/city-south-st-bridge-570.jpg" alt="Philadelphia South Street Bridge">
+                                <span class="carousel-caption">Philadelphia, PA</span>
+                            </div>
+                        </div>
+                        <button class="carousel-btn next-btn" aria-label="Next image">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="carousel-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
+                            <span class="dot" data-index="2"></span>
+                            <span class="dot" data-index="3"></span>
+                            <span class="dot" data-index="4"></span>
+                            <span class="dot" data-index="5"></span>
+                        </div>
                     </div>
-                    <div class="carousel-slide">
-                        <img src="https://www.bucks.edu/academics/transferplanning/agreements/drexel.png" alt="Drexel University">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="https://cdn.vev.design/cdn-cgi/image/f=auto,q=82/private/wdG2LOUIzDTnIMUgxImJ1osjCnp2/image/ddLajRZu2I.jpg" alt="Drexel University">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="https://stradallc.com/app/uploads/2024/02/DrexelCCI-Classroom2.jpg" alt="Drexel CCI Classroom">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_60/Mobile/City/egryl5rowwktik0we245.jpg" alt="Philadelphia City">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="https://drexel.edu/~/media/Drexel/Core-Site-Group/Core/Images/studentStories/success/city-south-st-bridge-570.jpg" alt="Philadelphia South Street Bridge">
+                    <p class="join-text">We always look for passionate students to join the team in terms of RA/externship/internship/visiting students (<a href="https://vilab-group.com/#vacancies">more info</a>)!</p>
+                </div>
+
+                <!-- Right: News feed -->
+                <div class="home-news-col">
+                    <h2 class="home-section-title"><i class="fas fa-bullhorn"></i>&nbsp; News</h2>
+                    <div class="news-list">
+                        <!-- Content loaded from info.json -->
                     </div>
                 </div>
-                <button class="carousel-btn carousel-btn-prev" aria-label="Previous slide">&#10094;</button>
-                <button class="carousel-btn carousel-btn-next" aria-label="Next slide">&#10095;</button>
-                <div class="carousel-dots"></div>
+
+            </div><!-- /.home-hero -->
+
+            <!-- Research Highlights -->
+            <div class="home-highlights-section">
+                <h2 class="home-section-title">Research Focus</h2>
+                <div class="highlights">
+                    <!-- Content loaded from info.json -->
+                </div>
             </div>
 
-            <h2>About Us</h2>
-            <p class="intro">Loading...</p>
-
-            <h2>Research Highlights</h2>
-            <div class="highlights">
-                <!-- Content loaded from info.json -->
-            </div>
-
-            <h2>News</h2>
-            <div class="news-list">
-                <!-- Content loaded from info.json -->
-            </div>
-
+            <!-- Visitor map -->
             <div class="visitor-map">
                 <!-- ClustrMaps Widget - Statistics available at https://clustrmaps.com/site/1c8bc -->
                 <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=150&t=tt&d=h7ooXORXRrMSgdMmJAjMrdMUjhK-HWDDmtNXLnK06Tw&co=86b2d1&cmo=3acc3a&cmn=ffc600&ct=ffffff'></script>
             </div>
+
         </div>
     </section>
 
@@ -97,9 +131,101 @@
     <!-- Vacancies Section -->
     <section id="vacancies" class="section">
         <div class="container">
-            <h1>Opening</h1>
-            <p>TBD</p>
-            <!-- Content loaded from info.json -->
+            <h1>Openings</h1>
+            <p class="openings-intro">We regularly have openings for research interns at the Visual Intelligence Lab (VILab), including:</p>
+
+            <!-- Intern Type Cards -->
+            <div class="intern-cards">
+                <div class="intern-card">
+                    <div class="intern-card-icon"><i class="fas fa-user-graduate"></i></div>
+                    <h3>PhD Research Interns / Visiting Students</h3>
+                    <span class="intern-badge">Remote or In-Person</span>
+                    <p>Ideal for students aiming to apply for a PhD and wanting to build a strong research record.</p>
+                </div>
+                <div class="intern-card">
+                    <div class="intern-card-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Master's Research Interns</h3>
+                    <span class="intern-badge">Project-Based</span>
+                    <p>Project-based research with the goal of producing a workshop/conference submission or a solid technical report.</p>
+                </div>
+                <div class="intern-card">
+                    <div class="intern-card-icon"><i class="fas fa-flask"></i></div>
+                    <h3>Undergraduate Research Interns / Co-op Students</h3>
+                    <span class="intern-badge">Hands-On</span>
+                    <p>Hands-on experience on real research problems; strong interns often continue into longer-term projects.</p>
+                </div>
+            </div>
+
+            <!-- Focus Areas -->
+            <div class="openings-block">
+                <h2><i class="fas fa-bullseye openings-section-icon"></i> Typical Internship Focus Areas</h2>
+                <ul class="openings-list">
+                    <li>Computer vision &amp; deep learning (training pipelines, evaluation, ablations)</li>
+                    <li>3D vision / reconstruction / generation</li>
+                    <li>Biometrics (face / gait / person ReID), open-set recognition</li>
+                    <li>Generative AI (diffusion models), DeepFake detection / AI forensics</li>
+                    <li>Dataset curation, benchmarking, and building reliable research codebases</li>
+                </ul>
+            </div>
+
+            <!-- What to Expect -->
+            <div class="openings-block">
+                <h2><i class="fas fa-clipboard-list openings-section-icon"></i> What to Expect</h2>
+                <ul class="openings-list">
+                    <li>Intern projects are publication-oriented when feasible (or can target an open-source release / technical report depending on scope and timeline).</li>
+                    <li>Interns are expected to provide weekly progress updates and maintain clean, reproducible code.</li>
+                    <li><strong>Paid vs. unpaid:</strong> opportunities vary by funding and project needs. Some intern roles may be unpaid, especially for short-term or exploratory projects.</li>
+                </ul>
+            </div>
+
+            <!-- How to Apply -->
+            <div class="openings-block">
+                <h2><i class="fas fa-paper-plane openings-section-icon"></i> How to Apply</h2>
+                <p>Email <a href="mailto:fl397@drexel.edu" class="openings-email">fl397@drexel.edu</a> with:</p>
+                <ul class="openings-list">
+                    <li>CV</li>
+                    <li>Your current program/school and expected timeline (e.g., Summer 2026, 10–12 weeks)</li>
+                    <li>1–2 paragraphs describing your interests + relevant experience</li>
+                    <li><em>(Recommended)</em> GitHub / paper / project portfolio link</li>
+                </ul>
+                <div class="email-template-box">
+                    <div class="email-template-label">Recommended email subject:</div>
+                    <code>[Internship Inquiry – &lt;Term/Year&gt;] &lt;Your Name&gt; – &lt;Keywords&gt;</code>
+                </div>
+            </div>
+
+            <!-- Two-column grid: What We Offer + What We Look For -->
+            <div class="openings-two-col">
+                <div class="openings-block openings-block--offer">
+                    <h2><i class="fas fa-gift openings-section-icon"></i> What We Offer</h2>
+                    <ul class="openings-checklist">
+                        <li>Weekly mentoring and structured guidance (regular 1:1 meetings + group meetings)</li>
+                        <li>Research freedom with clear expectations (you lead; I help shape and sharpen)</li>
+                        <li>Strong emphasis on publishing in top venues (CVPR/ICCV/ECCV/NeurIPS/ICML/ICLR, T-PAMI/T-BIOM/T-IFS, etc.)</li>
+                        <li>Support for career development (internships, networking, collaboration, fellowships/awards)</li>
+                        <li>GPU/compute support: access to lab/university GPU resources for training and large-scale experimentation (subject to project needs and resource availability)</li>
+                    </ul>
+                </div>
+
+                <div class="openings-block openings-block--look">
+                    <h2><i class="fas fa-search openings-section-icon"></i> What We Look For</h2>
+                    <p class="openings-note">You don't need to have everything below, but you should show clear potential in several areas:</p>
+                    <ul class="openings-checklist openings-checklist--gold">
+                        <li><strong>Research potential:</strong> prior research experience, strong curiosity, ability to read papers critically</li>
+                        <li><strong>Programming ability:</strong> solid Python + deep learning frameworks; good engineering habits are a big plus</li>
+                        <li><strong>Self-motivation:</strong> able to drive experiments and iterate without constant prompting</li>
+                        <li><strong>Reliability:</strong> consistent progress, good communication, and meeting deadlines</li>
+                        <li><strong>Persistence:</strong> willingness to debug, rethink assumptions, and try alternatives when things fail</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- About Drexel -->
+            <div class="openings-block openings-block--drexel">
+                <h2><i class="fas fa-university openings-section-icon"></i> About Drexel University and Philadelphia</h2>
+                <p>Drexel University is an R1 research university located in Philadelphia, a major hub for technology, healthcare, and higher education. The city offers strong academic and industry connections (universities, hospitals, startups), and excellent access to the Northeast corridor (NYC / DC). Drexel is ranked <strong>#80 in U.S. News (2026)</strong>.</p>
+                <p>Drexel's College of Computing &amp; Informatics (CCI) supports a vibrant research environment across AI, vision, security, and human-centered computing, with frequent seminars and collaboration opportunities.</p>
+            </div>
         </div>
     </section>
 
@@ -146,7 +272,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; Copyright 2025 Visual Intelligence Lab @ Drexel. Last updated: October 26, 2025.</p>
+            <p>&copy; Copyright 2026 Visual Intelligence Lab @ Drexel.</p>
         </div>
     </footer>
 
