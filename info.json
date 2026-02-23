@@ -409,18 +409,6 @@
       }
     },
     {
-      "title": "The State of Aerial Surveillance: A Survey",
-      "authors": "Kien Nguyen, Clinton Fookes, Sridha Sridharan, Yingli Tian, Feng Liu, Xiaoming Liu, and Arun Ross",
-      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI, Under Review), 2022",
-      "year": 2022,
-      "type": "preprint",
-      "links": {
-        "project": "",
-        "paper": "https://arxiv.org/pdf/2201.03080.pdf",
-        "code": ""
-      }
-    },
-    {
       "title": "Cluster and Aggregate: Face Recognition with Large Probe Set",
       "authors": "Minchul Kim, Feng Liu, Anil K Jain, and Xiaoming Liu",
       "venue": "Advances in Neural Information Processing Systems (NeurIPS), 2022",
