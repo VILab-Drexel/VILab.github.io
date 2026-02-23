@@ -556,6 +556,85 @@ function tryInitMap() {
     });
 }
 
+// Carousel functionality
+function initCarousel() {
+    var carousel = document.querySelector('.carousel');
+    if (!carousel) return;
+
+    var track = carousel.querySelector('.carousel-track');
+    var slides = carousel.querySelectorAll('.carousel-slide');
+    var prevBtn = carousel.querySelector('.carousel-btn-prev');
+    var nextBtn = carousel.querySelector('.carousel-btn-next');
+    var dotsContainer = carousel.querySelector('.carousel-dots');
+
+    if (slides.length === 0) return;
+
+    var currentIndex = 0;
+    var autoPlayInterval = null;
+    var autoPlayDelay = 4000;
+
+    // Generate dot indicators
+    slides.forEach(function(_, index) {
+        var dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (index === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (index + 1));
+        dot.addEventListener('click', function() {
+            goToSlide(index);
+            resetAutoPlay();
+        });
+        dotsContainer.appendChild(dot);
+    });
+
+    var dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+    function goToSlide(index) {
+        currentIndex = index;
+        track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+        dots.forEach(function(dot, i) {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+
+    function nextSlide() {
+        goToSlide((currentIndex + 1) % slides.length);
+    }
+
+    function prevSlide() {
+        goToSlide((currentIndex - 1 + slides.length) % slides.length);
+    }
+
+    nextBtn.addEventListener('click', function() {
+        nextSlide();
+        resetAutoPlay();
+    });
+
+    prevBtn.addEventListener('click', function() {
+        prevSlide();
+        resetAutoPlay();
+    });
+
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
+    }
+
+    function stopAutoPlay() {
+        if (autoPlayInterval) {
+            clearInterval(autoPlayInterval);
+            autoPlayInterval = null;
+        }
+    }
+
+    function resetAutoPlay() {
+        stopAutoPlay();
+        startAutoPlay();
+    }
+
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', startAutoPlay);
+
+    startAutoPlay();
+}
+
 // Navigation functionality
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
@@ -637,4 +716,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle initial load
     handleHashChange();
+
+    // Initialize carousel
+    initCarousel();
 });
