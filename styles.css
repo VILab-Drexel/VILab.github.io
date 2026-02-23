@@ -151,12 +151,13 @@ body {
     margin-bottom: 6px;
 }
 
-.home-lab-sub {
-    font-size: 0.95rem;
-    color: #888;
-    font-weight: 500;
-    margin-bottom: 22px;
-    letter-spacing: 0.01em;
+.home-lab-about-us {
+    font-size: 0.9rem;
+    color: #ffc600;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
 }
 
 .intro {
@@ -166,65 +167,106 @@ body {
     margin-bottom: 28px;
 }
 
-/* PI card */
-.pi-card {
+/* ── Hero Image Carousel ─────────────────────── */
+.hero-carousel {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #dde4ed;
+    background: #07294d;
+    user-select: none;
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 210px;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-caption {
+    display: block;
+    background: rgba(7, 41, 77, 0.88);
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    padding: 5px 12px;
+    height: 30px;
+    line-height: 20px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: calc(90px - 18px);   /* centre in the image area (180px / 2 - button half) */
+    transform: none;
+    background: rgba(7, 41, 77, 0.72);
+    color: #ffc600;
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
     display: flex;
     align-items: center;
-    gap: 18px;
-    padding: 18px 20px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    border-left: 4px solid #07294d;
-}
-
-.pi-photo {
-    width: 82px;
-    height: 82px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: top;
-    border: 3px solid #07294d;
-    flex-shrink: 0;
-}
-
-.pi-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.pi-name {
-    font-size: 15px;
-    font-weight: 700;
-    color: #07294d;
-    text-decoration: none;
-}
-
-.pi-name:hover {
-    text-decoration: underline;
-}
-
-.pi-info span {
+    justify-content: center;
     font-size: 13px;
-    color: #666;
-    line-height: 1.5;
+    transition: background 0.2s;
 }
 
-.pi-links {
+.carousel-btn:hover {
+    background: rgba(7, 41, 77, 0.95);
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+.carousel-dots {
+    position: absolute;
+    bottom: 36px;
+    left: 0;
+    right: 0;
     display: flex;
-    gap: 10px;
-    margin-top: 6px;
+    justify-content: center;
+    gap: 7px;
+    z-index: 10;
+    pointer-events: none;
 }
 
-.pi-links a {
-    color: #07294d;
-    font-size: 15px;
-    text-decoration: none;
-    transition: color 0.2s;
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+    pointer-events: auto;
+    transition: background 0.25s;
 }
 
-.pi-links a:hover {
-    color: #ffc600;
+.dot.active {
+    background: #ffc600;
 }
 
 /* Right column – News ----------------------- */

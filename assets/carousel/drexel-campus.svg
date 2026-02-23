@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="600" height="340">
+  <defs>
+    <linearGradient id="sky-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5ba3d4;stop-opacity:1"/>
+      <stop offset="60%" style="stop-color:#89c0e0;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#c5dff0;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="building-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a5f8a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#07294d;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="lawn-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a8f3e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#3a7030;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="600" height="340" fill="url(#sky-grad)"/>
+
+  <!-- Clouds -->
+  <ellipse cx="100" cy="55" rx="55" ry="18" fill="white" opacity="0.75"/>
+  <ellipse cx="140" cy="48" rx="40" ry="15" fill="white" opacity="0.75"/>
+  <ellipse cx="70" cy="60" rx="30" ry="12" fill="white" opacity="0.75"/>
+  <ellipse cx="440" cy="65" rx="50" ry="16" fill="white" opacity="0.7"/>
+  <ellipse cx="480" cy="58" rx="35" ry="13" fill="white" opacity="0.7"/>
+
+  <!-- Ground / Lawn -->
+  <rect x="0" y="265" width="600" height="75" fill="url(#lawn-grad)"/>
+
+  <!-- Pathway -->
+  <polygon points="260,265 340,265 380,340 220,340" fill="#c8bba0"/>
+
+  <!-- Side wings of building -->
+  <rect x="60" y="155" width="100" height="115" fill="#0e3d6b"/>
+  <rect x="440" y="155" width="100" height="115" fill="#0e3d6b"/>
+
+  <!-- Main building body -->
+  <rect x="130" y="100" width="340" height="170" fill="url(#building-grad)"/>
+
+  <!-- Roof pediment / triangle -->
+  <polygon points="110,100 300,30 490,100" fill="#07294d"/>
+  <!-- Pediment trim -->
+  <polygon points="120,100 300,36 480,100" fill="none" stroke="#ffc600" stroke-width="2"/>
+
+  <!-- Columns -->
+  <rect x="145" y="100" width="12" height="170" fill="#1a5a8a" opacity="0.6"/>
+  <rect x="185" y="100" width="12" height="170" fill="#1a5a8a" opacity="0.6"/>
+  <rect x="225" y="100" width="12" height="170" fill="#1a5a8a" opacity="0.6"/>
+  <rect x="280" y="100" width="12" height="170" fill="#1a5a8a" opacity="0.6"/>
+  <rect x="365" y="100" width="12" height="170" fill="#1a5a8a" opacity="0.6"/>
+  <rect x="403" y="100" width="12" height="170" fill="#1a5a8a" opacity="0.6"/>
+  <rect x="441" y="100" width="12" height="170" fill="#1a5a8a" opacity="0.6"/>
+
+  <!-- Windows row 1 (upper) -->
+  <rect x="155" y="118" width="22" height="32" fill="#ffc600" opacity="0.85"/>
+  <rect x="195" y="118" width="22" height="32" fill="#ffc600" opacity="0.85"/>
+  <rect x="235" y="118" width="22" height="32" fill="#87c0e0" opacity="0.9"/>
+  <rect x="295" y="118" width="22" height="32" fill="#87c0e0" opacity="0.9"/>
+  <rect x="335" y="118" width="22" height="32" fill="#ffc600" opacity="0.85"/>
+  <rect x="375" y="118" width="22" height="32" fill="#87c0e0" opacity="0.9"/>
+  <rect x="415" y="118" width="22" height="32" fill="#ffc600" opacity="0.85"/>
+
+  <!-- Windows row 2 (middle) -->
+  <rect x="155" y="165" width="22" height="28" fill="#87c0e0" opacity="0.85"/>
+  <rect x="195" y="165" width="22" height="28" fill="#ffc600" opacity="0.8"/>
+  <rect x="235" y="165" width="22" height="28" fill="#87c0e0" opacity="0.85"/>
+  <rect x="375" y="165" width="22" height="28" fill="#87c0e0" opacity="0.85"/>
+  <rect x="415" y="165" width="22" height="28" fill="#ffc600" opacity="0.8"/>
+
+  <!-- Entrance door -->
+  <rect x="262" y="210" width="76" height="60" rx="4" fill="#0a3055"/>
+  <rect x="270" y="215" width="28" height="50" fill="#1a5a8a" opacity="0.7"/>
+  <rect x="302" y="215" width="28" height="50" fill="#1a5a8a" opacity="0.7"/>
+  <!-- Door arch -->
+  <path d="M262,210 Q300,185 338,210" fill="#ffc600" opacity="0.7"/>
+
+  <!-- Steps -->
+  <rect x="240" y="267" width="120" height="6" fill="#b0a090"/>
+  <rect x="230" y="273" width="140" height="6" fill="#a09080"/>
+  <rect x="220" y="279" width="160" height="6" fill="#908070"/>
+
+  <!-- Column bases -->
+  <rect x="60" y="267" width="100" height="5" fill="#c0b090"/>
+  <rect x="130" y="267" width="340" height="5" fill="#c0b090"/>
+  <rect x="440" y="267" width="100" height="5" fill="#c0b090"/>
+
+  <!-- Side wing windows -->
+  <rect x="75" y="170" width="20" height="22" fill="#87c0e0" opacity="0.8"/>
+  <rect x="110" y="170" width="20" height="22" fill="#87c0e0" opacity="0.8"/>
+  <rect x="75" y="207" width="20" height="22" fill="#ffc600" opacity="0.7"/>
+  <rect x="110" y="207" width="20" height="22" fill="#87c0e0" opacity="0.8"/>
+  <rect x="455" y="170" width="20" height="22" fill="#87c0e0" opacity="0.8"/>
+  <rect x="490" y="170" width="20" height="22" fill="#87c0e0" opacity="0.8"/>
+  <rect x="455" y="207" width="20" height="22" fill="#87c0e0" opacity="0.8"/>
+  <rect x="490" y="207" width="20" height="22" fill="#ffc600" opacity="0.7"/>
+
+  <!-- Trees left -->
+  <rect x="27" y="218" width="10" height="52" fill="#5a3e28"/>
+  <circle cx="32" cy="200" r="32" fill="#3d7a33"/>
+  <circle cx="20" cy="215" r="20" fill="#4a8f3e"/>
+  <circle cx="44" cy="212" r="22" fill="#356028"/>
+
+  <!-- Trees right -->
+  <rect x="563" y="218" width="10" height="52" fill="#5a3e28"/>
+  <circle cx="568" cy="200" r="32" fill="#3d7a33"/>
+  <circle cx="556" cy="215" r="20" fill="#4a8f3e"/>
+  <circle cx="580" cy="212" r="22" fill="#356028"/>
+
+  <!-- Medium trees mid-left -->
+  <rect x="82" y="238" width="7" height="32" fill="#5a3e28"/>
+  <circle cx="86" cy="225" r="18" fill="#4a8f3e"/>
+
+  <!-- Medium trees mid-right -->
+  <rect x="510" y="238" width="7" height="32" fill="#5a3e28"/>
+  <circle cx="514" cy="225" r="18" fill="#4a8f3e"/>
+
+  <!-- Drexel Dragon flag (simplified) -->
+  <rect x="296" y="30" width="3" height="28" fill="#ffc600"/>
+  <polygon points="299,30 315,35 299,40" fill="#ffc600"/>
+
+  <!-- Label bar -->
+  <rect x="0" y="308" width="600" height="32" fill="rgba(7,41,77,0.82)"/>
+  <text x="300" y="329" text-anchor="middle" fill="#ffc600" font-size="14" font-weight="bold" font-family="Arial, sans-serif" letter-spacing="0.5">Drexel University · Philadelphia, PA</text>
+</svg>

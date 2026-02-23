@@ -40,25 +40,33 @@
             <!-- Two-column hero: About (left) + News (right) -->
             <div class="home-hero">
 
-                <!-- Left: Lab intro + PI card -->
+                <!-- Left: Lab intro + image carousel -->
                 <div class="home-about">
-                    <div class="home-lab-title">Visual Intelligence Lab</div>
-                    <div class="home-lab-sub">@ Drexel University &nbsp;&middot;&nbsp; College of Computing &amp; Informatics</div>
+                    <div class="home-lab-title">Welcome to the VIL Group</div>
+                    <div class="home-lab-about-us">About us</div>
                     <p class="intro">Loading...</p>
 
-                    <!-- PI photo card -->
-                    <div class="pi-card">
-                        <img src="assets/faculty/fengliu.jpg" alt="Prof. Feng Liu" class="pi-photo">
-                        <div class="pi-info">
-                            <a class="pi-name" href="https://liufeng2915.github.io/" target="_blank" rel="noopener">Feng Liu</a>
-                            <span>Assistant Professor</span>
-                            <span>College of Computing &amp; Informatics</span>
-                            <span>Drexel University</span>
-                            <div class="pi-links">
-                                <a href="https://scholar.google.com/citations?user=8Y9iUz0AAAAJ&hl" target="_blank" rel="noopener" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                                <a href="https://www.linkedin.com/in/feng-liu-4b5563187/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                                <a href="mailto:fl397@drexel.edu" title="Email"><i class="fas fa-envelope"></i></a>
+                    <!-- Image carousel: Drexel / CCI -->
+                    <div class="hero-carousel">
+                        <button class="carousel-btn prev-btn" aria-label="Previous image">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="carousel-inner">
+                            <div class="carousel-slide active">
+                                <img src="assets/carousel/drexel-campus.svg" alt="Drexel University Campus">
+                                <span class="carousel-caption">Drexel University &middot; Philadelphia, PA</span>
                             </div>
+                            <div class="carousel-slide">
+                                <img src="assets/carousel/cci-building.svg" alt="College of Computing &amp; Informatics">
+                                <span class="carousel-caption">College of Computing &amp; Informatics</span>
+                            </div>
+                        </div>
+                        <button class="carousel-btn next-btn" aria-label="Next image">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="carousel-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
                         </div>
                     </div>
                 </div>
