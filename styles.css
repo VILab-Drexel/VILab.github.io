@@ -144,19 +144,25 @@ body {
 }
 
 .home-lab-title {
-    font-size: 2rem;
+    font-size: 1.9rem;
     font-weight: 700;
     color: #07294d;
     line-height: 1.2;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
 }
 
-.home-lab-sub {
-    font-size: 0.95rem;
-    color: #888;
-    font-weight: 500;
-    margin-bottom: 22px;
-    letter-spacing: 0.01em;
+/* "About Us" label */
+.home-about-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #fff;
+    background: #07294d;
+    padding: 3px 11px;
+    border-radius: 3px;
+    margin-bottom: 14px;
 }
 
 .intro {
@@ -166,65 +172,45 @@ body {
     margin-bottom: 28px;
 }
 
-/* PI card */
-.pi-card {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    padding: 18px 20px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    border-left: 4px solid #07294d;
-}
-
-.pi-photo {
-    width: 82px;
-    height: 82px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: top;
-    border: 3px solid #07294d;
-    flex-shrink: 0;
-}
-
-.pi-info {
+/* Drexel / CCI image collage */
+.drexel-collage {
     display: flex;
     flex-direction: column;
-    gap: 2px;
-}
-
-.pi-name {
-    font-size: 15px;
-    font-weight: 700;
-    color: #07294d;
-    text-decoration: none;
-}
-
-.pi-name:hover {
-    text-decoration: underline;
-}
-
-.pi-info span {
-    font-size: 13px;
-    color: #666;
-    line-height: 1.5;
-}
-
-.pi-links {
-    display: flex;
-    gap: 10px;
+    gap: 6px;
     margin-top: 6px;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.pi-links a {
-    color: #07294d;
-    font-size: 15px;
-    text-decoration: none;
-    transition: color 0.2s;
+.collage-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
 }
 
-.pi-links a:hover {
-    color: #ffc600;
+/* Each image slot – the background shows as a placeholder when
+   the image file hasn't been added yet */
+.collage-img-wrap {
+    background: #c6d9e8;
+    overflow: hidden;
+    position: relative;
+}
+
+.collage-img-wrap--main {
+    height: 160px;
+}
+
+.collage-row .collage-img-wrap {
+    height: 108px;
+}
+
+.collage-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* hide broken-image icon; placeholder bg shows instead */
+    color: transparent;
 }
 
 /* Right column – News ----------------------- */

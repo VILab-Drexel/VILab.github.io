@@ -51,29 +51,6 @@ function loadLabInfo() {
         document.querySelector('.intro').textContent = siteData.lab.description;
     }
 
-    // Populate PI card from faculty data
-    if (siteData.team && siteData.team.faculty && siteData.team.faculty.length > 0) {
-        const pi = siteData.team.faculty[0];
-        const piPhoto = document.querySelector('.pi-photo');
-        const piName = document.querySelector('.pi-name');
-        const piLinks = document.querySelector('.pi-links');
-
-        if (piPhoto && pi.image) {
-            piPhoto.src = pi.image;
-            piPhoto.alt = pi.name;
-        }
-        if (piName) {
-            piName.textContent = pi.name;
-            if (pi.website) piName.href = pi.website;
-        }
-        if (piLinks) {
-            let linksHTML = '';
-            if (pi.google_scholar) linksHTML += `<a href="${pi.google_scholar}" target="_blank" rel="noopener" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>`;
-            if (pi.linkedin) linksHTML += `<a href="${pi.linkedin}" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>`;
-            if (pi.email) linksHTML += `<a href="mailto:${pi.email}" title="Email"><i class="fas fa-envelope"></i></a>`;
-            piLinks.innerHTML = linksHTML;
-        }
-    }
 }
 
 function loadAboutHome() {
