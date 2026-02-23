@@ -269,6 +269,23 @@ body {
     background: #ffc600;
 }
 
+.join-text {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.join-text a {
+    color: #07294d;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.join-text a:hover {
+    color: #ffc600;
+}
+
 /* Right column – News ----------------------- */
 .home-news-col {
     display: flex;
