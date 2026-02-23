@@ -255,11 +255,14 @@ function loadTeam() {
                 tdName.textContent = person.name;
             }
 
-            let desc = person.role || person.degree || person.description || '';
+            let desc = '';
+            if (person.degree) desc += person.degree + ' ';
+            if (person.duration) desc += '(' + person.duration + ')';
             if (person.current_position) {
                 desc += (desc ? ' ' : '') + 'Now: ' + person.current_position;
             }
-            tdDesc.textContent = desc;
+            if (!desc && person.description) desc = person.description;
+            tdDesc.textContent = desc.trim();
 
             tr.appendChild(tdName);
             tr.appendChild(tdDesc);
@@ -413,6 +416,7 @@ function loadFAQ() {
 function loadPhotos() {
     if (siteData.photos && siteData.photos.length > 0) {
         const photoGallery = document.querySelector('.photo-gallery');
+        if (!photoGallery) return;
         photoGallery.innerHTML = '';
 
         siteData.photos.forEach(photo => {

@@ -72,7 +72,7 @@
       {
         "name": "Feng Liu",
         "role": "Assistant Professor",
-        "description": "Department of Computer Science, Drexel University",
+        "description": "Computer vision, machine learning, pattern recognition, 3D vision, 3D human modeling, biometrics",
         "email": "fl397@drexel.edu",
         "website": "https://liufeng2915.github.io/",
         "google_scholar": "https://scholar.google.com/citations?user=8Y9iUz0AAAAJ&hl",
@@ -82,16 +82,16 @@
     ],
     "phd_students": [
       {
-        "name": "Yuyang Ji",
-        "description": "Computer Vision",
+        "name": "Yuyang Ji (Fall 2025 -)",
+        "description": "Computer vision, physical 3D human perception and modeling, AI + science",
         "email": "yj428@drexel.edu",
         "image": "assets/students/Yuyang_pic.jpg",
         "school": "Fall 2025 -, Drexel University",
         "start_quarter": "2025 Fall"
       },
       {
-        "name": "Yixuan Shen",
-        "description": "Physical 3D modeling",
+        "name": "Yixuan Shen (Spring 2026 -)",
+        "description": "Computer vision, physical 3D human perception and modeling, Deepfake detection",
         "image": "assets/students/Yixuan.jpg",
         "school": "Spring 2026 -, Drexel University",
         "email": "ys844@drexel.edu",
@@ -100,11 +100,8 @@
     ],
     "masters_students": [
       {
-        "name": "Behafarin Emam",
-        "description": "WiFi data-based 3D human modeling",
-        "email": "be379@drexel.edu",
-        "image": "assets/students/Behafarin_pic.jpg",
-        "school": "Drexel University"
+        "name": "Sam Pagon",
+        "description": "Deepfake detection (image, audio, and video)"
       },
       {
         "name": "Anthony Chen",
@@ -115,25 +112,12 @@
         "name": "Pengxiao Han",
         "description": "4D rigging",
         "school": "Australian National University"
-      },
-      {
-        "name": "Helen Fan",
-        "description": "Visual AI + Education",
-        "school": "UC Berkeley",
-        "email": "hf385@drexel.edu"
       }
     ],
     "undergraduate_students": [
       {
-        "name": "Channacy Un",
-        "description": "AI & Building",
-        "school": "Drexel University",
-        "email": "cu62@drexel.edu",
-        "image": "assets/students/Channacy.jpg"
-      },
-      {
         "name": "Ariji Chakma",
-        "description": "Controller Image Generation",
+        "description": "Controllable Image Generation",
         "email": "ac4393@drexel.edu",
         "school": "Drexel University",
         "image": "assets/students/Ariji.jpg",
@@ -146,36 +130,40 @@
         "email": "seo52@drexel.edu",
         "school": "Drexel University",
         "image": "assets/students/Safa_pic.jpg"
-      },
-      {
-        "name": "Shengyang Dong",
-        "description": "Discriminative 3D human digitization",
-        "school": "Drexel University",
-        "email": "sd3666@drexel.edu",
-        "image": "assets/students/Shengyang_pic.jpg"
-      },
-      {
-        "name": "Tasmia Rahman",
-        "description": "Deepfake detection",
-        "school": "Drexel University",
-        "email": "tjr364@drexel.edu"
-      },
-      {
-        "name": "Lucas Hathaway",
-        "description": "4D motion generation",
-        "school": "Princeton University"
       }
     ],
     "former_members": [
       {
         "name": "Rui Xia",
-        "description": "Traffic scenario generation",
-        "years": "2024"
+        "description": "Fall 2024-Spring 2025"
       },
       {
         "name": "Ziang Gu",
-        "description": "4D motion planning and generation",
-        "years": "2024"
+        "description": "Fall 2024-Spring 2025"
+      },
+      {
+        "name": "Shengyang Dong",
+        "description": "Fall 2024-Fall 2025"
+      },
+      {
+        "name": "Behafarin Emam",
+        "description": "MS (Fall 2024-Fall 2025)"
+      },
+      {
+        "name": "Channacy Un",
+        "description": "Spring 2025-Fall 2025"
+      },
+      {
+        "name": "Lucas Hathaway",
+        "description": "Summer 2025"
+      },
+      {
+        "name": "Tasmia Rahman",
+        "description": "Summer 2025"
+      },
+      {
+        "name": "Helen Fan",
+        "description": "Summer 2025"
       }
     ]
   },
