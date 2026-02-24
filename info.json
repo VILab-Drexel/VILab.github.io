@@ -221,6 +221,18 @@
       }
     },
     {
+      "title": "OrgFlow: Generative Modeling of Organic Crystal Structures from Molecular Graphs",
+      "authors": "Mohammadmahdi Vahediahmar, Matthew A. McDonald, and Feng Liu",
+      "venue": "arXiv preprint, 2026",
+      "year": 2026,
+      "type": "preprint",
+      "links": {
+        "code": "",
+        "project": "",
+        "paper": ""
+      }
+    },
+    {
       "title": "LocalScore: Local Density-Aware Similarity Scoring for Biometrics",
       "authors": "Yiyang Su, Minchul Kim, Jie Zhu, Christopher Perry, Feng Liu, Anil Jain, and Xiaoming Liu",
       "venue": "arXiv preprint, 2026",
