@@ -305,7 +305,7 @@ body {
 
 /* News list */
 .news-list {
-    max-height: 460px;
+    max-height: 380px;
     overflow-y: auto;
     padding-right: 4px;
 }
@@ -331,7 +331,7 @@ body {
 .news-item {
     display: flex;
     gap: 8px;
-    padding: 4px 0;
+    padding: 2px 0;
     border-bottom: 1px solid #eee;
 }
 
