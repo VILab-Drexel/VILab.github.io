@@ -217,7 +217,7 @@
       "links": {
         "code": "https://github.com/VILab-Drexel/IDSelect",
         "project": "project/idselect/",
-        "paper": ""
+        "paper": "https://arxiv.org/abs/2602.18990"
       }
     },
     {
@@ -265,7 +265,7 @@
       "links": {
         "project": "",
         "paper": "https://www.arxiv.org/pdf/2508.05038",
-        "code": ""
+        "code": "https://github.com/prevso1088/hamobe"
       }
     },
     {
@@ -325,7 +325,7 @@
       "links": {
         "project": "",
         "paper": "https://arxiv.org/abs/2504.04708",
-        "code": ""
+        "code": "https://github.com/mk-minchul/sapiensid"
       }
     },
     {
@@ -348,8 +348,8 @@
       "type": "published",
       "links": {
         "project": "",
-        "paper": "",
-        "code": ""
+        "paper": "https://arxiv.org/abs/2407.16133",
+        "code": "https://github.com/prevso1088/open-set-biometrics"
       }
     },
     {
@@ -372,8 +372,8 @@
       "type": "published",
       "links": {
         "project": "",
-        "paper": "https://cvlab.cse.msu.edu/pdfs/Kim_Su_Liu_Jain_Liu_KPRPE.pdf",
-        "code": ""
+        "paper": "https://arxiv.org/abs/2403.14852",
+        "code": "https://github.com/mk-minchul/kprpe"
       }
     },
     {
@@ -385,7 +385,7 @@
       "links": {
         "project": "",
         "paper": "https://cvlab.cse.msu.edu/pdfs/Ren_Kim_Liu_Liu_TIGER.pdf",
-        "code": ""
+        "code": "https://github.com/Zhiyuan-R/Tiger-Diffusion"
       }
     },
     {
@@ -396,7 +396,7 @@
       "type": "published",
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/pdf/2306.17206.pdf",
+        "paper": "https://arxiv.org/abs/2306.17206",
         "code": ""
       }
     },
