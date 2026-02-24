@@ -298,9 +298,9 @@ body {
     color: #07294d;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    padding-bottom: 10px;
+    padding-bottom: 6px;
     border-bottom: 2px solid #ffc600;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 }
 
 /* News list */
@@ -330,8 +330,8 @@ body {
 
 .news-item {
     display: flex;
-    gap: 12px;
-    padding: 12px 0;
+    gap: 8px;
+    padding: 7px 0;
     border-bottom: 1px solid #eee;
 }
 
@@ -343,19 +343,19 @@ body {
     flex-shrink: 0;
     color: #07294d;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 11px;
     background: #eef2f7;
     border-radius: 4px;
-    padding: 2px 7px;
+    padding: 1px 6px;
     height: fit-content;
     white-space: nowrap;
     margin-top: 2px;
 }
 
 .news-title {
-    font-size: 14px;
+    font-size: 13px;
     color: #444;
-    line-height: 1.55;
+    line-height: 1.4;
     margin: 0;
 }
 
