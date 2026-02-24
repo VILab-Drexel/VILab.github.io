@@ -331,7 +331,7 @@ body {
 .news-item {
     display: flex;
     gap: 8px;
-    padding: 7px 0;
+    padding: 4px 0;
     border-bottom: 1px solid #eee;
 }
 
