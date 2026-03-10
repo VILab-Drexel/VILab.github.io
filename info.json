@@ -195,7 +195,7 @@
       "year": 2026,
       "type": "preprint",
       "links": {
-        "paper": "",
+        "paper": "https://arxiv.org/abs/2603.08564",
         "code": "",
         "project": "project/biogait-vlm/"
       }
@@ -207,7 +207,7 @@
       "year": 2026,
       "type": "preprint",
       "links": {
-        "paper": "https://www.arxiv.org/pdf/2602.01578",
+        "paper": "https://arxiv.org/abs/2602.01578",
         "code": "https://github.com/VILab-Drexel/DrawSim-PD",
         "project": "project/drawsim-pd/"
       }
