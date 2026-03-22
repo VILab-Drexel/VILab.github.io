@@ -2,14 +2,14 @@
   "lab": {
     "name": "Visual Intelligence Lab @ Drexel",
     "university": "Drexel University",
-    "description": "We are a research group at Drexel University, focused on advancing computer vision, machine learning, and artificial intelligence to solve fundamental and applied problems in 3D vision, generative AI, and AI for societal impact."
+    "description": "We are a research group at Drexel University, focused on advancing computer vision, machine learning, and artificial intelligence to solve fundamental and applied problems in physical 3D human digitization, generative AI, and AI for societal impact."
   },
   "about": {
     "mission": "The Visual Intelligence Lab at Drexel University is dedicated to pioneering research in computer vision, machine learning, and artificial intelligence. Our mission is to develop innovative technologies that advance the state-of-the-art in visual understanding and create meaningful societal impact.",
     "research_areas": [
       {
-        "title": "3D Vision & Reconstruction",
-        "description": "We develop cutting-edge methods for 3D object and scene understanding, enabling next-generation applications in virtual reality, augmented reality, and autonomous systems."
+        "title": "Physical 3D Human Digitization",
+        "description": "We develop methods for reconstructing and modeling humans in 3D from images and video, enabling applications in fitness tracking, healthcare, egocentric perception, and humanoid robotics."
       },
       {
         "title": "Generative AI & Deep Learning",
@@ -29,8 +29,8 @@
   },
   "highlights": [
     {
-      "title": "3D Vision & Intelligence",
-      "description": "Exploring next-generation methods for 3D object/scene understanding and immersive VR/AR applications."
+      "title": "Physical 3D Human Digitization",
+      "description": "Reconstructing and modeling humans in 3D from images and video, with applications in fitness, healthcare, egocentric perception, and humanoid robotics."
     },
     {
       "title": "Generative AI",
