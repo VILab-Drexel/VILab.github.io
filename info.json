@@ -44,7 +44,7 @@
   "news": [
     {
       "date": "2026-03-23",
-      "title": "Two papers have been accepted at <a href=\"https://www.aied-conference.org/2026\">AIED 2026</a>. Congratulations to Arijit, Yixuan and all co-authors!" 
+      "title": "Two papers have been accepted at <a href=\"https://www.aied-conference.org/2026\">AIED 2026</a>. Congratulations to Arijit, Yixuan and all co-authors! ((2x AIED)" 
     },
     {
       "date": "2026-03-06",
@@ -205,30 +205,6 @@
       }
     },
     {
-      "title": "DrawSim-PD: Simulating Student Science Drawings to Support NGSS-Aligned Teacher Diagnostic Reasoning",
-      "authors": "Arijit Chakma, Peng He, Honglu Liu, Zeyuan Wang, Tingting Li, Tiffany D. Do, and Feng Liu",
-      "venue": "arXiv preprint, 2026",
-      "year": 2026,
-      "type": "preprint",
-      "links": {
-        "paper": "https://arxiv.org/abs/2602.01578",
-        "code": "https://github.com/VILab-Drexel/DrawSim-PD",
-        "project": "project/drawsim-pd/"
-      }
-    },
-    {
-      "title": "Can Multimodal LLMs \"See\" Science Instruction? Benchmarking Pedagogical Reasoning in K-12 Classroom Videos",
-      "authors": "Yixuan Shen*, Peng He*, Honglu Liu, Jinxuan Fan, Yuyang Ji, Tingting Li, Tianlong Chen, Kaidi Xu, and Feng Liu",
-      "venue": "arXiv preprint, 2026",
-      "year": 2026,
-      "type": "preprint",
-      "links": {
-        "code": "https://github.com/VILab-Drexel/SciIBI",
-        "project": "project/sciibi/",
-        "paper": "https://arxiv.org/abs/2602.18466"
-      }
-    },
-    {
       "title": "IDSelect: An RL-based Cost-Aware Selection Agent for Video-based Person Recognition",
       "authors": "Yuyang Ji, Yixuan Shen, Kien Nguyen, Lifeng Zhou, and Feng Liu",
       "venue": "arXiv preprint, 2026",
@@ -262,6 +238,30 @@
         "code": "",
         "project": "",
         "paper": "https://arxiv.org/abs/2602.01012"
+      }
+    },
+    {
+      "title": "DrawSim-PD: Simulating Student Science Drawings to Support NGSS-Aligned Teacher Diagnostic Reasoning",
+      "authors": "Arijit Chakma, Peng He, Zeyuan Wang, Honglu Liu, Tingting Li, Tiffany D. Do, and Feng Liu",
+      "venue": "In Proceeding of International Conference on AI in Education",
+      "year": 2026,
+      "type": "published",
+      "links": {
+        "paper": "https://arxiv.org/abs/2602.01578",
+        "code": "https://github.com/VILab-Drexel/DrawSim-PD",
+        "project": "project/drawsim-pd/"
+      }
+    },
+    {
+      "title": "Can Multimodal LLMs \"See\" Science Instruction? Benchmarking Pedagogical Reasoning in K-12 Classroom Videos",
+      "authors": "Yixuan Shen*, Peng He*, Honglu Liu, Jinxuan Fan, Yuyang Ji, Tingting Li, Tianlong Chen, Kaidi Xu, and Feng Liu",
+      "venue": "In Proceeding of International Conference on AI in Education",
+      "year": 2026,
+      "type": "published",
+      "links": {
+        "code": "https://github.com/VILab-Drexel/SciIBI",
+        "project": "project/sciibi/",
+        "paper": "https://arxiv.org/abs/2602.18466"
       }
     },
     {
