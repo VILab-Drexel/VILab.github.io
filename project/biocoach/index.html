@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BioCoach: A biomechanics-grounded vision-language framework for fitness coaching from fitness video.">
+    <meta name="keywords" content="biomechanics, fitness coaching, vision-language model, 3D pose estimation, streaming video, CVPR 2026">
+
+    <title>BioCoach - Visual Intelligence Lab</title>
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Academicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="../../index.html">
+                    <span>Visual Intelligence Lab @ Drexel</span>
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item" href="../../index.html">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero is-light">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <!-- Conference Badge -->
+                <div class="publication-venue" style="margin-bottom: 1rem;">
+                    <span class="tag">CVPR 2026</span>
+                </div>
+
+                <!-- Title with Logo -->
+                <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <img src="static/images/logo.png" alt="BioCoach Logo" style="width: 120px; height: 120px; border-radius: 14px;">
+                    <h1 class="publication-title" style="margin-bottom: 0;">
+                        From 3D Pose to Prose: Biomechanics-Grounded<br>Vision-Language Coaching
+                    </h1>
+                </div>
+
+                <!-- Authors -->
+                <div class="publication-authors">
+                    <span class="author-block">
+                        <a href="#">Yuyang Ji</a><sup>1</sup>,
+                    </span>
+                    <span class="author-block">
+                        <a href="#">Yixuan Shen</a><sup>1</sup>,
+                    </span>
+                    <span class="author-block">
+                        <a href="#">Shengjie Zhu</a><sup>2</sup>,
+                    </span>
+                    <span class="author-block">
+                        <a href="#">Yu Kong</a><sup>2</sup>,
+                    </span>
+                    <span class="author-block">
+                        <a href="#">Feng Liu</a><sup>1*</sup>
+                    </span>
+                </div>
+
+                <!-- Author Notes -->
+                <div class="author-notes">
+                    <span>* Corresponding author</span>
+                </div>
+
+                <!-- Affiliations -->
+                <div class="publication-affiliations">
+                    <span class="affiliation-block"><sup>1</sup>Dept. of Computer Science, Drexel University</span>
+                    <span class="affiliation-block"><sup>2</sup>Dept. of Computer Science and Engineering, Michigan State University</span>
+                </div>
+
+                <!-- Links -->
+                <div class="publication-links">
+                    <a class="button is-medium external-link" href="#">
+                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                        <span>Paper</span>
+                    </a>
+                    <a class="button is-medium external-link" href="#">
+                        <span class="icon"><i class="ai ai-arxiv"></i></span>
+                        <span>arXiv</span>
+                    </a>
+                    <a class="button is-medium external-link" href="#">
+                        <span class="icon"><i class="fab fa-github"></i></span>
+                        <span>Code</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Video Section -->
+    <section class="section" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3 section-title">Demo</h2>
+                    <div class="demo-video-container">
+                        <video controls autoplay muted loop playsinline>
+                            <source src="static/videos/demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <p class="figure-caption" style="margin-top: 1rem;">
+                        BioCoach delivers real-time, biomechanically-grounded coaching feedback from fitness video, providing precise joint angle measurements and actionable corrections.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaser Section -->
+    <section class="section teaser">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <div class="has-text-centered">
+                        <img src="static/images/teaser.png" alt="BioCoach Framework Teaser" class="teaser-image">
+                    </div>
+                    <p class="teaser-caption">
+                        <strong>BioCoach</strong> bridges biomechanical analysis and multimodal understanding for fitness coaching. Unlike pixel-only VLMs that produce generic advice, BioCoach constructs explicit, interpretable intermediate representations exposing kinematic properties to the language model, enabling phase-aligned, anatomically-specific feedback grounded in biomechanical principles.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract Section -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3 section-title">Abstract</h2>
+                    <div class="abstract-content">
+                        <p>
+                            We present BioCoach, a biomechanics-grounded vision-language framework for fitness coaching from fitness video. BioCoach fuses visual appearance and 3D skeletal kinematics through a novel three-stage pipeline: an exercise-specific degree-of-freedom selector that focuses analysis on salient joints; a structured biomechanical context that pairs individualized morphometrics with cycle and constraint analysis; and a vision-biomechanics conditioned feedback module that applies cross-attention to generate precise, actionable text. Using parameter-efficient training that freezes the vision and language backbones, BioCoach yields transparent, personalized reasoning rather than pattern matching. To enable learning and fair evaluation, we augment QEVD-fit-coach with biomechanics-oriented feedback to create QEVD-bio-fit-coach, and we introduce a biomechanics-aware LLM judge metric. BioCoach delivers clear gains on QEVD-bio-fit-coach across lexical and judgment metrics while maintaining temporal triggering; on the original QEVD-fit-coach, it improves text quality and correctness with near-parity timing, demonstrating that explicit kinematics and constraints are key to accurate, phase-aware coaching.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Results Section -->
+    <section class="section key-findings">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3 section-title">Key Results</h2>
+                    <div class="columns is-multiline">
+                        <div class="column is-3">
+                            <div class="finding-card">
+                                <div class="finding-number">+262.8%</div>
+                                <div class="finding-label">METEOR improvement on QEVD-bio-fit-coach</div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
+                            <div class="finding-card">
+                                <div class="finding-number">+89.5%</div>
+                                <div class="finding-label">LLM-Bio-Accuracy improvement</div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
+                            <div class="finding-card">
+                                <div class="finding-number">+179.6%</div>
+                                <div class="finding-label">ROUGE-L improvement on QEVD-bio-fit-coach</div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
+                            <div class="finding-card">
+                                <div class="finding-number">3-Stage</div>
+                                <div class="finding-label">Interpretable biomechanics-grounded pipeline</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Method Overview Section -->
+    <section class="section" style="background-color: #f5f5f5;">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3 section-title">Method Overview</h2>
+
+                    <div class="method-content">
+                        <p>
+                            BioCoach converts fitness videos into biomechanically-grounded coaching feedback through <em>explicit, interpretable intermediate representations</em> that bridge kinematic data and language generation. The framework extracts two complementary modalities&mdash;visual appearance and 3D skeletal kinematics&mdash;and processes them through a three-stage pipeline: (1) an <strong>Exercise-Specific DoF Selection Module</strong> that identifies anatomically salient joints; (2) a <strong>Structured Biomechanical Context Generation Module</strong> that analyzes motion quality while accounting for individual body geometry; and (3) a <strong>Vision-Biomechanics Conditioned Feedback Generation</strong> module that produces coaching grounded in explicit biomechanical analysis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3 section-title">Results</h2>
+
+                    <h3 class="subsection-title">Performance on QEVD-bio-fit-coach</h3>
+                    <p style="margin-bottom: 1rem;">Evaluation on the newly created benchmark with fine-grained biomechanical ground-truth feedback annotations.</p>
+
+                    <div class="results-table-container">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Method</th>
+                                    <th>METEOR &uarr;</th>
+                                    <th>ROUGE-L &uarr;</th>
+                                    <th>BERTScore &uarr;</th>
+                                    <th>LLM-Acc. &uarr;</th>
+                                    <th>LLM-Bio-Acc. &uarr;</th>
+                                    <th>T-F-Score &uarr;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: left;">Stream-VLM (NeurIPS '24)</td>
+                                    <td>0.086</td>
+                                    <td>0.108</td>
+                                    <td>0.852</td>
+                                    <td>1.86</td>
+                                    <td>1.72</td>
+                                    <td>0.530</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: left;"><strong>BioCoach (Ours)</strong></td>
+                                    <td class="best">0.312 <span class="gain">(+262.8%)</span></td>
+                                    <td class="best">0.302 <span class="gain">(+179.6%)</span></td>
+                                    <td class="best">0.877 <span class="gain">(+2.9%)</span></td>
+                                    <td class="best">3.12 <span class="gain">(+67.7%)</span></td>
+                                    <td class="best">3.26 <span class="gain">(+89.5%)</span></td>
+                                    <td class="best">0.544 <span class="gain">(+2.6%)</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="subsection-title" style="margin-top: 2.5rem;">Performance on QEVD-fit-coach (Original Annotations)</h3>
+                    <p style="margin-bottom: 1rem;">Performance comparison with state-of-the-art methods using original feedback annotations.</p>
+
+                    <div class="results-table-container">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Method</th>
+                                    <th>METEOR &uarr;</th>
+                                    <th>ROUGE-L &uarr;</th>
+                                    <th>BERTScore &uarr;</th>
+                                    <th>LLM-Acc. &uarr;</th>
+                                    <th>T-F-Score &uarr;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: left;" colspan="6"><em>Zero-shot Models</em></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: left;">InstructBLIP</td>
+                                    <td>0.047</td>
+                                    <td>0.040</td>
+                                    <td>0.839</td>
+                                    <td>1.56</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: left;">Video-LLaVA</td>
+                                    <td>0.057</td>
+                                    <td>0.025</td>
+                                    <td>0.847</td>
+                                    <td>2.16</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: left;">Video-ChatGPT</td>
+                                    <td>0.098</td>
+                                    <td>0.078</td>
+                                    <td>0.850</td>
+                                    <td>1.91</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: left;">Video-LLaMA</td>
+                                    <td>0.101</td>
+                                    <td>0.077</td>
+                                    <td>0.859</td>
+                                    <td>1.29</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: left;">LLaMA-VID</td>
+                                    <td>0.100</td>
+                                    <td>0.079</td>
+                                    <td>0.859</td>
+                                    <td>2.20</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: left;">LLaVA-NeXT</td>
+                                    <td>0.104</td>
+                                    <td>0.078</td>
+                                    <td>0.858</td>
+                                    <td>2.27</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: left;" colspan="6"><em>Fine-tuned Models</em></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: left;">Socratic-LLaMA-2-7B</td>
+                                    <td>0.094</td>
+                                    <td>0.071</td>
+                                    <td>0.860</td>
+                                    <td>2.17</td>
+                                    <td>0.50</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: left;">Video-ChatGPT (FT)</td>
+                                    <td>0.108</td>
+                                    <td>0.093</td>
+                                    <td>0.863</td>
+                                    <td>2.33</td>
+                                    <td>0.50</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: left;">LLaMA-VID (FT)</td>
+                                    <td>0.106</td>
+                                    <td>0.090</td>
+                                    <td>0.860</td>
+                                    <td>2.30</td>
+                                    <td>0.50</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: left;">Stream-VLM (NeurIPS '24)</td>
+                                    <td>0.127</td>
+                                    <td>0.112</td>
+                                    <td>0.863</td>
+                                    <td>2.45</td>
+                                    <td><strong>0.56</strong></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: left;"><strong>BioCoach (Ours)</strong></td>
+                                    <td class="best">0.129 <span class="gain">(+1.6%)</span></td>
+                                    <td class="best">0.122 <span class="gain">(+8.9%)</span></td>
+                                    <td class="best">0.864 <span class="gain">(+0.1%)</span></td>
+                                    <td class="best">2.56 <span class="gain">(+4.5%)</span></td>
+                                    <td>0.544</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BibTeX Section -->
+    <section class="section bibtex-section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3 section-title">BibTeX</h2>
+                    <div class="bibtex-block">
+                        <button class="copy-button" onclick="copyBibtex()">
+                            <span class="icon"><i class="fas fa-copy"></i></span>
+                            <span>Copy</span>
+                        </button>
+                        <pre id="bibtex-content">@inproceedings{ji2026biocoach,
+  title={From 3D Pose to Prose: Biomechanics-Grounded Vision-Language Coaching},
+  author={Ji, Yuyang and Shen, Yixuan and Zhu, Shengjie and Kong, Yu and Liu, Feng},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2026}
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    &copy; 2026 <a href="../../index.html">Visual Intelligence Lab @ Drexel University</a>. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar burger toggle for mobile
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+        });
+
+        // Copy BibTeX to clipboard
+        function copyBibtex() {
+            const bibtex = document.getElementById('bibtex-content').innerText;
+            navigator.clipboard.writeText(bibtex).then(() => {
+                const btn = document.querySelector('.copy-button');
+                btn.classList.add('copied');
+                btn.innerHTML = '<span class="icon"><i class="fas fa-check"></i></span><span>Copied!</span>';
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.innerHTML = '<span class="icon"><i class="fas fa-copy"></i></span><span>Copy</span>';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
