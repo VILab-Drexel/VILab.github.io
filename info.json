@@ -260,7 +260,7 @@
       "type": "published",
       "links": {
         "project": "project/biocoach/",
-        "paper": "",
+        "paper": "https://arxiv.org/abs/2603.26938",
         "code": ""
       }
     },
