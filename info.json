@@ -289,6 +289,18 @@
       }
     },
     {
+      "title": "EdgeDiffusion: Latency-Optimized Diffusion Models for Real-Time On-Device Visual Anonymization",
+      "authors": "Zihao Han, Xueyan Gong, Fengyi Wu, Yifei Dong, Jingqi Xu, Jingdong Sun, Feng Liu, Siyu Huang, and Zhi-Qi Cheng",
+      "venue": "In Proceeding of IEEE Computer Vision and Pattern Recognition Workshop (CVPRW 2026), Denver CO, Jun. 2026",
+      "year": 2026,
+      "type": "published",
+      "links": {
+        "code": "",
+        "project": "",
+        "paper": ""
+      }
+    },
+    {
       "title": "HAMoBE: Hierarchical and Adaptive Mixture of Biometric Experts for Video-based Person ReID",
       "authors": "Yiyang Su*, Yunping Shi*, Feng Liu, and Xiaoming Liu",
       "venue": "In Proceeding of IEEE/CVF International Conference on Computer Vision (ICCV), 2025",
