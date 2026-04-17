@@ -136,9 +136,11 @@
                         <img src="static/images/figure1.png" alt="Visual Context Impact on CIP Classification" class="teaser-image">
                     </div>
                     <p class="teaser-caption">
-                        <strong>Figure 1:</strong> MLLMs achieve different accuracy across CIP categories and show improvement with visual context.
-                        Visual information provides essential contextual cues for understanding classroom instructional practices,
-                        particularly in categories requiring observation of physical interactions and demonstrations.
+                        <strong>Figure 1:</strong> The impact of visual context on instructional practice coding.
+                        <em>Left:</em> Text-only models fail to detect student engagement (e.g., raising hands) from the transcript
+                        alone, misclassifying the clip as a lecture (Big Idea). <em>Right:</em> Multimodal models (Vision+Text)
+                        utilize visual cues to correctly identify "Eliciting Student Ideas" (D1), yielding an average accuracy
+                        improvement of 4.8% across evaluated MLLMs.
                     </p>
                 </div>
             </div>
@@ -153,19 +155,22 @@
                     <h2 class="title is-3 section-title">Abstract</h2>
                     <div class="abstract-content">
                         <p>
-                            While Multimodal Large Language Models (MLLMs) have shown promise in video understanding,
-                            their ability to comprehend complex pedagogical practices in classroom settings remains
-                            unexplored. We present <strong>SciIBI</strong> (Science Instructional Benchmarking for Instruction),
-                            a benchmark for evaluating MLLMs on Classroom Instructional Practice (CIP) classification
-                            aligned with the Next Generation Science Standards (NGSS). SciIBI comprises 113 video clips
-                            from authentic K-12 science classrooms, each annotated with one of seven CIP categories
-                            representing core instructional strategies. We evaluate eight state-of-the-art MLLMs using
-                            various input modalities and prompting strategies. Our findings reveal that: (1) current
-                            MLLMs struggle with pedagogical reasoning, with the best model achieving only 53.6% accuracy;
-                            (2) visual context provides a +4.8% average improvement over transcript-only inputs; and
-                            (3) certain instructional practices like "Developing Models" remain particularly challenging.
-                            SciIBI provides a foundation for developing AI systems capable of supporting science
-                            education research and teacher professional development.
+                            K&ndash;12 science classrooms are rich sites of inquiry where students coordinate phenomena, evidence,
+                            and explanatory models through discourse; yet, the multimodal complexity of these interactions has
+                            made automated analysis elusive. Existing benchmarks for classroom discourse focus primarily on
+                            mathematics and rely solely on transcripts, overlooking the visual artifacts and model-based reasoning
+                            emphasized by the Next Generation Science Standards (NGSS). We address this gap with
+                            <strong>SciIBI</strong> (<strong>Sci</strong>ence <strong>I</strong>nquiry-<strong>B</strong>ased
+                            <strong>I</strong>nstruction), the first video benchmark for analyzing science classroom discourse,
+                            featuring 113 NGSS-aligned clips annotated with Core Instructional Practices (CIP) and sophistication
+                            levels. By evaluating eight state-of-the-art LLMs and Multimodal LLMs, we reveal fundamental
+                            limitations: current models struggle to distinguish pedagogically similar practices, suggesting
+                            that CIP coding requires instructional reasoning beyond surface pattern matching. Furthermore,
+                            adding video input yields inconsistent gains across architectures. Crucially, our evidence-based
+                            evaluation reveals that models often succeed through surface shortcuts rather than genuine
+                            pedagogical understanding. These findings establish science classroom discourse as a challenging
+                            frontier for multimodal AI and point toward human-AI collaboration, where models retrieve evidence
+                            to accelerate expert review rather than replace it.
                         </p>
                     </div>
                 </div>
@@ -188,20 +193,20 @@
                         </div>
                         <div class="column is-3">
                             <div class="finding-card">
+                                <div class="finding-number">4</div>
+                                <div class="finding-label">Core Instructional Practices (BI, D1, D2, D3)</div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
+                            <div class="finding-card">
                                 <div class="finding-number">8</div>
-                                <div class="finding-label">State-of-the-Art MLLMs Evaluated</div>
+                                <div class="finding-label">LLMs / MLLMs Evaluated</div>
                             </div>
                         </div>
                         <div class="column is-3">
                             <div class="finding-card">
                                 <div class="finding-number">53.6%</div>
-                                <div class="finding-label">Best Model Accuracy (InternVL3-78B)</div>
-                            </div>
-                        </div>
-                        <div class="column is-3">
-                            <div class="finding-card">
-                                <div class="finding-number">+4.8%</div>
-                                <div class="finding-label">Avg. Improvement with Visual Context</div>
+                                <div class="finding-label">Best Accuracy (InternVL3-78B, Text+Vision, Zero-shot)</div>
                             </div>
                         </div>
                     </div>
@@ -218,26 +223,157 @@
                     <h2 class="title is-3 section-title">Benchmark Overview</h2>
 
                     <div class="benchmark-description">
+                        <h3 class="subsection-title">Core Instructional Practices (CIP)</h3>
                         <p>
-                            SciIBI is designed to evaluate MLLMs' understanding of science instructional practices
-                            in authentic K-12 classroom settings. The benchmark focuses on seven Classroom Instructional
-                            Practice (CIP) categories derived from the NGSS framework:
+                            SciIBI operationalizes science classroom discourse analysis using the
+                            <strong>Core Instructional Practices</strong> framework from Windschitl et al. (2012).
+                            The framework specifies four practices that support inquiry-based instruction, each with a
+                            performance progression from basic to ambitious enactments. Given a classroom clip (with
+                            transcript and optional multimodal inputs), a model predicts the dominant practice:
                         </p>
 
                         <ul class="content-list">
-                            <li><strong>Asking Questions:</strong> Teacher or students pose questions to guide inquiry</li>
-                            <li><strong>Developing Models:</strong> Creating visual or physical representations of concepts</li>
-                            <li><strong>Planning Investigations:</strong> Designing experiments and data collection methods</li>
-                            <li><strong>Analyzing Data:</strong> Interpreting results and identifying patterns</li>
-                            <li><strong>Mathematical Thinking:</strong> Using quantitative reasoning and calculations</li>
-                            <li><strong>Constructing Explanations:</strong> Building evidence-based scientific explanations</li>
-                            <li><strong>Engaging in Argument:</strong> Debating and defending scientific claims</li>
+                            <li><strong>BI (Big Idea):</strong> selecting and framing big ideas as models that link
+                                unobservable processes to phenomena.</li>
+                            <li><strong>D1:</strong> eliciting students' initial ideas to adapt instruction.</li>
+                            <li><strong>D2:</strong> guiding students to use theories and models to make sense of
+                                observations from the inquiry activity.</li>
+                            <li><strong>D3:</strong> pressing students for evidence-based explanations that coordinate
+                                claims with evidence.</li>
                         </ul>
+
+                        <h3 class="subsection-title">CIP Framework (Windschitl et al., 2012)</h3>
+                        <p>
+                            Sophistication increases from Level 1 (surface-level) to Level 4 (model-based inquiry).
+                            The binary sophistication probe groups Levels 1&ndash;2 as <em>Low</em> and Levels 3&ndash;4
+                            as <em>High</em>.
+                        </p>
+                        <div class="cip-framework-legend">
+                            <span><span class="swatch swatch-low"></span>Low (Levels 1&ndash;2)</span>
+                            <span><span class="swatch swatch-high"></span>High (Levels 3&ndash;4)</span>
+                        </div>
+                        <div class="table-scroll">
+                            <table class="cip-framework-table">
+                                <thead>
+                                    <tr>
+                                        <th class="practice-cell"></th>
+                                        <th class="level1">Level 1</th>
+                                        <th class="level2">Level 2</th>
+                                        <th class="level3">Level 3</th>
+                                        <th class="level4">Level 4</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="practice-cell">BI</td>
+                                        <td class="level1">
+                                            <span class="level-descriptor">Topics, vocabulary, "things."</span>
+                                            Students name, label, identify using correct vocabulary.
+                                        </td>
+                                        <td class="level2">
+                                            <span class="level-descriptor">Observable process.</span>
+                                            Focus on "what is changing" or how conditions affect an event.
+                                        </td>
+                                        <td class="level34" colspan="2">
+                                            <span class="level-descriptor">Explanatory model focus.</span>
+                                            Focus on unobservable processes/entities and relationships among concepts.
+                                            Link to observable phenomena to develop explanatory models.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="practice-cell">D1</td>
+                                        <td class="level1">
+                                            <span class="level-descriptor">Monitor and reteach.</span>
+                                            Check for "correct" conceptions; one-on-one tutoring or IRE pattern.
+                                        </td>
+                                        <td class="level2">
+                                            <span class="level-descriptor">Elicit initial understandings.</span>
+                                            Draw out students' hypotheses and questions about scientific ideas.
+                                        </td>
+                                        <td class="level34" colspan="2">
+                                            <span class="level-descriptor">Adapt to student ideas.</span>
+                                            Pose open-ended tasks or puzzling events. Use students' language to shape
+                                            conversations.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="practice-cell">D2</td>
+                                        <td class="level1">
+                                            <span class="level-descriptor">Focus on procedure.</span>
+                                            Describe procedures and experimental setups; downplay concepts.
+                                        </td>
+                                        <td class="level2">
+                                            <span class="level-descriptor">Discover/confirm ideas.</span>
+                                            "Proof of concept" activities; acquire accepted facts and laws.
+                                        </td>
+                                        <td class="level3">
+                                            <span class="level-descriptor">Link concepts across investigations.</span>
+                                            Seed new concepts; students derive explanatory language.
+                                        </td>
+                                        <td class="level4">
+                                            <span class="level-descriptor">Model-based inquiry.</span>
+                                            Use evolving models as reference before, during, and after inquiry.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="practice-cell">D3</td>
+                                        <td class="level1">
+                                            <span class="level-descriptor">No press for explanation.</span>
+                                            No explanation required; "explain" means "justify."
+                                        </td>
+                                        <td class="level2">
+                                            <span class="level-descriptor">"What happened."</span>
+                                            Describe variables, group differences, trends, or observations.
+                                        </td>
+                                        <td class="level3">
+                                            <span class="level-descriptor">"How/partial why."</span>
+                                            Hypothesize and predict system behavior.
+                                        </td>
+                                        <td class="level4">
+                                            <span class="level-descriptor">Causal explanation.</span>
+                                            Use unobservables to construct causal stories; discuss "what counts" as evidence.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="figure-caption">
+                            Table 1: CIP framework (Windschitl et al., 2012). Sophistication increases from Level 1 to Level 4.
+                        </p>
+
+                        <h3 class="subsection-title">Tasks</h3>
+                        <ul class="content-list">
+                            <li><strong>Primary task &mdash; 4-way CIP classification:</strong> predict the dominant practice
+                                from {BI, D1, D2, D3}.</li>
+                            <li><strong>Sophistication probe:</strong> a binary Low (Levels 1&ndash;2) vs High
+                                (Levels 3&ndash;4) label derived from the Windschitl progression; we also report a
+                                4-level fine-grained variant.</li>
+                            <li><strong>Evidence requirement:</strong> for every prediction, models must provide
+                                verifiable supporting evidence &mdash; <em>text evidence</em> (a quoted span or sentence
+                                indices from the transcript) and/or <em>temporal evidence</em> (a timestamp interval
+                                referencing visual cues).</li>
+                        </ul>
+
+                        <h3 class="subsection-title">Dataset Statistics</h3>
+                        <p>
+                            The final benchmark comprises <strong>113 clips</strong> (~3 hours of classroom video),
+                            segmented from 82 NGSS-aligned lessons (16.35 hours raw) sourced from 120 K&ndash;12 science
+                            YouTube channels. Clips range from 6 to 600 seconds (mean: 92s, median: 63s). All clips were
+                            consensus-coded by two researchers (a doctoral student and a faculty member) trained in the
+                            CIP framework. Label distribution reflects naturalistic variation:
+                            BI (n=24, 21%), D1 (n=36, 32%), D2 (n=16, 14%), D3 (n=37, 33%). Transcripts were generated
+                            with Whisper large-v3 and lightly corrected; timestamps were preserved to support evidence
+                            localization.
+                        </p>
                     </div>
 
                     <div class="has-text-centered" style="margin-top: 2rem;">
-                        <img src="static/images/figure2.png" alt="CIP Category Distribution" class="benchmark-figure">
-                        <p class="figure-caption">Figure 2: Distribution of CIP categories in the SciIBI benchmark.</p>
+                        <img src="static/images/figure2.png" alt="SciIBI benchmark construction" class="benchmark-figure">
+                        <p class="figure-caption">
+                            Figure 2: SciIBI benchmark construction. NGSS-aligned videos are temporally segmented
+                            and annotated by consensus. The 113 clips span four CIP categories and binary sophistication
+                            levels.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -254,30 +390,39 @@
                     <div class="method-content">
                         <h3 class="subsection-title">Input Modalities</h3>
                         <p>
-                            We evaluate MLLMs using three input configurations to understand the contribution
-                            of different modalities:
+                            We compare two input configurations to isolate the contribution of visual information:
                         </p>
                         <ul class="content-list">
-                            <li><strong>Transcript Only (T):</strong> Text transcripts of classroom dialogue</li>
-                            <li><strong>Video Only (V):</strong> Visual frames sampled from video clips</li>
-                            <li><strong>Video + Transcript (V+T):</strong> Combined multimodal input</li>
+                            <li><strong>Text (T):</strong> transcript-only input.</li>
+                            <li><strong>Text + Vision (TV):</strong> transcript paired with sampled video frames
+                                (1 frame/second, capped at 30 frames per clip).</li>
                         </ul>
 
                         <h3 class="subsection-title">Prompting Strategies</h3>
                         <p>
-                            We employ multiple prompting approaches to comprehensively assess model capabilities:
+                            All strategies share identical CIP definitions and require a structured JSON response with
+                            <code>category</code>, <code>sophistication</code>, and <code>evidence</code> fields. Outputs
+                            failing schema validation receive one retry; unparseable responses are excluded from accuracy
+                            computation.
                         </p>
                         <ul class="content-list">
-                            <li><strong>Zero-shot:</strong> Direct classification without examples</li>
-                            <li><strong>Zero-shot with CoT:</strong> Chain-of-thought reasoning for pedagogical analysis</li>
-                            <li><strong>Few-shot:</strong> In-context examples of each CIP category</li>
+                            <li><strong>Zero-shot:</strong> task instructions and CIP definitions only.</li>
+                            <li><strong>Few-shot:</strong> four in-context exemplars (one per category), held constant
+                                across models.</li>
+                            <li><strong>Chain-of-Thought (CoT):</strong> step-by-step reasoning before classification.</li>
                         </ul>
+
+                        <h3 class="subsection-title">Models</h3>
+                        <p>
+                            We evaluate eight models spanning scales and modalities. <em>Open-source</em>: Mistral-7B,
+                            Llama-3.3-70B, GPT-OSS-20B, and InternVL3-78B (the only open-source MLLM in our set).
+                            <em>Proprietary (API)</em>: GPT-4o, Claude Sonnet 4.5, Gemini-2.5-Pro, and Qwen3-VL-235B.
+                            Open-source models are deployed locally with 4-bit quantization (BitsAndBytes) for
+                            models exceeding 40B parameters, on NVIDIA L40S GPUs. All models use deterministic
+                            decoding (temperature=0.0) with max_new_tokens=1024.
+                        </p>
                     </div>
 
-                    <div class="has-text-centered" style="margin-top: 2rem;">
-                        <img src="static/images/figure3.png" alt="Evaluation Framework" class="method-figure">
-                        <p class="figure-caption">Figure 3: Our evaluation framework for assessing MLLMs on pedagogical reasoning.</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -290,27 +435,323 @@
                 <div class="column is-10">
                     <h2 class="title is-3 section-title">Results</h2>
 
-                    <div class="table-container">
-                        <table class="results-table">
+                    <h3 class="subsection-title">Classification Performance</h3>
+                    <p>
+                        Zero-shot accuracies range from 39.1% to 53.6%, substantially below the ~79% F1 reported for
+                        math discourse coding, confirming that CIP coding requires instructional-function judgments
+                        beyond surface lexical cues. CoT benefits larger models (GPT-4o: +5.5pp; Llama-70B: +3.6pp) but
+                        <em>degrades</em> smaller ones (Mistral-7B: &minus;5.4pp). Few-shot yields modest, inconsistent
+                        gains (+1&ndash;3pp).
+                    </p>
+                    <div class="table-scroll">
+                        <table class="results-table dense">
                             <thead>
                                 <tr>
-                                    <th>Model</th>
-                                    <th>Transcript (T)</th>
-                                    <th>Video+Transcript (V+T)</th>
+                                    <th class="model-col" rowspan="2">Model</th>
+                                    <th rowspan="2">Size</th>
+                                    <th rowspan="2">Mod</th>
+                                    <th colspan="2">Zero-shot</th>
+                                    <th colspan="2">Few-shot</th>
+                                    <th colspan="2">CoT</th>
+                                </tr>
+                                <tr class="sub-header">
+                                    <th>Acc</th>
+                                    <th>F1</th>
+                                    <th>Acc</th>
+                                    <th>F1</th>
+                                    <th>Acc</th>
+                                    <th>F1</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr class="group-header">
+                                    <td colspan="9">Proprietary (API)</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">GPT-4o</td>
+                                    <td>&mdash;</td>
+                                    <td>T</td>
+                                    <td>45.4</td><td>43.6</td>
+                                    <td>45.5</td><td>42.9</td>
+                                    <td>50.9</td><td>48.4</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">GPT-4o</td>
+                                    <td>&mdash;</td>
+                                    <td>TV</td>
+                                    <td>49.1</td><td>46.1</td>
+                                    <td>47.7</td><td>46.2</td>
+                                    <td class="best">51.9</td><td class="best">48.5</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">Claude Sonnet 4.5</td>
+                                    <td>&mdash;</td>
+                                    <td>T</td>
+                                    <td>43.8</td><td>41.2</td>
+                                    <td>45.5</td><td>43.8</td>
+                                    <td>46.4</td><td>44.4</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">Gemini-2.5-Pro</td>
+                                    <td>&mdash;</td>
+                                    <td>T</td>
+                                    <td>39.3</td><td>38.8</td>
+                                    <td>42.0</td><td>40.3</td>
+                                    <td>42.9</td><td>41.3</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">Gemini-2.5-Pro</td>
+                                    <td>&mdash;</td>
+                                    <td>TV</td>
+                                    <td>42.9</td><td>39.9</td>
+                                    <td>42.9</td><td>40.3</td>
+                                    <td>48.2</td><td>44.6</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">Qwen3-VL-235B</td>
+                                    <td>235B</td>
+                                    <td>T</td>
+                                    <td>46.4</td><td>40.8</td>
+                                    <td>48.2</td><td>43.5</td>
+                                    <td>45.5</td><td>41.7</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">Qwen3-VL-235B</td>
+                                    <td>235B</td>
+                                    <td>TV</td>
+                                    <td>45.5</td><td>42.3</td>
+                                    <td>47.3</td><td>43.2</td>
+                                    <td>49.1</td><td>43.3</td>
+                                </tr>
+                                <tr class="group-header">
+                                    <td colspan="9">Open-source (Local)</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">Mistral-7B</td>
+                                    <td>7B</td>
+                                    <td>T</td>
+                                    <td>40.2</td><td>33.2</td>
+                                    <td>36.6</td><td>31.3</td>
+                                    <td>34.8</td><td>30.3</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">GPT-OSS-20B</td>
+                                    <td>20B</td>
+                                    <td>T</td>
+                                    <td>39.1</td><td>37.4</td>
+                                    <td>37.7</td><td>35.5</td>
+                                    <td>36.6</td><td>35.6</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">Llama-3.3-70B</td>
+                                    <td>70B</td>
+                                    <td>T</td>
+                                    <td>44.6</td><td>42.5</td>
+                                    <td>47.3</td><td>44.8</td>
+                                    <td>48.2</td><td>45.4</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">InternVL3-78B</td>
+                                    <td>78B</td>
+                                    <td>T</td>
+                                    <td>46.4</td><td>43.6</td>
+                                    <td>47.3</td><td>44.0</td>
+                                    <td>47.3</td><td>45.3</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">InternVL3-78B</td>
+                                    <td>78B</td>
+                                    <td>TV</td>
+                                    <td class="best">53.6</td><td class="best">47.8</td>
+                                    <td class="best">50.9</td><td class="best">45.3</td>
+                                    <td>50.9</td><td>46.2</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
-                    <p class="figure-caption">Table 1: Classification accuracy across different models and input modalities using zero-shot prompting.</p>
+                    <p class="figure-caption">
+                        Table 2: Classification performance on SciIBI. Accuracy (Acc) and Macro-F1 (%) across eight
+                        models using Text-only (T) and Text+Vision (TV) inputs under Zero-shot, Few-shot, and CoT
+                        prompting. Bold indicates best within each column.
+                    </p>
+
+                    <h3 class="subsection-title">Modality Ablation</h3>
+                    <p>
+                        Comparing text-only versus vision+text inputs, the best accuracy is <strong>53.6%</strong>
+                        (InternVL3-78B, TV, zero-shot), a +7.1pp gain over text-only. However, gains are
+                        architecture-dependent: InternVL3 +7.1pp, GPT-4o +3.7pp, Gemini +3.6pp, while Qwen3-VL
+                        <em>decreases</em> by &minus;0.9pp. Isolating vision within CoT yields +5.3pp for Gemini and
+                        +1.0pp for GPT-4o.
+                    </p>
+                    <div class="table-scroll">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th class="model-col" rowspan="2">Model</th>
+                                    <th colspan="2">Zero-shot</th>
+                                    <th colspan="2">Few-shot</th>
+                                    <th colspan="2">CoT</th>
+                                </tr>
+                                <tr class="sub-header">
+                                    <th>Acc</th>
+                                    <th>&Delta;</th>
+                                    <th>Acc</th>
+                                    <th>&Delta;</th>
+                                    <th>Acc</th>
+                                    <th>&Delta;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="model-col">InternVL3-78B</td>
+                                    <td class="best">53.6</td><td>+7.1</td>
+                                    <td>50.9</td><td>+4.5</td>
+                                    <td>50.9</td><td>+4.5</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">GPT-4o</td>
+                                    <td>49.1</td><td>+3.7</td>
+                                    <td>47.7</td><td>+2.3</td>
+                                    <td>51.9</td><td>+6.5</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">Gemini-2.5-Pro</td>
+                                    <td>42.9</td><td>+3.6</td>
+                                    <td>42.9</td><td>+3.6</td>
+                                    <td>48.2</td><td class="best">+8.9</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">Qwen3-VL-235B</td>
+                                    <td>45.5</td><td>&minus;0.9</td>
+                                    <td>47.3</td><td>+0.9</td>
+                                    <td>49.1</td><td>+2.7</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="figure-caption">
+                        Table 3: Impact of visual modality. &Delta; is the change from each model's text-only zero-shot
+                        baseline.
+                    </p>
+
+                    <h3 class="subsection-title">Sophistication Probe</h3>
+                    <p>
+                        InternVL3-78B (Text+Vision) achieves 39.1% overall (weighted) on the fine-grained 4-level
+                        sophistication task and 69.1% on the binary Low/High probe, with predictions skewing toward
+                        higher sophistication levels.
+                    </p>
+                    <div class="table-scroll">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th class="model-col">Condition</th>
+                                    <th>Metric</th>
+                                    <th>BI</th>
+                                    <th>D1</th>
+                                    <th>D2</th>
+                                    <th>D3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="model-col" rowspan="2">Ignore L1</td>
+                                    <td>4-Level</td>
+                                    <td>50.0</td><td>28.6</td><td>50.0</td><td>37.8</td>
+                                </tr>
+                                <tr>
+                                    <td>Binary</td>
+                                    <td>66.7</td><td>54.3</td><td>85.7</td><td>78.4</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col" rowspan="2">Require L1</td>
+                                    <td>4-Level</td>
+                                    <td>45.5</td><td>34.8</td><td>50.0</td><td>33.3</td>
+                                </tr>
+                                <tr>
+                                    <td>Binary</td>
+                                    <td>45.5</td><td>52.2</td><td>75.0</td><td>85.7</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col" rowspan="2">N</td>
+                                    <td>Ignore L1</td>
+                                    <td>24</td><td>35</td><td>14</td><td>37</td>
+                                </tr>
+                                <tr>
+                                    <td>Require L1</td>
+                                    <td>11</td><td>23</td><td>4</td><td>21</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="figure-caption">
+                        Table 4: Sophistication level prediction (InternVL3-78B, Text+Vision). Accuracy (%) for
+                        fine-grained (4-Level) and binary (Low/High) tasks.
+                    </p>
+
+                    <h3 class="subsection-title">Evidence Quality Analysis</h3>
+                    <p>
+                        We designed an Evidence Quality Score (EQS) with three dimensions (1&ndash;3 scale):
+                        <em>Alignment</em>, <em>Sufficiency</em>, and <em>Specificity</em>. Two raters independently
+                        scored 60 model outputs (inter-rater &kappa;: 0.73&ndash;0.92); disagreements were resolved by
+                        discussion. GPT-4o achieves higher EQS (2.67) than InternVL3 (2.40) despite lower accuracy,
+                        revealing that accuracy and evidence quality can diverge &mdash; correct predictions may cite
+                        superficial evidence (lexical shortcuts), while incorrect predictions sometimes provide
+                        well-grounded reasoning for genuinely ambiguous cases.
+                    </p>
+                    <div class="table-scroll">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th class="model-col">Model</th>
+                                    <th>Alignment</th>
+                                    <th>Sufficiency</th>
+                                    <th>Specificity</th>
+                                    <th>Mean EQS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="model-col">InternVL3-78B</td>
+                                    <td>2.53</td><td>2.02</td><td>2.65</td><td>2.40</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-col">GPT-4o</td>
+                                    <td class="best">2.67</td><td class="best">2.69</td><td>2.64</td><td class="best">2.67</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="figure-caption">
+                        Table 5: Evidence Quality Scores (EQS, 1&ndash;3 scale). Higher accuracy does not always
+                        correlate with higher-quality reasoning.
+                    </p>
+
+                    <h3 class="subsection-title">Failure Analysis</h3>
+                    <p>
+                        The aggregated confusion matrix (zero-shot, text-only) reveals two dominant patterns:
+                        D3&rarr;BI (113 cases) and D1&rarr;D3 (84 cases). Both are caused by models matching surface
+                        linguistic features without distinguishing the underlying pedagogical function, suggesting
+                        that current LLMs cannot reliably separate <em>what is said</em> from <em>why it is said</em>.
+                    </p>
+                    <div class="has-text-centered" style="margin-top: 1.5rem;">
+                        <img src="static/images/figure3.png" alt="Failure analysis: confusion matrix and representative errors" class="method-figure">
+                        <p class="figure-caption">
+                            Figure 3: Failure analysis of text-only models. (a) Aggregated confusion matrix reveals
+                            systematic D3&rarr;BI and D1&rarr;D3 confusions. (b) Representative errors show models
+                            rely on surface keywords rather than pedagogical function.
+                        </p>
+                    </div>
 
                     <div class="highlight-box" style="margin-top: 2rem;">
                         <p>
-                            <strong>Key Observation:</strong> All models show consistent improvement when combining
-                            visual and textual information (V+T), with an average gain of +4.8% over transcript-only
-                            baselines. This highlights the importance of visual context in understanding classroom
-                            instructional practices.
+                            <strong>Takeaways:</strong> (1) Visual input yields modest, architecture-dependent gains;
+                            not all MLLMs effectively integrate visual information for pedagogical reasoning.
+                            (2) Chain-of-thought helps large models but degrades smaller ones, suggesting step-by-step
+                            reasoning requires sufficient model capacity. (3) Evidence-based evaluation reveals cases
+                            where models succeed through lexical shortcuts rather than genuine understanding.
+                            We envision human-AI collaboration through <em>evidence-first</em> interfaces where model
+                            outputs serve as searchable annotations that augment expert judgment rather than replacing
+                            it.
                         </p>
                     </div>
                 </div>
@@ -332,7 +773,7 @@
                         <pre id="bibtex-content">@inproceedings{shen2026sciibi,
   title={Can Multimodal LLMs "See" Science Instruction? Benchmarking Pedagogical Reasoning in K-12 Classroom Videos},
   author={Shen, Yixuan and He, Peng and Liu, Honglu and Fan, Jinxuan and Ji, Yuyang and Li, Tingting and Chen, Tianlong and Xu, Kaidi and Liu, Feng},
-  booktitle={In Proceeding of International Conference on AI in Education (AIED)},
+  booktitle={International Conference on Artificial Intelligence in Education (AIED)},
   year={2026}
 }</pre>
                     </div>

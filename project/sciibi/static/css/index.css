@@ -435,3 +435,119 @@ body {
 .highlight-box p {
   margin: 0;
 }
+
+/* CIP Framework Table */
+.cip-framework-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+  table-layout: fixed;
+}
+
+.cip-framework-table th,
+.cip-framework-table td {
+  padding: 0.6rem 0.5rem;
+  vertical-align: top;
+  border: 1px solid #d0d0d0;
+  line-height: 1.45;
+}
+
+.cip-framework-table th {
+  background-color: #e8eaf6;
+  color: var(--text-primary);
+  font-weight: 700;
+  text-align: center;
+}
+
+.cip-framework-table .practice-cell {
+  background-color: #fafafa;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--drexel-navy);
+  vertical-align: middle;
+  width: 8%;
+}
+
+.cip-framework-table .level1 { background-color: #fff3e0; width: 23%; }
+.cip-framework-table .level2 { background-color: #ffe0b2; width: 23%; }
+.cip-framework-table .level3 { background-color: #e3f2fd; width: 23%; }
+.cip-framework-table .level4 { background-color: #bbdefb; width: 23%; }
+.cip-framework-table .level34 { background-color: #e3f2fd; }
+
+.cip-framework-table .level-descriptor {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.cip-framework-legend {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0.75rem 0 1.5rem 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.cip-framework-legend .swatch {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 1px solid #ccc;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+
+.cip-framework-legend .swatch-low { background-color: #ffe0b2; }
+.cip-framework-legend .swatch-high { background-color: #bbdefb; }
+
+/* Dense Results Table (many columns) */
+.results-table.dense {
+  font-size: 0.85rem;
+}
+
+.results-table.dense th,
+.results-table.dense td {
+  padding: 0.45rem 0.5rem;
+}
+
+.results-table .group-header td {
+  background-color: #f0f0f0;
+  font-style: italic;
+  text-align: left;
+  font-weight: 600;
+}
+
+.results-table td.model-col,
+.results-table th.model-col {
+  text-align: left;
+}
+
+.results-table .sub-header th {
+  background-color: #1a3e6b;
+  font-size: 0.85rem;
+}
+
+/* Table wrapper for horizontal scroll on small screens */
+.table-scroll {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .cip-framework-table {
+    font-size: 0.75rem;
+  }
+
+  .cip-framework-table th,
+  .cip-framework-table td {
+    padding: 0.4rem 0.3rem;
+  }
+
+  .results-table.dense {
+    font-size: 0.75rem;
+  }
+}
