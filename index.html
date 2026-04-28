@@ -249,9 +249,57 @@
     <section id="photos" class="section">
         <div class="container">
             <h1>Lab Fun</h1>
-            <p>TBD</p>
+
+            <div class="event-card">
+                <div class="event-header">
+                    <span class="event-date-badge">April 27, 2026</span>
+                    <h2 class="event-title">Workshop</h2>
+                </div>
+                <div class="event-body">
+                    <div class="event-layout">
+                        <div class="event-poster-col">
+                            <img src="assets/images/4_27_2026/Drexel_Lab_Poster.png"
+                                 alt="Research Poster"
+                                 onclick="openLightbox(this.src)">
+                            <p class="event-img-label">Research Poster</p>
+                        </div>
+                        <div class="event-photos-col">
+                            <div class="event-group-photo">
+                                <img src="assets/images/4_27_2026/4.jpg"
+                                     alt="Lab group at the workshop"
+                                     onclick="openLightbox(this.src)">
+                                <p class="event-img-label">Lab members at the workshop</p>
+                            </div>
+                            <div class="event-presentation-grid">
+                                <div class="event-pres-item">
+                                    <img src="assets/images/4_27_2026/1.jpg"
+                                         alt="Student presentation"
+                                         onclick="openLightbox(this.src)">
+                                </div>
+                                <div class="event-pres-item">
+                                    <img src="assets/images/4_27_2026/2.jpg"
+                                         alt="Student presentation"
+                                         onclick="openLightbox(this.src)">
+                                </div>
+                                <div class="event-pres-item">
+                                    <img src="assets/images/4_27_2026/3.jpg"
+                                         alt="Student presentation"
+                                         onclick="openLightbox(this.src)">
+                                </div>
+                            </div>
+                            <p class="event-img-label">Student presentation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
