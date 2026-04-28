@@ -983,6 +983,24 @@ body {
     margin: 0;
 }
 
+.event-title a {
+    color: #07294d;
+    text-decoration: none;
+    border-bottom: 2px solid #ffc600;
+    transition: color 0.2s;
+}
+
+.event-title a:hover {
+    color: #0a3a6b;
+}
+
+.event-desc {
+    margin: 8px 0 0;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
 .event-body {
     padding: 16px 20px;
 }
