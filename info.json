@@ -44,6 +44,10 @@
   "news": [
     {
       "date": "2026-05-08",
+      "title": "Our paper \"BioGait-VLM\" has been provisionally accepted at <a href=\"https://conferences.miccai.org/2026/en/\" target=\"_blank\">MICCAI 2026</a> (Acceptance rate: 9%). Congratulations to Anthony, Yuyang, and all co-authors!"
+    },
+    {
+      "date": "2026-04-27",
       "title": "Members of the VIL group attended <a href=\"https://cs.nyu.edu/~fouhey/NYCVision2026/\" target=\"_blank\">NYC Computer Vision Day 2026</a> and presented a poster showcasing our latest research."
     },
     {
@@ -56,7 +60,7 @@
     },
     {
       "date": "2026-02-20",
-      "title": "Two papers have been accepted at CVPR 2026. Congratulations to Yuyang and all co-authors!"
+      "title": "Two papers have been accepted at <a href=\"https://cvpr.thecvf.com/\" target=\"_blank\">CVPR 2026</a>. Congratulations to Yuyang and all co-authors!"
     },
     {
       "date": "2026-02-06",
