@@ -201,18 +201,6 @@
   },
   "publications": [
     {
-      "title": "BioGait-VLM: A Tri-Modal Vision-Language-Biomechanics Framework for Interpretable Clinical Gait Assessment",
-      "authors": "Erdong Chen*, Yuyang Ji*, Jacob K. Greenberg, Benjamin Steel, Faraz Arkam, Abigail Lewis, Pranay Singh, and Feng Liu",
-      "venue": "arXiv preprint, 2026",
-      "year": 2026,
-      "type": "preprint",
-      "links": {
-        "paper": "https://arxiv.org/abs/2603.08564",
-        "code": "",
-        "project": "project/biogait-vlm/"
-      }
-    },
-    {
       "title": "IDSelect: An RL-based Cost-Aware Selection Agent for Video-based Person Recognition",
       "authors": "Yuyang Ji, Yixuan Shen, Kien Nguyen, Lifeng Zhou, and Feng Liu",
       "venue": "arXiv preprint, 2026",
@@ -237,9 +225,21 @@
       }
     },
     {
+      "title": "BioGait-VLM: A Tri-Modal Vision-Language-Biomechanics Framework for Interpretable Clinical Gait Assessment",
+      "authors": "Erdong Chen*, Yuyang Ji*, Jacob K. Greenberg, Benjamin Steel, Faraz Arkam, Abigail Lewis, Pranay Singh, and Feng Liu",
+      "venue": "In Proceeding of International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI 2026), accepted, to appear",
+      "year": 2026,
+      "type": "published",
+      "links": {
+        "paper": "https://arxiv.org/abs/2603.08564",
+        "code": "",
+        "project": "project/biogait-vlm/"
+      }
+    },
+    {
       "title": "DrawSim-PD: Simulating Student Science Drawings to Support NGSS-Aligned Teacher Diagnostic Reasoning",
       "authors": "Arijit Chakma, Peng He, Zeyuan Wang, Honglu Liu, Tingting Li, Tiffany D. Do, and Feng Liu",
-      "venue": "In Proceeding of International Conference on AI in Education (AIED 2026)",
+      "venue": "In Proceeding of International Conference on AI in Education (AIED 2026), accepted, to appear",
       "year": 2026,
       "type": "published",
       "links": {
@@ -251,7 +251,7 @@
     {
       "title": "Can Multimodal LLMs \"See\" Science Instruction? Benchmarking Pedagogical Reasoning in K-12 Classroom Videos",
       "authors": "Yixuan Shen*, Peng He*, Honglu Liu, Jinxuan Fan, Yuyang Ji, Tingting Li, Tianlong Chen, Kaidi Xu, and Feng Liu",
-      "venue": "In Proceeding of International Conference on AI in Education (AIED 2026)",
+      "venue": "In Proceeding of International Conference on AI in Education (AIED 2026), accepted, to appear",
       "year": 2026,
       "type": "published",
       "links": {
