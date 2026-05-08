@@ -489,18 +489,6 @@
       }
     },
     {
-      "title": "INFAMOUS-NeRF: ImproviNg FAce MOdeling Using Semantically-Aligned Hypernetworks with Neural Radiance Fields",
-      "authors": "Andrew Hou, Feng Liu, Zhiyuan Ren, Michel Sarkis, Ning Bi, Yiying Tong, and Xiaoming Liu",
-      "venue": "arXiv preprint arXiv:2312.16197, 2023",
-      "year": 2023,
-      "type": "preprint",
-      "links": {
-        "project": "",
-        "paper": "https://arxiv.org/abs/2312.16197",
-        "code": ""
-      }
-    },
-    {
       "title": "AG-ReID 2023: Aerial-Ground Person Re-identification Challenge Results",
       "authors": "Kien Nguyen, Clinton Fookes, Sridha Sridharan, Feng Liu, Xiaoming Liu, Arun Ross, Dana Michalski, Huy Nguyen, Debayan Deb, Mahak Kothari, Manisha Saini, Dawei Du, Scott McCloskey, Gabriel Bertocco, Fernanda Andal´o, E. Terrance Boult, Anderson Rocha, Haidong Zhu, Zhaoheng Zheng, Ram Nevatia, Zaigham Randhawa, Sinan Sabri, and Gianfranco Doretto",
       "venue": "In Proceeding of IEEE International Joint Conference on Biometrics (IJCB), 2023",
