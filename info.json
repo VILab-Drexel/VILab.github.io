@@ -43,6 +43,10 @@
   ],
   "news": [
     {
+      "date": "2026-05-08",
+      "title": "Members of the VIL group attended <a href=\"https://cs.nyu.edu/~fouhey/NYCVision2026/\" target=\"_blank\">NYC Computer Vision Day 2026</a> and presented a poster showcasing our latest research."
+    },
+    {
       "date": "2026-03-23",
       "title": "Two papers have been accepted at <a href=\"https://www.aied-conference.org/2026\">AIED 2026</a>. Congratulations to Arijit, Yixuan and all co-authors (<strong>2x AIED</strong>)!" 
     },
