@@ -201,6 +201,18 @@
   },
   "publications": [
     {
+      "title": "Non-Colliding Biometric Identities for Digital Entities: Geometry, Capacity, and Million-Scale Virtual Identity Provisioning",
+      "authors": "Yuyang Ji, Yixuan Shen, Anil Jain, Xiaoming Liu, and Feng Liu",
+      "venue": "arXiv preprint, 2026",
+      "year": 2026,
+      "type": "preprint",
+      "links": {
+        "code": "",
+        "project": "",
+        "paper": ""
+      }
+    },
+    {
       "title": "IDSelect: An RL-based Cost-Aware Selection Agent for Video-based Person Recognition",
       "authors": "Yuyang Ji, Yixuan Shen, Kien Nguyen, Lifeng Zhou, and Feng Liu",
       "venue": "arXiv preprint, 2026",
