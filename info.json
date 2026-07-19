@@ -43,6 +43,14 @@
     {
       "title": "Generative & Multimodal AI for the Physical World",
       "description": "3D generation, vision-language models, simulation, and domain generalization."
+    },
+    {
+      "title": "AI for Health & Human Performance",
+      "description": "Interpretable, video-based digital biomarkers for how people move, change over time, and respond to intervention."
+    },
+    {
+      "title": "AI for Education & Scientific Learning",
+      "description": "Multimodal AI that reasons about student thinking, instructional practice, and the evidence educators use."
     }
   ],
   "research_directions": [
