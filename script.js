@@ -31,8 +31,8 @@ function loadContent() {
     // Load publications
     loadPublications();
 
-    // Load projects
-    loadProjects();
+    // Load research (directions, impact areas, projects)
+    loadResearch();
 
     // Load FAQ
     loadFAQ();
@@ -386,13 +386,69 @@ function loadPublications() {
     }
 }
 
-function loadProjects() {
-    if (siteData.projects && siteData.projects.length > 0) {
-        const projContainer = document.querySelector('#research .container');
+// Build a card for a research direction / impact area.
+// Renders as a clickable <a> when a url is present, otherwise a plain <div>.
+function buildResearchCard(item) {
+    const card = document.createElement(item.url ? 'a' : 'div');
+    card.className = 'research-card';
+    if (item.url) {
+        card.href = item.url;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+    }
 
-        const title = projContainer.querySelector('h1');
-        projContainer.innerHTML = '';
-        projContainer.appendChild(title);
+    let tagsHTML = '';
+    if (item.tags && item.tags.length > 0) {
+        tagsHTML = '<div class="research-tags">' +
+            item.tags.map(t => `<span class="research-tag">${t}</span>`).join('') +
+            '</div>';
+    }
+
+    card.innerHTML = `
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>
+        ${tagsHTML}
+    `;
+    return card;
+}
+
+function loadResearch() {
+    const projContainer = document.querySelector('#research .container');
+    if (!projContainer) return;
+
+    const title = projContainer.querySelector('h1');
+    projContainer.innerHTML = '';
+    projContainer.appendChild(title);
+
+    // Research Directions
+    if (siteData.research_directions && siteData.research_directions.length > 0) {
+        const heading = document.createElement('h2');
+        heading.textContent = 'Research Directions';
+        projContainer.appendChild(heading);
+
+        const grid = document.createElement('div');
+        grid.className = 'research-grid';
+        siteData.research_directions.forEach(item => grid.appendChild(buildResearchCard(item)));
+        projContainer.appendChild(grid);
+    }
+
+    // Impact Areas
+    if (siteData.impact_areas && siteData.impact_areas.length > 0) {
+        const heading = document.createElement('h2');
+        heading.textContent = 'Impact Areas';
+        projContainer.appendChild(heading);
+
+        const grid = document.createElement('div');
+        grid.className = 'research-grid research-grid--impact';
+        siteData.impact_areas.forEach(item => grid.appendChild(buildResearchCard(item)));
+        projContainer.appendChild(grid);
+    }
+
+    // Selected Projects
+    if (siteData.projects && siteData.projects.length > 0) {
+        const heading = document.createElement('h2');
+        heading.textContent = 'Selected Projects';
+        projContainer.appendChild(heading);
 
         const grid = document.createElement('div');
         grid.className = 'project-grid';
