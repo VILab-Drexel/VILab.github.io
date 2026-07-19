@@ -196,7 +196,7 @@
     ],
     "masters_students": [
       {
-        "name": "Sam Pagon",
+        "name": "Samuel Pagon",
         "description": "Deepfake detection (image, audio, and video)"
       },
       {
@@ -208,6 +208,9 @@
         "name": "Pengxiao Han",
         "description": "4D rigging",
         "school": "Australian National University"
+      },
+      {
+        "name": "Abhinay Belde"
       }
     ],
     "undergraduate_students": [
