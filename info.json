@@ -196,8 +196,11 @@
     ],
     "masters_students": [
       {
-        "name": "Sam Pagon",
+        "name": "Samuel Pagon",
         "description": "Deepfake detection (image, audio, and video)"
+      },
+      {
+        "name": "Abhinay Belde"
       },
       {
         "name": "Anthony Chen",
