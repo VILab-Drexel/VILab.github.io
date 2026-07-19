@@ -29,16 +29,60 @@
   },
   "highlights": [
     {
-      "title": "Physical 3D Human Digitization",
-      "description": "Reconstructing and modeling humans in 3D from images and video, with applications in fitness, healthcare, egocentric perception, and humanoid robotics."
+      "title": "Physical Human Intelligence",
+      "description": "3D humans, motion, biomechanics, and embodied AI—modeling how people move and interact with the physical world."
     },
     {
-      "title": "Generative AI",
-      "description": "Building controllable and explainable generative models with applications in healthcare, education, and beyond."
+      "title": "Understanding People in Long, Real-World Video",
+      "description": "Identity, activity, and evidence across long, multi-camera footage."
     },
     {
-      "title": "Societal Impact",
-      "description": "Leveraging AI for healthcare, education, and human-centered applications."
+      "title": "Trustworthy Biometrics & Digital Identity",
+      "description": "Recognition, deepfake detection, and synthetic identity in a world of AI-generated media."
+    },
+    {
+      "title": "Generative & Multimodal AI for the Physical World",
+      "description": "3D generation, vision-language models, simulation, and domain generalization."
+    }
+  ],
+  "research_directions": [
+    {
+      "title": "Physical Human Intelligence",
+      "description": "Modeling, understanding, and generating the human body, motion, and its interaction with the physical world, from images and video.",
+      "tags": ["3D human", "biomechanics", "motion & skill", "embodied AI"],
+      "url": "https://liufeng2915.github.io/research/physical-human-intelligence/"
+    },
+    {
+      "title": "Understanding People in Long, Real-World Video",
+      "description": "Persistently understanding who a person is, what they do, and how they change across long, multi-camera, real-world video.",
+      "tags": ["video Re-ID", "temporal reasoning", "aerial-ground", "anomaly discovery"],
+      "url": "https://liufeng2915.github.io/research/person-centric-video/"
+    },
+    {
+      "title": "Trustworthy Biometrics and Digital Identity",
+      "description": "Creating, recognizing, and protecting human identity in a world increasingly populated by synthetic people, avatars, and AI-generated media.",
+      "tags": ["face / body / gait", "deepfake detection", "synthetic identity", "open-set"],
+      "url": "https://liufeng2915.github.io/research/biometrics-digital-identity/"
+    },
+    {
+      "title": "Generative and Multimodal AI for the Physical World",
+      "description": "Geometry-consistent, physically plausible, and controllable generation and multimodal reasoning over 3D, video, and language.",
+      "tags": ["3D generation", "VLMs", "simulation", "domain generalization"],
+      "url": "https://liufeng2915.github.io/research/generative-multimodal-ai/"
+    }
+  ],
+  "impact_areas": [
+    {
+      "title": "AI for Health and Human Performance",
+      "description": "Interpretable, video-based digital biomarkers that quantify how a person moves, changes over time, and responds to intervention.",
+      "tags": ["clinical gait", "rehabilitation", "coaching", "remote assessment"],
+      "url": "https://liufeng2915.github.io/research/ai-health-human-performance/"
+    },
+    {
+      "title": "AI for Education and Scientific Learning",
+      "description": "Multimodal AI that reasons about student thinking, instructional practice, and the evidence educators use to make decisions.",
+      "tags": ["classroom video", "student drawings", "teacher feedback", "pedagogical reasoning"],
+      "url": "https://liufeng2915.github.io/research/ai-education-scientific-learning/"
     }
   ],
   "news": [
