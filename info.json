@@ -43,6 +43,18 @@
   ],
   "news": [
     {
+      "date": "2026-07-18",
+      "title": "One paper has been accepted at <a href=\"https://asia.siggraph.org/2026/\" target=\"_blank\">SIGGRAPH Asia 2026</a>! Congratulations to Yixuan and all co-authors!"
+    },
+    {
+      "date": "2026-07-17",
+      "title": "Received a $25,000 Anthropic AI for Science Award with Dr. Matthew McDonald, to advance physics-grounded generative AI for organic crystal discovery."
+    },
+    {
+      "date": "2026-06-29",
+      "title": "Received an Outstanding Researcher Award from the FAIR Center at Stanford University for our work on physics-grounded video analysis for interpretable gait assessment in DCM."
+    },
+    {
       "date": "2026-05-08",
       "title": "Our paper \"BioGait-VLM\" has been provisionally accepted at <a href=\"https://conferences.miccai.org/2026/en/\" target=\"_blank\">MICCAI 2026</a> (Acceptance rate: 9%). Congratulations to Anthony, Yuyang, and all co-authors!"
     },
