@@ -267,7 +267,7 @@
     {
       "title": "What Do Deepfake Benchmarks Measure? An Audit Using Frozen Self-Supervised Representations",
       "authors": "Samuel Pagon, Yixuan Shen, Vishal Asnani, Feng Liu",
-      "venue": "arXiv preprint, 2026",
+      "venue": "arXiv preprint",
       "year": 2026,
       "type": "preprint",
       "links": {
@@ -279,7 +279,7 @@
     {
       "title": "Non-Colliding Biometric Identities for Digital Entities: Geometry, Capacity, and Million-Scale Virtual Identity Provisioning",
       "authors": "Yuyang Ji, Yixuan Shen, Anil Jain, Xiaoming Liu, and Feng Liu",
-      "venue": "arXiv preprint, 2026",
+      "venue": "arXiv preprint",
       "year": 2026,
       "type": "preprint",
       "links": {
@@ -291,7 +291,7 @@
     {
       "title": "IDSelect: An RL-based Cost-Aware Selection Agent for Video-based Person Recognition",
       "authors": "Yuyang Ji, Yixuan Shen, Kien Nguyen, Lifeng Zhou, and Feng Liu",
-      "venue": "arXiv preprint, 2026",
+      "venue": "arXiv preprint",
       "year": 2026,
       "type": "preprint",
       "links": {
@@ -303,7 +303,7 @@
     {
       "title": "LocalScore: Local Density-Aware Similarity Scoring for Biometrics",
       "authors": "Yiyang Su, Minchul Kim, Jie Zhu, Christopher Perry, Feng Liu, Anil Jain, and Xiaoming Liu",
-      "venue": "arXiv preprint, 2026",
+      "venue": "arXiv preprint",
       "year": 2026,
       "type": "preprint",
       "links": {
@@ -315,7 +315,7 @@
     {
       "title": "BioGait-VLM: A Tri-Modal Vision-Language-Biomechanics Framework for Interpretable Clinical Gait Assessment",
       "authors": "Erdong Chen*, Yuyang Ji*, Jacob K. Greenberg, Benjamin Steel, Faraz Arkam, Abigail Lewis, Pranay Singh, and Feng Liu",
-      "venue": "In Proceeding of International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI 2026), accepted, to appear",
+      "venue": "In Proceedings of International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI)",
       "year": 2026,
       "type": "published",
       "links": {
@@ -327,7 +327,7 @@
     {
       "title": "DrawSim-PD: Simulating Student Science Drawings to Support NGSS-Aligned Teacher Diagnostic Reasoning",
       "authors": "Arijit Chakma, Peng He, Zeyuan Wang, Honglu Liu, Tingting Li, Tiffany D. Do, and Feng Liu",
-      "venue": "In Proceeding of International Conference on AI in Education (AIED 2026), accepted, to appear",
+      "venue": "In Proceedings of International Conference on Artificial Intelligence in Education (AIED)",
       "year": 2026,
       "type": "published",
       "links": {
@@ -339,7 +339,7 @@
     {
       "title": "Can Multimodal LLMs \"See\" Science Instruction? Benchmarking Pedagogical Reasoning in K-12 Classroom Videos",
       "authors": "Yixuan Shen*, Peng He*, Honglu Liu, Jinxuan Fan, Yuyang Ji, Tingting Li, Tianlong Chen, Kaidi Xu, and Feng Liu",
-      "venue": "In Proceeding of International Conference on AI in Education (AIED 2026), accepted, to appear",
+      "venue": "In Proceedings of International Conference on Artificial Intelligence in Education (AIED)",
       "year": 2026,
       "type": "published",
       "links": {
@@ -351,7 +351,7 @@
     {
       "title": "From 3D Pose to Prose: Biomechanics-Grounded Vision-Language Coaching",
       "authors": "Yuyang Ji, Yixuan Shen, Shengjie Zhu, Yu Kong, Feng Liu",
-      "venue": "In Proceeding of IEEE Computer Vision and Pattern Recognition (CVPR 2026), Denver CO, Jun. 2026",
+      "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2026,
       "type": "published",
       "links": {
@@ -363,7 +363,7 @@
     {
       "title": "Bridge: Basis-Driven Causal Inference Marries VFMs for Domain Generalization",
       "authors": "Mingbo Hong, Feng Liu, Caroline Gevaert, George Vosselman, Hao Cheng",
-      "venue": "In Proceeding of IEEE Computer Vision and Pattern Recognition (CVPR 2026), Denver CO, Jun. 2026",
+      "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2026,
       "type": "published",
       "links": {
@@ -375,7 +375,7 @@
     {
       "title": "OrgFlow: Generative Modeling of Organic Crystal Structures from Molecular Graphs",
       "authors": "Mohammadmahdi Vahediahmar, Matthew A. McDonald, and Feng Liu",
-      "venue": "arXiv preprint, 2026",
+      "venue": "arXiv preprint",
       "year": 2026,
       "type": "preprint",
       "links": {
@@ -387,7 +387,7 @@
     {
       "title": "EdgeDiffusion: Latency-Optimized Diffusion Models for Real-Time On-Device Visual Anonymization",
       "authors": "Zihao Han, Xueyan Gong, Fengyi Wu, Yifei Dong, Jingqi Xu, Jingdong Sun, Feng Liu, Siyu Huang, and Zhi-Qi Cheng",
-      "venue": "In Proceeding of IEEE Computer Vision and Pattern Recognition Workshop (CVPRW 2026), Denver CO, Jun. 2026",
+      "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)",
       "year": 2026,
       "type": "published",
       "links": {
@@ -399,7 +399,7 @@
     {
       "title": "HAMoBE: Hierarchical and Adaptive Mixture of Biometric Experts for Video-based Person ReID",
       "authors": "Yiyang Su*, Yunping Shi*, Feng Liu, and Xiaoming Liu",
-      "venue": "In Proceeding of IEEE/CVF International Conference on Computer Vision (ICCV), 2025",
+      "venue": "In Proceedings of IEEE/CVF International Conference on Computer Vision (ICCV)",
       "year": 2025,
       "type": "published",
       "links": {
@@ -411,7 +411,7 @@
     {
       "title": "Vision Language Models Cannot Plan, but Can They Formalize?",
       "authors": "Muyu He, Yuxi Zheng, Yuchen Liu, Zijian An, Bill Cai, Jiani Huang, Lifeng Zhou, Feng Liu, Ziyang Li, Li Zhang",
-      "venue": "arXiv preprint, 2025",
+      "venue": "arXiv preprint",
       "year": 2025,
       "type": "preprint",
       "links": {
@@ -423,7 +423,7 @@
     {
       "title": "Could AI Trace and Explain the Origins of AI-Generated Images and Text?",
       "authors": "Hongchao Fang, Yixin Liu, Jiangshu Du, Can Qin, Ran Xu, Feng Liu, Lichao Sun, Dongwon Lee, Lifu Huang, Wenpeng Yin",
-      "venue": "arXiv preprint, 2025",
+      "venue": "arXiv preprint",
       "year": 2025,
       "type": "preprint",
       "links": {
@@ -435,7 +435,7 @@
     {
       "title": "Person Recognition at Altitude and Range: Fusion of Face, Body Shape and Gait",
       "authors": "Feng Liu, Nicholas Chimitt, Lanqing Guo, Jitesh Jain, Aditya Kane, Minchul Kim, Wes Robbins, Yiyang Su, Dingqiang Ye, Xingguang Zhang, Jie Zhu, Siddharth Satyakam, Christopher Perry, Stanley Chan, Arun Ross, Humphrey Shi, Zhangyang Wang, Anil Jain, and Xiaoming Liu",
-      "venue": "arXiv preprint, 2025",
+      "venue": "arXiv preprint",
       "year": 2025,
       "type": "preprint",
       "links": {
@@ -447,7 +447,7 @@
     {
       "title": "AG-VPReID: A Challenging Large-Scale Benchmark for Aerial-Ground Video-based Person Re-Identification",
       "authors": "Huy Nguyen, Kien Nguyen, Akila Pemasiri, Feng Liu, Sridha Sridharan, and Clinton Fookes",
-      "venue": "In Proceeding of IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2025",
+      "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2025,
       "type": "published",
       "links": {
@@ -459,7 +459,7 @@
     {
       "title": "SapiensID: Foundation for Human Recognition",
       "authors": "Minchul Kim, Dingqiang Ye, Yiyang Su, Feng Liu, and Xiaoming Liu",
-      "venue": "In Proceeding of IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2025",
+      "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2025,
       "type": "published",
       "links": {
@@ -471,7 +471,7 @@
     {
       "title": "Securing the Skies: A Comprehensive Survey on Anti-UAV Methods, Benchmarking, and Future Directions",
       "authors": "Yifei Dong, Fengyi Wu, Sanjian Zhang, Guangyu Chen, Yuzhi Hu, Masumi Yano, Jingdong Sun, Siyu Huang, Feng Liu, Qi Dai, and Zhi-Qi Cheng",
-      "venue": "In Proceeding of IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2025",
+      "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2025,
       "type": "published",
       "links": {
@@ -483,7 +483,7 @@
     {
       "title": "Open-Set Biometrics: Beyond Good Closed-Set Models",
       "authors": "Yiyang Su, Minchul Kim, Feng Liu, Anil Jain, and Xiaoming Liu",
-      "venue": "In Proceeding of European Conference on Computer Vision (ECCV), 2024",
+      "venue": "In Proceedings of European Conference on Computer Vision (ECCV)",
       "year": 2024,
       "type": "published",
       "links": {
@@ -495,7 +495,7 @@
     {
       "title": "Distilling CLIP with Dual Guidance for Learning Discriminative Human Body Shape Representation",
       "authors": "Feng Liu, Minchul Kim, Zhiyuan Ren, and Xiaoming Liu",
-      "venue": "In Proceeding of IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2024",
+      "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2024,
       "type": "published",
       "links": {
@@ -507,7 +507,7 @@
     {
       "title": "KeyPoint Relative Position Encoding for Face Recognition",
       "authors": "Minchul Kim, Yiyang Su, Feng Liu, Anil Jain, and Xiaoming Liu",
-      "venue": "In Proceeding of IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2024",
+      "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2024,
       "type": "published",
       "links": {
@@ -519,7 +519,7 @@
     {
       "title": "TIGER: Time-Varying Denoising Model for 3D Point Cloud Generation with Diffusion Process",
       "authors": "Zhiyuan Ren, Minchul Kim, Feng Liu, and Xiaoming Liu",
-      "venue": "In Proceeding of IEEE/CVF Computer Vision and Pattern Recognition (CVPR), 2024",
+      "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2024,
       "type": "published",
       "links": {
@@ -531,7 +531,7 @@
     {
       "title": "FarSight: A Physics-Driven Whole-Body Biometric System at Large Distance and Altitude",
       "authors": "Feng Liu, Ryan Ashbaugh, Nicholas Chimitt, Najmul Hassan, Ali Hassani, Ajay Jaiswal, Minchul Kim, Zhiyuan Mao, Christopher Perry, Zhiyuan Ren, Yiyang Su, Pegah Varghaei, Kai Wang, Xingguang Zhang, Stanley Chan, Arun Ross, Humphrey Shi, Zhangyang Wang, Anil Jain, and Xiaoming Liu",
-      "venue": "In Proceeding of IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2024",
+      "venue": "In Proceedings of IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
       "year": 2024,
       "type": "published",
       "links": {
