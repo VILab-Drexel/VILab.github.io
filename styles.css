@@ -864,18 +864,25 @@ a.research-card:hover {
     margin-bottom: 28px;
 }
 
-.pub-year-group {
-    margin-bottom: 34px;
+.pub-section {
+    margin-bottom: 40px;
 }
 
-.pub-year {
+.pub-section-title {
     display: inline-block;
     font-size: 26px;
     font-weight: 700;
     color: #07294d;
-    margin: 0 0 16px;
+    margin: 0 0 18px;
     padding-bottom: 6px;
     border-bottom: 3px solid #ffc600;
+}
+
+.pub-year {
+    font-size: 19px;
+    font-weight: 700;
+    color: #07294d;
+    margin: 22px 0 10px;
 }
 
 #publication .publication-list {

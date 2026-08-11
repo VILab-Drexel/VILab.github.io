@@ -331,63 +331,90 @@ function loadPublications() {
         scholarNote.innerHTML = 'For a complete list of publications, please see <a href="https://scholar.google.com/citations?user=8Y9iUz0AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>.';
         pubContainer.appendChild(scholarNote);
 
-        // Group by year (descending); within a year, published items first, then preprints
-        const years = [...new Set(siteData.publications.map(pub => pub.year))]
-            .sort((a, b) => (b || 0) - (a || 0));
-        const typeRank = { published: 0, preprint: 1 };
+        function buildPubItem(pub) {
+            const li = document.createElement('li');
+            li.className = 'publication';
 
-        years.forEach(year => {
-            const pubs = siteData.publications
-                .filter(pub => pub.year === year)
-                .sort((a, b) => (typeRank[a.type] ?? 9) - (typeRank[b.type] ?? 9));
+            const linkOrder = [
+                { key: 'project', label: 'Project' },
+                { key: 'paper', label: 'Paper' },
+                { key: 'code', label: 'Code' }
+            ];
+            const linkParts = [];
+            linkOrder.forEach(item => {
+                const url = pub.links && pub.links[item.key];
+                if (url) {
+                    const target = item.key === 'code' ? ' target="_blank"' : '';
+                    linkParts.push(`<a href="${url}"${target}>${item.label}</a>`);
+                } else {
+                    linkParts.push(`<span class="link-placeholder">${item.label}</span>`);
+                }
+            });
+            const linksHTML = `<span class="links">${linkParts.join(' | ')}</span>`;
 
-            if (pubs.length === 0) return;
+            li.innerHTML = `
+                <span class="pub-title">${pub.title}</span>
+                <span class="authors">${pub.authors}</span>
+                <span class="venue">${pub.venue}</span>
+                ${linksHTML}
+            `;
+            return li;
+        }
 
-            const group = document.createElement('div');
-            group.className = 'pub-year-group';
+        // Preprints — a single section, no year split (newest first)
+        const preprints = siteData.publications
+            .filter(pub => pub.type === 'preprint')
+            .sort((a, b) => (b.year || 0) - (a.year || 0));
+
+        if (preprints.length > 0) {
+            const section = document.createElement('div');
+            section.className = 'pub-section';
 
             const heading = document.createElement('h2');
-            heading.className = 'pub-year';
-            heading.textContent = year;
-            group.appendChild(heading);
+            heading.className = 'pub-section-title';
+            heading.textContent = 'Preprints';
+            section.appendChild(heading);
 
             const ul = document.createElement('ul');
             ul.className = 'publication-list';
+            preprints.forEach(pub => ul.appendChild(buildPubItem(pub)));
+            section.appendChild(ul);
 
-            pubs.forEach(pub => {
-                const li = document.createElement('li');
-                li.className = 'publication';
+            pubContainer.appendChild(section);
+        }
 
-                const linkOrder = [
-                    { key: 'project', label: 'Project' },
-                    { key: 'paper', label: 'Paper' },
-                    { key: 'code', label: 'Code' }
-                ];
-                const linkParts = [];
-                linkOrder.forEach(item => {
-                    const url = pub.links && pub.links[item.key];
-                    if (url) {
-                        const target = item.key === 'code' ? ' target="_blank"' : '';
-                        linkParts.push(`<a href="${url}"${target}>${item.label}</a>`);
-                    } else {
-                        linkParts.push(`<span class="link-placeholder">${item.label}</span>`);
-                    }
-                });
-                const linksHTML = `<span class="links">${linkParts.join(' | ')}</span>`;
+        // Published — grouped by year (descending)
+        const publishedYears = [...new Set(
+            siteData.publications.filter(pub => pub.type === 'published').map(pub => pub.year)
+        )].sort((a, b) => (b || 0) - (a || 0));
 
-                li.innerHTML = `
-                    <span class="pub-title">${pub.title}</span>
-                    <span class="authors">${pub.authors}</span>
-                    <span class="venue">${pub.venue}</span>
-                    ${linksHTML}
-                `;
+        if (publishedYears.length > 0) {
+            const section = document.createElement('div');
+            section.className = 'pub-section';
 
-                ul.appendChild(li);
+            const heading = document.createElement('h2');
+            heading.className = 'pub-section-title';
+            heading.textContent = 'Published';
+            section.appendChild(heading);
+
+            publishedYears.forEach(year => {
+                const pubs = siteData.publications
+                    .filter(pub => pub.type === 'published' && pub.year === year);
+                if (pubs.length === 0) return;
+
+                const yearHeading = document.createElement('h3');
+                yearHeading.className = 'pub-year';
+                yearHeading.textContent = year;
+                section.appendChild(yearHeading);
+
+                const ul = document.createElement('ul');
+                ul.className = 'publication-list';
+                pubs.forEach(pub => ul.appendChild(buildPubItem(pub)));
+                section.appendChild(ul);
             });
 
-            group.appendChild(ul);
-            pubContainer.appendChild(group);
-        });
+            pubContainer.appendChild(section);
+        }
 
     }
 }
