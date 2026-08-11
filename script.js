@@ -327,24 +327,29 @@ function loadPublications() {
         pubContainer.appendChild(title);
 
         const scholarNote = document.createElement('p');
+        scholarNote.className = 'pub-scholar-note';
         scholarNote.innerHTML = 'For a complete list of publications, please see <a href="https://scholar.google.com/citations?user=8Y9iUz0AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>.';
         pubContainer.appendChild(scholarNote);
 
-        const sections = [
-            { type: 'preprint', label: 'Preprints' },
-            { type: 'published', label: 'Published' }
-        ];
+        // Group by year (descending); within a year, published items first, then preprints
+        const years = [...new Set(siteData.publications.map(pub => pub.year))]
+            .sort((a, b) => (b || 0) - (a || 0));
+        const typeRank = { published: 0, preprint: 1 };
 
-        sections.forEach(section => {
+        years.forEach(year => {
             const pubs = siteData.publications
-                .filter(pub => pub.type === section.type)
-                .sort((a, b) => (b.year || 0) - (a.year || 0));
+                .filter(pub => pub.year === year)
+                .sort((a, b) => (typeRank[a.type] ?? 9) - (typeRank[b.type] ?? 9));
 
             if (pubs.length === 0) return;
 
+            const group = document.createElement('div');
+            group.className = 'pub-year-group';
+
             const heading = document.createElement('h2');
-            heading.textContent = section.label;
-            pubContainer.appendChild(heading);
+            heading.className = 'pub-year';
+            heading.textContent = year;
+            group.appendChild(heading);
 
             const ul = document.createElement('ul');
             ul.className = 'publication-list';
@@ -380,7 +385,8 @@ function loadPublications() {
                 ul.appendChild(li);
             });
 
-            pubContainer.appendChild(ul);
+            group.appendChild(ul);
+            pubContainer.appendChild(group);
         });
 
     }
