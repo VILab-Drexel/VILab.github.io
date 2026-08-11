@@ -331,7 +331,7 @@ function loadPublications() {
         scholarNote.innerHTML = 'For a complete list of publications, please see <a href="https://scholar.google.com/citations?user=8Y9iUz0AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>.';
         pubContainer.appendChild(scholarNote);
 
-        function buildPubItem(pub) {
+        function buildPubItem(pub, showYear) {
             const li = document.createElement('li');
             li.className = 'publication';
 
@@ -352,10 +352,12 @@ function loadPublications() {
             });
             const linksHTML = `<span class="links">${linkParts.join(' | ')}</span>`;
 
+            const venueText = (showYear && pub.year) ? `${pub.venue}, ${pub.year}` : pub.venue;
+
             li.innerHTML = `
                 <span class="pub-title">${pub.title}</span>
                 <span class="authors">${pub.authors}</span>
-                <span class="venue">${pub.venue}</span>
+                <span class="venue">${venueText}</span>
                 ${linksHTML}
             `;
             return li;
@@ -377,7 +379,7 @@ function loadPublications() {
 
             const ul = document.createElement('ul');
             ul.className = 'publication-list';
-            preprints.forEach(pub => ul.appendChild(buildPubItem(pub)));
+            preprints.forEach(pub => ul.appendChild(buildPubItem(pub, true)));
             section.appendChild(ul);
 
             pubContainer.appendChild(section);
