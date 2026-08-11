@@ -331,7 +331,7 @@ function loadPublications() {
         scholarNote.innerHTML = 'For a complete list of publications, please see <a href="https://scholar.google.com/citations?user=8Y9iUz0AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>.';
         pubContainer.appendChild(scholarNote);
 
-        function buildPubItem(pub, showYear) {
+        function buildPubItem(pub) {
             const li = document.createElement('li');
             li.className = 'publication';
 
@@ -352,7 +352,14 @@ function loadPublications() {
             });
             const linksHTML = `<span class="links">${linkParts.join(' | ')}</span>`;
 
-            const venueText = (showYear && pub.year) ? `${pub.venue}, ${pub.year}` : pub.venue;
+            // Show the year on every item: inject it into the trailing "(ACRONYM)"
+            // e.g. "(CVPR)" -> "(CVPR 2026)"; venues without parens get ", 2026" appended.
+            let venueText = pub.venue;
+            if (pub.year) {
+                venueText = /\([^)]+\)\s*$/.test(venueText)
+                    ? venueText.replace(/\(([^)]+)\)\s*$/, `($1 ${pub.year})`)
+                    : `${venueText}, ${pub.year}`;
+            }
 
             li.innerHTML = `
                 <span class="pub-title">${pub.title}</span>
@@ -379,7 +386,7 @@ function loadPublications() {
 
             const ul = document.createElement('ul');
             ul.className = 'publication-list';
-            preprints.forEach(pub => ul.appendChild(buildPubItem(pub, true)));
+            preprints.forEach(pub => ul.appendChild(buildPubItem(pub)));
             section.appendChild(ul);
 
             pubContainer.appendChild(section);
