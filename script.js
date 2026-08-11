@@ -352,10 +352,19 @@ function loadPublications() {
             });
             const linksHTML = `<span class="links">${linkParts.join(' | ')}</span>`;
 
+            // Show the year on every item: inject it into the trailing "(ACRONYM)"
+            // e.g. "(CVPR)" -> "(CVPR 2026)"; venues without parens get ", 2026" appended.
+            let venueText = pub.venue;
+            if (pub.year) {
+                venueText = /\([^)]+\)\s*$/.test(venueText)
+                    ? venueText.replace(/\(([^)]+)\)\s*$/, `($1 ${pub.year})`)
+                    : `${venueText}, ${pub.year}`;
+            }
+
             li.innerHTML = `
                 <span class="pub-title">${pub.title}</span>
                 <span class="authors">${pub.authors}</span>
-                <span class="venue">${pub.venue}</span>
+                <span class="venue">${venueText}</span>
                 ${linksHTML}
             `;
             return li;
