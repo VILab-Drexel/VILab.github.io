@@ -280,6 +280,18 @@
       }
     },
     {
+      "title": "SapiensID 2.0: Aligning Human Recognition Foundation Models with Human Perception",
+      "authors": "Yiyang Su, Jie Zhu, Feng Liu, Anil K. Jain, Xiaoming Liu",
+      "venue": "arXiv preprint",
+      "year": 2026,
+      "type": "preprint",
+      "links": {
+        "project": "",
+        "paper": "https://arxiv.org/abs/2608.10497",
+        "code": ""
+      }
+    },
+    {
       "title": "What Do Deepfake Benchmarks Measure? An Audit Using Frozen Self-Supervised Representations",
       "authors": "Samuel Pagon, Yixuan Shen, Vishal Asnani, Feng Liu",
       "venue": "arXiv preprint",
