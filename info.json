@@ -179,6 +179,7 @@
     "phd_students": [
       {
         "name": "Yuyang Ji (Fall 2025 -)",
+        "website": "https://steins45.github.io/",
         "description": "Computer vision, physical 3D human perception and modeling, AI + science",
         "email": "yj428@drexel.edu",
         "image": "assets/students/Yuyang_pic.jpg",
@@ -187,6 +188,7 @@
       },
       {
         "name": "Yixuan Shen (Spring 2026 -)",
+        "website": "https://www.yixuanshen.com/",
         "description": "Computer vision, physical 3D human perception and modeling, Deepfake detection",
         "image": "assets/students/Yixuan.jpg",
         "school": "Spring 2026 -, Drexel University",
@@ -269,7 +271,7 @@
   "publications": [
     {
       "title": "MyoFLAME: Inverse-Physics Muscle Activation for Statistical 3D Face Models",
-      "authors": "Yixuan Shen, <a href=\"https://steins45.github.io/\" target=\"_blank\">Yuyang Ji</a>, <a href=\"https://wangren09.github.io/\" target=\"_blank\">Ren Wang</a>, <a href=\"https://kaidixu.com/\" target=\"_blank\">Kaidi Xu</a>, <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
+      "authors": "<a href=\"https://www.yixuanshen.com/\" target=\"_blank\">Yixuan Shen</a>, <a href=\"https://steins45.github.io/\" target=\"_blank\">Yuyang Ji</a>, <a href=\"https://wangren09.github.io/\" target=\"_blank\">Ren Wang</a>, <a href=\"https://kaidixu.com/\" target=\"_blank\">Kaidi Xu</a>, <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
       "venue": "In Proceedings of ACM SIGGRAPH Asia",
       "year": 2026,
       "type": "published",
@@ -293,7 +295,7 @@
     },
     {
       "title": "What Do Deepfake Benchmarks Measure? An Audit Using Frozen Self-Supervised Representations",
-      "authors": "Samuel Pagon, Yixuan Shen, <a href=\"https://vishal3477.github.io/\" target=\"_blank\">Vishal Asnani</a>, <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
+      "authors": "Samuel Pagon, <a href=\"https://www.yixuanshen.com/\" target=\"_blank\">Yixuan Shen</a>, <a href=\"https://vishal3477.github.io/\" target=\"_blank\">Vishal Asnani</a>, <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
       "venue": "arXiv preprint",
       "year": 2026,
       "type": "preprint",
@@ -305,7 +307,7 @@
     },
     {
       "title": "Non-Colliding Biometric Identities for Digital Entities: Geometry, Capacity, and Million-Scale Virtual Identity Provisioning",
-      "authors": "<a href=\"https://steins45.github.io/\" target=\"_blank\">Yuyang Ji</a>, Yixuan Shen, <a href=\"http://www.cse.msu.edu/~jain/\" target=\"_blank\">Anil Jain</a>, <a href=\"https://www.cse.msu.edu/~liuxm/\" target=\"_blank\">Xiaoming Liu</a>, and <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
+      "authors": "<a href=\"https://steins45.github.io/\" target=\"_blank\">Yuyang Ji</a>, <a href=\"https://www.yixuanshen.com/\" target=\"_blank\">Yixuan Shen</a>, <a href=\"http://www.cse.msu.edu/~jain/\" target=\"_blank\">Anil Jain</a>, <a href=\"https://www.cse.msu.edu/~liuxm/\" target=\"_blank\">Xiaoming Liu</a>, and <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
       "venue": "arXiv preprint",
       "year": 2026,
       "type": "preprint",
@@ -329,7 +331,7 @@
     },
     {
       "title": "IDSelect: An RL-based Cost-Aware Selection Agent for Video-based Person Recognition",
-      "authors": "<a href=\"https://steins45.github.io/\" target=\"_blank\">Yuyang Ji</a>, Yixuan Shen, <a href=\"https://research.qut.edu.au/saivt/staff/kien-nguyen-thanh/\" target=\"_blank\">Kien Nguyen</a>, <a href=\"https://lfzhou917.github.io/\" target=\"_blank\">Lifeng Zhou</a>, and <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
+      "authors": "<a href=\"https://steins45.github.io/\" target=\"_blank\">Yuyang Ji</a>, <a href=\"https://www.yixuanshen.com/\" target=\"_blank\">Yixuan Shen</a>, <a href=\"https://research.qut.edu.au/saivt/staff/kien-nguyen-thanh/\" target=\"_blank\">Kien Nguyen</a>, <a href=\"https://lfzhou917.github.io/\" target=\"_blank\">Lifeng Zhou</a>, and <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
       "venue": "arXiv preprint",
       "year": 2026,
       "type": "preprint",
@@ -389,7 +391,7 @@
     },
     {
       "title": "Can Multimodal LLMs \"See\" Science Instruction? Benchmarking Pedagogical Reasoning in K-12 Classroom Videos",
-      "authors": "Yixuan Shen*, Peng He*, Honglu Liu, Jinxuan Fan, <a href=\"https://steins45.github.io/\" target=\"_blank\">Yuyang Ji</a>, Tingting Li, <a href=\"https://tianlong-chen.github.io/\" target=\"_blank\">Tianlong Chen</a>, <a href=\"https://kaidixu.com/\" target=\"_blank\">Kaidi Xu</a>, and <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
+      "authors": "<a href=\"https://www.yixuanshen.com/\" target=\"_blank\">Yixuan Shen</a>*, Peng He*, Honglu Liu, Jinxuan Fan, <a href=\"https://steins45.github.io/\" target=\"_blank\">Yuyang Ji</a>, Tingting Li, <a href=\"https://tianlong-chen.github.io/\" target=\"_blank\">Tianlong Chen</a>, <a href=\"https://kaidixu.com/\" target=\"_blank\">Kaidi Xu</a>, and <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
       "venue": "In Proceedings of International Conference on Artificial Intelligence in Education (AIED)",
       "year": 2026,
       "type": "published",
@@ -401,7 +403,7 @@
     },
     {
       "title": "From 3D Pose to Prose: Biomechanics-Grounded Vision-Language Coaching",
-      "authors": "<a href=\"https://steins45.github.io/\" target=\"_blank\">Yuyang Ji</a>, Yixuan Shen, <a href=\"https://shngjz.github.io/\" target=\"_blank\">Shengjie Zhu</a>, <a href=\"https://www.egr.msu.edu/~yukong/\" target=\"_blank\">Yu Kong</a>, <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
+      "authors": "<a href=\"https://steins45.github.io/\" target=\"_blank\">Yuyang Ji</a>, <a href=\"https://www.yixuanshen.com/\" target=\"_blank\">Yixuan Shen</a>, <a href=\"https://shngjz.github.io/\" target=\"_blank\">Shengjie Zhu</a>, <a href=\"https://www.egr.msu.edu/~yukong/\" target=\"_blank\">Yu Kong</a>, <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2026,
       "type": "published",
