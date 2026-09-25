@@ -356,7 +356,7 @@ function loadPublications() {
             // e.g. "(CVPR)" -> "(CVPR 2026)". A qualifier like Oral/Spotlight stays last:
             // "(NeurIPS Oral)" -> "(NeurIPS 2020 Oral)". No parens -> ", 2026" appended.
             let venueText = pub.venue;
-            if (pub.year) {
+            if (pub.year && !venueText.includes(String(pub.year))) {
                 if (/\([^)]+\)\s*$/.test(venueText)) {
                     venueText = venueText.replace(/\(([^)]+)\)\s*$/, (m, inner) => {
                         const q = inner.match(/\s+(Oral|Spotlight|Highlight|Poster)$/i);
