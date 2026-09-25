@@ -274,6 +274,30 @@
   },
   "publications": [
     {
+      "title": "Non-Colliding Biometric Identities for Digital Entities: Geometry, Capacity, and Million-Scale Virtual Identity Provisioning",
+      "authors": "<a href=\"https://steins45.github.io/\" target=\"_blank\">Yuyang Ji</a>, <a href=\"https://www.yixuanshen.com/\" target=\"_blank\">Yixuan Shen</a>, <a href=\"http://www.cse.msu.edu/~jain/\" target=\"_blank\">Anil Jain</a>, <a href=\"https://www.cse.msu.edu/~liuxm/\" target=\"_blank\">Xiaoming Liu</a>, and <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
+      "venue": "In Proceedings of Advances in Neural Information Processing Systems (NeurIPS, oral, 112/30709 ≈ 3.6‰)",
+      "year": 2026,
+      "type": "preprint",
+      "links": {
+        "code": "",
+        "project": "",
+        "paper": "https://arxiv.org/abs/2605.18238"
+      }
+    },    
+    {
+      "title": "SapiensID 2.0: Aligning Human Recognition Foundation Models with Human Perception",
+      "authors": "<a href=\"https://cse.msu.edu/~suyiyan1/\" target=\"_blank\">Yiyang Su</a>, Jie Zhu, <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>, <a href=\"http://www.cse.msu.edu/~jain/\" target=\"_blank\">Anil K. Jain</a>, <a href=\"https://www.cse.msu.edu/~liuxm/\" target=\"_blank\">Xiaoming Liu</a>",
+      "venue": "In Proceedings of Advances in Neural Information Processing Systems (NeurIPS)",
+      "year": 2026,
+      "type": "preprint",
+      "links": {
+        "project": "",
+        "paper": "https://arxiv.org/abs/2608.10497",
+        "code": ""
+      }
+    },
+    {
       "title": "MyoFLAME: Inverse-Physics Muscle Activation for Statistical 3D Face Models",
       "authors": "<a href=\"https://www.yixuanshen.com/\" target=\"_blank\">Yixuan Shen</a>, <a href=\"https://steins45.github.io/\" target=\"_blank\">Yuyang Ji</a>, <a href=\"https://wangren09.github.io/\" target=\"_blank\">Ren Wang</a>, <a href=\"https://kaidixu.com/\" target=\"_blank\">Kaidi Xu</a>, <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
       "venue": "In Proceedings of ACM SIGGRAPH Asia",
@@ -282,18 +306,6 @@
       "links": {
         "project": "project/myoflame/",
         "paper": "",
-        "code": ""
-      }
-    },
-    {
-      "title": "SapiensID 2.0: Aligning Human Recognition Foundation Models with Human Perception",
-      "authors": "<a href=\"https://cse.msu.edu/~suyiyan1/\" target=\"_blank\">Yiyang Su</a>, Jie Zhu, <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>, <a href=\"http://www.cse.msu.edu/~jain/\" target=\"_blank\">Anil K. Jain</a>, <a href=\"https://www.cse.msu.edu/~liuxm/\" target=\"_blank\">Xiaoming Liu</a>",
-      "venue": "arXiv preprint",
-      "year": 2026,
-      "type": "preprint",
-      "links": {
-        "project": "",
-        "paper": "https://arxiv.org/abs/2608.10497",
         "code": ""
       }
     },
@@ -307,18 +319,6 @@
         "code": "",
         "project": "",
         "paper": "https://arxiv.org/abs/2606.26384"
-      }
-    },
-    {
-      "title": "Non-Colliding Biometric Identities for Digital Entities: Geometry, Capacity, and Million-Scale Virtual Identity Provisioning",
-      "authors": "<a href=\"https://steins45.github.io/\" target=\"_blank\">Yuyang Ji</a>, <a href=\"https://www.yixuanshen.com/\" target=\"_blank\">Yixuan Shen</a>, <a href=\"http://www.cse.msu.edu/~jain/\" target=\"_blank\">Anil Jain</a>, <a href=\"https://www.cse.msu.edu/~liuxm/\" target=\"_blank\">Xiaoming Liu</a>, and <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
-      "venue": "arXiv preprint",
-      "year": 2026,
-      "type": "preprint",
-      "links": {
-        "code": "",
-        "project": "",
-        "paper": "https://arxiv.org/abs/2605.18238"
       }
     },
     {
