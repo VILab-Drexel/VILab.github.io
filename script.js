@@ -352,13 +352,21 @@ function loadPublications() {
             });
             const linksHTML = `<span class="links">${linkParts.join(' | ')}</span>`;
 
-            // Show the year on every item: inject it into the trailing "(ACRONYM)"
-            // e.g. "(CVPR)" -> "(CVPR 2026)"; venues without parens get ", 2026" appended.
+            // Show the year on every item: inject it into the trailing "(ACRONYM)".
+            // e.g. "(CVPR)" -> "(CVPR 2026)". A qualifier like Oral/Spotlight stays last:
+            // "(NeurIPS Oral)" -> "(NeurIPS 2020 Oral)". No parens -> ", 2026" appended.
             let venueText = pub.venue;
             if (pub.year) {
-                venueText = /\([^)]+\)\s*$/.test(venueText)
-                    ? venueText.replace(/\(([^)]+)\)\s*$/, `($1 ${pub.year})`)
-                    : `${venueText}, ${pub.year}`;
+                if (/\([^)]+\)\s*$/.test(venueText)) {
+                    venueText = venueText.replace(/\(([^)]+)\)\s*$/, (m, inner) => {
+                        const q = inner.match(/\s+(Oral|Spotlight|Highlight|Poster)$/i);
+                        return q
+                            ? `(${inner.slice(0, q.index)} ${pub.year}${q[0]})`
+                            : `(${inner} ${pub.year})`;
+                    });
+                } else {
+                    venueText = `${venueText}, ${pub.year}`;
+                }
             }
 
             li.innerHTML = `
