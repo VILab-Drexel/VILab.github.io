@@ -348,9 +348,9 @@
     {
       "title": "IDSelect: An RL-based Cost-Aware Selection Agent for Video-based Person Recognition",
       "authors": "<a href=\"https://steins45.github.io/\" target=\"_blank\">Yuyang Ji</a>, <a href=\"https://www.yixuanshen.com/\" target=\"_blank\">Yixuan Shen</a>, <a href=\"https://research.qut.edu.au/saivt/staff/kien-nguyen-thanh/\" target=\"_blank\">Kien Nguyen</a>, <a href=\"https://lfzhou917.github.io/\" target=\"_blank\">Lifeng Zhou</a>, and <a href=\"https://liufeng2915.github.io/\" target=\"_blank\">Feng Liu</a>",
-      "venue": "arXiv preprint",
-      "year": 2026,
-      "type": "preprint",
+      "venue": "In Proceedings of IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+      "year": 2027,
+      "type": "published",
       "links": {
         "code": "https://github.com/VILab-Drexel/IDSelect",
         "project": "project/idselect/",
