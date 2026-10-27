@@ -450,11 +450,6 @@ function loadPublications() {
             pubContainer.appendChild(bar);
         }
 
-        const scholarNote = document.createElement('p');
-        scholarNote.className = 'pub-scholar-note';
-        scholarNote.innerHTML = 'For a complete list of publications, please see <a href="https://scholar.google.com/citations?user=8Y9iUz0AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>.';
-        pubContainer.appendChild(scholarNote);
-
         function buildPubItem(pub) {
             const li = document.createElement('li');
             li.className = 'publication';

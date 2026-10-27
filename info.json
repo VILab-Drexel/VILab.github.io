@@ -501,9 +501,9 @@
     {
       "title": "Vision Language Models Cannot Plan, but Can They Formalize?",
       "authors": "Muyu He, Yuxi Zheng, Yuchen Liu, Zijian An, Bill Cai, Jiani Huang, Lifeng Zhou, Feng Liu, Ziyang Li, Li Zhang",
-      "venue": "arXiv preprint",
-      "year": 2025,
-      "type": "preprint",
+      "venue": "In Proceedings of the WMEAI Workshop at ECCV 2026, Oral, Best Paper Award",
+      "year": 2026,
+      "type": "published",
       "keywords": ["Vision-Language"],
       "links": {
         "project": "",
