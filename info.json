@@ -283,7 +283,7 @@
       "venue": "In Proceedings of Advances in Neural Information Processing Systems (NeurIPS 2026), Oral, accept rate = 112/30709",
       "year": 2026,
       "type": "published",
-      "keywords": ["Biometrics", "Synthetic Identity"],
+      "keywords": ["Biometrics"],
       "links": {
         "code": "",
         "project": "",
@@ -335,7 +335,7 @@
       "venue": "arXiv preprint",
       "year": 2026,
       "type": "preprint",
-      "keywords": ["Deepfake Detection", "Benchmark"],
+      "keywords": ["Deepfake Detection"],
       "links": {
         "code": "",
         "project": "",
@@ -426,7 +426,7 @@
       "venue": "In Proceedings of International Conference on Artificial Intelligence in Education (AIED)",
       "year": 2026,
       "type": "published",
-      "keywords": ["AI for Education", "Vision-Language", "Benchmark"],
+      "keywords": ["AI for Education", "Vision-Language"],
       "links": {
         "code": "https://github.com/VILab-Drexel/SciIBI",
         "project": "project/sciibi/",
@@ -452,7 +452,7 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2026,
       "type": "published",
-      "keywords": ["Domain Generalization"],
+      "keywords": [],
       "links": {
         "project": "https://mingbohong.github.io/Bridge/",
         "paper": "https://arxiv.org/abs/2604.26820",
@@ -478,7 +478,7 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)",
       "year": 2026,
       "type": "published",
-      "keywords": ["Generative Models", "Anonymization"],
+      "keywords": ["Generative Models"],
       "links": {
         "code": "",
         "project": "",
@@ -543,7 +543,7 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2025,
       "type": "published",
-      "keywords": ["Person Re-Identification", "Benchmark"],
+      "keywords": ["Person Re-Identification"],
       "links": {
         "project": "https://github.com/agvpreid25/AG-VPReID-Net",
         "paper": "https://arxiv.org/abs/2503.08121",
@@ -621,7 +621,7 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2024,
       "type": "published",
-      "keywords": ["3D Generation", "Point Cloud", "Generative Models"],
+      "keywords": ["3D Generation", "Generative Models"],
       "links": {
         "project": "",
         "paper": "https://cvlab.cse.msu.edu/pdfs/Ren_Kim_Liu_Liu_TIGER.pdf",
@@ -634,7 +634,7 @@
       "venue": "In Proceedings of IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
       "year": 2024,
       "type": "published",
-      "keywords": ["Biometrics", "Atmospheric Turbulence"],
+      "keywords": ["Biometrics"],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/abs/2306.17206",
@@ -660,7 +660,7 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2023,
       "type": "published",
-      "keywords": ["Face Synthesis", "Synthetic Identity", "Generative Models"],
+      "keywords": ["Face Synthesis", "Generative Models"],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/pdf/2304.07060.pdf",
@@ -686,7 +686,7 @@
       "venue": "In Proceedings of IEEE International Joint Conference on Biometrics (IJCB)",
       "year": 2023,
       "type": "published",
-      "keywords": ["Person Re-Identification", "Benchmark"],
+      "keywords": ["Person Re-Identification"],
       "links": {
         "project": "",
         "paper": "https://cvlab.cse.msu.edu/pdfs/IJCB_AG_ReID2023_Challenge_Summary_Paper.pdf",
@@ -868,7 +868,7 @@
       "venue": "In Proceedings of IEEE International Joint Conference on Biometrics (IJCB)",
       "year": 2017,
       "type": "published",
-      "keywords": ["Face Recognition", "Dataset"],
+      "keywords": ["Face Recognition"],
       "links": {
         "project": "",
         "paper": "https://ieeexplore.ieee.org/document/8272716",
