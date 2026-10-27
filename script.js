@@ -438,9 +438,13 @@ function loadPublications() {
         }
 
         // ── Keyword index bar at the top of the full publications list ──────────
-        const allKeywords = [...new Set(
-            siteData.publications.flatMap(p => p.keywords || [])
-        )].sort((a, b) => a.localeCompare(b));
+        // Order follows siteData.keyword_order; any extras are appended alphabetically.
+        const presentKw = new Set(siteData.publications.flatMap(p => p.keywords || []));
+        const kwOrder = siteData.keyword_order || [];
+        const allKeywords = [
+            ...kwOrder.filter(k => presentKw.has(k)),
+            ...[...presentKw].filter(k => !kwOrder.includes(k)).sort((a, b) => a.localeCompare(b))
+        ];
         if (allKeywords.length > 0) {
             const bar = document.createElement('div');
             bar.className = 'pub-keyword-bar';
