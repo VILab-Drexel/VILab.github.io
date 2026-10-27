@@ -93,6 +93,29 @@
       "url": "https://liufeng2915.github.io/research/ai-education-scientific-learning/"
     }
   ],
+  "keyword_order": [
+    "3D Human Digitization",
+    "Biomechanics",
+    "Human Motion",
+    "Embodied AI",
+    "AI for Health",
+    "3D Generation",
+    "3D Reconstruction",
+    "3D Face Modeling",
+    "Generative AI",
+    "Deepfake Detection",
+    "Face Synthesis",
+    "Biometrics",
+    "Aerial-Ground Recognition",
+    "Face Recognition",
+    "Gait Recognition",
+    "Person Re-Identification",
+    "Open-Set Recognition",
+    "Speech",
+    "Vision-Language Models",
+    "AI for Science",
+    "AI for Education"
+  ],
   "news": [
     {
       "date": "2026-10-15",
