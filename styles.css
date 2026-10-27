@@ -923,6 +923,29 @@ a.research-card:hover {
     color: #ffc600;
 }
 
+/* Keyword index bar at top of the publications page */
+.pub-keyword-bar {
+    line-height: 2.1;
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.pub-keyword {
+    color: #07294d;
+    text-decoration: none;
+}
+
+.pub-keyword:hover {
+    color: #ffc600;
+    text-decoration: underline;
+}
+
+.pub-keyword-sep {
+    color: #c9d2dd;
+}
+
 #publication .publication-list {
     list-style: none;
     padding-left: 0;

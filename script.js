@@ -359,6 +359,15 @@ function currentPubAuthorFilter() {
     return new URLSearchParams(q).get('author');
 }
 
+function slugifyKeyword(k) {
+    return k.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+function currentPubKeywordFilter() {
+    const q = (window.location.hash.split('?')[1]) || '';
+    return new URLSearchParams(q).get('keyword');
+}
+
 function loadPublications() {
     if (siteData.publications && siteData.publications.length > 0) {
         const pubContainer = document.querySelector('#publication .container');
@@ -399,6 +408,46 @@ function loadPublications() {
                 pubContainer.appendChild(ul);
             }
             return;
+        }
+
+        // ── Keyword page: #publication?keyword=<slug> shows only tagged papers ──
+        const keywordFilter = currentPubKeywordFilter();
+        if (keywordFilter) {
+            const matches = siteData.publications
+                .filter(p => (p.keywords || []).some(k => slugifyKeyword(k) === keywordFilter))
+                .sort((a, b) => (b.year || 0) - (a.year || 0));
+
+            let displayKw = keywordFilter;
+            for (const p of siteData.publications) {
+                const hit = (p.keywords || []).find(k => slugifyKeyword(k) === keywordFilter);
+                if (hit) { displayKw = hit; break; }
+            }
+
+            const banner = document.createElement('div');
+            banner.className = 'pub-filter-banner';
+            banner.innerHTML =
+                `<span>Publications tagged <strong>${displayKw}</strong></span>` +
+                `<a href="#publication" class="pub-filter-clear">&larr; All publications</a>`;
+            pubContainer.appendChild(banner);
+
+            const ul = document.createElement('ul');
+            ul.className = 'publication-list';
+            matches.forEach(pub => ul.appendChild(buildPubItem(pub)));
+            pubContainer.appendChild(ul);
+            return;
+        }
+
+        // ── Keyword index bar at the top of the full publications list ──────────
+        const allKeywords = [...new Set(
+            siteData.publications.flatMap(p => p.keywords || [])
+        )].sort((a, b) => a.localeCompare(b));
+        if (allKeywords.length > 0) {
+            const bar = document.createElement('div');
+            bar.className = 'pub-keyword-bar';
+            bar.innerHTML = allKeywords
+                .map(k => `<a href="#publication?keyword=${slugifyKeyword(k)}" class="pub-keyword">${k}</a>`)
+                .join('<span class="pub-keyword-sep"> | </span>');
+            pubContainer.appendChild(bar);
         }
 
         const scholarNote = document.createElement('p');
