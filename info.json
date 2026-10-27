@@ -95,6 +95,10 @@
   ],
   "news": [
     {
+      "date": "2026-10-27",
+      "title": "One paper has been accepted at <a href=\"https://wacv2027.thecvf.com/\" target=\"_blank\">WACV 2027</a>! Congratulations to Yuyang and all co-authors!"
+    },
+    {
       "date": "2026-09-25",
       "title": "<a href=\"https://arxiv.org/abs/2605.18238\" target=\"_blank\">BIP</a> paper has been accepted at <a href=\"https://neurips.cc/\" target=\"_blank\">NeurIPS 2026</a> Main Track as an Oral presentation (oral rate 112/30709 ≈ 0.36%)! Congratulations to Yuyang!"
     },
