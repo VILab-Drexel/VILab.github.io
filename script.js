@@ -318,6 +318,47 @@ function loadTeam() {
     }
 }
 
+// ── Publication author helpers (internal author pages) ────────────────────────
+// Slug drops middle initials so "Anil K. Jain" == "Anil Jain" == "anil-jain".
+function slugifyAuthor(name) {
+    return name.toLowerCase()
+        .replace(/[´'’]/g, '')
+        .split(/[^a-z0-9]+/)
+        .filter(w => w.length > 1)
+        .join('-');
+}
+
+// Split a plain author string into individual names (drops trailing * markers).
+function authorNameList(authorsStr) {
+    return authorsStr
+        .split(/,\s*and\s+|,\s*|\s+and\s+|\s*&\s*/)
+        .map(s => s.replace(/\*+$/, '').trim())
+        .filter(Boolean);
+}
+
+function pubAuthorSlugs(pub) {
+    return new Set(authorNameList(pub.authors).map(slugifyAuthor));
+}
+
+// Wrap every author name in an internal link to that author's in-lab page.
+function linkifyAuthors(authorsStr) {
+    const parts = authorsStr.split(/(,\s*and\s+|,\s*|\s+and\s+|\s*&\s*)/);
+    return parts.map((p, i) => {
+        if (i % 2 === 1) return p; // captured separator
+        const m = p.match(/^(.*?)(\*+)?$/);
+        const name = (m[1] || '').trim();
+        const star = m[2] || '';
+        const slug = name ? slugifyAuthor(name) : '';
+        if (!slug) return p;
+        return `<a href="#publication?author=${slug}" class="author-link">${name}</a>${star}`;
+    }).join('');
+}
+
+function currentPubAuthorFilter() {
+    const q = (window.location.hash.split('?')[1]) || '';
+    return new URLSearchParams(q).get('author');
+}
+
 function loadPublications() {
     if (siteData.publications && siteData.publications.length > 0) {
         const pubContainer = document.querySelector('#publication .container');
@@ -325,6 +366,40 @@ function loadPublications() {
         const title = pubContainer.querySelector('h1');
         pubContainer.innerHTML = '';
         pubContainer.appendChild(title);
+
+        // ── Internal author page: when #publication?author=<slug>, show only that
+        //    author's publications within the lab (no external links). ───────────
+        const authorFilter = currentPubAuthorFilter();
+        if (authorFilter) {
+            const matches = siteData.publications
+                .filter(p => pubAuthorSlugs(p).has(authorFilter))
+                .sort((a, b) => (b.year || 0) - (a.year || 0));
+
+            let displayName = authorFilter;
+            for (const p of matches) {
+                const hit = authorNameList(p.authors).find(n => slugifyAuthor(n) === authorFilter);
+                if (hit) { displayName = hit; break; }
+            }
+
+            const banner = document.createElement('div');
+            banner.className = 'pub-filter-banner';
+            banner.innerHTML =
+                `<span>Publications by <strong>${displayName}</strong> in the Visual Intelligence Lab</span>` +
+                `<a href="#publication" class="pub-filter-clear">&larr; All publications</a>`;
+            pubContainer.appendChild(banner);
+
+            if (matches.length === 0) {
+                const none = document.createElement('p');
+                none.textContent = 'No publications found for this author.';
+                pubContainer.appendChild(none);
+            } else {
+                const ul = document.createElement('ul');
+                ul.className = 'publication-list';
+                matches.forEach(pub => ul.appendChild(buildPubItem(pub)));
+                pubContainer.appendChild(ul);
+            }
+            return;
+        }
 
         const scholarNote = document.createElement('p');
         scholarNote.className = 'pub-scholar-note';
@@ -371,7 +446,7 @@ function loadPublications() {
 
             li.innerHTML = `
                 <span class="pub-title">${pub.title}</span>
-                <span class="authors">${pub.authors}</span>
+                <span class="authors">${linkifyAuthors(pub.authors)}</span>
                 <span class="venue">${venueText}</span>
                 ${linksHTML}
             `;
@@ -765,22 +840,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle initial hash on page load
     function handleHashChange() {
-        const hash = window.location.hash.substring(1);
-        if (hash) {
-            // Remove active class
-            navLinks.forEach(l => l.classList.remove('active'));
-            sections.forEach(s => s.classList.remove('active'));
+        const raw = window.location.hash.substring(1);
+        if (!raw) return;
 
-            // Add active class to matching section and nav link
-            const targetSection = document.getElementById(hash);
-            const targetLink = document.querySelector(`a[href="#${hash}"]`);
+        // Hash may carry a query, e.g. "publication?author=yuyang-ji"
+        const sec = raw.split('?')[0];
 
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-            if (targetLink) {
-                targetLink.classList.add('active');
-            }
+        // Remove active class
+        navLinks.forEach(l => l.classList.remove('active'));
+        sections.forEach(s => s.classList.remove('active'));
+
+        // Add active class to matching section and nav link
+        const targetSection = document.getElementById(sec);
+        const targetLink = document.querySelector(`a[href="#${sec}"]`);
+
+        if (targetSection) {
+            targetSection.classList.add('active');
+        }
+        if (targetLink) {
+            targetLink.classList.add('active');
+        }
+
+        // Re-render publications so author filters apply/clear
+        if (sec === 'publication') {
+            loadPublications();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
 
