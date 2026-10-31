@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en" data-theme="light" class="site">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script>if(/[?&]embed=1/.test(location.search))document.documentElement.classList.add('embed')</script>
+<title>MyoFLAME muscle viewer</title>
+<meta name="description" content="MyoFLAME: inverse-physics muscle activation for statistical 3D face models. Interactive muscle-driven FLAME viewer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --bg2:#f5f6f8; --panel:#f7f8fa; --line:#dfe3e8; --ink:#1b1f24; --muted:#5f6b7a;
+  --accent:#236fa1; --accent2:#1b5a85; --skin:#8fa8c9; --muscle:#b8352b; --skull:#d9cfb6;
+  --ok:#2e7d32; --warn:#b26a00; --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --font:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f1115; --bg2:#161a21; --panel:#151920; --line:#2a313c; --ink:#e6e9ee; --muted:#98a3b3; --accent:#6ab0e0; --accent2:#8cc4ec;
+}}
+:root[data-theme="dark"]{ --bg:#0f1115; --bg2:#161a21; --panel:#151920; --line:#2a313c; --ink:#e6e9ee; --muted:#98a3b3; --accent:#6ab0e0; --accent2:#8cc4ec; }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.55}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding:0 16px}
+nav .in{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;min-height:48px;padding:6px 0;font-size:14px}
+nav .brand{font-weight:700;letter-spacing:.02em;margin-right:auto}
+nav a{color:var(--ink)}nav a:hover{color:var(--accent);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+header.title{text-align:center;padding:44px 16px 10px}
+header h1{font-size:46px;margin:0;font-weight:700;letter-spacing:-.01em}
+header .sub{font-size:20px;color:var(--muted);margin:6px 0 14px}
+header .authors{font-size:16px}
+header .venue{color:var(--muted);margin:4px 0 14px}
+.links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:10px 0 6px}
+.links a{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;background:var(--panel)}
+.links a:hover{border-color:var(--accent);text-decoration:none}
+h2{font-size:24px;margin:46px 0 10px;padding-top:8px;border-top:1px solid var(--line)}
+h3{font-size:17px;margin:22px 0 6px}
+p{margin:8px 0}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+code,.mono{font-family:var(--mono);font-size:.92em}
+pre{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto;font-size:13px}
+/* hero */
+#hero{margin:18px 0 8px}
+#heroCanvas{width:100%;height:230px;display:block;border-radius:10px;background:var(--bg2)}
+.heroLabels{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;font-size:12.5px;text-align:center;margin-top:6px}
+.heroLabels b{display:block;font-weight:600}
+.heroLabels span{color:var(--muted)}
+/* viewer */
+.viewer{display:grid;grid-template-columns:350px 1fr;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;height:720px;background:var(--bg2)}
+.panel{background:var(--panel);border-right:1px solid var(--line);overflow-y:auto;padding:10px 12px;font-size:12.5px}
+.panel h4{margin:10px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
+.panel h4 .tog{margin-left:auto;font-weight:400;font-size:11px}
+.row{display:grid;grid-template-columns:118px 1fr 44px;align-items:center;gap:6px;margin:3px 0}
+.row label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .v{text-align:right;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.row2{display:grid;grid-template-columns:118px 1fr 1fr;align-items:center;gap:6px;margin:3px 0}
+.row2 .pair{display:flex;align-items:center;gap:4px}
+.row2 .pair input{flex:1;min-width:0}
+.row2 .pair .v{width:30px;text-align:right;font-family:var(--mono);font-size:11px;color:var(--muted)}
+input[type=range]{width:100%;height:18px;accent-color:var(--accent);margin:0}
+input[type=range].masked{accent-color:#aaa}
+select{max-width:100%;min-width:0}
+.row>*,.row2>*{min-width:0}
+select,button{font:inherit;font-size:12.5px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:5px 8px}
+button{cursor:pointer}button:hover{border-color:var(--accent)}
+button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btns{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.tabs{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:6px 0}
+.tabs button{flex:1;border:0;border-radius:0;background:var(--bg)}
+.tabs button.on{background:var(--accent);color:#fff}
+.stage{position:relative}
+.stage canvas{width:100%;height:100%;display:block}
+.hud{position:absolute;left:12px;top:10px;font-size:12px;background:rgba(255,255,255,.82);color:#1b1f24;border:1px solid #dfe3e8;border-radius:8px;padding:6px 9px;max-width:360px;pointer-events:none}
+.legend{position:absolute;right:12px;bottom:12px;font-size:11px;background:rgba(255,255,255,.85);color:#1b1f24;border:1px solid #dfe3e8;border-radius:8px;padding:6px 9px;display:none}
+.legend .bar{height:10px;width:160px;border-radius:3px;background:linear-gradient(90deg,#2b2d7a,#3a86c8,#4fc39f,#e0d94a,#d8322b);margin:4px 0}
+.legend .ax{display:flex;justify-content:space-between}
+.status{font-size:11.5px;color:var(--muted);margin:6px 0 2px;font-family:var(--mono);white-space:pre-wrap}
+.status.ok{color:var(--ok)}.status.warn{color:var(--warn)}
+.bars{margin:6px 0}
+.bar{display:grid;grid-template-columns:92px 1fr 40px;align-items:center;gap:6px;font-size:11px;margin:1px 0}
+.bar i{display:block;height:9px;background:var(--accent);border-radius:2px}
+.bar b{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .n{font-family:var(--mono);color:var(--muted);text-align:right}
+.chk{display:flex;align-items:center;gap:6px;margin:3px 0}
+.chk input{margin:0}
+/* comparison */
+.cmp{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg2)}
+.cmp .ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px 10px;border-bottom:1px solid var(--line);font-size:13px;background:var(--panel)}
+.cmp .stage{height:460px}
+.cmp .caps{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;padding:8px;font-size:13px;border-top:1px solid var(--line)}
+.cmp .caps b{display:block}
+/* tables */
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 4px}
+th,td{border-bottom:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top}
+th{background:var(--bg2);font-weight:600}
+td.num,th.num{text-align:right;font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+tr.hl td{background:rgba(35,111,161,.08)}
+.tblwrap{overflow-x:auto}
+.what{font-size:13.5px;color:var(--muted);border-left:3px solid var(--line);padding:4px 10px;margin:6px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid2>*{min-width:0}
+body{overflow-x:hidden}
+.card{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--panel)}
+.card h3{margin-top:4px}
+ol.lim li{margin:6px 0}
+figure{margin:14px 0}figure img{width:100%;border:1px solid var(--line);border-radius:8px}
+figcaption{font-size:13px;color:var(--muted);margin-top:6px}
+footer{margin:50px 0 30px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:14px}
+.badge{display:inline-block;font-size:11px;border:1px solid var(--line);border-radius:4px;padding:1px 6px;color:var(--muted);font-family:var(--mono)}
+@media (max-width:900px){
+  .viewer{grid-template-columns:1fr;height:auto}
+  .panel{max-height:420px;border-right:0;border-bottom:1px solid var(--line)}
+  .stage{height:460px}
+  .grid2{grid-template-columns:1fr}
+  .heroLabels{grid-template-columns:repeat(4,1fr)}
+  header h1{font-size:34px}
+}
+html.embed nav,html.embed header.title,html.embed #hero,html.embed h2,html.embed .wrap>p,html.embed .panel,html.embed .hud,html.embed .status,html.embed footer,html.embed pre,html.embed .wrap>table,html.embed .wrap>div:not(.viewer),html.embed .legend{display:none!important}html.embed .wrap{max-width:none;padding:0;margin:0}html.embed .viewer{grid-template-columns:1fr;height:100vh;border:0;border-radius:0;background:#fff}html.embed .stage{height:100vh}
+html.site nav,html.site header.title,html.site #hero,html.site h2,html.site .wrap>p,html.site footer,html.site pre,html.site .wrap>table,html.site .wrap>div:not(.viewer),html.site .hud,html.site .legend,html.site #panel .tabs,html.site #presetBox,html.site h4[data-sec=shape],html.site #shapeRows,html.site h4[data-sec=expr],html.site #exprRows,html.site h4[data-sec=pose],html.site #poseRows,html.site h4[data-sec=act],html.site #bars,html.site .panel div.chk.small:has(input[name=rank]),html.site .row:has(#overlay),html.site label.chk:has(#showFibers),html.site label.chk:has(#showMuscles),html.site label.chk:has(#wire),html.site label.chk:has(#rawBasis),html.site #btnReset2,html.site .status:empty{display:none!important}html.site body{background:#fff}html.site .wrap{max-width:none;padding:0;margin:0}html.site .viewer{height:100vh;border:0;border-radius:0}@media (max-width:900px){html.site .viewer{height:auto}html.site .panel{max-height:46vh}html.site .stage{height:54vh}}
+</style>
+</head>
+<body>
+<nav><div class="in">
+  <span class="brand">MyoFLAME</span>
+  <a href="#viewer">Viewer</a><a href="#anatomy">Anatomy</a><a href="#cite">Citation</a>
+</div></nav>
+
+<header class="title">
+  <h1>MyoFLAME</h1>
+  <div class="sub">Inverse-Physics Muscle Activation for Statistical 3D Face Models</div>
+  <div class="authors">Yixuan Shen, Yuyang Ji, Ren Wang, Kaidi Xu, Feng Liu</div>
+  <div class="venue">SIGGRAPH Asia 2026 Conference Papers</div>
+  <div class="links">
+    <a href="https://vilab-group.com/project/myoflame/">Project page</a>
+    <a href="#cite">BibTeX</a>
+    <a href="#" id="dlObj">Download current mesh (OBJ)</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <section id="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="heroLabels" id="heroLabels"></div>
+    <p class="small muted">Rendered live in your browser at the FLAME mean identity: for six FACS-coded D3DFACS expressions the surrogate g<sub>&phi;</sub> predicts the 50 activation coordinates from the FLAME expression and jaw pose, and the skin is the muscle response of those coordinates (the three largest activations are listed; jaw opening comes from the calibrated physical jaw map). The last head is a single hand-set muscle, which the basis handles one side at a time.</p>
+  </section>
+
+  <h2 id="abstract">Abstract</h2>
+  <p>Parametric 3D face models such as FLAME have become a common interface for monocular face regression, performance capture, facial animation, and avatar systems. While compact and widely adopted, these models describe how the facial surface deforms but not which anatomical structures explain that deformation: a captured smile carries no information about whether it is best explained by Zygomaticus Major or Risorius, or whether its activation pattern is bilaterally symmetric in muscle space. We introduce <b>MyoFLAME</b>, a drop-in biomechanical companion to FLAME that adds an anatomical interpretation layer to any FLAME-fitted face while preserving the FLAME interface end-to-end. Given any FLAME (&beta;, &psi;, pose) input, MyoFLAME produces a coordinated three-layer anatomical output: 42 named muscle activation coordinates, the supporting skull mesh, and the matching skin surface, aligned with FLAME's own output. These coordinates are defined by a constrained inverse-physics projection of FLAME-derived surface displacement onto a fixed muscle response basis rather than by in vivo measurements of physiological muscle effort. Our approach combines a hybrid physical response basis (linear-elastic finite-element responses for bone-to-skin muscles with analytic ring-contraction responses for sphincters, precomputed once on a canonical template) with closed-form linear maps from FLAME identity coefficients to per-subject skull and muscle-attachment geometry. Per-sample inverse-physics optimization is amortized into a compact residual surrogate, delivering activation-coordinate inference at interactive rates.</p>
+
+
+  <p class="small muted">This page runs MyoFLAME 1.0 in your browser: 50 named muscle columns (line muscles, the orbicularis oris in four quadrants, the orbicularis oculi in its orbital and palpebral parts) and six jaw muscles that open and close the jaw through the jaw muscle law. Everything below is computed live from the files in viewer/data; nothing is pre-rendered.</p>
+  <h2 id="viewer">Interactive model viewer</h2>
+  <p>Like the FLAME viewer, the left panel drives the model and the right canvas shows the FLAME-topology head (5,023 vertices). Two ways to drive it: <b>FLAME expression</b> mode takes identity &beta;, expression &psi; and jaw pose exactly as FLAME would, runs the surrogate g<sub>&phi;</sub> (the same weights as the released checkpoint, ported to JavaScript) to obtain the 50 activation coordinates, and renders the muscle response in place of the expression blendshapes; <b>Muscles</b> mode lets you set the 50 activations yourself. The jaw sliders move along the calibrated physical jaw manifold (opening and lateral excursion), so the muscle response grid is interpolated the way the runtime does it. <span id="txtJawLaw" style="display:none">In <b>Muscles</b> mode the jaw is driven by the jaw muscles themselves: the digastric pair opens it (1.0 reaches the calibrated 20&deg;), masseter and temporalis close it with their torque capacity relative to the depressors (a fifth of the masseter holds the jaw shut against a fully active depressor group); lateral excursion stays a slider. In FLAME and QP modes the jaw pose is the input and the digastric sliders show the law's inverse, which is also how the jaw coordinates of the surrogate's training data were set.</span> The overlay options show FLAME's own blendshape expression for the same input and the per-vertex distance between the two.</p>
+  <div class="viewer">
+    <div class="panel" id="panel">
+      <div class="tabs"><button id="tabPsi" class="on">FLAME expression &rarr; g<sub>&phi;</sub></button><button id="tabQp">FLAME expression &rarr; exact QP</button><button id="tabMan">Muscles directly</button></div>
+      <div id="presetBox">
+        <div class="row"><label>D3DFACS expression</label><select id="preset" style="grid-column:2/4"></select></div>
+        <div class="btns"><button id="btnRandom">Random expression</button><button id="btnReset">Reset values</button><button id="btnView">Reset view</button></div>
+      </div>
+      <div id="manBox" style="display:none" class="btns"><button id="btnZero">All muscles off</button><button id="btnReset2">Reset values</button><button id="btnView2">Reset view</button></div>
+      <h4 data-sec="shape">Identity shape (&plusmn;2&sigma;, LYHM) <span class="tog">hide</span></h4><div id="shapeRows"></div>
+      <h4 data-sec="expr">FLAME expression (&plusmn;2&sigma;, D3DFACS) <span class="tog">hide</span></h4><div id="exprRows"></div>
+      <h4 data-sec="pose">Jaw and neck <span class="tog">hide</span></h4><div id="poseRows"></div>
+      <h4 data-sec="musc">Muscle activations (<span id="nMuscTitle">50</span>) <span class="tog">hide</span></h4><div id="muscleRows"><label class="chk" style="margin:2px 0 6px"><input type="checkbox" id="mirror" checked> link left and right (off: each side moves alone)</label></div>
+      <h4 data-sec="disp">Display <span class="tog">hide</span></h4>
+      <div id="dispRows">
+        <div class="small muted" style="margin:2px 0 4px">Lower the skin opacity to see the layers below.</div><div class="row"><label>Skin opacity</label><input type="range" id="opSkin" min="0" max="1" step="0.02" value="1"><span class="v">1.00</span></div>
+        <div class="row"><label>Overlay</label><select id="overlay" style="grid-column:2/4"><option value="none">none</option><option value="ghost">FLAME blendshape expression (wire)</option><option value="err">distance to FLAME expression (mm)</option><option value="disp">muscle displacement (mm)</option></select></div>
+        <label class="chk"><input type="checkbox" id="showSheets" checked> muscle sheets (brighten with activation)</label>
+        <label class="chk"><input type="checkbox" id="showFibers"> fibre field (FEM builds only)</label>
+        <label class="chk"><input type="checkbox" id="showMuscles"> territory surfaces (tet-level, coarse)</label>
+        <label class="chk"><input type="checkbox" id="showCaps" checked> muscle bellies</label>
+        <label class="chk"><input type="checkbox" id="showRings" checked> sphincter rings</label>
+        <label class="chk"><input type="checkbox" id="showSkull" checked> skull</label>
+        <label class="chk"><input type="checkbox" id="wire"> wireframe skin</label>
+        <label class="chk" style="display:none"><input type="checkbox" id="rawBasis"> unsmoothed basis (closed jaw only)</label>
+        <label class="chk"><input type="checkbox" id="autorot"> auto-rotate</label>
+      </div>
+      <h4 data-sec="act">Predicted activations <span class="tog">hide</span></h4>
+      <div class="chk small"><label><input type="radio" name="rank" value="act" checked> rank by activation</label> <label><input type="radio" name="rank" value="contrib"> by skin contribution</label></div>
+      <div class="bars" id="bars"></div>
+      <div class="status" id="status">loading model data ...</div>
+    </div>
+    <div class="stage"><canvas id="mainCanvas"></canvas><div class="hud" id="hud"></div><div class="legend" id="legend"><div id="legendTitle">mm</div><div class="bar"></div><div class="ax"><span>0</span><span id="legendMax">8</span></div></div></div>
+  </div>
+  <p class="small muted">What is exact and what is approximate here. The skin is computed with the same arithmetic as the released runtime (FLAME blend shapes and linear blend skinning, bilinear interpolation of the 5x5 jaw response grid, LBS transport of the response vectors). <span id="txtDisplayRepair">The response columns shown by default are a <b>display repair</b> of the released basis, made once at export and documented in the data manifest: the released FEM solve leaves node-level spikes in a few columns (up to 70 mm per unit activation on single brow and nose vertices) and gives no response to the <span id="nExt"></span> vertices inside the mouth, which tears the lips and cheeks; the repair replaces spike vertices by their ring average, extends the field harmonically to the unsupported mouth vertices and applies two passes of Laplacian smoothing to the displacement field (mean change over the observed vertices <span id="dbRms"></span> mm per unit activation at the closed jaw; the per-muscle change is in the table below). The <i>raw release basis</i> switch shows the unrepaired columns at the closed jaw for comparison.</span><span id="txtChainReg" style="display:none">The response columns shown are the surface line-muscle basis exactly as the Python package uses it: no repair, no smoothing; every vertex except the eyeballs is observed, so nothing is extended or patched at the mouth.</span> On load the page re-runs reference cases computed by the Python package and prints the largest deviation in the status line. The response grid and blend shapes are stored in 16-bit floats (largest rounding error of a response column: <span id="qerr"></span> mm). The jaw manifold is a 65x65 table of the bicubic calibration map. The muscle layer under the skin is the model's own definition drawn literally: each column's footprint as a sheet 1.2 mm under the skin (it deforms with the skin and brightens with activation), each line muscle as a fusiform belly from its bony origin (skinned with the skull, so mandible origins follow the jaw) to its displaced skin insertion (it shortens as the insertion moves and bulges with activation), and each sphincter as a ring threaded through its own region vertices. The skull is the template skull and is not adapted to the identity sliders.</p>
+
+  <h2 id="anatomy">The 50 muscle columns</h2>
+  <div class="grid2">
+    <div>
+      <p id="txtMuscles">Thirty-four Type-A muscles are bone-to-skin line muscles: each pulls a footprint of the FLAME skin along the line from its skin insertion to its bony origin (mesh-geodesic Gaussian across the line, exponential decay towards the origin), with the full three-dimensional pull where the insertion sits on soft tissue and the tangential pull only where it sits on bone (brow, nose, upper eyelid). Eight Type-B columns are ring contractions of FLAME regions: the orbicularis oris in four quadrants (upper and lower lip, left and right; the quadrant weight is a smooth tanh across the midline so the left and right quadrants join smoothly) with a forward (protrusion) share, and the orbicularis oculi split into an orbital part (AU6 cheek raiser: the ring outside the lids) and a palpebral part (AU7 lid tightener: the lid band within 3 to 7 mm of the globe, pulling tangentially to the eyeball). The levator palpebrae superioris (AU5) raises the upper lid only; the platysma (AU20/AU21) pulls the lower face down and back along the neck. <span id="txtTypeCMasked">Six Type-C jaw muscles (digastric, masseter, temporalis, left and right) exist in the basis but their coordinates are fixed to zero at inference because jaw rotation is carried by FLAME's own jaw joint.</span><span id="txtTypeCLaw" style="display:none">Six Type-C jaw muscles (digastric, masseter, temporalis, left and right) drive the jaw joint through one invertible law: the opening is the calibrated maximum times the clipped net drive, mean digastric minus 5.23 times mean masseter minus 2.10 times mean temporalis (the closers' torque capacity relative to the depressor group, force times moment arm); its minimum-effort inverse labels every expression's digastric coordinates from the projected FLAME jaw pose with the closers at zero, so the jaw coordinates are a closed form of the jaw input and are not learned. Their motion is the mandible rotation of FLAME's linear blend skinning through the calibrated jaw map; their small direct skin columns stay out of the skin sum.</span> All columns pass through one screened-Poisson surface operator (16 mm smoothing length, lip-contact springs, unilateral lip contact) and carry a mirror-symmetric correction drawn from FLAME's expression space inside their footprint, limited so that no single column and no reconstruction of the 218 D3DFACS expressions tears or flips a face. Strengths are hand-defined per muscle (a = 1 moves the most displaced vertex by the listed millimetres). The table lists each column's neutral-jaw displacement scale (RMS over the 3,931 observed skin vertices for activation 1.0), its footprint width and strength, and the anatomical note of its landmark table.</p>
+      <p class="small muted">Click a muscle name to set it to 0.5 in the viewer (Muscles mode) and highlight its fibres.</p>
+    </div>
+    <div class="tblwrap" style="max-height:420px;overflow:auto"><table id="muscleTable"></table></div>
+  </div>
+
+  <h2 id="cite">Citation</h2>
+<pre id="bibtex">@inproceedings{Shen2026MyoFLAME,
+  title     = {MyoFLAME: Inverse-Physics Muscle Activation for Statistical 3D Face Models},
+  author    = {Shen, Yixuan and Ji, Yuyang and Wang, Ren and Xu, Kaidi and Liu, Feng},
+  booktitle = {SIGGRAPH Asia 2026 Conference Papers},
+  year      = {2026}
+}</pre>
+  <p class="small muted">Code and MyoFLAME model files are released under the MIT licence. FLAME (Li et al., SIGGRAPH Asia 2017) keeps its own licence and is not part of this repository: demos/build_viewer_data.py writes the viewer's FLAME data from your own FLAME 2020 file. The D3DFACS expressions are FLAME parameters averaged over the D3DFACS registrations of each FACS code.</p>
+
+  <footer>MyoFLAME interactive viewer. Layout modelled on the FLAME project page and its interactive model viewer.</footer>
+</div>
+
+<script src="vendor/three.min.js"></script>
+<script>
+let NM=42;   // column count, set from the manifest
+'use strict';
+// ------------------------------------------------------------------ utilities
+const DEG = Math.PI/180;
+function f16to32(u16){ // IEEE half -> float32
+  const out = new Float32Array(u16.length);
+  const b = new ArrayBuffer(4), f = new Float32Array(b), i = new Uint32Array(b);
+  for(let k=0;k<u16.length;k++){
+    const h=u16[k]; const s=(h&0x8000)<<16; let e=(h>>10)&0x1f; let m=h&0x3ff;
+    if(e===0){ if(m===0){ i[0]=s; } else { let ee=-1; do{ ee++; m<<=1; }while((m&0x400)===0); m&=0x3ff; i[0]=s|((127-15-ee)<<23)|(m<<13); } }
+    else if(e===31){ i[0]=s|0x7f800000|(m<<13); }
+    else { i[0]=s|((e+127-15)<<23)|(m<<13); }
+    out[k]=f[0];
+  }
+  return out;
+}
+async function fetchBin(name){ const r=await fetch('data/'+name); if(!r.ok) throw new Error('fetch '+name+' '+r.status); return new Uint8Array(await r.arrayBuffer()); }
+function viewArray(u8, e){
+  const off=u8.byteOffset+e.offset, n=e.nbytes;
+  switch(e.dtype){
+    case 'float32': return new Float32Array(u8.buffer, off, n/4);
+    case 'float16': return f16to32(new Uint16Array(u8.buffer, off, n/2));
+    case 'uint16': return new Uint16Array(u8.buffer, off, n/2);
+    case 'uint32': return new Uint32Array(u8.buffer, off, n/4);
+    case 'int64': { const b=new BigInt64Array(u8.buffer, off, n/8); const o=new Int32Array(b.length); for(let k=0;k<b.length;k++) o[k]=Number(b[k]); return o; }
+    default: throw new Error('dtype '+e.dtype);
+  }
+}
+async function loadBundle(M, key){ const f=M.files[key]; const u8=await fetchBin(f.file); const o={}; for(const k in f.arrays) o[k]=viewArray(u8,f.arrays[k]); return o; }
+function erf(x){ // Abramowitz-Stegun 7.1.26, |err| < 1.5e-7
+  const s=x<0?-1:1; x=Math.abs(x); const t=1/(1+0.3275911*x);
+  const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x);
+  return s*y;
+}
+function gelu(x){ return 0.5*x*(1+erf(x/Math.SQRT2)); }
+function rotvec(r, out){ // Rodrigues -> 3x3 row-major
+  const th=Math.hypot(r[0],r[1],r[2]);
+  if(th<1e-12){ out.set([1,0,0,0,1,0,0,0,1]); return out; }
+  const x=r[0]/th,y=r[1]/th,z=r[2]/th,c=Math.cos(th),s=Math.sin(th),C=1-c;
+  out[0]=c+x*x*C; out[1]=x*y*C-z*s; out[2]=x*z*C+y*s;
+  out[3]=y*x*C+z*s; out[4]=c+y*y*C; out[5]=y*z*C-x*s;
+  out[6]=z*x*C-y*s; out[7]=z*y*C+x*s; out[8]=c+z*z*C; return out;
+}
+function mat4mul(a,b,o){ for(let i=0;i<4;i++)for(let j=0;j<4;j++){let s=0;for(let k=0;k<4;k++)s+=a[i*4+k]*b[k*4+j];o[i*4+j]=s;} return o; }
+function inv3(m,o){ const [a,b,c,d,e,f,g,h,i]=m; const A=e*i-f*h,B=-(d*i-f*g),C=d*h-e*g; const det=a*A+b*B+c*C; const r=1/det;
+  o[0]=A*r;o[1]=-(b*i-c*h)*r;o[2]=(b*f-c*e)*r;o[3]=B*r;o[4]=(a*i-c*g)*r;o[5]=-(a*f-c*d)*r;o[6]=C*r;o[7]=-(a*h-b*g)*r;o[8]=(a*e-b*d)*r; return o; }
+function colormap(t){ // 0..1 -> rgb (blue-teal-yellow-red)
+  const stops=[[0.17,0.18,0.48],[0.23,0.53,0.78],[0.31,0.76,0.62],[0.88,0.85,0.29],[0.85,0.20,0.17]];
+  t=Math.max(0,Math.min(1,t))*(stops.length-1); const i=Math.min(stops.length-2,Math.floor(t)); const u=t-i;
+  return [stops[i][0]+(stops[i+1][0]-stops[i][0])*u, stops[i][1]+(stops[i+1][1]-stops[i][1])*u, stops[i][2]+(stops[i+1][2]-stops[i][2])*u];
+}
+function prettyName(n){ return n.replace(/_(L|R|upper|lower)$/,'').replace(/_/g,' '); }
+function sideOf(n){ const m=n.match(/_(L|R|upper|lower)$/); return m?m[1]:''; }
+
+// ------------------------------------------------------------- FLAME forward
+class FlameJS {
+  constructor(F, parent){
+    this.T=F.v_template; this.faces=F.faces; this.Sid=F.shapedirs_id10; this.Sexp=F.shapedirs_expr; this.P=F.posedirs; this.W=F.weights; this.Jr=F.J_regressor; this.parent=parent;
+    this.N=this.T.length/3; this.nJ=5;
+    this.vs=new Float32Array(this.N*3); this.vp=new Float32Array(this.N*3); this.out=new Float32Array(this.N*3);
+    this.J=new Float32Array(15); this.G=new Float32Array(16*5); this.Gp=new Float32Array(16*5); this.Rm=new Float32Array(9*5);
+  }
+  // v_shaped = T + Sid*beta10 + Sexp*psi100 ; J = Jr @ v_shaped
+  shaped(beta10, psi, vs){
+    const N=this.N, T=this.T, Sid=this.Sid, Sexp=this.Sexp; vs=vs||this.vs; vs.set(T);
+    const bAct=[]; for(let k=0;k<10;k++) if(beta10[k]!==0) bAct.push(k);
+    const pAct=[]; if(psi) for(let k=0;k<100;k++) if(psi[k]!==0) pAct.push(k);
+    for(let v=0;v<N*3;v++){ let s=0; const o=v*10; for(const k of bAct) s+=Sid[o+k]*beta10[k]; const o2=v*100; for(const k of pAct) s+=Sexp[o2+k]*psi[k]; vs[v]+=s; }
+    return vs;
+  }
+  joints(vs, J){ J=J||this.J; const Jr=this.Jr, N=this.N; for(let j=0;j<5;j++){ let x=0,y=0,z=0; const o=j*N; for(let v=0;v<N;v++){ const w=Jr[o+v]; if(w!==0){ x+=w*vs[v*3]; y+=w*vs[v*3+1]; z+=w*vs[v*3+2]; } } J[j*3]=x;J[j*3+1]=y;J[j*3+2]=z; } return J; }
+  // pose15 -> G (global), Gp (rest subtracted); returns pose feature (36)
+  transforms(pose15, J, G, Gp, Rm){
+    G=G||this.G; Gp=Gp||this.Gp; Rm=Rm||this.Rm; const feat=new Float32Array(36); const tmp=new Float32Array(9), loc=new Float32Array(16), t=new Float32Array(16);
+    for(let i=0;i<5;i++){ rotvec(pose15.subarray(i*3,i*3+3), tmp); Rm.set(tmp, i*9); if(i>0) for(let k=0;k<9;k++) feat[(i-1)*9+k]=tmp[k]-((k%4===0)?1:0); }
+    for(let i=0;i<5;i++){ const R=Rm.subarray(i*9,i*9+9); loc.set([R[0],R[1],R[2],0, R[3],R[4],R[5],0, R[6],R[7],R[8],0, 0,0,0,1]);
+      const p=this.parent[i]; if(p<0){ loc[3]=J[i*3];loc[7]=J[i*3+1];loc[11]=J[i*3+2]; G.set(loc,i*16); }
+      else { loc[3]=J[i*3]-J[p*3];loc[7]=J[i*3+1]-J[p*3+1];loc[11]=J[i*3+2]-J[p*3+2]; mat4mul(G.subarray(p*16,p*16+16), loc, t); G.set(t,i*16); }
+      t.set([1,0,0,-J[i*3], 0,1,0,-J[i*3+1], 0,0,1,-J[i*3+2], 0,0,0,1]); mat4mul(G.subarray(i*16,i*16+16), t, loc); Gp.set(loc,i*16); }
+    return feat;
+  }
+  posed(vs, feat, vp){ vp=vp||this.vp; const P=this.P, N=this.N; const act=[]; for(let k=0;k<36;k++) if(feat[k]!==0) act.push(k); if(act.length===0){ vp.set(vs); return vp; }
+    for(let v=0;v<N*3;v++){ let s=0; const o=v*36; for(const k of act) s+=P[o+k]*feat[k]; vp[v]=vs[v]+s; } return vp; }
+  lbs(vp, Gp, W, out, n){ const N=n||this.N; out=out||this.out; const nJ=5;
+    for(let v=0;v<N;v++){ let m00=0,m01=0,m02=0,m03=0,m10=0,m11=0,m12=0,m13=0,m20=0,m21=0,m22=0,m23=0;
+      for(let j=0;j<nJ;j++){ const w=W[v*nJ+j]; if(w===0) continue; const g=j*16; m00+=w*Gp[g];m01+=w*Gp[g+1];m02+=w*Gp[g+2];m03+=w*Gp[g+3];m10+=w*Gp[g+4];m11+=w*Gp[g+5];m12+=w*Gp[g+6];m13+=w*Gp[g+7];m20+=w*Gp[g+8];m21+=w*Gp[g+9];m22+=w*Gp[g+10];m23+=w*Gp[g+11]; }
+      const x=vp[v*3],y=vp[v*3+1],z=vp[v*3+2]; out[v*3]=m00*x+m01*y+m02*z+m03; out[v*3+1]=m10*x+m11*y+m12*z+m13; out[v*3+2]=m20*x+m21*y+m22*z+m23; }
+    return out; }
+  // full FLAME: identity + expression + pose
+  forward(beta10, psi, pose15, out){ const vs=this.shaped(beta10, psi); const J=this.joints(vs); const feat=this.transforms(pose15,J); const vp=this.posed(vs,feat); return this.lbs(vp,this.Gp,this.W,out); }
+}
+
+// --------------------------------------------------------------- MyoFLAME JS
+// Bounded-variable least squares on the quadratic form  min x'Gx - 2c'x,  0 <= x <= ub  (G symmetric
+// positive definite, small n).  Active-set method (Stark & Parker 1995): variables start at the lower
+// bound; the most violated gradient component is freed; free variables are solved exactly (Gaussian
+// elimination on G_FF); a free variable that leaves its box is clamped and bound again.
+function bvlsQuadratic(G, c, ub, n){
+  const x=new Float64Array(n), free=new Uint8Array(n); const grad=new Float64Array(n);
+  const solveFree=()=>{ const idx=[]; for(let i=0;i<n;i++) if(free[i]) idx.push(i); const m=idx.length; if(!m) return null;
+    const A=new Float64Array(m*m), b=new Float64Array(m);
+    for(let p=0;p<m;p++){ const i=idx[p]; let rhs=c[i]; for(let j=0;j<n;j++) if(!free[j] && x[j]!==0) rhs-=G[i*n+j]*x[j]; b[p]=rhs; for(let q=0;q<m;q++) A[p*m+q]=G[i*n+idx[q]]; }
+    for(let k=0;k<m;k++){ let piv=k; for(let r=k+1;r<m;r++) if(Math.abs(A[r*m+k])>Math.abs(A[piv*m+k])) piv=r; if(piv!==k){ for(let q=0;q<m;q++){ const t=A[k*m+q]; A[k*m+q]=A[piv*m+q]; A[piv*m+q]=t; } const t=b[k]; b[k]=b[piv]; b[piv]=t; }
+      const d=A[k*m+k]||1e-300; for(let r=k+1;r<m;r++){ const f=A[r*m+k]/d; if(f===0) continue; for(let q=k;q<m;q++) A[r*m+q]-=f*A[k*m+q]; b[r]-=f*b[k]; } }
+    const z=new Float64Array(m); for(let k=m-1;k>=0;k--){ let acc=b[k]; for(let q=k+1;q<m;q++) acc-=A[k*m+q]*z[q]; z[k]=acc/(A[k*m+k]||1e-300); }
+    return [idx,z]; };
+  for(let outer=0; outer<20*n; outer++){
+    for(let i=0;i<n;i++){ let g=-c[i]; for(let j=0;j<n;j++) g+=G[i*n+j]*x[j]; grad[i]=g; }   // gradient of x'Gx-2c'x is 2(Gx-c)
+    let best=-1, bestv=1e-12*Math.max(1,Math.abs(c[0])); for(let i=0;i<n;i++){ if(free[i]) continue; const v = x[i]<=0 ? -grad[i] : grad[i]; if(v>bestv){ bestv=v; best=i; } }
+    if(best<0) break; free[best]=1;
+    for(let inner=0; inner<2*n; inner++){ const sol=solveFree(); if(!sol) break; const [idx,z]=sol; let alpha=1, hit=-1;
+      for(let p=0;p<idx.length;p++){ const i=idx[p]; const zi=z[p]; if(zi<0 && x[i]>0){ const a=x[i]/(x[i]-zi); if(a<alpha){alpha=a; hit=i;} } else if(zi<0 && x[i]<=0){ alpha=0; hit=i; break; } else if(zi>ub[i] && x[i]<ub[i]){ const a=(ub[i]-x[i])/(zi-x[i]); if(a<alpha){alpha=a; hit=i;} } else if(zi>ub[i]){ alpha=0; hit=i; break; } }
+      for(let p=0;p<idx.length;p++){ const i=idx[p]; x[i]=x[i]+alpha*(z[p]-x[i]); }
+      if(hit<0) break; x[hit]=(z[idx.indexOf(hit)]<0)?0:ub[hit]; free[hit]=0; } }
+  for(let i=0;i<n;i++) x[i]=Math.min(ub[i],Math.max(0,x[i]));
+  return x;
+}
+class MyoJS {
+  constructor(M, flame, S, obs, jaw, rgridRows, raw){
+    this.rawR=raw.R_neutral; this.rawObs=raw.obs_idx;
+    this.M=M; this.flame=flame; this.S=S; this.obs=obs.obs_idx; this.nObs=this.obs.length; this.jawTab=jaw.theta_table; this.rows=rgridRows; // rows[i] = Float32Array (5, 3*nObs, NM)
+    const g=M.meta.rgrid; this.ob=g.open_bins_rad; this.lb=g.lat_bins_rad; this.nM=g.n_muscles;
+    const s=M.meta.surrogate; this.sg=s; this.wob=s.grid_open_bins_rad; this.wlb=s.grid_lat_bins_rad;
+    this.a=new Float32Array(NM); this.vMyo=new Float32Array(flame.N*3); this.vFlame=new Float32Array(flame.N*3);
+    this.jawOnlyG=new Float32Array(80); this.jawOnlyGp=new Float32Array(80); this.jawRm=new Float32Array(45); this.pose=new Float32Array(15);
+    const jl=M.meta.jaw_law; this.JL=null; if(jl){ const names=M.meta.muscles.map(m=>m.name); const ix=l=>l.map(n=>names.indexOf(n)); this.JL={q_open_max_rad:jl.q_open_max_rad, kappa_masseter:jl.kappa_masseter, kappa_temporalis:jl.kappa_temporalis, openers:ix(jl.openers), masseter:ix(jl.masseter), temporalis:ix(jl.temporalis), type_c_indices:jl.type_c_indices.slice()}; }
+  }
+  cells(ob, lb, qo, ql){ qo=Math.min(Math.max(qo,ob[0]),ob[ob.length-1]); ql=Math.min(Math.max(ql,lb[0]),lb[lb.length-1]);
+    let i=0; while(i<ob.length-2 && qo>=ob[i+1]) i++; let j=0; while(j<lb.length-2 && ql>=lb[j+1]) j++;
+    const u=(qo-ob[i])/Math.max(ob[i+1]-ob[i],1e-12), v=(ql-lb[j])/Math.max(lb[j+1]-lb[j],1e-12);
+    return [[i,j,(1-u)*(1-v)],[i,j+1,(1-u)*v],[i+1,j,u*(1-v)],[i+1,j+1,u*v]].filter(c=>c[2]!==0); }
+  jawTheta(qo, ql, out){ const n=this.M.meta.jaw.table_n, r=this.M.meta.jaw; const fo=(Math.min(Math.max(qo,r.open_range_rad[0]),r.open_range_rad[1])-r.open_range_rad[0])/(r.open_range_rad[1]-r.open_range_rad[0])*(n-1);
+    const fl=(Math.min(Math.max(ql,r.lat_range_rad[0]),r.lat_range_rad[1])-r.lat_range_rad[0])/(r.lat_range_rad[1]-r.lat_range_rad[0])*(n-1);
+    const i=Math.min(n-2,Math.floor(fo)), j=Math.min(n-2,Math.floor(fl)), u=fo-i, v=fl-j; const T=this.jawTab; out=out||new Float32Array(3);
+    for(let k=0;k<3;k++){ const a=T[(i*n+j)*3+k],b=T[(i*n+j+1)*3+k],c=T[((i+1)*n+j)*3+k],d=T[((i+1)*n+j+1)*3+k]; out[k]=(1-u)*(1-v)*a+(1-u)*v*b+u*(1-v)*c+u*v*d; } return out; }
+  // jaw muscle law: q_open = Qmax clip(mean(a_dig) - km mean(a_mas) - kt mean(a_tem), 0, 1);
+  // inverse (minimum effort): a_dig_L = a_dig_R = clip(q_open / Qmax, 0, 1), closers 0. Absent meta.jaw_law = masked build.
+  lawQ(a){ const L=this.JL; if(!L) return null; let o=0; for(const k of L.openers) o+=a[k]; o/=L.openers.length; let c=0; for(const k of L.masseter) c+=a[k]; c=L.kappa_masseter*c/L.masseter.length; let t=0; for(const k of L.temporalis) t+=a[k]; c+=L.kappa_temporalis*t/L.temporalis.length; return L.q_open_max_rad*Math.min(1,Math.max(0,o-c)); }
+  lawFill(a, qo){ const L=this.JL; if(!L) return a; const d=Math.min(1,Math.max(0,qo/L.q_open_max_rad)); for(const k of L.type_c_indices) a[k]=0; for(const k of L.openers) a[k]=d; return a; }
+  // surrogate: a = mask_c * clip(W_ph(q) psi + g(|psi|) alpha tanh(MLP(x)), 0, 1)
+  surrogate(beta10, psi, qo, ql, out){
+    const S=this.S, s=this.sg; out=out||this.a; let allZero=true; for(let k=0;k<100;k++) if(psi[k]!==0){allZero=false;break;}
+    if(allZero){ out.fill(0); this.lawFill(out,qo); return out; }
+    const x=new Float32Array(403); for(let k=0;k<10;k++) x[k]=beta10[k]/Math.max(S.beta_std[k],1e-3); for(let k=0;k<100;k++) x[300+k]=psi[k]/s.psi_norm; x[400]=qo/s.q_open_max; x[401]=ql/s.q_lat_max; x[402]=0;
+    const lin=(inp,Wm,b,nout,nin)=>{ const o=new Float32Array(nout); for(let i=0;i<nout;i++){ let acc=b[i]; const r=i*nin; for(let k=0;k<nin;k++) acc+=Wm[r+k]*inp[k]; o[i]=acc; } return o; };
+    const ln=(h,g,b)=>{ const n=h.length; let m=0; for(let k=0;k<n;k++) m+=h[k]; m/=n; let v=0; for(let k=0;k<n;k++){const d=h[k]-m; v+=d*d;} v/=n; const inv=1/Math.sqrt(v+s.layernorm_eps); for(let k=0;k<n;k++) h[k]=(h[k]-m)*inv*g[k]+b[k]; return h; };
+    let h=lin(x,S.mlp_0_weight,S.mlp_0_bias,256,403); ln(h,S.mlp_1_weight,S.mlp_1_bias); for(let k=0;k<256;k++) h[k]=gelu(h[k]);
+    h=lin(h,S.mlp_3_weight,S.mlp_3_bias,256,256); ln(h,S.mlp_4_weight,S.mlp_4_bias); for(let k=0;k<256;k++) h[k]=gelu(h[k]);
+    h=lin(h,S.mlp_6_weight,S.mlp_6_bias,128,256); ln(h,S.mlp_7_weight,S.mlp_7_bias); for(let k=0;k<128;k++) h[k]=gelu(h[k]);
+    const logit=lin(h,S.mlp_9_weight,S.mlp_9_bias,NM,128);
+    let r2=0; for(let k=0;k<100;k++) r2+=psi[k]*psi[k]; const sig=s.neutral_gate_sigma; const gate=sig>0? -Math.expm1(-r2/(sig*sig)) : 1;
+    const cells=this.cells(this.wob,this.wlb,qo,ql); const nl=this.wlb.length;
+    for(let m=0;m<NM;m++){ let alin=0; for(const [i,j,w] of cells){ const base=((i*nl+j)*NM+m)*100; let acc=0; for(let k=0;k<100;k++) acc+=S.W_ph_grid[base+k]*psi[k]; alin+=w*acc; }
+      let v=alin+gate*S.alpha[m]*Math.tanh(logit[m]); v=Math.min(1,Math.max(0,v)); out[m]=v*S.mask_c[m]; }
+    this.lawFill(out,qo); return out;
+  }
+  // exact inverse physics (no surrogate): the inverse-physics program solved live.
+  //   min ||R_n x - d||^2 + lam ||x||^2,  0 <= x <= s  (x = s a, R_n = R / s, s = column norms),
+  //   d = FLAME(beta, psi, jaw) - FLAME(beta, 0, jaw) at the observed vertices, Type-C columns masked.
+  exactQP(beta10, psi, qo, ql, out){
+    out=out||this.a; let allZero=true; for(let k=0;k<100;k++) if(psi[k]!==0){allZero=false;break;}
+    if(allZero){ out.fill(0); this.lawFill(out,qo); return out; }
+    const F=this.flame, nObs=this.nObs, obs=this.obs; const theta=this.jawTheta(qo,ql); const pose=new Float32Array(15); pose[6]=theta[0];pose[7]=theta[1];pose[8]=theta[2];
+    const vE=this._qpE||(this._qpE=new Float32Array(F.N*3)), vR=this._qpR||(this._qpR=new Float32Array(F.N*3)); F.forward(beta10,psi,pose,vE); F.forward(beta10,null,pose,vR);
+    const d=new Float64Array(nObs*3); for(let k=0;k<nObs;k++){ const v=obs[k]; d[k*3]=vE[v*3]-vR[v*3]; d[k*3+1]=vE[v*3+1]-vR[v*3+1]; d[k*3+2]=vE[v*3+2]-vR[v*3+2]; }
+    // R_eff = bilinear cell blend, accumulated into Gram and correlation without materialising it when one cell
+    const cells=this.cells(this.ob,this.lb,qo,ql); const nl=this.lb.length; const rowLen=3*nObs*NM; const nr=3*nObs;
+    const mask=this.S.mask_c; const L=[]; for(let m=0;m<NM;m++) if(mask[m]!==0) L.push(m); const nL=L.length;
+    const Re=new Float64Array(nr*nL); for(const [i,j,w] of cells){ const R=this.rows[i]; if(!R) continue; const base=j*rowLen; for(let r=0;r<nr;r++){ const o=base+r*NM, q=r*nL; for(let t=0;t<nL;t++) Re[q+t]+=w*R[o+L[t]]; } }
+    const s=new Float64Array(nL); for(let t=0;t<nL;t++){ let acc=0; for(let r=0;r<nr;r++){ const x=Re[r*nL+t]; acc+=x*x; } s[t]=Math.sqrt(acc)>1e-10?Math.sqrt(acc):1; }
+    const G=new Float64Array(nL*nL), c=new Float64Array(nL);
+    for(let r=0;r<nr;r++){ const q=r*nL; for(let t=0;t<nL;t++){ const x=Re[q+t]/s[t]; c[t]+=x*d[r]; for(let u=t;u<nL;u++) G[t*nL+u]+=x*Re[q+u]/s[u]; } }
+    for(let t=0;t<nL;t++){ G[t*nL+t]+=1e-4; for(let u=t+1;u<nL;u++) G[u*nL+t]=G[t*nL+u]; }
+    const x=bvlsQuadratic(G,c,s,nL); out.fill(0); for(let t=0;t<nL;t++) out[L[t]]=Math.min(1,Math.max(0,x[t]/s[t]));
+    this.lawFill(out,qo); return out;
+  }
+  // skin from activations: v = FLAME(beta, psi=0, pose) ; v[obs] += transport * R(q) a
+  skin(beta10, a, qo, ql, neck, out, psiForFlame, outFlame, useRaw){
+    if(useRaw){ qo=0; ql=0; }
+    const F=this.flame; const theta=this.jawTheta(qo,ql); const pose=this.pose; pose.fill(0); pose[3]=neck[0];pose[4]=neck[1];pose[5]=neck[2]; pose[6]=theta[0];pose[7]=theta[1];pose[8]=theta[2];
+    const vs=F.shaped(beta10,null); const J=F.joints(vs); const feat=F.transforms(pose,J); const vp=F.posed(vs,feat); out=out||this.vMyo; F.lbs(vp,F.Gp,F.W,out);
+    // response
+    const obsIdx=useRaw?this.rawObs:this.obs; const nObs=obsIdx.length; const d=new Float32Array(nObs*3); const act=[]; for(let m=0;m<NM;m++) if(a[m]!==0 && this.S.mask_c[m]!==0) act.push(m);
+    if(act.length && useRaw){ const R=this.rawR; for(let r=0;r<3*nObs;r++){ let s=0; const o=r*NM; for(const m of act) s+=R[o+m]*a[m]; d[r]=s; } }
+    else if(act.length){ const cells=this.cells(this.ob,this.lb,qo,ql); const nl=this.lb.length; const rowLen=3*nObs*NM;
+      for(const [i,j,w] of cells){ const R=this.rows[i]; if(!R) continue; const base=j*rowLen; for(let r=0;r<3*nObs;r++){ let s=0; const o=base+r*NM; for(const m of act) s+=R[o+m]*a[m]; d[r]+=w*s; } } }
+    // transport A_full inv(A_jaw) when the pose has more than the jaw
+    const needT = neck[0]!==0||neck[1]!==0||neck[2]!==0;
+    if(needT){ const pj=new Float32Array(15); pj[6]=theta[0];pj[7]=theta[1];pj[8]=theta[2]; F.transforms(pj,J,this.jawOnlyG,this.jawOnlyGp,this.jawRm);
+      const Af=new Float32Array(9), Aj=new Float32Array(9), inv=new Float32Array(9), Tm=new Float32Array(9);
+      for(let k=0;k<nObs;k++){ const v=obsIdx[k]; Af.fill(0); Aj.fill(0); for(let j=0;j<5;j++){ const w=F.W[v*5+j]; if(w===0) continue; const g=j*16; for(let r=0;r<3;r++) for(let c=0;c<3;c++){ Af[r*3+c]+=w*F.G[g+r*4+c]; Aj[r*3+c]+=w*this.jawOnlyG[g+r*4+c]; } }
+        inv3(Aj,inv); for(let r=0;r<3;r++) for(let c=0;c<3;c++){ let s=0; for(let q=0;q<3;q++) s+=Af[r*3+q]*inv[q*3+c]; Tm[r*3+c]=s; }
+        const x=d[k*3],y=d[k*3+1],z=d[k*3+2]; d[k*3]=Tm[0]*x+Tm[1]*y+Tm[2]*z; d[k*3+1]=Tm[3]*x+Tm[4]*y+Tm[5]*z; d[k*3+2]=Tm[6]*x+Tm[7]*y+Tm[8]*z; } }
+    for(let k=0;k<nObs;k++){ const v=obsIdx[k]; out[v*3]+=d[k*3]; out[v*3+1]+=d[k*3+1]; out[v*3+2]+=d[k*3+2]; }
+    if(outFlame){ F.forward(beta10, psiForFlame, pose, outFlame); }
+    return out;
+  }
+}
+
+// ------------------------------------------------------------------ renderer
+function makeRenderer(canvas){ const r=new THREE.WebGLRenderer({canvas, antialias:true, alpha:true, preserveDrawingBuffer:true}); r.setPixelRatio(Math.min(2,window.devicePixelRatio||1)); r.outputEncoding=THREE.sRGBEncoding; return r; }
+function lights(scene){ scene.add(new THREE.HemisphereLight(0xffffff,0x8899aa,0.75)); const d=new THREE.DirectionalLight(0xffffff,0.75); d.position.set(0.5,0.8,1.2); scene.add(d); const d2=new THREE.DirectionalLight(0xffffff,0.25); d2.position.set(-0.8,0.2,-0.6); scene.add(d2); }
+class Orbit { // minimal orbit control: left-drag rotate, wheel zoom, right/shift-drag pan
+  constructor(cam, dom, target){ this.cam=cam; this.dom=dom; this.target=target||new THREE.Vector3(0,0,0); this.sph=new THREE.Spherical().setFromVector3(cam.position.clone().sub(this.target)); this.auto=false; this.changed=true; let drag=null;
+    dom.addEventListener('pointerdown',e=>{ drag={x:e.clientX,y:e.clientY,b:e.button,shift:e.shiftKey}; dom.setPointerCapture(e.pointerId); });
+    dom.addEventListener('pointermove',e=>{ if(!drag) return; const dx=e.clientX-drag.x, dy=e.clientY-drag.y; drag.x=e.clientX; drag.y=e.clientY;
+      if(drag.b===2||drag.shift){ const pan=new THREE.Vector3(); const right=new THREE.Vector3().setFromMatrixColumn(cam.matrix,0); const up=new THREE.Vector3().setFromMatrixColumn(cam.matrix,1); pan.addScaledVector(right,-dx*0.0004*this.sph.radius).addScaledVector(up,dy*0.0004*this.sph.radius); this.target.add(pan); }
+      else { this.sph.theta-=dx*0.008; this.sph.phi=Math.min(Math.PI-0.05,Math.max(0.05,this.sph.phi-dy*0.008)); } this.update(); });
+    dom.addEventListener('pointerup',()=>{drag=null;}); dom.addEventListener('contextmenu',e=>e.preventDefault());
+    dom.addEventListener('wheel',e=>{ e.preventDefault(); this.sph.radius*=Math.exp(e.deltaY*0.0012); this.sph.radius=Math.min(3,Math.max(0.06,this.sph.radius)); this.update(); },{passive:false});
+    this.update(); }
+  set(pos, target){ this.target.copy(target); this.sph.setFromVector3(pos.clone().sub(target)); this.update(); }
+  update(){ const p=new THREE.Vector3().setFromSpherical(this.sph).add(this.target); this.cam.position.copy(p); this.cam.lookAt(this.target); this.changed=true; }
+}
+function meshFromArrays(verts, faces, material){ const g=new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(verts,3)); g.setIndex(new THREE.BufferAttribute(faces,1)); g.computeVertexNormals(); return new THREE.Mesh(g, material); }
+function updateMesh(mesh, verts){ const p=mesh.geometry.attributes.position; p.array.set(verts); p.needsUpdate=true; mesh.geometry.computeVertexNormals(); mesh.geometry.computeBoundingSphere(); }
+function setVertexColors(mesh, colors){ let c=mesh.geometry.attributes.color; if(!c){ c=new THREE.BufferAttribute(new Float32Array(colors.length),3); mesh.geometry.setAttribute('color',c);} c.array.set(colors); c.needsUpdate=true; }
+const SKIN=0x8fa8c9, MUSCLE=0xb8352b, MUSCLE_ON=0xf2b134, SKULL=0xd9cfb6;
+
+// ------------------------------------------------------------------- main
+(async function(){
+  const M = await (await fetch('data/manifest.json')).json();
+  NM=M.meta.rgrid.n_muscles; { const _t=document.getElementById('nMuscTitle'); if(_t) _t.textContent=NM; }
+
+  document.getElementById('qerr').textContent = (M.meta.rgrid.float16_max_abs_error_m*1000).toFixed(3);
+  if(M.meta.jaw_law){ document.getElementById('txtJawLaw').style.display=''; document.getElementById('txtTypeCMasked').style.display='none'; document.getElementById('txtTypeCLaw').style.display=''; }
+  if(M.meta.display_basis && M.meta.display_basis.enabled===false){ document.getElementById('txtDisplayRepair').style.display='none'; document.getElementById('txtChainReg').style.display=''; document.querySelector('label[for=rawBasis], #rawBasis').parentElement.lastChild.textContent=(M.meta.anatomy && M.meta.anatomy.basis==='surface_line_muscle')? ' canonical surface basis (closed jaw only; identical to the default at the closed jaw)':' unsmoothed basis (closed jaw only)'; }
+  document.getElementById('nExt').textContent = M.meta.display_basis.n_unsupported_extended; document.getElementById('dbRms').textContent = (M.meta.display_basis.rms_change_mm_neutral.reduce((p,q)=>p+q,0)/NM).toFixed(2);
+  const status=document.getElementById('status'); const setStatus=(t,cls)=>{ status.textContent=t; status.className='status '+(cls||''); };
+  setStatus('loading the model ...');
+  if(!(await fetch('data/'+M.files.flame.file,{method:'HEAD'})).ok){ setStatus('The FLAME part of the viewer data is missing. FLAME cannot be redistributed, so run  python demos/build_viewer_data.py  once with your own FLAME 2020 file (see the README), then reload.','warn'); return; }
+  const [Fb, obs, jaw, ana] = await Promise.all(['flame','obs','jaw','anatomy'].map(k=>loadBundle(M,k)));
+  const S={mask_c:Float32Array.from(M.meta.tc_mask), beta_std:new Float32Array(300).fill(1)};
+  const pre={psi:new Float32Array(0), q_phys:new Float32Array(0), psi_std:new Float32Array(100).fill(1)};
+  const ver={}; const raw={R_neutral:new Float32Array(0), obs_idx:new Uint16Array(0)};
+  const flame = new FlameJS(Fb, M.meta.kintree_parent);
+  const rows=new Array(M.meta.rgrid.n_open).fill(null);
+  setStatus('loading response grid (closed jaw row) ...');
+  rows[0]=(await loadBundle(M,'rgrid_0')).R;
+  const myo = new MyoJS(M, flame, S, obs, jaw, rows, raw);
+  const muscles=M.meta.muscles; const presets=M.meta.presets;
+
+  // ---------------------------------------------------------------- state
+  const st={ mode:'psi', beta10:new Float32Array(10), psi:new Float32Array(100), qo:0, ql:0, neck:new Float32Array(3), a:new Float32Array(NM), preset:-1, hl:-1 };
+  const psiStd=pre.psi_std, betaStd=S.beta_std;
+
+  // ---------------------------------------------------------------- panel
+  const $=id=>document.getElementById(id);
+  function sliderRow(parent, label, min, max, step, val, onInput, fmt){ const d=document.createElement('div'); d.className='row'; const l=document.createElement('label'); l.textContent=label; const i=document.createElement('input'); i.type='range'; i.min=min; i.max=max; i.step=step; i.value=val; const v=document.createElement('span'); v.className='v'; fmt=fmt||(x=>(+x).toFixed(2)); v.textContent=fmt(val); i.addEventListener('input',()=>{ v.textContent=fmt(i.value); onInput(+i.value); }); d.append(l,i,v); parent.appendChild(d); return {input:i, val:v, fmt}; }
+  const shapeS=[], exprS=[];
+  for(let k=0;k<10;k++){ const s=2*betaStd[k]; shapeS.push(sliderRow($('shapeRows'),'Shape '+(k+1),-s,s,s/100,0,x=>{st.beta10[k]=x; dirty();}, x=>(+x/betaStd[k]).toFixed(2)+'σ')); }
+  for(let k=0;k<10;k++){ const s=2*psiStd[k]; exprS.push(sliderRow($('exprRows'),'Expression '+(k+1),-s,s,s/100,0,x=>{ st.psi[k]=x; st.preset=-1; $('preset').value='-1'; dirty();}, x=>(+x/psiStd[k]).toFixed(2)+'σ')); }
+  const ob=M.meta.rgrid.open_bins_rad, lb=M.meta.rgrid.lat_bins_rad;
+  const jawO=sliderRow($('poseRows'),'Jaw opening',ob[0]/DEG,ob[ob.length-1]/DEG,0.1,0,x=>{st.qo=x*DEG; st.preset=-1; $('preset').value='-1'; dirty();},x=>(+x).toFixed(1)+'°');
+  const jawL=sliderRow($('poseRows'),'Jaw lateral',lb[0]/DEG,lb[lb.length-1]/DEG,0.1,0,x=>{st.ql=x*DEG; st.preset=-1; $('preset').value='-1'; dirty();},x=>(+x).toFixed(1)+'°');
+  const neckS=['Neck pitch','Neck yaw','Neck roll'].map((n,k)=>sliderRow($('poseRows'),n,-30,30,0.5,0,x=>{st.neck[k]=x*DEG; dirty();},x=>(+x).toFixed(1)+'°'));
+  // muscle rows grouped
+  const groups=[['Forehead and brow',['Frontalis_Inner','Frontalis_Outer','Corrugator_Supercilii','Depressor_Supercilii','Procerus']],
+    ['Eyes (orbicularis oculi rings, levator palpebrae)',['Orbicularis_Oculi_Orbital','Orbicularis_Oculi_Palpebral','Levator_Palpebrae_Superioris','Orbicularis_Oculi']],['Nose',['Levator_Labii_Superioris_Alaeque_Nasi','Transverse_Nasalis']],
+    ['Cheek and upper lip',['Levator_Labii_Superioris','Zygomaticus_Major','Zygomaticus_Minor','Levator_Anguli_Oris','Risorius','Buccinator']],
+    ['Lower lip, chin and neck',['Depressor_Anguli_Oris','Depressor_Labii_Inferioris','Mentalis','Platysma']],['Mouth ring (orbicularis oris quadrants)',['Orbicularis_Oris_upper','Orbicularis_Oris_lower','Orbicularis_Oris']],
+    [M.meta.jaw_law? 'Jaw muscles (Type-C: digastric opens, masseter and temporalis close the jaw)' : 'Jaw muscles (Type-C, fixed to zero)',['Digastric','Masseter','Temporalis']]];
+  const idx=n=>muscles.findIndex(m=>m.name===n);
+  const mSliders=new Array(NM);
+  function muscleRow(parent, base){ const L=idx(base+'_L'), R=idx(base+'_R'), U=idx(base+'_upper'), D=idx(base+'_lower'); if(L<0 && U<0) return; const pair= L>=0? [L,R] : [U,D]; const d=document.createElement('div'); d.className='row2'; const l=document.createElement('label'); l.textContent=prettyName(base); l.title=muscles[pair[0]].note||''; l.style.cursor='pointer'; l.addEventListener('click',()=>highlight(pair[0])); d.appendChild(l);
+    for(const mi of pair){ const p=document.createElement('div'); p.className='pair'; const tag=document.createElement('span'); tag.className='v'; tag.textContent=sideOf(muscles[mi].name)[0].toUpperCase(); tag.style.width='12px'; const i=document.createElement('input'); i.type='range'; i.min=0; i.max=1; i.step=0.01; i.value=0; const masked=muscles[mi].type==='C' && !M.meta.jaw_law; if(masked){ i.disabled=true; i.className='masked'; i.title='Type-C: coordinate fixed to zero at inference; jaw rotation is carried by the FLAME jaw joint'; } else if(muscles[mi].type==='C'){ i.title='Type-C jaw muscle: drives the jaw joint through the jaw muscle law (digastric opens up to the calibrated maximum, masseter and temporalis close with their torque capacity); in FLAME and QP modes it shows the law\'s inverse of the jaw pose'; }
+      const v=document.createElement('span'); v.className='v'; v.textContent='0.00'; i.addEventListener('input',()=>{ setMode('man'); const x=+i.value; st.a[mi]=x; if($('mirror').checked){ const o=(mi===pair[0])?pair[1]:pair[0]; if(!(L>=0)) {} else { st.a[o]=x; mSliders[o].input.value=x; mSliders[o].val.textContent=x.toFixed(2);} } v.textContent=x.toFixed(2); dirty(); }); p.append(tag,i,v); d.appendChild(p); mSliders[mi]={input:i,val:v}; }
+    parent.appendChild(d); }
+  for(const [gname, members] of groups){ const h=document.createElement('div'); h.className='small muted'; h.style.margin='6px 0 2px'; h.textContent=gname; $('muscleRows').appendChild(h); for(const b of members) muscleRow($('muscleRows'), b); }
+  // presets select
+  const sel=$('preset'); const o0=document.createElement('option'); o0.value='-1'; o0.textContent='(custom expression)'; sel.appendChild(o0);
+  const order=presets.map((p,i)=>i).sort((a,b)=>presets[a].label.localeCompare(presets[b].label,undefined,{numeric:true}));
+  for(const i of order){ const o=document.createElement('option'); o.value=i; const p=presets[i]; o.textContent=(p.label[0]>='0'&&p.label[0]<='9'? 'AU '+p.label+'  '+p.name : p.label)+' ('+p.n_subjects+' subj.)'; sel.appendChild(o); }
+  function applyPreset(i){ st.preset=i; st.psi.set(pre.psi.subarray(i*100,i*100+100)); st.qo=pre.q_phys[i*2]; st.ql=pre.q_phys[i*2+1]; syncPanel(); setMode(st.mode==='qp'?'qp':'psi'); dirty(); }
+  sel.addEventListener('change',()=>{ const i=+sel.value; if(i>=0) applyPreset(i); });
+  $('btnRandom').addEventListener('click',()=>{ const i=order[Math.floor(Math.random()*order.length)]; sel.value=i; applyPreset(i); });
+  function resetAll(){ st.beta10.fill(0); st.psi.fill(0); st.qo=0; st.ql=0; st.neck.fill(0); st.a.fill(0); st.preset=-1; sel.value='-1'; syncPanel(); dirty(); }
+  $('btnReset').addEventListener('click',resetAll); $('btnReset2').addEventListener('click',resetAll);
+  $('btnZero').addEventListener('click',()=>{ st.a.fill(0); syncPanel(); dirty(); });
+  function syncPanel(){ shapeS.forEach((s,k)=>{s.input.value=st.beta10[k]; s.val.textContent=s.fmt(st.beta10[k]);}); exprS.forEach((s,k)=>{s.input.value=st.psi[k]; s.val.textContent=s.fmt(st.psi[k]);}); jawO.input.value=st.qo/DEG; jawO.val.textContent=jawO.fmt(st.qo/DEG); jawL.input.value=st.ql/DEG; jawL.val.textContent=jawL.fmt(st.ql/DEG); neckS.forEach((s,k)=>{s.input.value=st.neck[k]/DEG; s.val.textContent=s.fmt(st.neck[k]/DEG);}); syncMuscleSliders(); }
+  function syncMuscleSliders(){ for(let m=0;m<NM;m++){ if(!mSliders[m]) continue; mSliders[m].input.value=st.a[m]; mSliders[m].val.textContent=st.a[m].toFixed(2); } }
+  function setMode(mode){ if(st.mode===mode) return; st.mode=mode; const expr=(mode==='psi'||mode==='qp'); $('tabPsi').className=mode==='psi'?'on':''; $('tabQp').className=mode==='qp'?'on':''; $('tabMan').className=mode==='man'?'on':''; $('presetBox').style.display=expr?'':'none'; $('manBox').style.display=mode==='man'?'':'none'; $('exprRows').style.opacity=expr?1:0.45; }
+  $('tabPsi').addEventListener('click',()=>{ setMode('psi'); dirty(); }); $('tabQp').addEventListener('click',()=>{ setMode('qp'); dirty(); }); $('tabMan').addEventListener('click',()=>{ setMode('man'); });
+  for(const h of document.querySelectorAll('.panel h4[data-sec]')){ h.addEventListener('click',()=>{ const box=h.nextElementSibling; const hid=box.style.display==='none'; box.style.display=hid?'':'none'; h.querySelector('.tog').textContent=hid?'hide':'show'; }); }
+  function highlight(mi){ st.hl=mi; if(st.mode!=='man'){ setMode('man'); } st.a[mi]=0.5; const pairName=muscles[mi].name.replace(/_L$/,'_R').replace(/_R$/,'_L'); if($('mirror').checked && pairName!==muscles[mi].name){ const o=idx(pairName); if(o>=0) st.a[o]=0.5; } syncMuscleSliders(); dirty();  }
+
+  // -------------------------------------------------------------- scene
+  const canvas=$('mainCanvas'); const renderer=makeRenderer(canvas); const scene=new THREE.Scene(); lights(scene);
+  const cam=new THREE.PerspectiveCamera(30,1,0.01,10); cam.position.set(0,0.02,0.62); const orbit=new Orbit(cam,canvas,new THREE.Vector3(0,0.0,0.0));
+  const skinMat=new THREE.MeshStandardMaterial({color:SKIN,roughness:0.62,metalness:0.0,transparent:true,opacity:1}); const skinMesh=meshFromArrays(new Float32Array(flame.N*3), Fb.faces, skinMat); scene.add(skinMesh);
+  const ghostMat=new THREE.MeshBasicMaterial({color:0x236fa1,wireframe:true,transparent:true,opacity:0.35}); const ghostMesh=meshFromArrays(new Float32Array(flame.N*3), Fb.faces, ghostMat); ghostMesh.visible=false; scene.add(ghostMesh);
+  // anatomy layers
+  const A=M.meta.anatomy; const subNodes=ana.sub_nodes; const nSub=subNodes.length; const subMap=new Int32Array(ana.tet_nodes.length/3).fill(-1); for(let k=0;k<nSub;k++) subMap[subNodes[k]]=k;
+  const subRest=new Float32Array(nSub*3); for(let k=0;k<nSub;k++){ const n=subNodes[k]; subRest[k*3]=ana.tet_nodes[n*3]; subRest[k*3+1]=ana.tet_nodes[n*3+1]; subRest[k*3+2]=ana.tet_nodes[n*3+2]; }
+  const subPos=new Float32Array(nSub*3), subDef=new Float32Array(nSub*3);
+  const muscleGroup=new THREE.Group(); muscleGroup.visible=false; scene.add(muscleGroup); const muscleMeshes=[];
+  const sharedGeom=new THREE.BufferGeometry(); sharedGeom.setAttribute('position', new THREE.BufferAttribute(subPos,3));
+  for(const g of A.fem_muscles){ const f=new Uint16Array(g.n_faces*3); for(let k=0;k<g.n_faces*3;k++) f[k]=subMap[ana.muscle_faces[g.face_offset*3+k]]; const geo=new THREE.BufferGeometry(); geo.setAttribute('position', sharedGeom.attributes.position); geo.setIndex(new THREE.BufferAttribute(f,1)); const mat=new THREE.MeshStandardMaterial({color:MUSCLE,roughness:0.55,side:THREE.DoubleSide,polygonOffset:true,polygonOffsetFactor:2,polygonOffsetUnits:2}); const mesh=new THREE.Mesh(geo,mat); mesh.userData.name=g.name; muscleGroup.add(mesh); muscleMeshes.push(mesh); }
+  // fibre field: one short segment per territory tet, endpoints recomputed from the deformed sub nodes
+  const nTet=A.n_territory_tets; const tetSub=new Int32Array(nTet*4); for(let k=0;k<nTet*4;k++) tetSub[k]=subMap[ana.muscle_tets[k]];
+  const tetMuscle=new Int32Array(nTet); A.fem_muscles.forEach((g,i)=>{ for(let t=g.tet_offset;t<g.tet_offset+g.n_tets;t++) tetMuscle[t]=i; });
+  const fibPos=new Float32Array(nTet*6), fibCol=new Float32Array(nTet*6); const fibGeom=new THREE.BufferGeometry(); fibGeom.setAttribute('position', new THREE.BufferAttribute(fibPos,3)); fibGeom.setAttribute('color', new THREE.BufferAttribute(fibCol,3));
+  const fibLines=new THREE.LineSegments(fibGeom,new THREE.LineBasicMaterial({vertexColors:true})); fibLines.visible=false; scene.add(fibLines);
+  const capGroup=new THREE.Group(); capGroup.visible=false; scene.add(capGroup); const capMeshes=[];
+  for(const g of A.fem_muscles){ const o=new THREE.Vector3(...g.origin_m), t=new THREE.Vector3(...g.target_m); const L=o.distanceTo(t); const r=g.capsule_radius_m; const geo=new THREE.CylinderGeometry(r*0.8,r,L,20,1,false); const mat=new THREE.MeshStandardMaterial({color:MUSCLE,roughness:0.5,transparent:true,opacity:0.85}); const m=new THREE.Mesh(geo,mat); m.position.copy(o.clone().add(t).multiplyScalar(0.5)); m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0), t.clone().sub(o).normalize()); const s1=new THREE.Mesh(new THREE.SphereGeometry(r,16,12),mat); s1.position.copy(o); const s2=new THREE.Mesh(new THREE.SphereGeometry(r*0.8,16,12),mat); s2.position.copy(t); const grp=new THREE.Group(); grp.add(m,s1,s2); grp.userData.name=g.name; capGroup.add(grp); capMeshes.push({grp,mat}); }
+  muscleGroup.visible=false;
+  const ringGroup=new THREE.Group(); ringGroup.visible=false; scene.add(ringGroup); const ringMeshes=[];
+  for(const sp of A.sphincters){ const geo=new THREE.TorusGeometry(sp.radius_m, sp.band_m*0.2, 10, 48); const mesh=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:MUSCLE,roughness:0.5,polygonOffset:true,polygonOffsetFactor:2,polygonOffsetUnits:2})); mesh.position.set(sp.centre_m[0]-0.006*sp.normal[0], sp.centre_m[1]-0.006*sp.normal[1], sp.centre_m[2]-0.006*sp.normal[2]); mesh.lookAt(new THREE.Vector3(...sp.centre_m).add(new THREE.Vector3(...sp.normal))); mesh.userData.name=sp.name; ringGroup.add(mesh); ringMeshes.push(mesh); }
+  const skullPos=new Float32Array(ana.skull_verts.length); const skullMesh=meshFromArrays(skullPos, ana.skull_faces, new THREE.MeshStandardMaterial({color:SKULL,roughness:0.8,polygonOffset:true,polygonOffsetFactor:2,polygonOffsetUnits:2})); skullMesh.visible=false; scene.add(skullMesh);
+  const skullRest=ana.skull_verts;
+  // MYO_LAYERS_V2: muscle sheets, dynamic bellies, dynamic rings (surface line-muscle builds)
+  const SHEET_DEPTH=0.0012, BELLY_DEPTH=0.0015;
+  const skinN=flame.N; const sheetPos=new Float32Array(skinN*3); const sheetGeomPos=new THREE.BufferAttribute(sheetPos,3);
+  const sheetGroup=new THREE.Group(); sheetGroup.visible=false; scene.add(sheetGroup); const sheetMeshes=[];
+  const FP=ana.footprint; const Ff=Fb.faces; const nF=Ff.length/3;
+  for(let m=0;m<NM;m++){ const name=muscles[m].name; if(muscles[m].type==='C') continue; const thr=muscles[m].type==='B'?0.5:0.35; const idxs=[]; const o=m*skinN;
+    for(let f=0;f<nF;f++){ const a=Ff[f*3],b=Ff[f*3+1],c=Ff[f*3+2]; if(FP[o+a]>thr&&FP[o+b]>thr&&FP[o+c]>thr){ idxs.push(a,b,c); } }
+    if(!idxs.length) continue; const geo=new THREE.BufferGeometry(); geo.setAttribute('position', sheetGeomPos); geo.setIndex(new THREE.BufferAttribute(new Uint16Array(idxs),1));
+    const mat=new THREE.MeshStandardMaterial({color:MUSCLE,roughness:0.55,side:THREE.DoubleSide,transparent:true,opacity:0.92,polygonOffset:true,polygonOffsetFactor:1+(m%7)*0.3,polygonOffsetUnits:1});
+    const mesh=new THREE.Mesh(geo,mat); mesh.userData.m=m; sheetGroup.add(mesh); sheetMeshes.push(mesh); }
+  // bellies: a tube that hugs the skin from the insertion back along the muscle axis (nearest skin vertices to the
+  // origin-insertion line, 2.5 to 4.5 mm under the skin) and dives to the bony origin (skinned with the skull)
+  const bellyMeshes=[]; const bellyGroup=new THREE.Group(); bellyGroup.visible=false; scene.add(bellyGroup);
+  { const sv=ana.skull_verts, nsv=sv.length/3; const T=flame.T; const eyeMask=new Uint8Array(skinN); for(let v=3931;v<skinN;v++) eyeMask[v]=1;
+    for(const g of A.fem_muscles){ const mi=idx(g.name); if(mi<0||(muscles[mi].type==='C'&&!M.meta.jaw_law)) continue; const o=g.origin_m, t=g.target_m; let best=-1,bd=1e9; for(let v=0;v<nsv;v++){ const dx=sv[v*3]-o[0],dy=sv[v*3+1]-o[1],dz=sv[v*3+2]-o[2]; const d=dx*dx+dy*dy+dz*dz; if(d<bd){bd=d;best=v;} }
+      const w=new Float32Array(5); for(let j=0;j<5;j++) w[j]=ana.skull_weights[best*5+j];
+      const L=Math.hypot(o[0]-t[0],o[1]-t[1],o[2]-t[2]); const nS=Math.max(3,Math.min(7,Math.round(L/0.008))); const path=[g.insertion_vertex];
+      for(let k=1;k<=nS;k++){ const s_=k/(nS+0.6); const q=[t[0]+s_*(o[0]-t[0]), t[1]+s_*(o[1]-t[1]), t[2]+s_*(o[2]-t[2])]; let bv=-1,bq=1e9; for(let v=0;v<skinN;v++){ if(eyeMask[v]||T[v*3+1]>0.105) continue; const dx=T[v*3]-q[0],dy=T[v*3+1]-q[1],dz=T[v*3+2]-q[2]; const d=dx*dx+dy*dy+dz*dz; if(d<bq){bq=d;bv=v;} } if(bv!==path[path.length-1]) path.push(bv); }
+      const r0=Math.min(g.sigma_mm/7000, 0.0032); const mat=new THREE.MeshStandardMaterial({color:MUSCLE,roughness:0.5}); const mesh=new THREE.Mesh(new THREE.BufferGeometry(),mat); const cap=new THREE.Mesh(new THREE.SphereGeometry(1,12,8),mat); const tendon=new THREE.Mesh(new THREE.CylinderGeometry(1,1,1,8,1,false),new THREE.MeshStandardMaterial({color:0xe8d9c8,roughness:0.6})); const grp=new THREE.Group(); grp.add(mesh,cap,tendon); bellyGroup.add(grp);
+      bellyMeshes.push({mesh,cap,tendon,mat,m:mi,origin:new Float32Array(o),w,r0,path}); } }
+  // rings: ordered region vertices of each sphincter column
+  const ringTubes=[]; const ringGroup2=new THREE.Group(); ringGroup2.visible=false; scene.add(ringGroup2);
+  for(const sp of A.sphincters){ const mi=idx(sp.name); if(mi<0) continue; const o=mi*skinN; const cen=sp.centre_m, nb=sp.normal; const verts=[]; for(let v=0;v<skinN;v++) if(FP[o+v]>0.5) verts.push(v);
+    // in-plane angle around the centre
+    const ax=new THREE.Vector3(0,1,0); const nv=new THREE.Vector3(...nb).normalize(); const e1=new THREE.Vector3().crossVectors(nv,ax).normalize(); if(e1.length()<1e-6) e1.set(1,0,0); const e2=new THREE.Vector3().crossVectors(nv,e1).normalize();
+    const T=flame.T; const ang=verts.map(v=>{ const d=new THREE.Vector3(T[v*3]-cen[0],T[v*3+1]-cen[1],T[v*3+2]-cen[2]); return [Math.atan2(d.dot(e2),d.dot(e1)),v]; }).sort((a,b)=>a[0]-b[0]);
+    // smooth: 24 angular bins, mean position per bin
+    const bins=36; const binv=Array.from({length:bins},()=>[]); for(const [a,v] of ang){ let b=Math.floor((a+Math.PI)/(2*Math.PI)*bins); if(b>=bins) b=bins-1; binv[b].push(v); }
+    const order=binv.filter(b=>b.length); if(order.length<6) continue;
+    const mat=new THREE.MeshStandardMaterial({color:MUSCLE,roughness:0.5}); const mesh=new THREE.Mesh(new THREE.BufferGeometry(),mat); ringGroup2.add(mesh); ringTubes.push({mesh,mat,m:mi,bins:order,r:sp.band_m*0.14}); }
+  function refreshLayers(V,Nrm){ // V: deformed skin, Nrm: its vertex normals
+    for(let v=0;v<skinN;v++){ sheetPos[v*3]=V[v*3]-SHEET_DEPTH*Nrm[v*3]; sheetPos[v*3+1]=V[v*3+1]-SHEET_DEPTH*Nrm[v*3+1]; sheetPos[v*3+2]=V[v*3+2]-SHEET_DEPTH*Nrm[v*3+2]; }
+    sheetGeomPos.needsUpdate=true; for(const sm of sheetMeshes){ const am=Math.min(1,st.a[sm.userData.m]||0); const on=am>0.02||st.hl===sm.userData.m; sm.visible=on; if(!on) continue; sm.material.opacity=0.35+0.6*Math.max(am,st.hl===sm.userData.m?0.5:0); sm.material.color.set(MUSCLE).lerp(new THREE.Color(MUSCLE_ON),am); sm.material.emissive.set(st.hl===sm.userData.m?0x442200:0x000000); sm.geometry.computeVertexNormals(); sm.geometry.computeBoundingSphere(); }
+    const tmp=new Float32Array(3);
+    for(const b of bellyMeshes){ flame.lbs(b.origin, flame.Gp, b.w, tmp, 1); const am=Math.min(1,st.a[b.m]||0); const pts=[]; const nP=b.path.length;
+      for(let k=0;k<nP;k++){ const v=b.path[k]; const depth=0.0025+0.002*k/Math.max(1,nP-1); pts.push(new THREE.Vector3(V[v*3]-depth*Nrm[v*3], V[v*3+1]-depth*Nrm[v*3+1], V[v*3+2]-depth*Nrm[v*3+2])); }
+      const org=new THREE.Vector3(tmp[0],tmp[1],tmp[2]); const last=pts[pts.length-1];
+      const curve=new THREE.CatmullRomCurve3(pts,false,'centripetal'); const r=b.r0*(1+0.45*am); const segs=Math.max(12,nP*6); const geo=new THREE.TubeGeometry(curve,segs,r,10,false);
+      // fusiform belly: scale the radial offset of every ring by a profile thin at both ends
+      { const pos=geo.attributes.position.array; const rad=11; for(let i=0;i<=segs;i++){ const sfrac=i/segs; const prof=0.35+0.65*Math.sin(Math.PI*Math.min(1,Math.max(0,sfrac)))**0.7; const c=curve.getPointAt(sfrac); for(let j=0;j<rad;j++){ const o=(i*rad+j)*3; pos[o]=c.x+(pos[o]-c.x)*prof; pos[o+1]=c.y+(pos[o+1]-c.y)*prof; pos[o+2]=c.z+(pos[o+2]-c.z)*prof; } } geo.attributes.position.needsUpdate=true; geo.computeVertexNormals(); }
+      b.mesh.geometry.dispose(); b.mesh.geometry=geo; b.cap.scale.setScalar(r*0.35); b.cap.position.copy(pts[0]);
+      // tendon: thin cylinder from the last skin point to the bony origin
+      const tl=last.distanceTo(org); b.tendon.visible=tl>0.002; b.tendon.scale.set(0.0007,Math.max(tl,1e-4),0.0007); b.tendon.position.copy(last.clone().add(org).multiplyScalar(0.5)); b.tendon.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0), org.clone().sub(last).normalize());
+      b.mat.color.set(MUSCLE).lerp(new THREE.Color(MUSCLE_ON),am); b.mat.emissive.set(st.hl===b.m?0x442200:0x000000); }
+    for(const r of ringTubes){ const raw=r.bins.map(bin=>{ let x=0,y=0,z=0; for(const v of bin){ x+=V[v*3]-BELLY_DEPTH*Nrm[v*3]; y+=V[v*3+1]-BELLY_DEPTH*Nrm[v*3+1]; z+=V[v*3+2]-BELLY_DEPTH*Nrm[v*3+2]; } return new THREE.Vector3(x/bin.length,y/bin.length,z/bin.length); }); const nb=raw.length; const pts=raw.map((q,i)=>{ const acc=new THREE.Vector3(); for(let k=-2;k<=2;k++) acc.add(raw[(i+k+nb)%nb]); return acc.multiplyScalar(0.2); });
+      const am=Math.min(1,st.a[r.m]||0); const curve=new THREE.CatmullRomCurve3(pts,true,'centripetal'); const geo=new THREE.TubeGeometry(curve,72,r.r*(1+0.4*am),8,true); r.mesh.geometry.dispose(); r.mesh.geometry=geo; r.mat.color.set(MUSCLE).lerp(new THREE.Color(MUSCLE_ON),am); r.mat.emissive.set(st.hl===r.m?0x442200:0x000000); }
+  }
+  // display controls
+  function updateLayers(){ const under=skinMat.opacity<0.97; const surf=A.basis==='surface_line_muscle'; muscleGroup.visible=under&&$('showMuscles').checked; fibLines.visible=under&&$('showFibers').checked; capGroup.visible=under&&$('showCaps').checked&&!surf; bellyGroup.visible=under&&$('showCaps').checked&&surf; ringGroup.visible=under&&$('showRings').checked&&!surf; ringGroup2.visible=under&&$('showRings').checked&&surf; sheetGroup.visible=under&&$('showSheets').checked&&surf; skullMesh.visible=under&&$('showSkull').checked; orbit.changed=true; }
+  $('opSkin').addEventListener('input',e=>{ skinMat.opacity=+e.target.value; e.target.nextElementSibling.textContent=(+e.target.value).toFixed(2); skinMat.depthWrite=skinMat.opacity>0.5; updateLayers(); });
+  for(const id of ['showMuscles','showFibers','showCaps','showRings','showSkull','showSheets']) $(id).addEventListener('change',updateLayers);
+  $('rawBasis').addEventListener('change',()=>dirty());
+  $('wire').addEventListener('change',e=>{ skinMat.wireframe=e.target.checked; orbit.changed=true; });
+  $('autorot').addEventListener('change',e=>{ orbit.auto=e.target.checked; });
+  $('overlay').addEventListener('change',()=>dirty());
+  for(const r of document.querySelectorAll('input[name=rank]')) r.addEventListener('change',()=>drawBars());
+  const resetView=()=>orbit.set(new THREE.Vector3(0,0.02,0.62), new THREE.Vector3(0,0,0)); $('btnView').addEventListener('click',resetView); $('btnView2').addEventListener('click',resetView);
+
+  // ------------------------------------------------------------ compute
+  const vFlame=new Float32Array(flame.N*3), colors=new Float32Array(flame.N*3); let needRows=new Set();
+  let pending=false; function dirty(){ if(!pending){ pending=true; requestAnimationFrame(()=>{ pending=false; compute(); }); } }
+  async function ensureRows(qo){ const cells=myo.cells(ob,lb,qo,st.ql); for(const [i] of cells){ if(!rows[i] && !needRows.has(i)){ needRows.add(i); setStatus('loading jaw response row '+i+' ...'); loadBundle(M,'rgrid_'+i).then(b=>{ rows[i]=b.R; needRows.delete(i); setStatus(statusText,'ok'); dirty(); }); } } }
+  let statusText='';
+  function compute(){
+    if(myo.JL && st.mode==='man'){ st.qo=myo.lawQ(st.a); jawO.input.value=st.qo/DEG; jawO.val.textContent=jawO.fmt(st.qo/DEG); }
+    if(myo.JL) jawO.input.disabled=(st.mode==='man'); jawO.input.title=(myo.JL&&st.mode==='man')?'Muscles mode: the opening is the jaw muscle law of the activations':'';
+    ensureRows(st.qo);
+    if(st.mode==='psi'){ myo.surrogate(st.beta10, st.psi, st.qo, st.ql, st.a); syncMuscleSliders(); }
+    else if(st.mode==='qp'){ myo.exactQP(st.beta10, st.psi, st.qo, st.ql, st.a); syncMuscleSliders(); }
+    const ov=$('overlay').value; const wantFlame = ov!=='none';
+    const useRaw=$('rawBasis').checked; if(useRaw && (st.qo!==0||st.ql!==0)){ st.qo=0; st.ql=0; jawO.input.value=0; jawO.val.textContent=jawO.fmt(0); jawL.input.value=0; jawL.val.textContent=jawL.fmt(0); } jawO.input.disabled=useRaw; jawL.input.disabled=useRaw;
+    myo.skin(st.beta10, st.a, st.qo, st.ql, st.neck, skinMesh.geometry.attributes.position.array, wantFlame?st.psi:null, wantFlame?vFlame:null, useRaw);
+    updateMesh(skinMesh, skinMesh.geometry.attributes.position.array);
+    // overlays
+    ghostMesh.visible = ov==='ghost'; if(ov==='ghost') updateMesh(ghostMesh, vFlame);
+    const legend=$('legend');
+    if(ov==='err' || ov==='disp'){ const V=skinMesh.geometry.attributes.position.array; let ref=null; if(ov==='err') ref=vFlame; else { const z=new Float32Array(flame.N*3); const az=new Float32Array(NM); myo.skin(st.beta10, az, st.qo, st.ql, st.neck, z, null, null, useRaw); ref=z; }
+      const mx= ov==='err'?8:12; let maxd=0; for(let v=0;v<flame.N;v++){ const d=Math.hypot(V[v*3]-ref[v*3],V[v*3+1]-ref[v*3+1],V[v*3+2]-ref[v*3+2])*1000; if(d>maxd) maxd=d; const c=colormap(d/mx); colors[v*3]=c[0];colors[v*3+1]=c[1];colors[v*3+2]=c[2]; }
+      setVertexColors(skinMesh, colors); skinMat.vertexColors=true; skinMat.color.set(0xffffff); skinMat.needsUpdate=true; legend.style.display='block'; $('legendMax').textContent=mx; $('legendTitle').textContent=(ov==='err'?'distance to FLAME expression':'muscle displacement')+', mm (max '+maxd.toFixed(2)+')'; }
+    else { if(skinMat.vertexColors){ skinMat.vertexColors=false; skinMat.color.set(SKIN); skinMat.needsUpdate=true; } legend.style.display='none'; }
+    // anatomy: deform sub nodes by canonical full response (closed jaw), then skin with nearest-vertex weights
+    const full=ana.sub_full_response; subDef.set(subRest); for(let m=0;m<NM;m++){ const am=st.a[m]; if(am===0) continue; const o=m*nSub*3; for(let k=0;k<nSub*3;k++) subDef[k]+=am*full[o+k]; }
+    flame.lbs(subDef, flame.Gp, ana.sub_weights, subPos, nSub); sharedGeom.attributes.position.needsUpdate=true; for(const mm of muscleMeshes){ mm.geometry.computeVertexNormals(); mm.geometry.computeBoundingSphere(); }
+    for(let i=0;i<muscleMeshes.length;i++){ const mi=idx(A.fem_muscles[i].name); const am=st.a[mi]||0; muscleMeshes[i].material.color.set(MUSCLE).lerp(new THREE.Color(MUSCLE_ON), Math.min(1,am)); muscleMeshes[i].material.emissive.set(st.hl===mi?0x442200:0x000000); }
+    for(const r of ringMeshes){ const mi=idx(r.userData.name); const am=st.a[mi]||0; r.material.color.set(MUSCLE).lerp(new THREE.Color(MUSCLE_ON),Math.min(1,am)); r.scale.setScalar(1-0.25*am); }
+    // fibre segments from the deformed, skinned sub nodes; colour = muscle activation
+    { const D=ana.muscle_tet_dirs; const G=flame.G; for(let t=0;t<nTet;t++){ const a0=tetSub[t*4],a1=tetSub[t*4+1],a2=tetSub[t*4+2],a3=tetSub[t*4+3]; const cx=(subPos[a0*3]+subPos[a1*3]+subPos[a2*3]+subPos[a3*3])*0.25, cy=(subPos[a0*3+1]+subPos[a1*3+1]+subPos[a2*3+1]+subPos[a3*3+1])*0.25, cz=(subPos[a0*3+2]+subPos[a1*3+2]+subPos[a2*3+2]+subPos[a3*3+2])*0.25;
+        // rotate the fibre direction with the blended jaw/neck rotation of the first node (display only)
+        let dx=D[t*3],dy=D[t*3+1],dz=D[t*3+2]; const w=ana.sub_weights; let r00=0,r01=0,r02=0,r10=0,r11=0,r12=0,r20=0,r21=0,r22=0; for(let j=0;j<5;j++){ const wj=w[a0*5+j]; if(wj===0) continue; const g=j*16; r00+=wj*G[g];r01+=wj*G[g+1];r02+=wj*G[g+2];r10+=wj*G[g+4];r11+=wj*G[g+5];r12+=wj*G[g+6];r20+=wj*G[g+8];r21+=wj*G[g+9];r22+=wj*G[g+10]; }
+        const ex=r00*dx+r01*dy+r02*dz, ey=r10*dx+r11*dy+r12*dz, ez=r20*dx+r21*dy+r22*dz; const h=0.0014;
+        fibPos[t*6]=cx-h*ex;fibPos[t*6+1]=cy-h*ey;fibPos[t*6+2]=cz-h*ez;fibPos[t*6+3]=cx+h*ex;fibPos[t*6+4]=cy+h*ey;fibPos[t*6+5]=cz+h*ez;
+        const mi=idx(A.fem_muscles[tetMuscle[t]].name); const am=Math.min(1,st.a[mi]||0); const c=new THREE.Color(0x7a2a22).lerp(new THREE.Color(MUSCLE_ON),am); if(st.hl===mi) c.set(0xff9900); fibCol[t*6]=c.r;fibCol[t*6+1]=c.g;fibCol[t*6+2]=c.b;fibCol[t*6+3]=c.r;fibCol[t*6+4]=c.g;fibCol[t*6+5]=c.b; }
+      fibGeom.attributes.position.needsUpdate=true; fibGeom.attributes.color.needsUpdate=true; fibGeom.computeBoundingSphere(); }
+    capMeshes.forEach((c,i)=>{ const mi=idx(A.fem_muscles[i].name); const am=Math.min(1,st.a[mi]||0); c.mat.color.set(MUSCLE).lerp(new THREE.Color(MUSCLE_ON),am); });
+    flame.lbs(skullRest, flame.Gp, ana.skull_weights, skullPos, skullRest.length/3); updateMesh(skullMesh, skullPos);
+    if(A.basis==='surface_line_muscle') refreshLayers(skinMesh.geometry.attributes.position.array, skinMesh.geometry.attributes.normal.array);
+    // hud
+    const nAct=Array.from(st.a).filter(x=>x>=0.05).length; let maxDisp=0; { const V=skinMesh.geometry.attributes.position.array; }
+    $('hud').innerHTML = (st.mode==='psi'? ('<b>FLAME expression mode</b> &middot; g<sub>&phi;</sub> predicts the activations'+(st.preset>=0?' for D3DFACS '+presets[st.preset].label:'')) : st.mode==='qp'? ('<b>Exact inverse physics</b> &middot; the inverse-physics program solved live on the FLAME expression, no surrogate'+(st.preset>=0?' (D3DFACS '+presets[st.preset].label+')':'')) : '<b>Muscle mode</b> &middot; activations set by hand') + '<br>jaw opening '+(st.qo/DEG).toFixed(1)+'&deg;'+(myo.JL&&st.mode==='man'?' (from the jaw muscles)':(myo.JL?' (jaw pose input; digastric = its inverse)':''))+', lateral '+(st.ql/DEG).toFixed(1)+'&deg; &middot; '+nAct+' muscles above 0.05';
+    drawBars(); orbit.changed=true;
+  }
+  function drawBars(){ const byContrib=document.querySelector('input[name=rank]:checked').value==='contrib'; const rms=M.meta.column_rms_mm; const items=[]; for(let m=0;m<NM;m++){ const a=st.a[m]; if(a<=0) continue; items.push({m, a, c:a*rms[m]}); } items.sort((p,q)=> byContrib? q.c-p.c : q.a-p.a); const top=items.slice(0,14); const box=$('bars'); box.innerHTML=''; const mx= byContrib? Math.max(0.01,...top.map(t=>t.c)) : 1;
+    for(const t of top){ const d=document.createElement('div'); d.className='bar'; d.innerHTML='<b title="'+muscles[t.m].name+'">'+muscles[t.m].plot+'</b><span><i style="width:'+(100*(byContrib?t.c/mx:t.a)).toFixed(1)+'%"></i></span><span class="n">'+(byContrib? t.c.toFixed(2)+'mm' : t.a.toFixed(3))+'</span>'; box.appendChild(d); }
+    if(!top.length) box.innerHTML='<div class="muted small">no active muscle</div>'; }
+
+  // ------------------------------------------------------------- render loop
+  function resize(){ const w=canvas.clientWidth, h=canvas.clientHeight; if(canvas.width!==Math.floor(w*renderer.getPixelRatio())||canvas.height!==Math.floor(h*renderer.getPixelRatio())){ renderer.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix(); orbit.changed=true; } }
+  function loop(){ resize(); if(orbit.auto){ orbit.sph.theta+=0.004; orbit.update(); } if(orbit.changed){ renderer.render(scene,cam); orbit.changed=false; } requestAnimationFrame(loop); }
+  loop();
+
+  // ------------------------------------------------------------ self-test
+  async function selfTest(){
+    const res=[]; let maxA=0, maxV=0, maxQ=0, nQ=0;
+    const need=new Set(); for(const c of M.meta.checks){ for(const [i] of myo.cells(ob,lb,c.q_open,c.q_lat)) need.add(i); }
+    for(const i of need) if(!rows[i]) rows[i]=(await loadBundle(M,'rgrid_'+i)).R;
+    for(const c of M.meta.checks){ const b=new Float32Array(c.beta10), p=new Float32Array(c.psi), n=new Float32Array(c.neck); let a; const useRaw=c.basis==='raw';
+      if(c.a_manual && c.jaw_from_law){ a=new Float32Array(c.a_manual); } else if(c.a_manual){ a=new Float32Array(c.a_manual); for(let m=0;m<NM;m++) a[m]*=M.meta.tc_mask[m]; } else { a=myo.surrogate(b,p,c.q_open,c.q_lat,new Float32Array(NM)); for(let m=0;m<NM;m++) maxA=Math.max(maxA,Math.abs(a[m]-c.a[m])); }
+      const qoc = (c.a_manual && c.jaw_from_law)? myo.lawQ(a) : c.q_open; if(c.a_manual && c.jaw_from_law) maxQ=Math.max(maxQ,Math.abs(qoc-c.q_open));
+      const v=new Float32Array(flame.N*3), vf=new Float32Array(flame.N*3); myo.skin(b,a,qoc,c.q_lat,n,v,p,vf,useRaw); const refM=ver[c.name+'_myo'], refF=ver[c.name+'_flame']; let dm=0, df=0;
+      for(let k=0;k<flame.N;k++){ dm=Math.max(dm, Math.hypot(v[k*3]-refM[k*3],v[k*3+1]-refM[k*3+1],v[k*3+2]-refM[k*3+2])); df=Math.max(df, Math.hypot(vf[k*3]-refF[k*3],vf[k*3+1]-refF[k*3+1],vf[k*3+2]-refF[k*3+2])); }
+      maxV=Math.max(maxV,dm,df); let qtxt='';
+      if(c.a_qp){ const aq=myo.exactQP(b,p,c.q_open,c.q_lat,new Float32Array(NM)); let dq=0; for(let m=0;m<NM;m++) dq=Math.max(dq,Math.abs(aq[m]-c.a_qp[m])); maxQ=Math.max(maxQ,dq); nQ++; qtxt=', exact QP vs NumPy BVLS '+dq.toExponential(2); }
+      res.push(c.name+': skin '+(dm*1000).toFixed(4)+' mm, FLAME '+(df*1000).toFixed(4)+' mm'+qtxt); }
+    const ok = maxA<5e-4 && maxV<2e-4 && maxQ<2e-3;
+    statusText='Browser port checked on '+M.meta.checks.length+' reference cases against the Python model: max |Δactivation| '+maxA.toExponential(2)+', max vertex deviation '+(maxV*1000).toFixed(4)+' mm'+(nQ?', exact-QP activations vs NumPy BVLS on '+nQ+' cases '+maxQ.toExponential(2):'')+(ok?' (within float16 storage error)':' (ABOVE expected tolerance)')+'\n'+res.join('\n');
+    setStatus(statusText, ok?'ok':'warn'); console.log('[MyoFLAME self-test]', statusText);
+  }
+  // first frame: the FLAME mean face with no expression (like FLAME's own viewer); deep links:
+  // ?preset=<FACS code> ?muscles=Name:val,... ?jaw=open,lateral ?skin=<opacity> ?layers=... ?view=side|mouth ?cam=...
+  const qs=new URLSearchParams(location.search); const want=qs.get('preset');
+  const first=want===null? -1 : presets.findIndex(p=>p.label===want); if(first>=0){ sel.value=first; applyPreset(first); } else dirty();
+  if(qs.get('muscles')){ setMode('man'); st.a.fill(0); for(const kv of qs.get('muscles').split(',')){ const [nm,val]=kv.split(':'); const mi=idx(nm); if(mi>=0) st.a[mi]=+val; } syncMuscleSliders(); dirty(); }
+  if(qs.get('shape')){ for(const kv of qs.get('shape').split(',')){ const [k,v]=kv.split(':'); const i=(+k)-1; if(i>=0&&i<10) st.beta10[i]=(+v)*betaStd[i]; } syncPanel(); dirty(); }
+  if(qs.get('jaw')){ const j=qs.get('jaw').split(',').map(Number); st.qo=j[0]*DEG; st.ql=(j[1]||0)*DEG; jawO.input.value=j[0]; jawO.val.textContent=jawO.fmt(j[0]); jawL.input.value=j[1]||0; jawL.val.textContent=jawL.fmt(j[1]||0); dirty(); }
+  if(qs.get('overlay')){ $('overlay').value=qs.get('overlay'); dirty(); }
+  if(qs.get('layers')!==null&&qs.get('layers')!==undefined){ const want=new Set(qs.get('layers').split(',')); $('showSheets').checked=want.has('sheets'); $('showCaps').checked=want.has('bellies'); $('showRings').checked=want.has('rings'); $('showSkull').checked=want.has('skull'); }
+  if(qs.get('skin')){ $('opSkin').value=qs.get('skin'); $('opSkin').dispatchEvent(new Event('input')); }
+  if(qs.get('raw')){ $('rawBasis').checked=true; dirty(); }
+  if(qs.get('cam')){ const c=qs.get('cam').split(',').map(Number); orbit.set(new THREE.Vector3(c[0],c[1],c[2]), new THREE.Vector3(c[3],c[4],c[5])); }
+  if(qs.get('view')==='side') orbit.set(new THREE.Vector3(0.45,0.08,0.45), new THREE.Vector3(0,0,0)); else if(qs.get('view')==='mouth') orbit.set(new THREE.Vector3(0,-0.05,0.3), new THREE.Vector3(0,-0.05,0));
+  setMode('man'); dirty(); setStatus('','ok');
+  $('manBox').after(document.querySelector('h4[data-sec=disp]'), $('dispRows'));
+
+  // ------------------------------------------------------------ OBJ export
+  $('dlObj').addEventListener('click',e=>{ e.preventDefault(); const V=skinMesh.geometry.attributes.position.array, F=Fb.faces; let s='# MyoFLAME skin, FLAME topology\n'; for(let v=0;v<flame.N;v++) s+='v '+V[v*3].toFixed(6)+' '+V[v*3+1].toFixed(6)+' '+V[v*3+2].toFixed(6)+'\n'; for(let f=0;f<F.length/3;f++) s+='f '+(F[f*3]+1)+' '+(F[f*3+1]+1)+' '+(F[f*3+2]+1)+'\n'; const blob=new Blob([s],{type:'text/plain'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='myoflame_skin.obj'; a.click(); });
+})().catch(e=>{ console.error(e); const s=document.getElementById('status'); s.textContent='failed to load: '+e.message; s.className='status warn'; });
+</script>
+</body>
+</html>

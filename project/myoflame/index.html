@@ -3,75 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MyoFLAME: Inverse-Physics Muscle Activation for Statistical 3D Face Models">
+    <meta name="description" content="MyoFLAME: Inverse-Physics Muscle Activation for Statistical 3D Face Models. A drop-in biomechanical companion to FLAME.">
+    <meta name="keywords" content="FLAME, facial muscles, inverse physics, 3D face model, facial anatomy, SIGGRAPH Asia 2026">
+
     <title>MyoFLAME - Visual Intelligence Lab</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-            color: #333;
-            line-height: 1.7;
-            background: #ffffff;
-        }
-        .topbar {
-            background: #07294d;
-            padding: 18px 24px;
-        }
-        .topbar a {
-            color: #ffc600;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-        }
-        .wrap {
-            max-width: 820px;
-            margin: 0 auto;
-            padding: 64px 24px;
-            text-align: center;
-        }
-        h1 {
-            font-size: 30px;
-            color: #07294d;
-            line-height: 1.3;
-            margin-bottom: 18px;
-        }
-        .authors {
-            color: #555;
-            font-size: 16px;
-            margin-bottom: 8px;
-        }
-        .venue {
-            color: #888;
-            font-style: italic;
-            margin-bottom: 40px;
-        }
-        .soon {
-            display: inline-block;
-            color: #07294d;
-            background: #eef2f7;
-            border-radius: 999px;
-            padding: 8px 20px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        .accent {
-            width: 60px;
-            height: 3px;
-            background: #ffc600;
-            margin: 0 auto 40px;
-        }
-    </style>
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/index.css">
 </head>
 <body>
-    <div class="topbar">
-        <a href="https://vilab-group.com/">&larr; Visual Intelligence Lab @ Drexel</a>
-    </div>
-    <div class="wrap">
-        <h1>MyoFLAME: Inverse-Physics Muscle Activation for Statistical 3D Face Models</h1>
-        <p class="authors">Yixuan Shen, Yuyang Ji, Ren Wang, Kaidi Xu, Feng Liu</p>
-        <p class="venue">ACM SIGGRAPH Asia 2026</p>
-        <div class="accent"></div>
-        <span class="soon">Project page coming soon</span>
-    </div>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="../../index.html">
+                    <span>Visual Intelligence Lab @ Drexel</span>
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item" href="../../index.html">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero is-light">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="publication-venue" style="margin-bottom: 1rem;">
+                    <span class="tag">SIGGRAPH Asia 2026</span>
+                </div>
+
+                <h1 class="publication-title" style="margin-bottom: 1.5rem;">
+                    MyoFLAME: Inverse-Physics Muscle Activation<br>for Statistical 3D Face Models
+                </h1>
+
+                <div class="publication-authors">
+                    <span class="author-block">Yixuan Shen<sup>1</sup>,</span>
+                    <span class="author-block">Yuyang Ji<sup>1</sup>,</span>
+                    <span class="author-block">Ren Wang<sup>2</sup>,</span>
+                    <span class="author-block">Kaidi Xu<sup>3</sup>,</span>
+                    <span class="author-block">Feng Liu<sup>1*</sup></span>
+                </div>
+
+                <div class="author-notes">
+                    <span>* Corresponding author</span>
+                </div>
+
+                <div class="publication-affiliations">
+                    <span class="affiliation-block"><sup>1</sup>Drexel University</span>
+                    <span class="affiliation-block"><sup>2</sup>Illinois Institute of Technology</span>
+                    <span class="affiliation-block"><sup>3</sup>City University of Hong Kong</span>
+                </div>
+
+                <div class="publication-links">
+                    <a class="button is-medium external-link" href="https://github.com/VILab-Drexel/MyoFLAME">
+                        <span class="icon"><i class="fab fa-github"></i></span>
+                        <span>Code</span>
+                    </a>
+                    <a class="button is-medium external-link" href="#viewer">
+                        <span class="icon"><i class="fas fa-cube"></i></span>
+                        <span>Interactive Demo</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaser Section -->
+    <section class="section teaser">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <div class="has-text-centered">
+                        <img src="static/images/teaser.png" alt="MyoFLAME: skin, skull and muscle layers of a FLAME-fitted face" class="teaser-image">
+                    </div>
+                    <p class="teaser-caption">
+                        <strong>MyoFLAME</strong> is a drop-in anatomical companion to statistical 3D face models. Given any FLAME-fitted face, it returns a coordinated three-layer anatomical output: a per-identity skull derived from the FLAME identity coefficients, a muscle layer of named muscle activations, and a skin surface aligned with FLAME's own output. Existing FLAME-based workflows run unchanged while gaining an anatomical interpretation of every captured expression.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract Section -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3 section-title">Abstract</h2>
+                    <div class="abstract-content">
+                        <p>
+                            Parametric 3D face models such as FLAME have become a common interface for monocular face regression, performance capture, facial animation, and avatar systems. While compact and widely adopted, these models describe how the facial surface deforms but not which anatomical structures explain that deformation: a captured smile carries no information about whether it is best explained by Zygomaticus Major or Risorius, or whether its activation pattern is bilaterally symmetric in muscle space. We introduce <strong>MyoFLAME</strong>, a drop-in biomechanical companion to FLAME that adds an anatomical interpretation layer to any FLAME-fitted face while preserving the FLAME interface end-to-end. Given any FLAME (&beta;, &psi;, pose) input, MyoFLAME produces a coordinated three-layer anatomical output: 42 named muscle activation coordinates, the supporting skull mesh, and the matching skin surface, aligned with FLAME's own output. These coordinates are defined by a constrained inverse-physics projection of FLAME-derived surface displacement onto a jaw-conditioned hybrid muscle-response basis rather than by in vivo measurements of physiological muscle effort. Our approach combines a hybrid physical response basis (linear-elastic finite-element responses for bone-to-skin muscles with analytic ring-contraction responses for sphincters, constructed once from a canonical template and precomputed across a calibrated jaw grid) with closed-form linear maps from FLAME identity coefficients to per-subject skull and muscle-attachment geometry, eliminating the need for a learned identity-to-anatomy module. Per-sample inverse-physics optimization is then amortized into a compact residual surrogate, delivering activation-coordinate inference at interactive rates.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section class="section" id="viewer" style="background-color: #f5f5f5;">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3 section-title">Interactive Demo</h2>
+                    <p class="viewer-hint">
+                        Drive the released MyoFLAME model with its muscles, live in your browser. Each slider is one named muscle; the digastric opens the jaw and the masseter and temporalis close it. Lower the skin opacity to see the muscle layer and the skull underneath. Drag to rotate, scroll to zoom.
+                    </p>
+                    <iframe class="viewer-frame" src="viewer/index.html" title="MyoFLAME muscle viewer" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Method Overview Section -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3 section-title">Method Overview</h2>
+                    <div class="has-text-centered">
+                        <img src="static/images/pipeline.png" alt="MyoFLAME pipeline: canonical template, inverse physics, neural surrogate and the unified forward model" class="teaser-image">
+                    </div>
+                    <div class="method-content">
+                        <p>
+                            <strong>Phase 1, canonical template.</strong> On the FLAME mean identity we build a skull, the facial muscles and a physical response basis once, precomputed across a calibrated grid of jaw poses.
+                            <strong>Phase 2, inverse physics.</strong> For each identity and expression, a bounded quadratic program explains the FLAME skin displacement with non-negative muscle activations.
+                            <strong>Phase 3, neural surrogate.</strong> A compact network amortizes this program, mapping FLAME (&beta;, &psi;, jaw) to muscle activations at interactive rates.
+                            <strong>Unified forward model.</strong> The skin is FLAME's own jaw and rigid motion plus the soft-tissue response of the activated muscles, scattered back to FLAME's topology, so every FLAME tool keeps working on the result.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BibTeX Section -->
+    <section class="section bibtex-section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3 section-title">BibTeX</h2>
+                    <div class="bibtex-block">
+                        <button class="copy-button" onclick="copyBibtex()">
+                            <span class="icon"><i class="fas fa-copy"></i></span>
+                            <span>Copy</span>
+                        </button>
+                        <pre id="bibtex-content">@inproceedings{Shen2026MyoFLAME,
+  title     = {MyoFLAME: Inverse-Physics Muscle Activation for Statistical 3D Face Models},
+  author    = {Shen, Yixuan and Ji, Yuyang and Wang, Ren and Xu, Kaidi and Liu, Feng},
+  booktitle = {SIGGRAPH Asia 2026 Conference Papers},
+  year      = {2026}
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    &copy; 2026 <a href="../../index.html">Visual Intelligence Lab @ Drexel University</a>. All rights reserved.
+                </p>
+                <p class="is-size-7">
+                    MyoFLAME builds on <a href="https://flame.is.tue.mpg.de">FLAME</a> (Li et al., SIGGRAPH Asia 2017), which is subject to its own license.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar burger toggle for mobile
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+        });
+
+        // Copy BibTeX to clipboard
+        function copyBibtex() {
+            const bibtex = document.getElementById('bibtex-content').innerText;
+            navigator.clipboard.writeText(bibtex).then(() => {
+                const btn = document.querySelector('.copy-button');
+                btn.classList.add('copied');
+                btn.innerHTML = '<span class="icon"><i class="fas fa-check"></i></span><span>Copied!</span>';
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.innerHTML = '<span class="icon"><i class="fas fa-copy"></i></span><span>Copy</span>';
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
