@@ -427,6 +427,24 @@
       }
     },
     {
+      "title": "Person Recognition at Altitude and Range: Fusion of Face, Body Shape and Gait",
+      "authors": "Feng Liu, Nicholas Chimitt, Lanqing Guo, Jitesh Jain, Aditya Kane, Minchul Kim, Wes Robbins, Yiyang Su, Dingqiang Ye, Xingguang Zhang, Jie Zhu, Siddharth Satyakam, Christopher Perry, Stanley Chan, Arun Ross, Humphrey Shi, Zhangyang Wang, Anil Jain, and Xiaoming Liu",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI 2027), to appear",
+      "year": 2027,
+      "type": "published",
+      "keywords": [
+        "Biometrics",
+        "Aerial-Ground Recognition",
+        "Gait Recognition",
+        "Face Recognition"
+      ],
+      "links": {
+        "project": "",
+        "paper": "https://arxiv.org/abs/2505.04616",
+        "code": ""
+      }
+    },
+    {
       "title": "IDSelect: An RL-based Cost-Aware Selection Agent for Video-based Person Recognition",
       "authors": "Yuyang Ji, Yixuan Shen, Kien Nguyen, Lifeng Zhou, and Feng Liu",
       "venue": "In Proceedings of IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
@@ -627,24 +645,6 @@
       "links": {
         "project": "",
         "paper": "https://arxiv.org/abs/2504.04279",
-        "code": ""
-      }
-    },
-    {
-      "title": "Person Recognition at Altitude and Range: Fusion of Face, Body Shape and Gait",
-      "authors": "Feng Liu, Nicholas Chimitt, Lanqing Guo, Jitesh Jain, Aditya Kane, Minchul Kim, Wes Robbins, Yiyang Su, Dingqiang Ye, Xingguang Zhang, Jie Zhu, Siddharth Satyakam, Christopher Perry, Stanley Chan, Arun Ross, Humphrey Shi, Zhangyang Wang, Anil Jain, and Xiaoming Liu",
-      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)",
-      "year": 2026,
-      "type": "published",
-      "keywords": [
-        "Biometrics",
-        "Aerial-Ground Recognition",
-        "Gait Recognition",
-        "Face Recognition"
-      ],
-      "links": {
-        "project": "",
-        "paper": "https://arxiv.org/abs/2505.04616",
         "code": ""
       }
     },
