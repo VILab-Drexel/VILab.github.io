@@ -57,25 +57,45 @@
     {
       "title": "Physical Human Intelligence",
       "description": "Modeling, understanding, and generating the human body, motion, and its interaction with the physical world, from images and video.",
-      "tags": ["3D human", "biomechanics", "motion & skill", "embodied AI"],
+      "tags": [
+        "3D human",
+        "biomechanics",
+        "motion & skill",
+        "embodied AI"
+      ],
       "url": "https://liufeng2915.github.io/research/physical-human-intelligence/"
     },
     {
       "title": "Understanding People in Long, Real-World Video",
       "description": "Persistently understanding who a person is, what they do, and how they change across long, multi-camera, real-world video.",
-      "tags": ["video Re-ID", "temporal reasoning", "aerial-ground", "anomaly discovery"],
+      "tags": [
+        "video Re-ID",
+        "temporal reasoning",
+        "aerial-ground",
+        "anomaly discovery"
+      ],
       "url": "https://liufeng2915.github.io/research/person-centric-video/"
     },
     {
       "title": "Trustworthy Biometrics and Digital Identity",
       "description": "Creating, recognizing, and protecting human identity in a world increasingly populated by synthetic people, avatars, and AI-generated media.",
-      "tags": ["face / body / gait", "deepfake detection", "synthetic identity", "open-set"],
+      "tags": [
+        "face / body / gait",
+        "deepfake detection",
+        "synthetic identity",
+        "open-set"
+      ],
       "url": "https://liufeng2915.github.io/research/biometrics-digital-identity/"
     },
     {
       "title": "Generative and Multimodal AI for the Physical World",
       "description": "Geometry-consistent, physically plausible, and controllable generation and multimodal reasoning over 3D, video, and language.",
-      "tags": ["3D generation", "VLMs", "simulation", "domain generalization"],
+      "tags": [
+        "3D generation",
+        "VLMs",
+        "simulation",
+        "domain generalization"
+      ],
       "url": "https://liufeng2915.github.io/research/generative-multimodal-ai/"
     }
   ],
@@ -83,13 +103,23 @@
     {
       "title": "AI for Health and Human Performance",
       "description": "Interpretable, video-based digital biomarkers that quantify how a person moves, changes over time, and responds to intervention.",
-      "tags": ["clinical gait", "rehabilitation", "coaching", "remote assessment"],
+      "tags": [
+        "clinical gait",
+        "rehabilitation",
+        "coaching",
+        "remote assessment"
+      ],
       "url": "https://liufeng2915.github.io/research/ai-health-human-performance/"
     },
     {
       "title": "AI for Education and Scientific Learning",
       "description": "Multimodal AI that reasons about student thinking, instructional practice, and the evidence educators use to make decisions.",
-      "tags": ["classroom video", "student drawings", "teacher feedback", "pedagogical reasoning"],
+      "tags": [
+        "classroom video",
+        "student drawings",
+        "teacher feedback",
+        "pedagogical reasoning"
+      ],
       "url": "https://liufeng2915.github.io/research/ai-education-scientific-learning/"
     }
   ],
@@ -117,6 +147,10 @@
     "AI for Education"
   ],
   "news": [
+    {
+      "date": "2026-11-06",
+      "title": "<a href=\"https://arxiv.org/abs/2505.04616\" target=\"_blank\">FarSight 2.0</a> has been accepted at <a href=\"https://www.computer.org/csdl/journal/tp\" target=\"_blank\">IEEE TPAMI</a>! Congratulations to all co-authors!"
+    },
     {
       "date": "2026-10-15",
       "title": "<a href=\"https://arxiv.org/abs/2602.18990\" target=\"_blank\">IDSelect</a> has been accepted at <a href=\"https://wacv2027.thecvf.com/\" target=\"_blank\">WACV 2027</a>! Congratulations to Yuyang and all co-authors!"
@@ -147,7 +181,7 @@
     },
     {
       "date": "2026-03-23",
-      "title": "Two papers have been accepted at <a href=\"https://www.aied-conference.org/2026\">AIED 2026</a>. Congratulations to Arijit, Yixuan and all co-authors (<strong>2x AIED</strong>)!" 
+      "title": "Two papers have been accepted at <a href=\"https://www.aied-conference.org/2026\">AIED 2026</a>. Congratulations to Arijit, Yixuan and all co-authors (<strong>2x AIED</strong>)!"
     },
     {
       "date": "2026-03-06",
@@ -306,7 +340,9 @@
       "venue": "In Proceedings of Advances in Neural Information Processing Systems (NeurIPS 2026), Oral, accept rate = 112/30709",
       "year": 2026,
       "type": "published",
-      "keywords": ["Biometrics"],
+      "keywords": [
+        "Biometrics"
+      ],
       "links": {
         "code": "",
         "project": "",
@@ -319,7 +355,10 @@
       "venue": "In Proceedings of Advances in Neural Information Processing Systems (NeurIPS 2026), Oral, accept rate = 112/30709",
       "year": 2026,
       "type": "published",
-      "keywords": ["Embodied AI", "Vision-Language Models"],
+      "keywords": [
+        "Embodied AI",
+        "Vision-Language Models"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/abs/2603.26741",
@@ -332,7 +371,9 @@
       "venue": "In Proceedings of Advances in Neural Information Processing Systems (NeurIPS)",
       "year": 2026,
       "type": "published",
-      "keywords": ["Biometrics"],
+      "keywords": [
+        "Biometrics"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/abs/2608.10497",
@@ -345,7 +386,10 @@
       "venue": "In Proceedings of ACM SIGGRAPH Asia",
       "year": 2026,
       "type": "published",
-      "keywords": ["3D Face Modeling", "Biomechanics"],
+      "keywords": [
+        "3D Face Modeling",
+        "Biomechanics"
+      ],
       "links": {
         "project": "project/myoflame/",
         "paper": "",
@@ -358,7 +402,9 @@
       "venue": "arXiv preprint",
       "year": 2026,
       "type": "preprint",
-      "keywords": ["Deepfake Detection"],
+      "keywords": [
+        "Deepfake Detection"
+      ],
       "links": {
         "code": "",
         "project": "",
@@ -371,7 +417,9 @@
       "venue": "arXiv preprint",
       "year": 2026,
       "type": "preprint",
-      "keywords": ["Speech"],
+      "keywords": [
+        "Speech"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/abs/2606.04418",
@@ -384,7 +432,10 @@
       "venue": "In Proceedings of IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
       "year": 2027,
       "type": "published",
-      "keywords": ["Person Re-Identification", "Biometrics"],
+      "keywords": [
+        "Person Re-Identification",
+        "Biometrics"
+      ],
       "links": {
         "code": "https://github.com/VILab-Drexel/IDSelect",
         "project": "project/idselect/",
@@ -397,7 +448,9 @@
       "venue": "arXiv preprint",
       "year": 2026,
       "type": "preprint",
-      "keywords": ["Biometrics"],
+      "keywords": [
+        "Biometrics"
+      ],
       "links": {
         "code": "",
         "project": "",
@@ -410,7 +463,12 @@
       "venue": "In Proceedings of International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI)",
       "year": 2026,
       "type": "published",
-      "keywords": ["Biomechanics", "Gait Recognition", "Vision-Language Models", "AI for Health"],
+      "keywords": [
+        "Biomechanics",
+        "Gait Recognition",
+        "Vision-Language Models",
+        "AI for Health"
+      ],
       "links": {
         "paper": "https://arxiv.org/abs/2603.08564",
         "code": "",
@@ -423,7 +481,9 @@
       "venue": "In Proceedings of IEEE International Conference on Automation Science and Engineering (CASE)",
       "year": 2026,
       "type": "published",
-      "keywords": ["Embodied AI"],
+      "keywords": [
+        "Embodied AI"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/abs/2606.00449",
@@ -436,7 +496,10 @@
       "venue": "In Proceedings of International Conference on Artificial Intelligence in Education (AIED)",
       "year": 2026,
       "type": "published",
-      "keywords": ["AI for Education", "Generative AI"],
+      "keywords": [
+        "AI for Education",
+        "Generative AI"
+      ],
       "links": {
         "paper": "https://arxiv.org/abs/2602.01578",
         "code": "https://github.com/VILab-Drexel/DrawSim-PD",
@@ -449,7 +512,10 @@
       "venue": "In Proceedings of International Conference on Artificial Intelligence in Education (AIED)",
       "year": 2026,
       "type": "published",
-      "keywords": ["AI for Education", "Vision-Language Models"],
+      "keywords": [
+        "AI for Education",
+        "Vision-Language Models"
+      ],
       "links": {
         "code": "https://github.com/VILab-Drexel/SciIBI",
         "project": "project/sciibi/",
@@ -462,7 +528,12 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2026,
       "type": "published",
-      "keywords": ["Biomechanics", "Human Motion", "Vision-Language Models", "AI for Health"],
+      "keywords": [
+        "Biomechanics",
+        "Human Motion",
+        "Vision-Language Models",
+        "AI for Health"
+      ],
       "links": {
         "project": "project/biocoach/",
         "paper": "https://arxiv.org/abs/2603.26938",
@@ -488,7 +559,10 @@
       "venue": "arXiv preprint",
       "year": 2026,
       "type": "preprint",
-      "keywords": ["Generative AI", "AI for Science"],
+      "keywords": [
+        "Generative AI",
+        "AI for Science"
+      ],
       "links": {
         "code": "",
         "project": "",
@@ -501,7 +575,9 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)",
       "year": 2026,
       "type": "published",
-      "keywords": ["Generative AI"],
+      "keywords": [
+        "Generative AI"
+      ],
       "links": {
         "code": "",
         "project": "",
@@ -514,7 +590,10 @@
       "venue": "In Proceedings of IEEE/CVF International Conference on Computer Vision (ICCV)",
       "year": 2025,
       "type": "published",
-      "keywords": ["Person Re-Identification", "Biometrics"],
+      "keywords": [
+        "Person Re-Identification",
+        "Biometrics"
+      ],
       "links": {
         "project": "",
         "paper": "https://www.arxiv.org/pdf/2508.05038",
@@ -527,7 +606,9 @@
       "venue": "In Proceedings of the WMEAI Workshop at ECCV 2026, Oral, Best Paper Award",
       "year": 2026,
       "type": "published",
-      "keywords": ["Vision-Language Models"],
+      "keywords": [
+        "Vision-Language Models"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/abs/2509.21576",
@@ -540,7 +621,9 @@
       "venue": "arXiv preprint",
       "year": 2025,
       "type": "preprint",
-      "keywords": ["Deepfake Detection"],
+      "keywords": [
+        "Deepfake Detection"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/abs/2504.04279",
@@ -550,10 +633,15 @@
     {
       "title": "Person Recognition at Altitude and Range: Fusion of Face, Body Shape and Gait",
       "authors": "Feng Liu, Nicholas Chimitt, Lanqing Guo, Jitesh Jain, Aditya Kane, Minchul Kim, Wes Robbins, Yiyang Su, Dingqiang Ye, Xingguang Zhang, Jie Zhu, Siddharth Satyakam, Christopher Perry, Stanley Chan, Arun Ross, Humphrey Shi, Zhangyang Wang, Anil Jain, and Xiaoming Liu",
-      "venue": "arXiv preprint",
-      "year": 2025,
-      "type": "preprint",
-      "keywords": ["Biometrics", "Aerial-Ground Recognition", "Gait Recognition", "Face Recognition"],
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)",
+      "year": 2026,
+      "type": "published",
+      "keywords": [
+        "Biometrics",
+        "Aerial-Ground Recognition",
+        "Gait Recognition",
+        "Face Recognition"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/abs/2505.04616",
@@ -566,7 +654,10 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2025,
       "type": "published",
-      "keywords": ["Person Re-Identification", "Aerial-Ground Recognition"],
+      "keywords": [
+        "Person Re-Identification",
+        "Aerial-Ground Recognition"
+      ],
       "links": {
         "project": "https://github.com/agvpreid25/AG-VPReID-Net",
         "paper": "https://arxiv.org/abs/2503.08121",
@@ -579,7 +670,9 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2025,
       "type": "published",
-      "keywords": ["Biometrics"],
+      "keywords": [
+        "Biometrics"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/abs/2504.04708",
@@ -592,7 +685,9 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2025,
       "type": "published",
-      "keywords": ["Aerial-Ground Recognition"],
+      "keywords": [
+        "Aerial-Ground Recognition"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/abs/2504.11967",
@@ -605,7 +700,10 @@
       "venue": "In Proceedings of European Conference on Computer Vision (ECCV)",
       "year": 2024,
       "type": "published",
-      "keywords": ["Biometrics", "Open-Set Recognition"],
+      "keywords": [
+        "Biometrics",
+        "Open-Set Recognition"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/abs/2407.16133",
@@ -618,7 +716,10 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2024,
       "type": "published",
-      "keywords": ["Biometrics", "Vision-Language Models"],
+      "keywords": [
+        "Biometrics",
+        "Vision-Language Models"
+      ],
       "links": {
         "project": "",
         "paper": "https://cvlab.cse.msu.edu/pdfs/Liu_Kim_Ren_Liu_CLIP3DREID.pdf",
@@ -631,7 +732,9 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2024,
       "type": "published",
-      "keywords": ["Face Recognition"],
+      "keywords": [
+        "Face Recognition"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/abs/2403.14852",
@@ -644,7 +747,10 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2024,
       "type": "published",
-      "keywords": ["3D Generation", "Generative AI"],
+      "keywords": [
+        "3D Generation",
+        "Generative AI"
+      ],
       "links": {
         "project": "",
         "paper": "https://cvlab.cse.msu.edu/pdfs/Ren_Kim_Liu_Liu_TIGER.pdf",
@@ -657,7 +763,10 @@
       "venue": "In Proceedings of IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
       "year": 2024,
       "type": "published",
-      "keywords": ["Biometrics", "Aerial-Ground Recognition"],
+      "keywords": [
+        "Biometrics",
+        "Aerial-Ground Recognition"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/abs/2306.17206",
@@ -670,7 +779,10 @@
       "venue": "In Proceedings of IEEE/CVF International Conference on Computer Vision (ICCV)",
       "year": 2023,
       "type": "published",
-      "keywords": ["Person Re-Identification", "3D Human Digitization"],
+      "keywords": [
+        "Person Re-Identification",
+        "3D Human Digitization"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/pdf/2308.10658.pdf",
@@ -683,7 +795,10 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2023,
       "type": "published",
-      "keywords": ["Face Synthesis", "Generative AI"],
+      "keywords": [
+        "Face Synthesis",
+        "Generative AI"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/pdf/2304.07060.pdf",
@@ -696,7 +811,9 @@
       "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)",
       "year": 2023,
       "type": "published",
-      "keywords": ["3D Reconstruction"],
+      "keywords": [
+        "3D Reconstruction"
+      ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-implicit-dense-correspondence.html",
         "paper": "https://arxiv.org/pdf/2212.14276.pdf",
@@ -709,7 +826,10 @@
       "venue": "In Proceedings of IEEE International Joint Conference on Biometrics (IJCB)",
       "year": 2023,
       "type": "published",
-      "keywords": ["Person Re-Identification", "Aerial-Ground Recognition"],
+      "keywords": [
+        "Person Re-Identification",
+        "Aerial-Ground Recognition"
+      ],
       "links": {
         "project": "",
         "paper": "https://cvlab.cse.msu.edu/pdfs/IJCB_AG_ReID2023_Challenge_Summary_Paper.pdf",
@@ -722,7 +842,9 @@
       "venue": "In Proceedings of Advances in Neural Information Processing Systems (NeurIPS)",
       "year": 2022,
       "type": "published",
-      "keywords": ["Face Recognition"],
+      "keywords": [
+        "Face Recognition"
+      ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-caface.html",
         "paper": "https://proceedings.neurips.cc/paper_files/paper/2022/file/ea35a58ee3da13c01a69df2a819386b3-Paper-Conference.pdf",
@@ -735,7 +857,10 @@
       "venue": "In Proceedings of European Conference on Computer Vision (ECCV)",
       "year": 2022,
       "type": "published",
-      "keywords": ["3D Generation", "Generative AI"],
+      "keywords": [
+        "3D Generation",
+        "Generative AI"
+      ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-gansvr.html",
         "paper": "https://arxiv.org/pdf/2207.10183.pdf",
@@ -748,7 +873,10 @@
       "venue": "In Proceedings of European Conference on Computer Vision (ECCV)",
       "year": 2022,
       "type": "published",
-      "keywords": ["Face Synthesis", "Face Recognition"],
+      "keywords": [
+        "Face Synthesis",
+        "Face Recognition"
+      ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-cfsm.html",
         "paper": "https://arxiv.org/pdf/2207.10180.pdf",
@@ -761,7 +889,9 @@
       "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)",
       "year": 2022,
       "type": "published",
-      "keywords": ["Gait Recognition"],
+      "keywords": [
+        "Gait Recognition"
+      ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-gaitnet.html",
         "paper": "https://arxiv.org/pdf/1909.03051.pdf",
@@ -774,7 +904,9 @@
       "venue": "International Journal of Computer Vision (IJCV)",
       "year": 2021,
       "type": "published",
-      "keywords": ["3D Face Modeling"],
+      "keywords": [
+        "3D Face Modeling"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/pdf/2012.09235.pdf",
@@ -787,7 +919,9 @@
       "venue": "In Proceedings of Advances in Neural Information Processing Systems (NeurIPS)",
       "year": 2021,
       "type": "published",
-      "keywords": ["3D Reconstruction"],
+      "keywords": [
+        "3D Reconstruction"
+      ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-mdr.html",
         "paper": "https://proceedings.neurips.cc/paper_files/paper/2021/file/1415db70fe9ddb119e23e9b2808cde38-Paper.pdf",
@@ -800,7 +934,9 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2021,
       "type": "published",
-      "keywords": ["3D Reconstruction"],
+      "keywords": [
+        "3D Reconstruction"
+      ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-fully3dobject.html",
         "paper": "https://arxiv.org/pdf/2104.00858.pdf",
@@ -813,7 +949,10 @@
       "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)",
       "year": 2020,
       "type": "published",
-      "keywords": ["3D Face Modeling", "Face Recognition"],
+      "keywords": [
+        "3D Face Modeling",
+        "Face Recognition"
+      ],
       "links": {
         "project": "",
         "paper": "https://arxiv.org/pdf/1708.02734.pdf",
@@ -826,7 +965,9 @@
       "venue": "In Proceedings of Advances in Neural Information Processing Systems (NeurIPS Oral)",
       "year": 2020,
       "type": "published",
-      "keywords": ["3D Reconstruction"],
+      "keywords": [
+        "3D Reconstruction"
+      ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-implicit-dense-correspondence.html",
         "paper": "https://proceedings.neurips.cc/paper/2020/file/335cd1b90bfa4ee70b39d08a4ae0cf2d-Paper.pdf",
@@ -839,7 +980,9 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2020,
       "type": "published",
-      "keywords": ["Deepfake Detection"],
+      "keywords": [
+        "Deepfake Detection"
+      ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-ffd.html",
         "paper": "https://arxiv.org/pdf/1910.01717.pdf",
@@ -852,7 +995,9 @@
       "venue": "In Proceedings of IEEE/CVF International Conference on Computer Vision (ICCV Oral)",
       "year": 2019,
       "type": "published",
-      "keywords": ["3D Face Modeling"],
+      "keywords": [
+        "3D Face Modeling"
+      ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-face-modeling.html",
         "paper": "https://arxiv.org/pdf/1910.01717.pdf",
@@ -865,7 +1010,9 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2019,
       "type": "published",
-      "keywords": ["3D Face Modeling"],
+      "keywords": [
+        "3D Face Modeling"
+      ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-nonlinear-3dmm.html",
         "paper": "https://arxiv.org/pdf/1904.04933.pdf",
@@ -878,7 +1025,10 @@
       "venue": "In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
       "year": 2018,
       "type": "published",
-      "keywords": ["3D Face Modeling", "Face Recognition"],
+      "keywords": [
+        "3D Face Modeling",
+        "Face Recognition"
+      ],
       "links": {
         "project": "",
         "paper": "http://cvlab.cse.msu.edu/pdfs/Liu_Deng_Zhao_Liu_CVPR2018.pdf",
@@ -891,7 +1041,9 @@
       "venue": "In Proceedings of IEEE International Joint Conference on Biometrics (IJCB)",
       "year": 2017,
       "type": "published",
-      "keywords": ["Face Recognition"],
+      "keywords": [
+        "Face Recognition"
+      ],
       "links": {
         "project": "",
         "paper": "https://ieeexplore.ieee.org/document/8272716",
@@ -904,7 +1056,9 @@
       "venue": "In Proceedings of European Conference on Computer Vision (ECCV Spotlight)",
       "year": 2016,
       "type": "published",
-      "keywords": ["3D Face Modeling"],
+      "keywords": [
+        "3D Face Modeling"
+      ],
       "links": {
         "project": "",
         "paper": "http://cvlab.cse.msu.edu/pdfs/Liu_Zeng_Zhao_Liu_ECCV2016.pdf",
