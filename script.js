@@ -460,14 +460,17 @@ function loadPublications() {
 
             const linkOrder = [
                 { key: 'project', label: 'Project' },
-                { key: 'paper', label: 'Paper' },
+                { key: 'pdf', label: 'PDF' },
+                { key: 'arxiv', label: 'arXiv' },
                 { key: 'code', label: 'Code' }
             ];
             const linkParts = [];
             linkOrder.forEach(item => {
                 const url = pub.links && pub.links[item.key];
                 if (url) {
-                    const target = item.key === 'code' ? ' target="_blank"' : '';
+                    // PDF, arXiv and Code are external — open in a new tab.
+                    const external = item.key === 'pdf' || item.key === 'arxiv' || item.key === 'code';
+                    const target = external ? ' target="_blank"' : '';
                     linkParts.push(`<a href="${url}"${target}>${item.label}</a>`);
                 } else {
                     linkParts.push(`<span class="link-placeholder">${item.label}</span>`);
