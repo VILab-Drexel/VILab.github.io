@@ -344,9 +344,10 @@
         "Biometrics"
       ],
       "links": {
-        "code": "",
         "project": "",
-        "paper": "https://arxiv.org/abs/2605.18238"
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2605.18238",
+        "code": ""
       }
     },
     {
@@ -361,7 +362,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/abs/2603.26741",
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2603.26741",
         "code": ""
       }
     },
@@ -376,7 +378,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/abs/2608.10497",
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2608.10497",
         "code": ""
       }
     },
@@ -392,7 +395,8 @@
       ],
       "links": {
         "project": "project/myoflame/",
-        "paper": "",
+        "pdf": "",
+        "arxiv": "",
         "code": ""
       }
     },
@@ -406,9 +410,10 @@
         "Deepfake Detection"
       ],
       "links": {
-        "code": "",
         "project": "",
-        "paper": "https://arxiv.org/abs/2606.26384"
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2606.26384",
+        "code": ""
       }
     },
     {
@@ -422,7 +427,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/abs/2606.04418",
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2606.04418",
         "code": ""
       }
     },
@@ -440,7 +446,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/abs/2505.04616",
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2505.04616",
         "code": ""
       }
     },
@@ -455,9 +462,10 @@
         "Biometrics"
       ],
       "links": {
-        "code": "https://github.com/VILab-Drexel/IDSelect",
         "project": "project/idselect/",
-        "paper": "https://arxiv.org/abs/2602.18990"
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2602.18990",
+        "code": "https://github.com/VILab-Drexel/IDSelect"
       }
     },
     {
@@ -470,9 +478,10 @@
         "Biometrics"
       ],
       "links": {
-        "code": "",
         "project": "",
-        "paper": "https://arxiv.org/abs/2602.01012"
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2602.01012",
+        "code": ""
       }
     },
     {
@@ -488,9 +497,10 @@
         "AI for Health"
       ],
       "links": {
-        "paper": "https://arxiv.org/abs/2603.08564",
-        "code": "",
-        "project": "project/biogait-vlm/"
+        "project": "project/biogait-vlm/",
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2603.08564",
+        "code": ""
       }
     },
     {
@@ -504,7 +514,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/abs/2606.00449",
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2606.00449",
         "code": ""
       }
     },
@@ -519,9 +530,10 @@
         "Generative AI"
       ],
       "links": {
-        "paper": "https://arxiv.org/abs/2602.01578",
-        "code": "https://github.com/VILab-Drexel/DrawSim-PD",
-        "project": "project/drawsim-pd/"
+        "project": "project/drawsim-pd/",
+        "pdf": "https://link.springer.com/chapter/10.1007/978-3-032-29744-0_2",
+        "arxiv": "https://arxiv.org/abs/2602.01578",
+        "code": "https://github.com/VILab-Drexel/DrawSim-PD"
       }
     },
     {
@@ -535,9 +547,10 @@
         "Vision-Language Models"
       ],
       "links": {
-        "code": "https://github.com/VILab-Drexel/SciIBI",
         "project": "project/sciibi/",
-        "paper": "https://arxiv.org/abs/2602.18466"
+        "pdf": "https://link.springer.com/chapter/10.1007/978-3-032-29755-6_28",
+        "arxiv": "https://arxiv.org/abs/2602.18466",
+        "code": "https://github.com/VILab-Drexel/SciIBI"
       }
     },
     {
@@ -554,7 +567,8 @@
       ],
       "links": {
         "project": "project/biocoach/",
-        "paper": "https://arxiv.org/abs/2603.26938",
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2603.26938",
         "code": ""
       }
     },
@@ -567,7 +581,8 @@
       "keywords": [],
       "links": {
         "project": "https://mingbohong.github.io/Bridge/",
-        "paper": "https://arxiv.org/abs/2604.26820",
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Hong_Bridge_Basis-Driven_Causal_Inference_Marries_VFMs_for_Domain_Generalization_CVPR_2026_paper.pdf",
+        "arxiv": "https://arxiv.org/abs/2604.26820",
         "code": ""
       }
     },
@@ -582,9 +597,10 @@
         "AI for Science"
       ],
       "links": {
-        "code": "",
         "project": "",
-        "paper": "https://arxiv.org/abs/2602.20195"
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2602.20195",
+        "code": ""
       }
     },
     {
@@ -597,9 +613,10 @@
         "Generative AI"
       ],
       "links": {
-        "code": "",
         "project": "",
-        "paper": ""
+        "pdf": "",
+        "arxiv": "",
+        "code": ""
       }
     },
     {
@@ -614,7 +631,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://www.arxiv.org/pdf/2508.05038",
+        "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Su_HAMoBE_Hierarchical_and_Adaptive_Mixture_of_Biometric_Experts_for_Video-based_ICCV_2025_paper.pdf",
+        "arxiv": "https://arxiv.org/abs/2508.05038",
         "code": "https://github.com/prevso1088/hamobe"
       }
     },
@@ -629,7 +647,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/abs/2509.21576",
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2509.21576",
         "code": ""
       }
     },
@@ -644,7 +663,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/abs/2504.04279",
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2504.04279",
         "code": ""
       }
     },
@@ -660,7 +680,8 @@
       ],
       "links": {
         "project": "https://github.com/agvpreid25/AG-VPReID-Net",
-        "paper": "https://arxiv.org/abs/2503.08121",
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Nguyen_AG-VPReID_A_Challenging_Large-Scale_Benchmark_for_Aerial-Ground_Video-based_Person_Re-Identification_CVPR_2025_paper.pdf",
+        "arxiv": "https://arxiv.org/abs/2503.08121",
         "code": ""
       }
     },
@@ -675,7 +696,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/abs/2504.04708",
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Kim_SapiensID_Foundation_for_Human_Recognition_CVPR_2025_paper.pdf",
+        "arxiv": "https://arxiv.org/abs/2504.04708",
         "code": "https://github.com/mk-minchul/sapiensid"
       }
     },
@@ -690,7 +712,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/abs/2504.11967",
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2025W/Anti-UAV/papers/Dong_Securing_the_Skies_A_Comprehensive_Survey_on_Anti-UAV_Methods_Benchmarking_CVPRW_2025_paper.pdf",
+        "arxiv": "https://arxiv.org/abs/2504.11967",
         "code": ""
       }
     },
@@ -706,7 +729,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/abs/2407.16133",
+        "pdf": "https://link.springer.com/chapter/10.1007/978-3-031-73033-7_14",
+        "arxiv": "https://arxiv.org/abs/2407.16133",
         "code": "https://github.com/prevso1088/open-set-biometrics"
       }
     },
@@ -722,7 +746,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://cvlab.cse.msu.edu/pdfs/Liu_Kim_Ren_Liu_CLIP3DREID.pdf",
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Liu_Distilling_CLIP_with_Dual_Guidance_for_Learning_Discriminative_Human_Body_CVPR_2024_paper.pdf",
+        "arxiv": "",
         "code": ""
       }
     },
@@ -737,7 +762,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/abs/2403.14852",
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Kim_KeyPoint_Relative_Position_Encoding_for_Face_Recognition_CVPR_2024_paper.pdf",
+        "arxiv": "https://arxiv.org/abs/2403.14852",
         "code": "https://github.com/mk-minchul/kprpe"
       }
     },
@@ -753,7 +779,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://cvlab.cse.msu.edu/pdfs/Ren_Kim_Liu_Liu_TIGER.pdf",
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Ren_TIGER_Time-Varying_Denoising_Model_for_3D_Point_Cloud_Generation_with_CVPR_2024_paper.pdf",
+        "arxiv": "",
         "code": "https://github.com/Zhiyuan-R/Tiger-Diffusion"
       }
     },
@@ -769,7 +796,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/abs/2306.17206",
+        "pdf": "https://openaccess.thecvf.com/content/WACV2024/papers/Liu_FarSight_A_Physics-Driven_Whole-Body_Biometric_System_at_Large_Distance_and_WACV_2024_paper.pdf",
+        "arxiv": "https://arxiv.org/abs/2306.17206",
         "code": ""
       }
     },
@@ -785,7 +813,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/pdf/2308.10658.pdf",
+        "pdf": "https://openaccess.thecvf.com/content/ICCV2023/papers/Liu_Learning_Clothing_and_Pose_Invariant_3D_Shape_Representation_for_Long-Term_ICCV_2023_paper.pdf",
+        "arxiv": "https://arxiv.org/abs/2308.10658",
         "code": ""
       }
     },
@@ -801,7 +830,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/pdf/2304.07060.pdf",
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2023/papers/Kim_DCFace_Synthetic_Face_Generation_With_Dual_Condition_Diffusion_Model_CVPR_2023_paper.pdf",
+        "arxiv": "https://arxiv.org/abs/2304.07060",
         "code": "https://github.com/mk-minchul/dcface"
       }
     },
@@ -816,7 +846,8 @@
       ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-implicit-dense-correspondence.html",
-        "paper": "https://arxiv.org/pdf/2212.14276.pdf",
+        "pdf": "https://ieeexplore.ieee.org/document/10004641/",
+        "arxiv": "https://arxiv.org/abs/2212.14276",
         "code": ""
       }
     },
@@ -832,7 +863,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://cvlab.cse.msu.edu/pdfs/IJCB_AG_ReID2023_Challenge_Summary_Paper.pdf",
+        "pdf": "https://ieeexplore.ieee.org/document/10448780/",
+        "arxiv": "",
         "code": ""
       }
     },
@@ -847,7 +879,8 @@
       ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-caface.html",
-        "paper": "https://proceedings.neurips.cc/paper_files/paper/2022/file/ea35a58ee3da13c01a69df2a819386b3-Paper-Conference.pdf",
+        "pdf": "https://proceedings.neurips.cc/paper_files/paper/2022/file/ea35a58ee3da13c01a69df2a819386b3-Paper-Conference.pdf",
+        "arxiv": "https://arxiv.org/abs/2210.10864",
         "code": "https://github.com/mk-minchul/caface"
       }
     },
@@ -863,7 +896,8 @@
       ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-gansvr.html",
-        "paper": "https://arxiv.org/pdf/2207.10183.pdf",
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2207.10183",
         "code": "https://github.com/liufeng2915/GANSVR"
       }
     },
@@ -879,7 +913,8 @@
       ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-cfsm.html",
-        "paper": "https://arxiv.org/pdf/2207.10180.pdf",
+        "pdf": "",
+        "arxiv": "https://arxiv.org/abs/2207.10180",
         "code": "https://github.com/liufeng2915/CFSM"
       }
     },
@@ -894,7 +929,8 @@
       ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-gaitnet.html",
-        "paper": "https://arxiv.org/pdf/1909.03051.pdf",
+        "pdf": "https://ieeexplore.ieee.org/iel7/34/4359286/09154576.pdf",
+        "arxiv": "https://arxiv.org/abs/1909.03051",
         "code": "https://github.com/ziyuanzhangtony/GaitNet-CVPR2019"
       }
     },
@@ -909,7 +945,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/pdf/2012.09235.pdf",
+        "pdf": "https://link.springer.com/article/10.1007/s11263-021-01494-4",
+        "arxiv": "https://arxiv.org/abs/2012.09235",
         "code": "https://github.com/mbahri/smf"
       }
     },
@@ -924,7 +961,8 @@
       ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-mdr.html",
-        "paper": "https://proceedings.neurips.cc/paper_files/paper/2021/file/1415db70fe9ddb119e23e9b2808cde38-Paper.pdf",
+        "pdf": "https://proceedings.neurips.cc/paper_files/paper/2021/file/1415db70fe9ddb119e23e9b2808cde38-Paper.pdf",
+        "arxiv": "https://arxiv.org/abs/2111.03098",
         "code": "https://github.com/liufeng2915/mdr"
       }
     },
@@ -939,7 +977,8 @@
       ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-fully3dobject.html",
-        "paper": "https://arxiv.org/pdf/2104.00858.pdf",
+        "pdf": "https://openaccess.thecvf.com/content/CVPR2021/papers/Liu_Fully_Understanding_Generic_Objects_Modeling_Segmentation_and_Reconstruction_CVPR_2021_paper.pdf",
+        "arxiv": "https://arxiv.org/abs/2104.00858",
         "code": "https://github.com/liufeng2915/Fully_3D_Object"
       }
     },
@@ -955,7 +994,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://arxiv.org/pdf/1708.02734.pdf",
+        "pdf": "https://ieeexplore.ieee.org/document/8571265/",
+        "arxiv": "https://arxiv.org/abs/1708.02734",
         "code": ""
       }
     },
@@ -970,7 +1010,8 @@
       ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-implicit-dense-correspondence.html",
-        "paper": "https://proceedings.neurips.cc/paper/2020/file/335cd1b90bfa4ee70b39d08a4ae0cf2d-Paper.pdf",
+        "pdf": "https://proceedings.neurips.cc/paper/2020/file/335cd1b90bfa4ee70b39d08a4ae0cf2d-Paper.pdf",
+        "arxiv": "https://arxiv.org/abs/2010.12320",
         "code": "https://github.com/liufeng2915/Implicit_Dense_Correspondence"
       }
     },
@@ -985,7 +1026,8 @@
       ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-ffd.html",
-        "paper": "https://arxiv.org/pdf/1910.01717.pdf",
+        "pdf": "https://openaccess.thecvf.com/content_CVPR_2020/papers/Dang_On_the_Detection_of_Digital_Face_Manipulation_CVPR_2020_paper.pdf",
+        "arxiv": "https://arxiv.org/abs/1910.01717",
         "code": "https://github.com/JStehouwer/FFD_CVPR2020"
       }
     },
@@ -1000,7 +1042,8 @@
       ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-face-modeling.html",
-        "paper": "https://arxiv.org/pdf/1910.01717.pdf",
+        "pdf": "https://openaccess.thecvf.com/content_ICCV_2019/papers/Liu_3D_Face_Modeling_From_Diverse_Raw_Scan_Data_ICCV_2019_paper.pdf",
+        "arxiv": "https://arxiv.org/abs/1902.04943",
         "code": "https://github.com/liufeng2915/3DFC"
       }
     },
@@ -1015,7 +1058,8 @@
       ],
       "links": {
         "project": "http://cvlab.cse.msu.edu/project-nonlinear-3dmm.html",
-        "paper": "https://arxiv.org/pdf/1904.04933.pdf",
+        "pdf": "https://openaccess.thecvf.com/content_CVPR_2019/papers/Tran_Towards_High-Fidelity_Nonlinear_3D_Face_Morphable_Model_CVPR_2019_paper.pdf",
+        "arxiv": "https://arxiv.org/abs/1904.04933",
         "code": "https://github.com/tranluan/Nonlinear_Face_3DMM"
       }
     },
@@ -1031,7 +1075,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "http://cvlab.cse.msu.edu/pdfs/Liu_Deng_Zhao_Liu_CVPR2018.pdf",
+        "pdf": "https://openaccess.thecvf.com/content_cvpr_2018/papers/Liu_Disentangling_Features_in_CVPR_2018_paper.pdf",
+        "arxiv": "https://arxiv.org/abs/1803.11366",
         "code": ""
       }
     },
@@ -1046,7 +1091,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "https://ieeexplore.ieee.org/document/8272716",
+        "pdf": "https://ieeexplore.ieee.org/document/8272716",
+        "arxiv": "",
         "code": ""
       }
     },
@@ -1061,7 +1107,8 @@
       ],
       "links": {
         "project": "",
-        "paper": "http://cvlab.cse.msu.edu/pdfs/Liu_Zeng_Zhao_Liu_ECCV2016.pdf",
+        "pdf": "https://link.springer.com/chapter/10.1007/978-3-319-46454-1_33",
+        "arxiv": "",
         "code": ""
       }
     }
