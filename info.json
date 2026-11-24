@@ -277,7 +277,12 @@
         "school": "Australian National University"
       },
       {
-        "name": "Abhinay Belde"
+        "name": "Abhinay Belde",
+        "description": "3D modeling"
+      },
+      {
+        "name": "Yi Lu",
+        "description": "Articulated 3D Generation"
       }
     ],
     "undergraduate_students": [
