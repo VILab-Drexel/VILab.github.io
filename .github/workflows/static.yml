@@ -22,11 +22,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  # Build job: checks out the repo and uploads it as the Pages artifact.
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -38,6 +35,18 @@ jobs:
         with:
           # Upload entire repository
           path: '.'
+
+  # Deploy job: runs only after the artifact is fully registered (needs: build).
+  # Splitting upload and deploy into separate jobs avoids the intermittent
+  # "No artifacts named github-pages were found" race in actions/deploy-pages
+  # (see actions/deploy-pages#451), which can occur when both run in one job.
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
